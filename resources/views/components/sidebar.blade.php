@@ -9,11 +9,9 @@
             </svg>
         </button>
         <h1 class="block py-8 text-2xl font-bold text-emerald-700">{{ auth()->user()->name }}</h1>
-        @role('Admin')
-            <x-sidebar-link :href="__('dashboard')" :label="__('Dashboard')" />
-        @endrole
-        @role('Ketua Tim')
-            <x-sidebar-link :href="__('home')" :label="__('Home')" />
-        @endrole
+            <x-sidebar-link :href="__('dashboard')" :label="__('dashboard')" />
+            <x-sidebar-link :href="__('home')" :label="__('home')" />
+            <x-sidebar-link :href="__('dashboard')" :label="__('dashboard')" />
+            <x-sidebar-link :href="__('pendaftaran')" :label="__('pendaftaran siswa')" />
     </div>
 </div>

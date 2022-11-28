@@ -20,11 +20,11 @@ class InitSeeder extends Seeder
             'Admin',
             'Kepala Sekolah',
             'Ketua Tim',
-            'Tim '
+            'Tim',
+            'Calon Siswa'
         ];
 
-        foreach($roles as $role)
-        {
+        foreach ($roles as $role) {
             Role::create([
                 'name' => $role
             ]);
@@ -49,5 +49,43 @@ class InitSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ]);
         $fathur->assignRole('Ketua Tim');
+
+        $list_siswa = [
+            [
+                'name' => 'Siswa Baru Putra 1',
+                'kode_daftar' => 'A0001'
+            ],
+            [
+                'name' => 'Siswa Baru Putra 2',
+                'kode_daftar' => 'A0002'
+            ],
+            [
+                'name' => 'Siswa Baru Putra 3',
+                'kode_daftar' => 'A0003'
+            ],
+            [
+                'name' => 'Siswa Baru Putri 1',
+                'kode_daftar' => 'B0001'
+            ],
+            [
+                'name' => 'Siswa Baru Putri 2',
+                'kode_daftar' => 'B0002'
+            ],
+            [
+                'name' => 'Siswa Pindah Putri 1',
+                'kode_daftar' => 'D0001'
+            ],
+        ];
+
+        foreach ($list_siswa as $siswa) {
+            $calonSiswa = User::create(
+                [
+                    'name' => $siswa['name'],
+                    'kode_daftar' => $siswa['kode_daftar'],
+                    'password' => bcrypt('12345678910')
+                ]
+            );
+            $calonSiswa->assignRole('Calon Siswa');
+        }
     }
 }

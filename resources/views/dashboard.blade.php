@@ -8,6 +8,7 @@
     <div class="overflow-hidden bg-white border-2 rounded-lg shadow-lg ">
         <div class="p-6 text-gray-900">
             You're logged in!
+            <x-input label="Name" placeholder="your name" />
         </div>
     </div>
 </x-app-layout>
