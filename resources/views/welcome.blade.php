@@ -8,6 +8,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
 
+    <!-- Logo -->
+    <link rel="icon" href="{{ asset('images/logopsb.png') }}" type="image/png" sizes="16x16" />
+
+
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -23,14 +27,14 @@
 
 <body class="antialiased">
     <div class="leading-normal tracking-normal text-white bg-gradient-to-r from-emerald-800 to-green-600">
-        <nav id="header" class="fixed top-0 z-30 w-full text-white">
+        <nav id="header" class="fixed top-0 z-30 w-full text-white border-b border-emerald-600">
             <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
                 <div class="flex items-center pl-4">
-                    <a class="text-2xl font-bold text-white no-underline toggleColour hover:no-underline lg:text-2xl flex justify-center items-center"
+                    <a class="flex items-center justify-center text-2xl font-bold text-white no-underline toggleColour hover:no-underline lg:text-2xl"
                         href="#">
-                        <img class="w-16 transition duration-300 transform hover:scale-105" src="/images/logoalfa2.png"
+                        <img class="w-20 transition duration-300 transform hover:scale-105" src="/images/logopsb.png"
                             alt="logoalfa" />
-                        <span class="p-1" />
+                        <span class="px-4" />
                         <span>
                             SMP Al Musyaffa'
                         </span>
@@ -70,22 +74,23 @@
             </div>
         </nav>
         <div>
-            <div class="container flex flex-col flex-wrap items-center justify-between px-3 mx-auto md:flex-row">
-                <div class="flex flex-col items-start justify-center w-full text-center md:w-2/5 md:text-left pt-24">
+            <div class="container flex flex-col flex-wrap items-center justify-between px-1 mx-auto md:flex-row">
+                <div
+                    class="flex flex-col items-center justify-center w-full pt-24 text-center lg:items-start md:w-2/5 md:text-left">
                     <p class="w-full uppercase tracking-loose">portal pendaftaran santri baru</p>
-                    <h1 class="my-4 text-5xl font-bold leading-tight">
+                    <h1 class="my-2 text-2xl font-bold leading-tight lg:text-5xl">
                         SMP Al Musyaffa'
                     </h1>
-                    <p class="mb-8 text-2xl leading-normal">
+                    <p class="mb-8 leading-normal text-md lg:text-2xl">
                         Pendaftaran Santri Baru Tahun Ajaran 2023 / 2024 Belum Mulai, Silahkan Download Brosur Berikut
                     </p>
                     <a href="{{ asset('images/brosur.pdf') }}"
-                        class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0  focus:outline-none focus:shadow-outline hover:scale-105 cursor-pointer"
+                        class="px-5 py-2 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg cursor-pointer lg:mx-0 focus:outline-none focus:shadow-outline hover:scale-105"
                         download="brosur-smp-al-musyaffa">
                         Download
                     </a>
                 </div>
-                <div class="flex justify-end w-full py-6 text-center md:w-2/5">
+                <div class="flex justify-end w-full text-center lg:pt-10 md:w-2/5">
                     <img class="w-full md:w-4/5" src="/images/3orang.png" />
                 </div>
             </div>
@@ -179,7 +184,7 @@
                                 <span
                                     class="p-1 font-bold bg-yellow-400 border-2 rounded-full text-slate-700 border-emerald-700">1</span>
                                 <span
-                                    class="p-1 font-bold border-b-2 rounded-lg text-slate-800 border-emerald-700 bg-emerald-700">
+                                    class="p-1 font-bold text-yellow-400 border-b-2 rounded-lg border-emerald-700 bg-emerald-700">
                                     Fotokopi
                                     <span class="text-white">Akta Kelahiran 1 Lembar</span>
                                 </span>
@@ -188,7 +193,7 @@
                                 <span
                                     class="p-1 font-bold bg-yellow-400 border-2 rounded-full text-slate-700 border-emerald-700">2</span>
                                 <span
-                                    class="p-1 font-bold border-b-2 rounded-lg text-slate-800 border-emerald-700 bg-emerald-700">
+                                    class="p-1 font-bold text-yellow-400 border-b-2 rounded-lg border-emerald-700 bg-emerald-700">
                                     Fotokopi
                                     <span class="text-white">Kartu Keluarga 1 Lembar</span>
                                 </span>
@@ -197,7 +202,7 @@
                                 <span
                                     class="p-1 font-bold bg-yellow-400 border-2 rounded-full text-slate-700 border-emerald-700">3</span>
                                 <span
-                                    class="p-1 font-bold border-b-2 rounded-lg text-slate-800 border-emerald-700 bg-emerald-700">
+                                    class="p-1 font-bold text-yellow-400 border-b-2 rounded-lg border-emerald-700 bg-emerald-700">
                                     Fotokopi
                                     <span class="text-white">KTP Orang Tua</span>
                                 </span>
@@ -206,7 +211,7 @@
                                 <span
                                     class="p-1 font-bold bg-yellow-400 border-2 rounded-full text-slate-700 border-emerald-700">4</span>
                                 <span
-                                    class="p-1 font-bold border-b-2 rounded-lg text-slate-800 border-emerald-700 bg-emerald-700">
+                                    class="p-1 font-bold text-yellow-400 border-b-2 rounded-lg border-emerald-700 bg-emerald-700">
                                     Fotokopi
                                     <span class="text-white">Kartu NISN</span>
                                 </span>
@@ -215,7 +220,7 @@
                                 <span
                                     class="p-1 font-bold bg-yellow-400 border-2 rounded-full text-slate-700 border-emerald-700">5</span>
                                 <span
-                                    class="p-1 font-bold border-b-2 rounded-lg text-slate-800 border-emerald-700 bg-emerald-700">
+                                    class="p-1 font-bold text-yellow-400 border-b-2 rounded-lg border-emerald-700 bg-emerald-700">
                                     Fotokopi
                                     <span class="text-white">Raport Kelas 1 s.d 6</span>
                                 </span>
@@ -238,7 +243,7 @@
                                 <span
                                     class="p-1 font-bold bg-yellow-400 border-2 rounded-full text-slate-700 border-emerald-700">1</span>
                                 <span
-                                    class="p-1 font-bold border-b-2 rounded-lg text-slate-800 border-emerald-700 bg-emerald-700">
+                                    class="p-1 font-bold text-yellow-400 border-b-2 rounded-lg border-emerald-700 bg-emerald-700">
                                     TES
                                     <span class="text-white">AGAMA</span>
                                 </span>
@@ -247,7 +252,7 @@
                                 <span
                                     class="p-1 font-bold bg-yellow-400 border-2 rounded-full text-slate-700 border-emerald-700">2</span>
                                 <span
-                                    class="p-1 font-bold border-b-2 rounded-lg text-slate-800 border-emerald-700 bg-emerald-700">
+                                    class="p-1 font-bold text-yellow-400 border-b-2 rounded-lg border-emerald-700 bg-emerald-700">
                                     TES
                                     <span class="text-white">AKADEMIK</span>
                                 </span>
@@ -256,7 +261,7 @@
                                 <span
                                     class="p-1 font-bold bg-yellow-400 border-2 rounded-full text-slate-700 border-emerald-700">3</span>
                                 <span
-                                    class="p-1 font-bold border-b-2 rounded-lg text-slate-800 border-emerald-700 bg-emerald-700">
+                                    class="p-1 font-bold text-yellow-400 border-b-2 rounded-lg border-emerald-700 bg-emerald-700">
                                     TES
                                     <span class="text-white">WAWANCARA</span>
                                 </span>
@@ -265,7 +270,7 @@
                                 <span
                                     class="p-1 font-bold bg-yellow-400 border-2 rounded-full text-slate-700 border-emerald-700">4</span>
                                 <span
-                                    class="p-1 font-bold border-b-2 rounded-lg text-slate-800 border-emerald-700 bg-emerald-700">
+                                    class="p-1 font-bold text-yellow-400 border-b-2 rounded-lg border-emerald-700 bg-emerald-700">
                                     TES
                                     <span class="text-white">KESEHATAN</span>
                                 </span>
@@ -274,7 +279,7 @@
                                 <span
                                     class="p-1 font-bold bg-yellow-400 border-2 rounded-full text-slate-700 border-emerald-700">5</span>
                                 <span
-                                    class="p-1 font-bold border-b-2 rounded-lg text-slate-800 border-emerald-700 bg-emerald-700">
+                                    class="p-1 font-bold text-yellow-400 border-b-2 rounded-lg border-emerald-700 bg-emerald-700">
                                     TES
                                     <span class="text-white">BAKAT MINAT</span>
                                 </span>
@@ -316,13 +321,13 @@
             </g>
         </svg>
         <section class="container py-6 mx-auto mb-12 text-center">
-            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+            <h2 class="w-full my-2 text-3xl font-bold leading-tight text-center text-white lg:text-5xl">
                 DAFTAR SEGERA !
             </h2>
             <div class="w-full mb-4">
                 <div class="w-1/6 h-1 py-0 mx-auto my-0 bg-white rounded-t opacity-25" />
             </div>
-            <h3 class="my-4 text-3xl leading-tight">
+            <h3 class="p-3 my-4 text-2xl leading-tight text-justify lg:text-3x">
                 Setiap gelombang pendaftaran memiliki kuota pendaftar. Jika kuota sudah penuh maka pendaftaran akan
                 ditutup
                 dan bisa mendaftar di gelombang berikutnya.
@@ -407,7 +412,7 @@
                 </div>
             </div>
             <a href="https://www.youtube.com/channel/UC6K2YKhHDT2y05U6GorosCQ" target="__blank"
-                class="text-gray-500 pl-3">Developed By : Kendali Koding</a>
+                class="pl-3 text-gray-500">Developed By : Kendali Koding</a>
         </footer>
     </div>
     <script>
