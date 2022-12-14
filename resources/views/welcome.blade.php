@@ -35,7 +35,7 @@
                         <img class="w-20 transition duration-300 transform hover:scale-105" src="/images/logopsb.png"
                             alt="logoalfa" />
                         <span class="px-4" />
-                        <span>
+                        <span class="invisible lg:visible">
                             SMP Al Musyaffa'
                         </span>
                     </a>
