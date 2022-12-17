@@ -18,7 +18,7 @@ class InitSeeder extends Seeder
     {
         $roles = [
             'Admin',
-            'Pendaftar'
+            'Calon Siswa'
         ];
 
         foreach ($roles as $role) {
@@ -98,7 +98,7 @@ class InitSeeder extends Seeder
                 'password' => bcrypt('asdfasdf')
             ]);
 
-            $user->assignRole('Pendaftar');
+            $user->assignRole('Calon Siswa');
         }
     }
 }

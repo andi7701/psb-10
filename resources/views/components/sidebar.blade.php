@@ -1,4 +1,4 @@
-<div class="w-[250px] h-full py-5 px-0 fixed overflow-x-hidden overflow-y-scroll myscroll top-0 left-0 z-50 shadow-md transition duration-500 lg:translate-x-0 bg-white"
+<div class="w-[250px] z-[100] h-full py-5 px-0 fixed overflow-x-hidden overflow-y-scroll myscroll top-0 left-0 shadow-md transition duration-500 lg:translate-x-0 bg-white"
     :class="open ? 'translate-x-0 ease-in' : '-translate-x-64 ease-out'">
     <div class="px-4 space-y-2">
         <button @click="open = false"

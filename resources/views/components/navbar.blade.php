@@ -1,4 +1,4 @@
-<div class="sticky top-0 p-2 mb-2 shadow-lg bg-gradient-to-r from-emerald-400 to-emerald-600 shadow-emerald-200">
+<div class="sticky z-[99] top-0 p-2 mb-2 shadow-lg bg-gradient-to-r from-emerald-400 to-emerald-600 shadow-emerald-200">
     <div class="grid grid-cols-2">
         <button @click="open = true"
             class="flex items-center self-center py-1 pr-2 ml-2 font-bold text-white transition duration-500 transform border-2 border-emerald-800 rounded-xl bg-emerald-600 hover:bg-emerald-500 focus:bg-emerald-500 place-self-start lg:invisible">

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('tingkat');
             $table->string('nik')->nullable();
             $table->string('nisn')->nullable();
+            $table->string('jenis_kelamin');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('status');

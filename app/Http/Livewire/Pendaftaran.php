@@ -20,21 +20,64 @@ class Pendaftaran extends Component
     public $nisn;
     public $tempatLahir;
     public $tanggalLahir;
+    public $status;
+    public $anakKe;
 
     // Alamat
-
-    // Identitas Sekolah Dasar
+    public $keterangan;
     public $provinsi;
     public $kabupaten;
     public $kecamatan;
     public $desa;
-
-    // List Sekolah Dasar
+    public $rt;
+    public $rw;
+    
+    // List Alamat
     public $listProvinsi = [];
     public $listKabupaten = [];
     public $listKecamatan = [];
     public $listDesa = [];
 
+    // Sekolah Dasar
+    public $namaSekolahDasar;
+    public $provinsiSekolahDasar;
+    public $kabupatenSekolahDasar;
+    public $kecamatanSekolahDasar;
+    public $desaSekolahDasar;
+    
+    // List Sekolah Dasar
+    public $listProvinsiSekolahDasar = [];
+    public $listKabupatenSekolahDasar = [];
+    public $listKecamatanSekolahDasar = [];
+    public $listDesaSekolahDasar = [];
+
+    // Sekolah Asal
+    public $provinsiSekolahAsal;
+    public $kabupatenSekolahAsal;
+    public $kecamatanSekolahAsal;
+    public $desaSekolahAsal;
+
+    // List Sekolah Asal
+    public $namasekolahAsal;
+    public $listProvinsiSekolahAsal = [];
+    public $listKabupatenSekolahAsal = [];
+    public $listKecamatanSekolahAsal = [];
+    public $listDesaSekolahAsal = [];
+
+    //Orang Tua
+    public $namaAyah;
+    public $pekerjaanAyah;
+    public $namaIbu;
+    public $pekerjaanIbu;
+    public $telepon;
+    public $noKps;
+
+    //Wali
+    public $namaWali;
+    public $pekerjaanWali;
+    public $alamatWali;
+    public $teleponWali;
+    
     protected $rules = [
         'kodeDaftar' => 'required|unique:users,kode_daftar',
         'tingkat' => 'required',
