@@ -4,7 +4,9 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Laravolt\Indonesia\Models\City;
+use Laravolt\Indonesia\Models\District;
 use Laravolt\Indonesia\Models\Province;
+use Laravolt\Indonesia\Models\Village;
 use Livewire\Component;
 
 class Pendaftaran extends Component
@@ -12,10 +14,14 @@ class Pendaftaran extends Component
     // Identitas Calon Siswa
     public $kategoriPendaftar;
     public $kodePendaftaran;
+    public $tingkat;
     public $nama;
+    public $nik;
     public $nisn;
-    public $tempat;
+    public $tempatLahir;
     public $tanggalLahir;
+
+    // Alamat
 
     // Identitas Sekolah Dasar
     public $provinsi;
@@ -30,9 +36,35 @@ class Pendaftaran extends Component
     public $listDesa = [];
 
     protected $rules = [
+        'kodeDaftar' => 'required|unique:users,kode_daftar',
+        'tingkat' => 'required',
         'nama' => 'required',
         'nisn' => 'required',
+        'jenisKelamin' => 'required',
+        'tempatLahir' => 'required',
+        'tanggalLahir' => 'required',
+        'status' => 'required',
+        'anakKe' => 'required',
+        'nik' => 'required',
+        'rt' => 'required',
+        'rw' => 'required',
+        'desa' => 'required',
+        'kecamatan' => 'required',
+        'kabupaten' => 'required',
+        'provinsi' => 'required',
+        'namaSekolah' => 'required',
+        'desaSekolah' => 'required',
+        'kecamatanSekolah' => 'required',
+        'kabupatenSekolah' => 'required',
+        'provinsiSekolah' => 'required',
+        'namaAyah' => 'required',
+        'namaIbu' => 'required',
+        'pekerjaanAyah' => 'required',
+        'pekerjaanIbu' => 'required',
+        'penghasilan' => 'required',
+        'telepon' => 'required',
     ];
+
     public function render()
     {
         return view('livewire.pendaftaran');
@@ -48,6 +80,7 @@ class Pendaftaran extends Component
     {
         $this->validate();
     }
+
     // Updated Some Property
     public function updatedKategoriPendaftar()
     {
@@ -65,10 +98,10 @@ class Pendaftaran extends Component
     }
     public function updatedKabupaten()
     {
-        $this->listKecamatan = City::where('province_code', $this->kabupaten)->orderBy('name')->get();
+        $this->listKecamatan = District::where('city_code', $this->kabupaten)->orderBy('name')->get();
     }
     public function updatedKecamatan()
     {
-        $this->listDesa = City::where('province_code', $this->kecamatan)->orderBy('name')->get();
+        $this->listDesa = Village::where('district_code', $this->kecamatan)->orderBy('name')->get();
     }
 }

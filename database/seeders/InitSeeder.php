@@ -18,10 +18,7 @@ class InitSeeder extends Seeder
     {
         $roles = [
             'Admin',
-            'Kepala Sekolah',
-            'Ketua Tim',
-            'Tim',
-            'Calon Siswa'
+            'Pendaftar'
         ];
 
         foreach ($roles as $role) {
@@ -41,51 +38,67 @@ class InitSeeder extends Seeder
             'username' => 'khalim',
             'password' => bcrypt('12345678'),
         ]);
-        $khalim->assignRole('Kepala Sekolah');
+        $khalim->assignRole('Admin');
 
         $fathur = User::create([
             'name' => 'Fathurrohman,S.Pd.',
             'username' => 'fathur',
             'password' => bcrypt('12345678'),
         ]);
-        $fathur->assignRole('Ketua Tim');
+        $fathur->assignRole('Admin');
 
-        $list_siswa = [
+        $pendaftaran = [
             [
-                'name' => 'Siswa Baru Putra 1',
-                'kode_daftar' => 'A0001'
+                'nama' => 'Pendaftar Baru Putra 1',
+                'kode_daftar' => 'A0001',
+                'tanggal_daftar' => date('Y-m-d'),
+                'tahun' => '2023 / 2024',
+                'tingkat' => '7',
+                'user_id' => 1
             ],
             [
-                'name' => 'Siswa Baru Putra 2',
-                'kode_daftar' => 'A0002'
+                'nama' => 'Pendaftar Baru Putra 2',
+                'kode_daftar' => 'A0002',
+                'tanggal_daftar' => date('Y-m-d'),
+                'tahun' => '2023 / 2024',
+                'tingkat' => '7',
+                'user_id' => 1
             ],
             [
-                'name' => 'Siswa Baru Putra 3',
-                'kode_daftar' => 'A0003'
+                'nama' => 'Pendaftar Baru Putra 3',
+                'kode_daftar' => 'A0003',
+                'tanggal_daftar' => date('Y-m-d'),
+                'tahun' => '2023 / 2024',
+                'tingkat' => '7',
+                'user_id' => 1
             ],
             [
-                'name' => 'Siswa Baru Putri 1',
-                'kode_daftar' => 'B0001'
+                'nama' => 'Pendaftar Baru Putri 1',
+                'kode_daftar' => 'B0001',
+                'tanggal_daftar' => date('Y-m-d'),
+                'tahun' => '2023 / 2024',
+                'tingkat' => '7',
+                'user_id' => 1
             ],
             [
-                'name' => 'Siswa Baru Putri 2',
-                'kode_daftar' => 'B0002'
-            ],
-            [
-                'name' => 'Siswa Pindah Putri 1',
-                'kode_daftar' => 'D0001'
+                'nama' => 'Pendaftar Baru Putri 2',
+                'kode_daftar' => 'B0002',
+                'tanggal_daftar' => date('Y-m-d'),
+                'tahun' => '2023 / 2024',
+                'tingkat' => '7',
+                'user_id' => 2
             ],
         ];
+        foreach ($pendaftaran as $pendaftar) {
+            $user = User::create([
+                'name' => $pendaftar['nama'],
+                'kode_daftar' => $pendaftar['kode_daftar'],
+                'username' => $pendaftar['kode_daftar'],
+                'user_id' => $pendaftar['user_id'],
+                'password' => bcrypt('asdfasdf')
+            ]);
 
-        foreach ($list_siswa as $siswa) {
-            $calonSiswa = User::create(
-                [
-                    'name' => $siswa['name'],
-                    'kode_daftar' => $siswa['kode_daftar'],
-                    'password' => bcrypt('12345678910')
-                ]
-            );
-            $calonSiswa->assignRole('Calon Siswa');
+            $user->assignRole('Pendaftar');
         }
     }
 }

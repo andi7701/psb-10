@@ -8,6 +8,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Refresh CSRF Token -->
+    <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
+    
     <!-- Logo -->
     <link rel="icon" href="{{ asset('images/logoalfa.png') }}" type="image/png" sizes="16x16" />
 

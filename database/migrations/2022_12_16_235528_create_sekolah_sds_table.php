@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('sekolah_sds', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('username')->unique()->nullable();
-            $table->string('kode_daftar')->unique()->nullable();
-            $table->string('password');
-            $table->foreignId('user_id')->nullable();
-            $table->rememberToken();
+            $table->foreignId('user_id');
+            $table->string('nama');
+            $table->foreignId('desa');
+            $table->foreignId('kecamatan');
+            $table->foreignId('kabupaten');
+            $table->foreignId('provinsi');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('sekolah_sds');
     }
 };

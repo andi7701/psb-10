@@ -9,9 +9,14 @@
             </svg>
         </button>
         <h1 class="block py-8 text-2xl font-bold text-emerald-700">{{ auth()->user()->name }}</h1>
-            <x-sidebar-link :href="__('dashboard')" :label="__('dashboard')" />
-            <x-sidebar-link :href="__('home')" :label="__('home')" />
-            <x-sidebar-link :href="__('dashboard')" :label="__('dashboard')" />
-            <x-sidebar-link :href="__('pendaftaran')" :label="__('pendaftaran siswa')" />
+        <x-sidebar-link :href="__('dashboard')" :label="__('dashboard')" />
+        <x-sidebar-link :href="__('home')" :label="__('home')" />
+        <x-sidebar-link :href="__('pendaftaran')" :label="__('pendaftaran siswa')" />
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button
+                class="relative font-bold flex items-center p-2 space-x-2 rounded-md text-slate-600 cursor-pointer hover:bg-emerald-400 hover:text-white hover:shadow-lg hover:shadow-emerald-300 hover:border-white hover:border"
+                type="submit">Log Out</button>
+        </form>
     </div>
 </div>
