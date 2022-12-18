@@ -11,7 +11,10 @@ module.exports = {
         './resources/views/**/*.blade.php',
         './vendor/wireui/wireui/resources/**/*.blade.php',
         './vendor/wireui/wireui/ts/**/*.ts',
-        './vendor/wireui/wireui/src/View/**/*.php'
+        './vendor/wireui/wireui/src/View/**/*.php',
+        './app/Http/Livewire/**/*Table.php',
+        './vendor/power-components/livewire-powergrid/resources/views/**/*.php',
+        './vendor/power-components/livewire-powergrid/src/Themes/Tailwind.php'
     ],
 
     theme: {
@@ -22,5 +25,7 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [require('@tailwindcss/forms')({
+        strategy: 'class',
+    })],
 };

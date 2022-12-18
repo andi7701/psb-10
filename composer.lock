@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7299372ecdaf3a7147aa7fb90f02a232",
+    "content-hash": "9bb556647dd842ce7acf6ad057433153",
     "packages": [
         {
             "name": "brick/math",
@@ -2659,6 +2659,99 @@
             "time": "2022-10-28T22:51:32+00:00"
         },
         {
+            "name": "openspout/openspout",
+            "version": "v4.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/openspout/openspout.git",
+                "reference": "cbf753126f43095112a099eff23ba4f0a47245eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/openspout/openspout/zipball/cbf753126f43095112a099eff23ba4f0a47245eb",
+                "reference": "cbf753126f43095112a099eff23ba4f0a47245eb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-fileinfo": "*",
+                "ext-filter": "*",
+                "ext-libxml": "*",
+                "ext-xmlreader": "*",
+                "ext-zip": "*",
+                "php": "~8.0.0 || ~8.1.0 || ~8.2.0"
+            },
+            "require-dev": {
+                "ext-zlib": "*",
+                "friendsofphp/php-cs-fixer": "^3.8.0",
+                "infection/infection": "^0.26.10",
+                "phpbench/phpbench": "^1.2.5",
+                "phpstan/phpstan": "^1.6.8",
+                "phpstan/phpstan-phpunit": "^1.1.1",
+                "phpstan/phpstan-strict-rules": "^1.2.3",
+                "phpunit/phpunit": "^9.5.20"
+            },
+            "suggest": {
+                "ext-iconv": "To handle non UTF-8 CSV files (if \"php-intl\" is not already installed or is too limited)",
+                "ext-intl": "To handle non UTF-8 CSV files (if \"iconv\" is not already installed)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OpenSpout\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adrien Loison",
+                    "email": "adrien@box.com"
+                }
+            ],
+            "description": "PHP Library to read and write spreadsheet files (CSV, XLSX and ODS), in a fast and scalable way",
+            "homepage": "https://github.com/openspout/openspout",
+            "keywords": [
+                "OOXML",
+                "csv",
+                "excel",
+                "memory",
+                "odf",
+                "ods",
+                "office",
+                "open",
+                "php",
+                "read",
+                "scale",
+                "spreadsheet",
+                "stream",
+                "write",
+                "xlsx"
+            ],
+            "support": {
+                "issues": "https://github.com/openspout/openspout/issues",
+                "source": "https://github.com/openspout/openspout/tree/v4.10.0"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/filippotessarotto",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/Slamdunk",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-12-17T07:17:20+00:00"
+        },
+        {
             "name": "phpoption/phpoption",
             "version": "1.9.0",
             "source": {
@@ -2732,6 +2825,80 @@
                 }
             ],
             "time": "2022-07-30T15:51:26+00:00"
+        },
+        {
+            "name": "power-components/livewire-powergrid",
+            "version": "v3.5.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Power-Components/livewire-powergrid.git",
+                "reference": "c55910a524276a969761077c43f325f89b12b202"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Power-Components/livewire-powergrid/zipball/c55910a524276a969761077c43f325f89b12b202",
+                "reference": "c55910a524276a969761077c43f325f89b12b202",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^3.1|2.12.1",
+                "livewire/livewire": "^2.10",
+                "openspout/openspout": "^4.6",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "composer/composer": "^2.1",
+                "friendsofphp/php-cs-fixer": "^3.9",
+                "illuminate/support": "^8.18|^9.0",
+                "laradumps/laradumps": "^1.1",
+                "nunomaduro/larastan": "^1.0 | 2.1.12",
+                "orchestra/testbench": "^6.17 | ^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-faker": "^1.0",
+                "pestphp/pest-plugin-livewire": "^1.0",
+                "phpstan/phpstan": "1.8.1",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PowerComponents\\LivewirePowerGrid\\Providers\\PowerGridServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "PowerComponents\\LivewirePowerGrid\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luan Freitas",
+                    "email": "luanfreitasgoncalves@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PowerGrid generates Advanced Datatables using Laravel Livewire.",
+            "homepage": "https://github.com/power-components/livewire-powergrid",
+            "support": {
+                "issues": "https://github.com/Power-Components/livewire-powergrid/issues",
+                "source": "https://github.com/Power-Components/livewire-powergrid/tree/v3.5.13"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/luanfreitasdev",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-12-10T16:07:51+00:00"
         },
         {
             "name": "psr/cache",

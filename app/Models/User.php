@@ -47,13 +47,13 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the panitia that owns the User
+     * Get the alamat associated with the User
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function panitia(): BelongsTo
+    public function alamat(): HasOne
     {
-        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault();
+        return $this->hasOne(Alamat::class);
     }
 
     /**
@@ -77,26 +77,6 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the alamat associated with the User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function alamat(): HasOne
-    {
-        return $this->hasOne(Alamat::class);
-    }
-
-    /**
-     * Get the wali associated with the User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function wali(): HasOne
-    {
-        return $this->hasOne(Wali::class);
-    }
-
-    /**
      * Get the sekolahsd associated with the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -111,9 +91,30 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
+
     public function sekolahAsal(): HasOne
     {
         return $this->hasOne(SekolahAsal::class);
+    }
+
+    /**
+     * Get the panitia that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault();
+    }
+
+    /**
+     * Get the wali associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function wali(): HasOne
+    {
+        return $this->hasOne(Wali::class);
     }
 
     /**

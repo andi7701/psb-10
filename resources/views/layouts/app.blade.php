@@ -10,7 +10,7 @@
 
     <!-- Refresh CSRF Token -->
     <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
-    
+
     <!-- Logo -->
     <link rel="icon" href="{{ asset('images/logoalfa.png') }}" type="image/png" sizes="16x16" />
 
@@ -21,11 +21,15 @@
     @livewireScripts
     @livewireStyles
     @wireUiScripts
+    @powerGridScripts
+    @powerGridStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body x-data="{ open: false }" class="font-sans antialiased">
-    
+
+    <x-notifications />
+        
     <!-- SideBar LeftCol-->
     <x-sidebar />
 
@@ -37,21 +41,17 @@
 
         <!-- Main Content -->
         <div class="px-2 py-2 container-fluid">
+
             <main>
+
                 {{ $slot }}
+
             </main>
+
         </div>
+
     </div>
-    {{-- <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('dropdown', () => ({
-                dropOpen: false,
-                toggle() {
-                    this.dropOpen = !this.dropOpen
-                },
-            }))
-        })
-    </script> --}}
+
 </body>
 
 </html>
