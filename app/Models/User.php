@@ -102,7 +102,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function panitia(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id')->withDefault();
     }

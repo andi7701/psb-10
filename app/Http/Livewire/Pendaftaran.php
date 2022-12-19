@@ -224,8 +224,11 @@ class Pendaftaran extends Component
                 ]
             );
 
+            
             // DB::commit();
 
+            $user->assignRole('Calon Siswa');
+            
             $this->notification()->success(
                 $title = 'Berhasil Simpan',
                 $description = 'Data Calon Siswa Berhasil Disimpan'

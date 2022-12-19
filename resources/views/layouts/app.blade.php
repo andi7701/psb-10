@@ -21,15 +21,13 @@
     @livewireScripts
     @livewireStyles
     @wireUiScripts
-    @powerGridScripts
-    @powerGridStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body x-data="{ open: false }" class="font-sans antialiased">
 
     <x-notifications />
-        
+    <x-dialog />
     <!-- SideBar LeftCol-->
     <x-sidebar />
 

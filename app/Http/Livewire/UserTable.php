@@ -50,7 +50,7 @@ final class UserTable extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return User::query()->with('user')->role('Calon Siswa');
+        return User::query()->with(['user', 'alamat', 'alamat.village'])->role('Calon Siswa');
     }
 
     /*
@@ -71,7 +71,7 @@ final class UserTable extends PowerGridComponent
         return [
             'user' => [
                 'name'
-            ]
+            ],
         ];
     }
 
@@ -89,15 +89,16 @@ final class UserTable extends PowerGridComponent
     public function addColumns(): PowerGridEloquent
     {
         return PowerGrid::eloquent()
-        ->addColumn('kode_daftar')
+            ->addColumn('kode_daftar')
             ->addColumn('name')
 
             /** Example of custom column using a closure **/
             ->addColumn('name_lower', function (User $model) {
                 return strtolower(e($model->name));
             })
-            
-            ->addColumn('panitia', fn($user) => $user->user->name);
+
+            ->addColumn('village', fn ($user) => $user->alamat->village->name ?? '')
+            ->addColumn('panitia', fn ($user) => $user->user->name);
     }
 
     /*
@@ -124,6 +125,9 @@ final class UserTable extends PowerGridComponent
             Column::make('NAME', 'name')
                 ->sortable()
                 ->searchable(),
+
+            Column::make('Desa', 'villages.name'),
+
 
             Column::make('Panitia', 'panitia')
                 ->searchable(),

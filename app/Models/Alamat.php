@@ -20,9 +20,9 @@ class Alamat extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function desa(): BelongsTo
+    public function village(): BelongsTo
     {
-        return $this->belongsTo(Village::class, 'code', 'desa')->withDefault();
+        return $this->belongsTo(Village::class, 'desa', 'code')->withDefault();
     }
 
     /**
