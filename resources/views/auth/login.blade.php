@@ -1,9 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            <img src="{{ asset('images/logopsb.png') }}" class=" w-36 h-28"/>
         </x-slot>
 
         <!-- Session Status -->
@@ -41,16 +39,9 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-primary-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-primary-button>
+            <div class="flex items-center justify-end mt-4 space-x-3">
+                <x-button href="{{ route('landing') }}" slate label="Batal" />
+                <x-button black label="Login" type="submit" />
             </div>
         </form>
     </x-auth-card>

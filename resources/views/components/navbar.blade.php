@@ -8,7 +8,7 @@
             Menu
         </button>
         <div class="flex items-center justify-end mr-2 space-x-1 place-self-end">
-            <img src="images/logoalfa2.png" alt="logo" class="w-12 h-12 lg:w-16 lg:h-16" />
+            <img src="{{ asset('images/logoalfa2.png') }}" alt="logo" class="w-12 h-12 lg:w-16 lg:h-16" />
         </div>
     </div>
     {{-- <div class="relative">

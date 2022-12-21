@@ -1,26 +1,29 @@
 <div>
-    <div class="leading-normal tracking-normal text-white bg-gradient-to-r from-emerald-800 to-green-600">
+    <div class="leading-normal tracking-normal text-white bg-gradient-to-r from-emerald-700 to-green-500">
         <nav id="header" class="fixed top-0 z-30 w-full text-white border-b border-emerald-600">
             <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
-                <div class="flex items-center pl-4">
-                    <a class="flex items-center justify-center text-2xl font-bold text-white no-underline toggleColour hover:no-underline lg:text-2xl"
-                        href="#">
-                        <img class="w-20 transition duration-300 transform hover:scale-105" src="/images/logopsb.png"
-                            alt="logoalfa" />
-                        <span class="px-4" />
-                        <span class="invisible lg:visible">
-                            SMP Al Musyaffa'
-                        </span>
-                    </a>
-                </div>
-                <div class="block pr-4 lg:hidden">
-                    <button id="nav-toggle"
-                        class="flex items-center p-1 transition duration-300 ease-in-out transform text-emerald-800 hover:text-gray-900 focus:outline-none focus:shadow-outline hover:scale-105">
-                        <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <title>Menu</title>
-                            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                        </svg>
-                    </button>
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center pl-4">
+                        <a class="flex items-center justify-center text-2xl font-bold text-white no-underline toggleColour hover:no-underline lg:text-2xl"
+                            href="#">
+                            <img class="w-20 transition duration-300 transform hover:scale-105" src="/images/logopsb.png"
+                                alt="logoalfa" />
+                            <span class="px-4" />
+                            <span class="invisible lg:visible">
+                                SMP Al Musyaffa'
+                            </span>
+                        </a>
+                    </div>
+                    <div class="px-3 lg:hidden block">
+                        <button id="nav-toggle"
+                            class="flex items-center p-1 transition duration-300 ease-in-out transform text-slate-700 hover:text-slate-800 focus:outline-none focus:shadow-outline hover:scale-105 border border-white rounded-lg bg-slate-200 hover:bg-white justify-between space-x-2">
+                            <span>Menu </span>
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <title>Menu</title>
+                                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="z-20 flex-grow hidden w-full p-4 mt-2 text-black bg-white lg:flex lg:items-center lg:w-auto lg:mt-0 lg:bg-transparent lg:p-0"
                     id="nav-content">
@@ -57,7 +60,7 @@
                     <p class="mb-8 leading-normal text-md lg:text-2xl">
                         Pendaftaran Santri Baru
                         <br>
-                        Tahun Ajaran 2023 / 2024 
+                        Tahun Ajaran 2023 / 2024
                         <br>
                         Silahkan klik Tombol Daftar Untuk Melakukan Pendaftaran Secara Online
                     </p>
@@ -122,7 +125,8 @@
                     </thead>
                     <tbody>
                         @foreach ($listUser as $key => $user)
-                            <tr class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
+                            <tr
+                                class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
                                 <td scope="row"
                                     class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $loop->iteration }}
