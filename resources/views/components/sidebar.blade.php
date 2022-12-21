@@ -13,11 +13,16 @@
         <x-sidebar-link :href="__('dashboard')" :label="__('dashboard')" />
 
         @role('Admin')
+        <x-sidebar-link :href="__('buat-role')" :label="__('buat role')" />
         <x-sidebar-link :href="__('data-panitia')" :label="__('data panitia')" />
         <x-sidebar-link :href="__('data-pendaftar')" :label="__('data pendaftar')" />
+        <x-sidebar-link :href="__('admin.input-minat-bakat')" :label="__('input minat bakat')" />
         <x-sidebar-link :href="__('pendaftaran')" :label="__('pendaftaran siswa')" />
         @endrole
-
+        
+        @role('Minat Bakat')
+        <x-sidebar-link :href="__('minat-bakat.input-minat-bakat')" :label="__('Minat Bakat')" />
+        @endrole
         <form action="{{ route('logout') }}" method="POST">
             @csrf
             <button

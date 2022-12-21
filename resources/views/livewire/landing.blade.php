@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-
-    <!-- Logo -->
-    <link rel="icon" href="{{ asset('images/logopsb.png') }}" type="image/png" sizes="16x16" />
-
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body class="antialiased">
+<div>
     <div class="leading-normal tracking-normal text-white bg-gradient-to-r from-emerald-800 to-green-600">
         <nav id="header" class="fixed top-0 z-30 w-full text-white border-b border-emerald-600">
             <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
@@ -82,11 +55,14 @@
                         SMP Al Musyaffa'
                     </h1>
                     <p class="mb-8 leading-normal text-md lg:text-2xl">
-                        Pendaftaran Santri Baru Tahun Ajaran 2023 / 2024 Belum Mulai, Silahkan Cek Jadwal Pendaftaran
+                        Pendaftaran Santri Baru
+                        <br>
+                        Tahun Ajaran 2023 / 2024 
+                        <br>
+                        Silahkan klik Tombol Daftar Untuk Melakukan Pendaftaran Secara Online
                     </p>
                     <a href="{{ route('daftar') }}"
-                        class="px-5 py-2 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg cursor-pointer lg:mx-0 focus:outline-none focus:shadow-outline hover:scale-105"
-                        >
+                        class="px-5 py-2 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg cursor-pointer lg:mx-0 focus:outline-none focus:shadow-outline hover:scale-105">
                         Daftar
                     </a>
                 </div>
@@ -118,62 +94,60 @@
                 </g>
             </svg>
         </div>
-        <section class="py-8 bg-white border-b">
-                <div class="my-5">
-                    <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..." class="w-auto" />
-                </div>
-                <div class="overflow-x-auto relative">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="py-3 px-6">
-                                    #
-                                </th>
-                                <th scope="col" class="py-3 px-6">
-                                    Nama
-                                </th>
-                                <th scope="col" class="py-3 px-6">
-                                    Kode Daftar
-                                </th>
-                                <th scope="col" class="py-3 px-6">
-                                    Sekolah SD
-                                </th>
-                                <th scope="col" class="py-3 px-6">
-                                    Alamat
-                                </th>
-                                <th scope="col" class="py-3 px-6">
-                                    Aksi
-                                </th>
+        <section class="py-8 px-7 bg-white border-b">
+            <div class="my-5">
+                <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..."
+                    class="w-auto text-slate-600" />
+            </div>
+            <div class="overflow-x-auto relative">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="py-3 px-6">
+                                #
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Nama
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Asal Sekolah
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                kecamatan
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Desa
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($listUser as $key => $user)
+                            <tr class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
+                                <td scope="row"
+                                    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $loop->iteration }}
+                                </td>
+                                <td scope="row"
+                                    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $user->name }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ $user->kode_daftar }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ $user->sekolahSd->nama ?? '' }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ $user->alamat->district->name ?? '' }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ $user->alamat->village->name ?? '' }}
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($listUser as $key => $user)
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                                    <td scope="row"
-                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{ $listUser->firstItem() + $key }}
-                                    </td>
-                                    <td scope="row"
-                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{ $user->name }}
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        {{ $user->kode_daftar }}
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        {{ $user->sekolahSd->nama ?? '' }}
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        {{ $user->alamat->village->name ?? '' }}
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </section>
         <section class="py-8 bg-white border-b">
             <div class="container max-w-5xl m-8 mx-auto">
@@ -390,7 +364,8 @@
                 dan bisa mendaftar di gelombang berikutnya.
             </h3>
             <a href="{{ route('daftar') }}"
-                class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105" role="button">
+                class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105"
+                role="button">
                 Daftar
             </a>
         </section>
@@ -555,6 +530,4 @@
             return false;
         }
     </script>
-</body>
-
-</html>
+</div>

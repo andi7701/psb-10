@@ -30,9 +30,9 @@ class Alamat extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function kecamatan(): BelongsTo
+    public function district(): BelongsTo
     {
-        return $this->belongsTo(District::class, 'code', 'desa')->withDefault();
+        return $this->belongsTo(District::class, 'kecamatan', 'code')->withDefault();
     }
 
     /**
@@ -40,9 +40,9 @@ class Alamat extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function kabupaten(): BelongsTo
+    public function city(): BelongsTo
     {
-        return $this->belongsTo(City::class, 'code', 'desa')->withDefault();
+        return $this->belongsTo(City::class, 'kabupaten', 'code')->withDefault();
     }
 
     /**
@@ -50,8 +50,8 @@ class Alamat extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function provinsi(): BelongsTo
+    public function province(): BelongsTo
     {
-        return $this->belongsTo(Province::class, 'code', 'desa')->withDefault();
+        return $this->belongsTo(Province::class, 'provinsi', 'code')->withDefault();
     }
 }

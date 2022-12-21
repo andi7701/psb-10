@@ -1,2 +1,1 @@
-tambahkan tahun pelajaran
-buat simpan
+1. input minat bakat -> buat jika sudah terisi update sekolah asal dan sekolah dasar, pokoke kui lah mikir dewe ya

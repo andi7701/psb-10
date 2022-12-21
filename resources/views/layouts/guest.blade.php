@@ -9,7 +9,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Logo -->
-    <link rel="icon" href="{{ asset('images/logoalfa.png') }}" type="image/png" sizes="16x16" />
+    <link rel="icon" href="{{ asset('images/logopsb.png') }}" type="image/png" sizes="16x16" />
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -27,9 +27,7 @@
 <body>
     <x-notifications />
     <x-dialog />
-    <div class="font-sans text-gray-900 antialiased px-3">
-        {{ $slot }}
-    </div>
+    {{ $slot }}
 </body>
 
 </html>

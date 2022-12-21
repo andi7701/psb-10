@@ -20,9 +20,6 @@
             </x-native-select>
             <div>
                 <x-input wire:model.defer="nama" label="Nama Lengkap" />
-                @error('nama')
-                    <small class="text-red-700">{{ $message }}</small>
-                @enderror
             </div>
             <x-input wire:model.defer="kodePendaftaran" label="Kode Pendaftaran" class="font-bold " disabled />
         </div>
@@ -38,8 +35,10 @@
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer="nisn" label="NISN" />
-            <x-input wire:model.defer="status" label="Status" placeholder="Anak Kandung / Tiri" corner-hint="contoh : Anak Kandung" />
-            <x-input wire:model.defer="anakKe" label="Anak Ke - Berapa" placeholder="1 , 2 , 3 ..." corner-hint="contoh : 1 , 2, 3 ..."/>
+            <x-input wire:model.defer="status" label="Status" placeholder="Anak Kandung / Tiri"
+                corner-hint="contoh : Anak Kandung" />
+            <x-input wire:model.defer="anakKe" label="Anak Ke - Berapa" placeholder="1 , 2 , 3 ..."
+                corner-hint="contoh : 1 , 2, 3 ..." />
         </div>
     </x-my-card>
 
@@ -48,7 +47,8 @@
         <h2 class="mt-3 text-xl font-bold text-slate-600">B. Alamat Calon Siswa</h2>
         <div>
             <x-textarea wire:model.defer="keterangan" label="Alamat"
-                placeholder="Jl. Hidayah No.7 , Perum Asri Blok A No. 6 ..." corner-hint="contoh : Perum Asri Blok A No. 7" />
+                placeholder="Jl. Hidayah No.7 , Perum Asri Blok A No. 6 ..."
+                corner-hint="contoh : Perum Asri Blok A No. 7" />
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-native-select wire:model="provinsi" label="Provinsi">
@@ -118,7 +118,8 @@
     </x-my-card>
 
     {{-- Data Sekolah Asal --}}
-    <x-my-card class="{{ $kategoriPendaftar == 'A' || $kategoriPendaftar == 'B' || $kategoriPendaftar == '' ? 'hidden' : 'flex space-y-4 flex-col' }}">
+    <x-my-card
+        class="{{ $kategoriPendaftar == 'A' || $kategoriPendaftar == 'B' || $kategoriPendaftar == '' ? 'hidden' : 'flex space-y-4 flex-col' }}">
         <h2 class="mt-2 text-xl font-bold text-slate-600">Data Sekolah Asal Pindahan</h2>
         <div class="llg:grid lg:grid-cols-2 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer="namaSekolahAsal" label="Nama Sekolah Asal" />
@@ -164,6 +165,7 @@
             <x-input wire:model.defer='telepon' label='Nomor Telepon Orang Tua' placeholder="081xxxxxx" />
             <x-input wire:model.defer='penghasilan' label='Penghasilan Orang Tua' />
             <x-input wire:model.defer='noKps' label='Nomor KPS (*jika punya)' />
+            <x-input wire:model.defer='noKip' label='Nomor KIP (*jika punya)' />
         </div>
         <h2 class="mt-2 text-xl font-bold text-slate-600">Data Wali (jika ikut orang tua kosongi saja)</h2>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">

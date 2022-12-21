@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 
 <head>
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
     <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
 
     <!-- Logo -->
-    <link rel="icon" href="{{ asset('images/logoalfa.png') }}" type="image/png" sizes="16x16" />
+    <link rel="icon" href="{{ asset('images/logopsb.png') }}" type="image/png" sizes="16x16" />
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">

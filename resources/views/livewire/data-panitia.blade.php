@@ -11,10 +11,17 @@
         <x-my-card>
             <form wire:submit.prevent="simpan" class="space-y-2">
                 <div class="lg:grid lg:grid-cols-4 lg:gap-4">
-                    <x-input wire:model.defer="name" label="Nama"/>
+                    <x-input wire:model.defer="name" label="Nama" />
                     <x-input wire:model.defer="username" label="Username" />
+                    <x-native-select wire:model.defer="role" label="Sebagai Panitia Seleksi">
+                        <option value="">Pilih Role</option>
+                        @foreach ($roles as $role)
+                            <option value="{{ $role->name }}">{{ $role->name }}</option>
+                        @endforeach
+                    </x-native-select>
                 </div>
-                <x-button wire:click.prevent="simpan" positive label="Simpan" spinner="simpan" loading-delay="short" type="submit" />
+                <x-button wire:click.prevent="simpan" positive label="Simpan" spinner="simpan" loading-delay="short"
+                    type="submit" />
             </form>
         </x-my-card>
     </div>
@@ -31,6 +38,9 @@
                     </th>
                     <th scope="col" class="py-3 px-6">
                         username
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        role
                     </th>
                     <th scope="col" class="py-3 px-6">
                         Aksi
@@ -50,6 +60,11 @@
                         </td>
                         <td class="py-4 px-6">
                             {{ $user->username }}
+                        </td>
+                        <td class="py-4 px-6">
+                            @foreach ($user->roles as $role)
+                                {{ $role->name }}
+                            @endforeach
                         </td>
                         <td class="py-4 px-6">
                             <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />

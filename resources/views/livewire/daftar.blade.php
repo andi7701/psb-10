@@ -174,6 +174,7 @@
             <x-input wire:model.defer='telepon' label='Nomor Telepon Orang Tua' placeholder="081xxxxxx" />
             <x-input wire:model.defer='penghasilan' label='Penghasilan Orang Tua' />
             <x-input wire:model.defer='noKps' label='Nomor KPS (*jika punya)' />
+            <x-input wire:model.defer='noKip' label='Nomor KIP (*jika punya)' />
         </div>
         <h2 class="mt-2 text-xl font-bold text-slate-600">Data Wali (jika ikut orang tua kosongi saja)</h2>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">

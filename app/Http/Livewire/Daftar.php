@@ -85,6 +85,7 @@ class Daftar extends Component
     public $penghasilan;
     public $telepon;
     public $noKps;
+    public $noKip;
 
     //Wali
     public $namaWali;
@@ -194,7 +195,8 @@ class Daftar extends Component
                     'pekerjaan_ibu' => $this->pekerjaanIbu,
                     'penghasilan' => $this->penghasilan,
                     'telepon' => $this->telepon,
-                    'no_kps' => $this->noKps
+                    'no_kps' => $this->noKps,
+                    'no_kip' => $this->noKip,
                 ]
             );
 

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('penghasilan')->nullable();
             $table->string('telepon')->nullable();
             $table->string('no_kps')->nullable();
+            $table->string('no_kip')->nullable();
             $table->timestamps();
         });
     }

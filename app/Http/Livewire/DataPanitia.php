@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Spatie\Permission\Models\Role;
 use WireUi\Traits\Actions;
 
 
@@ -15,10 +16,13 @@ class DataPanitia extends Component
 
     public $name;
     public $username;
+    public $role;
 
     public $search = '';
 
-    protected $rules = 
+    public $roles = [];
+
+    protected $rules =
     [
         'name' => 'required',
         'username' => 'required|unique:users'
@@ -29,7 +33,8 @@ class DataPanitia extends Component
         return view(
             'livewire.data-panitia',
             [
-                'listUser' => User::role('Admin')
+                'listUser' => User::whereKodeDaftar(null)
+                    ->with('roles')
                     ->where('name', 'like', '%' . $this->search . '%')
                     ->orderBy('name')
                     ->paginate(5)
@@ -37,6 +42,10 @@ class DataPanitia extends Component
         );
     }
 
+    public function mount()
+    {
+        $this->roles = Role::orderBy('name')->get();
+    }
     public function updatedSearch()
     {
         $this->resetPage();
@@ -52,13 +61,12 @@ class DataPanitia extends Component
             'password' => bcrypt('12345678')
         ]);
 
-        $user->assignRole('Admin');
-        
+        $user->assignRole($this->role);
+
         $this->notification()->success(
             $title = 'Berhasil !',
             $description = 'Berhasil Menambah Panitia'
         );
-
     }
     public function confirm($id): void
     {
@@ -81,6 +89,4 @@ class DataPanitia extends Component
             $description = 'Berhasil Hapus Data Calon Siswa'
         );
     }
-
-    
 }

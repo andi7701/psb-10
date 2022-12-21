@@ -22,6 +22,9 @@
                         Alamat
                     </th>
                     <th scope="col" class="py-3 px-6">
+                        panitia
+                    </th>
+                    <th scope="col" class="py-3 px-6">
                         Aksi
                     </th>
                 </tr>
@@ -45,6 +48,9 @@
                         </td>
                         <td class="py-4 px-6">
                             {{ $user->alamat->village->name ?? '' }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $user->panitia->name }}
                         </td>
                         <td class="py-4 px-6">
                             <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
