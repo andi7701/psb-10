@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\Daftar;
 use App\Http\Livewire\DataPendaftar;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Pendaftaran;
@@ -22,11 +23,13 @@ Route::get('/', function () {
 })->name('landing');
 Route::get('/home', Home::class)->name('home');
 
+Route::get('daftar', Daftar::class)->name('daftar');
 
+// Authenticated User
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
+
 
     Route::middleware(['role:Admin'])->group(function () {
         

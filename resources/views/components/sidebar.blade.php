@@ -10,7 +10,6 @@
         </button>
         <h1 class="block py-8 text-2xl font-bold text-emerald-700">{{ auth()->user()->name }}</h1>
         <x-sidebar-link :href="__('dashboard')" :label="__('dashboard')" />
-        <x-sidebar-link :href="__('home')" :label="__('home')" />
         @role('Admin')
         <x-sidebar-link :href="__('data-pendaftar')" :label="__('data pendaftar')" />
         <x-sidebar-link :href="__('pendaftaran')" :label="__('pendaftaran siswa')" />
