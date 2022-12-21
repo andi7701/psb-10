@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Daftar;
+use App\Http\Livewire\DataPanitia;
 use App\Http\Livewire\DataPendaftar;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Pendaftaran;
@@ -23,7 +24,7 @@ Route::get('/', function () {
 })->name('landing');
 Route::get('/home', Home::class)->name('home');
 
-Route::get('daftar', Daftar::class)->name('daftar');
+// Route::get('daftar', Daftar::class)->name('daftar');
 
 // Authenticated User
 Route::middleware('auth')->group(function () {
@@ -33,8 +34,10 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware(['role:Admin'])->group(function () {
         
+        Route::get('data-panitia', DataPanitia::class)->name('data-panitia');
         Route::get('/data-pendaftar', DataPendaftar::class)->name('data-pendaftar');
         Route::get('/pendaftaran', Pendaftaran::class)->name('pendaftaran');
+        
     });
 
 

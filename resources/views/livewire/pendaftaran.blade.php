@@ -176,6 +176,6 @@
         </div>
     </x-my-card>
     <div class="grid justify-items-end">
-        <x-simpan />
+        <x-button wire:click.prevent="simpan" positive label="Simpan" spinner="simpan" loading-delay="long" />
     </div>
 </div>
