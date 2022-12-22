@@ -13,6 +13,11 @@ class InputMinatBakat extends Component
     use Actions;
 
     public $calonSiswa;
+    public $user;
+    public $nama;
+    public $sekolahDasar;
+    public $sekolahAsal;
+
     public $mapelUnggul;
     public $mapelRendah;
     public $kehadiran;
@@ -36,11 +41,6 @@ class InputMinatBakat extends Component
     public $nilai;
     public $catatan;
 
-    public $nama;
-    public $sekolahDasar;
-    public $sekolahAsal;
-
-    public $users = [];
     public $ekstras = [];
 
     protected $rules =
@@ -64,10 +64,6 @@ class InputMinatBakat extends Component
 
     public function mount()
     {
-        $this->users = User::role('Calon Siswa')
-            ->orderBy('kode_daftar')
-            ->get();
-
         $this->ekstras = Ekstra::orderBy('nama')->get();
     }
 
@@ -75,35 +71,74 @@ class InputMinatBakat extends Component
     {
         $this->validate();
 
-        MinatBakat::updateOrCreate(
-            [
-                'mapel_unggul' => $this->mapelUnggul,
-                'mapel_rendah' => $this->mapelRendah,
-                'kehadiran' => $this->kehadiran,
-                'kenaikan' => $this->kenaikan,
-                'sikap' => $this->sikap,
-                'rata_rata' => $this->rataRata,
-                'smt_1' => $this->smt1,
-                'smt_2' => $this->smt2,
-                'smt_3' => $this->smt3,
-                'smt_4' => $this->smt4,
-                'smt_5' => $this->smt5,
-                'smt_6' => $this->smt6,
-                'smt_7' => $this->smt7,
-                'smt_8' => $this->smt8,
-                'smt_9' => $this->smt9,
-                'smt_10' => $this->smt10,
-                'smt_11' => $this->smt11,
-                'smt_12' => $this->smt12,
-                'non_akademik' => $this->nonAkademik,
-                'ekstra_id' => $this->ekstra,
-                'nilai' => $this->nilai,
-                'catatan' => $this->catatan
-            ],
-            [
-                'user_id' => $this->calonSiswa,
-                'panitia_id' => auth()->user()->id
-            ]
-        );
+        try {
+
+            $this->user->minatBakat()->updateOrCreate(
+                [],
+                [
+                    'panitia_id' => auth()->user()->id,
+                    'mapel_unggul' => $this->mapelUnggul,
+                    'mapel_rendah' => $this->mapelRendah,
+                    'kehadiran' => $this->kehadiran,
+                    'kenaikan' => $this->kenaikan,
+                    'sikap' => $this->sikap,
+                    'rata_rata' => $this->rataRata,
+                    'smt_1' => $this->smt1,
+                    'smt_2' => $this->smt2,
+                    'smt_3' => $this->smt3,
+                    'smt_4' => $this->smt4,
+                    'smt_5' => $this->smt5,
+                    'smt_6' => $this->smt6,
+                    'smt_7' => $this->smt7,
+                    'smt_8' => $this->smt8,
+                    'smt_9' => $this->smt9,
+                    'smt_10' => $this->smt10,
+                    'smt_11' => $this->smt11,
+                    'smt_12' => $this->smt12,
+                    'non_akademik' => $this->nonAkademik,
+                    'ekstra_id' => $this->ekstra,
+                    'nilai' => $this->nilai,
+                    'catatan' => $this->catatan
+                ]
+            );
+            $this->notification()->success(
+                $title = 'Berhasil Simpan',
+                $description = 'Berhasil Simpan Hasil Seleksi Minat dan Bakat'
+            );
+            $this->reset();
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+    }
+
+    public function updatedCalonSiswa()
+    {
+        $this->user = User::with(['sekolahSd', 'sekolahAsal', 'minatBakat'])
+            ->find($this->calonSiswa);
+        $this->nama = $this->user->name ?? '';
+        $this->sekolahDasar = $this->user->sekolahSd->nama ?? '';
+        $this->sekolahAsal = $this->user->sekolahAsal->nama ?? '';
+        $this->mapelUnggul = $this->user->minatBakat->mapel_unggul ?? '';
+        $this->mapelRendah = $this->user->minatBakat->mapel_rendah ?? '';
+        $this->kehadiran = $this->user->minatBakat->kehadiran ?? '';
+        $this->kenaikan = $this->user->minatBakat->kenaikan ?? '';
+        $this->sikap = $this->user->minatBakat->sikap ?? '';
+        $this->rataRata = $this->user->minatBakat->rata_rata ?? '';
+        $this->nonAkademik = $this->user->minatBakat->non_akademik ?? '';
+        $this->ekstra = $this->user->minatBakat->ekstra_id ?? '';
+        $this->smt1 = $this->user->minatBakat->smt_1 ?? '';
+        $this->smt2 = $this->user->minatBakat->smt_2 ?? '';
+        $this->smt3 = $this->user->minatBakat->smt_3 ?? '';
+        $this->smt4 = $this->user->minatBakat->smt_4 ?? '';
+        $this->smt5 = $this->user->minatBakat->smt_5 ?? '';
+        $this->smt6 = $this->user->minatBakat->smt_6 ?? '';
+        $this->smt7 = $this->user->minatBakat->smt_7 ?? '';
+        $this->smt8 = $this->user->minatBakat->smt_8 ?? '';
+        $this->smt9 = $this->user->minatBakat->smt_9 ?? '';
+        $this->smt10 = $this->user->minatBakat->smt_10 ?? '';
+        $this->smt11 = $this->user->minatBakat->smt_11 ?? '';
+        $this->smt12 = $this->user->minatBakat->smt_12 ?? '';
+        $this->catatan = $this->user->minatBakat->catatan ?? '';
+        $this->nilai = $this->user->minatBakat->nilai ?? '';
     }
 }

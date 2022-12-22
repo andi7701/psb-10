@@ -3,12 +3,14 @@
     <x-my-card class="flex space-y-4 flex-col ">
         <h2 class="mt-3 text-xl font-bold text-slate-600">Seleksi Minat dan Bakat</h2>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
-            <x-native-select wire:model="calonSiswa" label="Kode Daftar">
+            {{-- <x-native-select wire:model="calonSiswa" label="Kode Daftar">
                 <option value="">Pilih Kode Daftar</option>
                 @foreach ($users as $user)
                     <option value="{{ $user->id }}">{{ $user->kode_daftar }}</option>
                 @endforeach
-            </x-native-select>
+            </x-native-select> --}}
+            <x-select label="Calon Siswa" wire:model="calonSiswa" placeholder="Pilih Kode Daftar" :async-data="route('users-kode-daftar')"
+                option-label="kode_daftar" option-value="id" />
             <x-input wire:model.defer="nama" label="Nama Calon Siswa" disabled />
             <x-input wire:model.defer="sekolahDasar" label="Sekolah Dasar" class="font-bold " disabled />
             <x-input wire:model.defer="sekolahAsal" label="Sekolah Asal" class="font-bold " corner-hint="(Pindahan)"
@@ -57,8 +59,12 @@
             <x-native-select wire:model.defer='nilai' label="Rekomendasi Penilaian">
                 <option value="">Pilih Penilaian</option>
                 <option value="0">Tidak diterima</option>
-                <option value="1">Diterim</option>
+                <option value="1">Diterima</option>
             </x-native-select>
+        </div>
+        <div class="flex justify-end">
+            <x-button wire:click.prevent="simpan" positive label="simpan" spinner="simpan" loading-delay="short"
+                class="w-auto" />
         </div>
     </x-my-card>
 </div>

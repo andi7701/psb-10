@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('kode_daftar')->unique()->nullable();
             $table->string('password');
             $table->foreignId('user_id')->nullable();
+            $table->boolean('is_accepted')->nullable();
+            $table->boolean('can_exam')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

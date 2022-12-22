@@ -16,16 +16,16 @@ return new class extends Migration
         Schema::create('biodatas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->date('tanggal_daftar');
-            $table->string('tahun');
-            $table->string('tingkat');
+            $table->date('tanggal_daftar')->nullable();
+            $table->string('tahun')->nullable();
+            $table->string('tingkat')->nullable();
             $table->string('nik')->nullable();
             $table->string('nisn')->nullable();
-            $table->string('jenis_kelamin');
-            $table->string('tempat_lahir');
-            $table->date('tanggal_lahir');
-            $table->string('status');
-            $table->string('anak_ke');
+            $table->string('jenis_kelamin')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('status')->nullable();
+            $table->string('anak_ke')->nullable();
             $table->timestamps();
         });
     }

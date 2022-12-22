@@ -47,13 +47,23 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the agama associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function agama(): HasOne
+    {
+        return $this->hasOne(Agama::class)->withDefault();
+    }
+
+    /**
      * Get the alamat associated with the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function alamat(): HasOne
     {
-        return $this->hasOne(Alamat::class);
+        return $this->hasOne(Alamat::class)->withDefault();
     }
 
     /**
@@ -63,8 +73,30 @@ class User extends Authenticatable
      */
     public function biodata(): HasOne
     {
-        return $this->hasOne(Biodata::class);
+        return $this->hasOne(Biodata::class)->withDefault();
     }
+
+
+    /**
+     * Get the kesehatan associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function kesehatan(): HasOne
+    {
+        return $this->hasOne(Kesehatan::class)->withDefault();
+    }
+
+    /**
+     * Get the minatbakat associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function minatBakat(): HasOne
+    {
+        return $this->hasOne(MinatBakat::class)->withDefault();
+    }
+
 
     /**
      * Get the orangtua associated with the User
@@ -73,7 +105,7 @@ class User extends Authenticatable
      */
     public function orangTua(): HasOne
     {
-        return $this->hasOne(OrangTua::class);
+        return $this->hasOne(OrangTua::class)->withDefault();
     }
 
     /**
@@ -83,7 +115,7 @@ class User extends Authenticatable
      */
     public function sekolahSd(): HasOne
     {
-        return $this->hasOne(SekolahSd::class);
+        return $this->hasOne(SekolahSd::class)->withDefault();
     }
 
     /**
@@ -94,7 +126,7 @@ class User extends Authenticatable
 
     public function sekolahAsal(): HasOne
     {
-        return $this->hasOne(SekolahAsal::class);
+        return $this->hasOne(SekolahAsal::class)->withDefault();
     }
 
     /**
@@ -108,13 +140,24 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the wawancara associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function wawancara(): HasOne
+    {
+        return $this->hasOne(Wawancara::class)->withDefault();
+    }
+
+
+    /**
      * Get the wali associated with the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function wali(): HasOne
     {
-        return $this->hasOne(Wali::class);
+        return $this->hasOne(Wali::class)->withDefault();
     }
 
     /**
