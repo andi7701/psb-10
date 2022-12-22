@@ -3,7 +3,7 @@
     <x-my-card class="flex space-y-4 flex-col ">
         <h2 class="mt-3 text-xl font-bold text-slate-600">Seleksi Agama</h2>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
-            <x-select label="Calon Siswa" wire:model="calonSiswa" placeholder="Pilih Kode Daftar" :async-data="route('users-kode-daftar')"
+            <x-select label="Kode Pendaftaran" wire:model="calonSiswa" placeholder="Pilih Kode Daftar" :async-data="route('users-kode-daftar')"
                 option-label="kode_daftar" option-value="id" />
             <x-input wire:model.defer="nama" label="Nama Calon Siswa" disabled />
             <x-input wire:model.defer="sekolahDasar" label="Sekolah Dasar" class="font-bold " disabled />
