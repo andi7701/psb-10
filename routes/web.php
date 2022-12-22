@@ -6,6 +6,7 @@ use App\Http\Livewire\BuatRole;
 use App\Http\Livewire\Daftar;
 use App\Http\Livewire\DataPanitia;
 use App\Http\Livewire\DataPendaftar;
+use App\Http\Livewire\Exam;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\InputAgama;
 use App\Http\Livewire\InputKesehatan;
@@ -37,6 +38,9 @@ Route::get('daftar', Daftar::class)->name('daftar');
 Route::middleware('auth')->group(function () {
 
     Route::view('/dashboard', 'dashboard')->name('dashboard');
+
+    // Exam
+    Route::get('/exam', Exam::class)->name('exam');
 
     // API
     Route::get('/users-kode-daftar', [ApiController::class, 'usersKodeDaftar'])->name('users-kode-daftar');
