@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('answers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->foreignId('question_id');
             $table->integer('priority');
-            $table->string('foto')->nullable();
-            $table->text('body');
-            $table->text('answers');
-            $table->integer('correct');
+            $table->integer('answer')->nullable();
+            $table->boolean('is_correct')->default(0);
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('answers');
     }
 };

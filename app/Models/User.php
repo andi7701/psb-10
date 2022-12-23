@@ -15,6 +15,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -55,6 +56,18 @@ class User extends Authenticatable
     {
         return $this->hasOne(Agama::class)->withDefault();
     }
+
+
+    /**
+     * Get all of the answers for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function answers(): HasMany
+    {
+        return $this->hasMany(Answer::class);
+    }
+
 
     /**
      * Get the alamat associated with the User
