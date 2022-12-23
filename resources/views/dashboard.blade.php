@@ -19,9 +19,7 @@
                     <br>
                     Catat dan simpan nomor pendaftaran untuk konfirmasi dan tes seleksi di kampus SMP Al Musyaffa'
                 </p>
-            @endrole
-
-            @role('Admin')
+            @else
                 <p class="text-slate-600 text-justify">
                     Selamat datang di dashboard Sistem Seleksi Penerimaan Santri Baru SMP Al Musyaffa'<br>
                     Tahun Ajaran 2023 / 2024
