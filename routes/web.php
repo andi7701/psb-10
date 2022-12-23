@@ -50,10 +50,10 @@ Route::middleware('auth')->group(function () {
     // route for admin
     Route::middleware(['role:Admin'])->group(function () {
 
-        Route::get('/buat-role', BuatRole::class)->name('buat-role');
-        Route::get('/data-panitia', DataPanitia::class)->name('data-panitia');
-        Route::get('/data-pendaftar', DataPendaftar::class)->name('data-pendaftar');
-        Route::get('/pendaftaran', Pendaftaran::class)->name('pendaftaran');
+        Route::get('/admin/buat-role', BuatRole::class)->name('admin.buat-role');
+        Route::get('/admin/data-panitia', DataPanitia::class)->name('admin.data-panitia');
+        Route::get('/admin/data-pendaftar', DataPendaftar::class)->name('admin.data-pendaftar');
+        Route::get('/admin/pendaftaran', Pendaftaran::class)->name('admin.pendaftaran');
 
 
         // Tes Seleksi
@@ -80,6 +80,13 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:Kesehatan'])->group(function () {
 
         Route::get('/kesehatan/input-kesehatan', InputKesehatan::class)->name('kesehatan.input-kesehatan');
+    });
+
+    //route for Pendaftaran
+    Route::middleware(['role:Pendaftaran'])->group(function () {
+
+        Route::get('/pendaftaran/data-pendaftar', DataPendaftar::class)->name('pendaftaran.data-pendaftar');
+        Route::get('/pendaftaran/pendaftaran', Pendaftaran::class)->name('pendaftaran.pendaftaran');
     });
 
     // route for pengumuman
