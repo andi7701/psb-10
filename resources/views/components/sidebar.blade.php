@@ -30,7 +30,7 @@
         @endrole
 
         @role('Agama')
-            <x-sidebar-link :href="__('kesehatan.input-agama')" :label="__('input agama')" />
+            <x-sidebar-link :href="__('agama.input-agama')" :label="__('input agama')" />
         @endrole
 
         @role('Kesehatan')
