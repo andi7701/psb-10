@@ -1,5 +1,5 @@
 <div class='lg:flex lg:flex-row  p-5 lg:space-x-3 space-y-5 lg:space-y-0'>
-    <x-loading></x-loading>
+    {{-- <x-loading></x-loading> --}}
     <div class="basis-5/6 border-2 border-slate-700 space-y-3 p-5">
         <p class="text-slate-600">Soal {{ $priority }}/{{ $count }}</p>
         @if ($question->foto)
@@ -10,22 +10,21 @@
         </p>
         <ul>
             @foreach (json_decode($question->answers) as $index => $item)
-                @if (!is_null($answer))
-                    <li wire:click.prevent="choiceOption({{ $index }})"
-                        class="flex items-center space-x-3 hover:cursor-pointer ">
+                @if (!empty($answer))
+                    <div class="flex items-center space-x-3  ">
                         @if ($answer->answer === $index)
-                            <x-icon name="check-circle" class="w-6 h-6 text-white  fill-emerald-500" />
+                            <x-icon wire:click.prevent="choiceOption({{ $index }})"  name="check-circle"
+                                class="w-6 h-6 text-white  fill-emerald-500 hover:cursor-pointer" />
                         @else
-                            <x-icon name="stop" class="w-6 h-6" />
+                            <x-icon wire:click.prevent="choiceOption({{ $index }})" name="stop" class="w-6 h-6 hover:cursor-pointer" />
                         @endif
-                        <span>{{ $item }}</span>
-                    </li>
+                        <span wire:click.prevent="choiceOption({{ $index }})" class="hover:cursor-pointer">{{ $item }}</span>
+                    </div>
                 @else
-                    <li wire:click.prevent="choiceOption({{ $index }})"
-                        class="flex items-center space-x-3 hover:cursor-pointer ">
-                        <x-icon name="stop" class="w-6 h-6" />
-                        <span>{{ $item }}</span>
-                    </li>
+                    <div class="flex items-center space-x-3  ">
+                        <x-icon wire:click.prevent="choiceOption({{ $index }})" name="stop" class="w-6 h-6 hover:cursor-pointer" />
+                        <span wire:click.prevent="choiceOption({{ $index }})" class="hover:cursor-pointer">{{ $item }}</span>
+                    </div>
                 @endif
             @endforeach
         </ul>

@@ -103,15 +103,15 @@ class Exam extends Component
         dd($this->answers);
     }
 
-    public function getQuestion()
+    private function getQuestion()
     {
         $this->question =  Question::wherePriority($this->priority)->first();
     }
-    public function getQuestions()
+    private function getQuestions()
     {
         $this->questions =  Question::get();
     }
-    public function getAnswer()
+    private function getAnswer()
     {
         $this->answer = Answer::whereUserId(auth()->user()->id)
             ->wherePriority($this->priority)
