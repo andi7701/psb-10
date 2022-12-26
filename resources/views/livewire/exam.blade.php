@@ -10,9 +10,9 @@
         </p>
         <ul>
             @foreach (json_decode($question->answers) as $index => $item)
-                @if (!empty($answer))
+                @if (!is_null($answer))
                     <div class="flex items-center space-x-3  ">
-                        @if ($answer->answer === $index)
+                        @if ($answer->answer == $index)
                             <x-icon wire:click.prevent="choiceOption({{ $index }})"  name="check-circle"
                                 class="w-6 h-6 text-white  fill-emerald-500 hover:cursor-pointer" />
                         @else
