@@ -52,7 +52,8 @@
                         <td class="py-4 px-6">
                             {{ $user->panitia->name }}
                         </td>
-                        <td class="py-4 px-6">
+                        <td class="py-4 px-6 space-x-3 space-y-3">
+                            <a href="{{ route('admin.detail-pendaftar',[ 'user' => $user->id ]) }}" target="__blank" class=" border border-emerald-400" role="button">Detail</a>
                             <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                         </td>
                     </tr>

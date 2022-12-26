@@ -6,6 +6,7 @@ use App\Http\Livewire\BuatRole;
 use App\Http\Livewire\Daftar;
 use App\Http\Livewire\DataPanitia;
 use App\Http\Livewire\DataPendaftar;
+use App\Http\Livewire\DetailPendaftar;
 use App\Http\Livewire\Exam;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\InputAgama;
@@ -53,6 +54,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/buat-role', BuatRole::class)->name('admin.buat-role');
         Route::get('/admin/data-panitia', DataPanitia::class)->name('admin.data-panitia');
         Route::get('/admin/data-pendaftar', DataPendaftar::class)->name('admin.data-pendaftar');
+        Route::get('/admin/detail-pendaftar', DetailPendaftar::class)->name('admin.detail-pendaftar');
         Route::get('/admin/pendaftaran', Pendaftaran::class)->name('admin.pendaftaran');
 
 
@@ -86,6 +88,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:Pendaftaran'])->group(function () {
 
         Route::get('/pendaftaran/data-pendaftar', DataPendaftar::class)->name('pendaftaran.data-pendaftar');
+        Route::get('/pendaftaran/detail-pendaftar', DetailPendaftar::class)->name('pendaftaran.detail-pendaftar');
         Route::get('/pendaftaran/pendaftaran', Pendaftaran::class)->name('pendaftaran.pendaftaran');
     });
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->date('tanggal_daftar')->nullable();
+            $table->string('gelombang')->nullable();
             $table->string('tahun')->nullable();
             $table->string('tingkat')->nullable();
             $table->string('nik')->nullable();
