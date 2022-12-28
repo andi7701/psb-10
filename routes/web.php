@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/buat-role', BuatRole::class)->name('admin.buat-role');
         Route::get('/admin/data-panitia', DataPanitia::class)->name('admin.data-panitia');
         Route::get('/admin/data-pendaftar', DataPendaftar::class)->name('admin.data-pendaftar');
-        Route::get('/admin/detail-pendaftar', DetailPendaftar::class)->name('admin.detail-pendaftar');
+        Route::get('/admin/detail-pendaftar/{user}', DetailPendaftar::class)->name('admin.detail-pendaftar');
         Route::get('/admin/pendaftaran', Pendaftaran::class)->name('admin.pendaftaran');
 
 

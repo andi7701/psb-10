@@ -16,7 +16,7 @@ class DetailPendaftar extends Component
     use Actions;
     use GetData;
 
-    public $user;
+    public User $user;
 
     // Identitas Calon Siswa
     public $kodePendaftaran;
@@ -133,16 +133,6 @@ class DetailPendaftar extends Component
         $this->listProvinsiSekolahAsal = Province::orderBy('name')->get();
         $this->listProvinsiSekolahDasar = Province::orderBy('name')->get();
 
-        $this->user = User::with([
-            'alamat',
-            'biodata',
-            'orangTua',
-            'sekolahAsal',
-            'sekolahSd',
-            'wali'
-        ])
-            ->whereSlug(request('name'))->first();
-
         $this->kodePendaftaran = $this->user->kode_daftar;
         $this->nama = $this->user->name;
         $this->tingkat = $this->user->biodata->tingkat;
@@ -150,6 +140,43 @@ class DetailPendaftar extends Component
         $this->tempatLahir = $this->user->biodata->tempat_lahir;
         $this->tanggalLahir = $this->user->biodata->tanggal_lahir;
         $this->jenisKelamin = $this->user->biodata->jenis_kelamin;
+        $this->nisn = $this->user->biodata->nisn;
+        $this->status = $this->user->biodata->status;
+        $this->anakKe = $this->user->biodata->anak_ke;
+
+        $this->keterangan = $this->user->alamat->keterangan;
+        $this->provinsi = $this->user->alamat->provinsi;
+        $this->updatedProvinsi();
+        $this->kabupaten = $this->user->alamat->kabupaten;
+        $this->updatedKabupaten();
+        $this->kecamatan = $this->user->alamat->kecamatan;
+        $this->updatedKecamatan();
+        $this->desa = $this->user->alamat->desa;
+
+        $this->rt = $this->user->alamat->rt;
+        $this->rw = $this->user->alamat->rw;
+        $this->kodePos = $this->user->alamat->kode_pos;
+
+        $this->namaSekolahDasar = $this->user->sekolahSd->nama;
+        $this->provinsiSekolahDasar = $this->user->sekolahSd->provinsi;
+        $this->updatedProvinsiSekolahDasar();
+        $this->kabupatenSekolahDasar = $this->user->sekolahSd->kabupaten;
+        $this->updatedKabupatenSekolahDasar();
+        $this->kecamatanSekolahDasar = $this->user->sekolahSd->kecamatan;
+        $this->updatedKecamatanSekolahDasar();
+        $this->desaSekolahDasar = $this->user->sekolahSd->desa;
+
+        $this->namaSekolahAsal = $this->user->sekolahAsal->nama;
+        $this->provinsiSekolahAsal = $this->user->sekolahAsal->provinsi;
+        $this->updatedProvinsiSekolahAsal();
+        $this->kabupatenSekolahAsal = $this->user->sekolahAsal->kabupaten;
+        $this->updatedKabupatenSekolahAsal();
+        $this->kecamatanSekolahAsal = $this->user->sekolahAsal->kecamatan;
+        $this->updatedKecamatanSekolahAsal();
+        $this->desaSekolahAsal = $this->user->sekolahAsal->desa;
+
+        $this->namaAyah = $this->user->orangTua->nama_ayah;
+        
     }
 
     public function simpan()
