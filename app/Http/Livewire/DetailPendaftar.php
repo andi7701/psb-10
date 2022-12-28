@@ -19,7 +19,6 @@ class DetailPendaftar extends Component
     public $user;
 
     // Identitas Calon Siswa
-    public $kategoriPendaftar;
     public $kodePendaftaran;
     public $tahun;
     public $tingkat;
@@ -91,8 +90,7 @@ class DetailPendaftar extends Component
     public $teleponWali;
 
     protected $rules = [
-        'kategoriPendaftar' => 'required',
-        'kodePendaftaran' => 'required|unique:users,kode_daftar',
+        'kodePendaftaran' => 'required',
         'tingkat' => 'required',
         'nama' => 'required|string',
         'nisn' => 'required|numeric',
@@ -143,7 +141,15 @@ class DetailPendaftar extends Component
             'sekolahSd',
             'wali'
         ])
-            ->find(request('user'));
+            ->whereSlug(request('name'))->first();
+
+        $this->kodePendaftaran = $this->user->kode_daftar;
+        $this->nama = $this->user->name;
+        $this->tingkat = $this->user->biodata->tingkat;
+        $this->nik = $this->user->biodata->nik;
+        $this->tempatLahir = $this->user->biodata->tempat_lahir;
+        $this->tanggalLahir = $this->user->biodata->tanggal_lahir;
+        $this->jenisKelamin = $this->user->biodata->jenis_kelamin;
     }
 
     public function simpan()
@@ -155,17 +161,20 @@ class DetailPendaftar extends Component
 
             // DB::beginTransaction();
 
-            $user = User::create(
+            $user = User::updateOrCreate(
+                [
+                    'kode_daftar' => $this->kodePendaftaran,
+                ],
                 [
                     'name' => $this->nama,
                     'username' => $this->kodePendaftaran,
-                    'kode_daftar' => $this->kodePendaftaran,
                     'password' => bcrypt('123456789'),
                     'user_id' => auth()->user()->id
                 ]
             );
 
-            $user->alamat()->create(
+            $user->alamat()->updateOrCreate(
+                [],
                 [
                     'keterangan' => $this->keterangan,
                     'rt' => $this->rt,
@@ -178,8 +187,10 @@ class DetailPendaftar extends Component
                 ]
             );
 
-            $user->biodata()->create(
+            $user->biodata()->updateOrCreate(
+                [],
                 [
+                    // this tanggal daftar must be create
                     'tanggal_daftar' => date('Y-m-d'),
                     'tahun' => $this->tahun,
                     'tingkat' => $this->tingkat,
@@ -193,7 +204,8 @@ class DetailPendaftar extends Component
                 ]
             );
 
-            $user->orangTua()->create(
+            $user->orangTua()->updateOrCreate(
+                [],
                 [
                     'nama_ayah' => $this->namaAyah,
                     'pekerjaan_ayah' => $this->pekerjaanAyah,
@@ -206,19 +218,21 @@ class DetailPendaftar extends Component
                 ]
             );
 
-            if ($this->kategoriPendaftar == 'C' || $this->kategoriPendaftar == 'D') {
-                $user->sekolahAsal()->create(
-                    [
-                        'nama' => $this->namaSekolahAsal,
-                        'desa' => $this->desaSekolahAsal,
-                        'kecamatan' => $this->kecamatanSekolahAsal,
-                        'kabupaten' => $this->kabupatenSekolahAsal,
-                        'provinsi' => $this->provinsiSekolahAsal
-                    ]
-                );
-            }
+            // if ($this->kategoriPendaftar == 'C' || $this->kategoriPendaftar == 'D') {
+            $user->sekolahAsal()->updateOrCreate(
+                [],
+                [
+                    'nama' => $this->namaSekolahAsal,
+                    'desa' => $this->desaSekolahAsal,
+                    'kecamatan' => $this->kecamatanSekolahAsal,
+                    'kabupaten' => $this->kabupatenSekolahAsal,
+                    'provinsi' => $this->provinsiSekolahAsal
+                ]
+            );
+            // }
 
-            $user->sekolahSd()->create(
+            $user->sekolahSd()->updateOrCreate(
+                [],
                 [
                     'nama' => $this->namaSekolahDasar,
                     'desa' => $this->desaSekolahDasar,
@@ -228,7 +242,8 @@ class DetailPendaftar extends Component
                 ]
             );
 
-            $user->wali()->create(
+            $user->wali()->updateOrCreate(
+                [],
                 [
                     'nama' => $this->namaWali,
                     'pekerjaan' => $this->pekerjaanWali,
@@ -244,7 +259,7 @@ class DetailPendaftar extends Component
 
             $this->notification()->success(
                 $title = 'Berhasil Simpan',
-                $description = 'Data Calon Siswa Berhasil Disimpan'
+                $description = 'Data Calon Siswa Berhasil diUpdate'
             );
         } catch (\Throwable $th) {
 
@@ -254,16 +269,6 @@ class DetailPendaftar extends Component
         }
     }
 
-    // Updated For Kategori Pendaftar
-    public function updatedKategoriPendaftar()
-    {
-        $this->kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
-        if ($this->kategoriPendaftar == 'A' || $this->kategoriPendaftar == 'C') {
-            $this->jenisKelamin = 'L';
-        } else {
-            $this->jenisKelamin = 'P';
-        }
-    }
 
     // Updated Property For Alamat
     public function updatedProvinsi()

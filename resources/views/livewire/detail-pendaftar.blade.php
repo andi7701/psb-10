@@ -7,13 +7,6 @@
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer="kodePendaftaran" label="Kode Pendaftaran" class="font-bold " disabled />
             <x-input wire:model.defer="nama" label="Nama Lengkap" />
-            <x-native-select wire:model="kategoriPendaftar" label="Pendaftaran Siswa">
-                <option value="">Pilih Kategori</option>
-                <option value="A">Baru Putra</option>
-                <option value="B">Baru Putri</option>
-                <option value="C">Pindahan Putra</option>
-                <option value="D">Pindahan Putri</option>
-            </x-native-select>
             <x-native-select wire:model.defer="tingkat" label="Pendaftaran Kelas">
                 <option value="">Pilih Tingkat</option>
                 <option value="7">7</option>
@@ -25,7 +18,7 @@
             <x-input wire:model.defer="nik" label="NIK" />
             <x-input wire:model.defer="tempatLahir" label="Tempat Lahir" />
             <x-input wire:model.defer="tanggalLahir" label="Tanggal Lahir" type="date" />
-            <x-native-select wire:model.defer="jenisKelamin" label="Jenis Kelamin" disabled>
+            <x-native-select wire:model.defer="jenisKelamin" label="Jenis Kelamin" >
                 <option value="">Jenis Kelamin</option>
                 <option value="L">Laki - Laki</option>
                 <option value="P">Perempuan</option>
@@ -117,7 +110,7 @@
 
     {{-- Data Sekolah Asal --}}
     <x-my-card
-        class="{{ $kategoriPendaftar == 'A' || $kategoriPendaftar == 'B' || $kategoriPendaftar == '' ? 'hidden' : 'flex space-y-4 flex-col' }}">
+        class="flex space-y-4 flex-col">
         <h2 class="mt-2 text-xl font-bold text-slate-600">Data Sekolah Asal Pindahan</h2>
         <div class="llg:grid lg:grid-cols-2 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer="namaSekolahAsal" label="Nama Sekolah Asal" />

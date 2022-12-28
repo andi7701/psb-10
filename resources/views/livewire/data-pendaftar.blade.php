@@ -53,7 +53,7 @@
                             {{ $user->panitia->name }}
                         </td>
                         <td class="py-4 px-6 space-x-3 space-y-3">
-                            <a href="{{ route('admin.detail-pendaftar',[ 'user' => $user->id ]) }}" target="__blank" class=" border border-emerald-400" role="button">Detail</a>
+                            <a href="{{ route('admin.detail-pendaftar',[ 'name' => $user->slug ]) }}" target="__blank" class=" border-2 border-emerald-400 p-2 rounded-md bg-emerald-400 text-white hover:bg-emerald-500 hover:border-emerald-500 focus:border-emerald-600" role="button">Detail</a>
                             <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                         </td>
                     </tr>

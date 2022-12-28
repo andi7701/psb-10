@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('username')->unique()->nullable();
             $table->string('kode_daftar')->unique()->nullable();
             $table->string('password');
+            $table->string('slug');
             $table->foreignId('user_id')->nullable();
             $table->boolean('terukur')->default(0);
             $table->boolean('diterima')->nullable();

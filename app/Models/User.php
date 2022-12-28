@@ -9,6 +9,7 @@ use App\Models\Biodata;
 use App\Models\OrangTua;
 use App\Models\SekolahSd;
 use App\Models\SekolahAsal;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -22,7 +23,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -35,6 +36,7 @@ class User extends Authenticatable
         'kode_daftar',
         'password',
         'user_id',
+        'slug'
     ];
 
     /**
@@ -172,6 +174,22 @@ class User extends Authenticatable
     {
         return $this->hasOne(Wali::class)->withDefault();
     }
+
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
 
     /**
      * Interact with the user's name.
