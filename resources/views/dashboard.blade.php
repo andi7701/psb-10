@@ -25,7 +25,7 @@
                     <br>
                 <ul class="text-slate-600 font-bold">
                     <li class="list-disc">Gelombang I : Tanggal 6 Januari 2023 - 27 Januari 2023</li>
-                    <li class="list-disc">Waktu : Setiap jum'at pukul 07.00 - 13.00 WIB</li>
+                    <li class="list-disc">Waktu : Setiap jum'at pukul 07.00 - 12.30 WIB</li>
                 </ul>
                 </p>
             @else

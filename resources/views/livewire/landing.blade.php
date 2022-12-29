@@ -59,11 +59,13 @@
         @include('partials.gelombang-atas')
 
         {{-- Table Pendaftar --}}
-        @include('partials.table-pendaftar')
+        @include('partials.table-pendaftar-landing')
 
         {{-- Section --}}
         @include('partials.jadwal')
         @include('partials.seleksi')
+        @include('partials.alur-pendaftaran')
+        @include('partials.beasiswa')
         @include('partials.profil')
     </div>
 </div>
@@ -94,7 +96,7 @@
             </g>
         </g>
     </svg>
-    
+
     @include('partials.segera-daftar')
 
     @include('partials.footer')
