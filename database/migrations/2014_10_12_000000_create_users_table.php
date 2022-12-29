@@ -19,11 +19,13 @@ return new class extends Migration
             $table->string('username')->unique()->nullable();
             $table->string('kode_daftar')->unique()->nullable();
             $table->string('password');
+            $table->date('tanggal_daftar')->nullable();
             $table->string('slug');
             $table->foreignId('user_id')->nullable();
             $table->boolean('terukur')->default(0);
             $table->boolean('diterima')->nullable();
             $table->boolean('sudah_test')->default(0);
+            $table->boolean('sudah_gaya')->default(0);
             $table->boolean('boleh_test')->default(0);
             $table->rememberToken();
             $table->timestamps();

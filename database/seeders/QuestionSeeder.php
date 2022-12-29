@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Gaya;
 use App\Models\Question;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -131,7 +132,7 @@ class QuestionSeeder extends Seeder
                 [
                     'priority' => 15,
                     'body' => '	The colour of apple is...',
-                    'answers' => json_encode([60, 75, 100, 125]),
+                    'answers' => json_encode(['Yellow', 'Green', 'Red', 'Orange']),
                     'correct' => 2,
                     'foto' => '15.jpg'
                 ],
@@ -178,6 +179,121 @@ class QuestionSeeder extends Seeder
                 'answers' => $item['answers'],
                 'correct' => $item['correct'],
                 'foto' => $item['foto']
+            ]);
+        }
+
+        $gayas = [
+            [
+                'priority' => 1,
+                'body' => 'Jika hendak menghadapi ulangan, maka kamu...',
+                'answers' => json_encode([
+                    'Membaca catatan yang telah kamu buat, serta memperhatikan diagram atau gambar yang berkaitan dengan materi yang diujikan',
+                    'Meminta orang lain untuk memberinya pertanyaan tentang materi yang dipelajari',
+                    'Membuat ringkasan berupa diagram atau gambar'
+                ])
+            ], [
+
+
+                'priority' => 2,
+                'body' => 'Jika mendengar musik atau lagu yang kamu sukai, biasanya kamu akan...',
+                'answers' => json_encode([
+                    'Menghayati lagu yang didengar (seperti memejamkan mata, melamun dsb)',
+                    'Bergumam mengikuti lagu',
+                    'Bergoyang mengikuti irama lagu'
+                ]),
+            ], [
+
+
+                'priority' => 3,
+                'body' => 'Jika menghadapi banyak tugas, maka kamu akan...',
+                'answers' => json_encode([
+                    'Membuat daftar tugas dan menentukan mana yang kamu akan kerjakan terlebih dahulu',
+                    'Membicarakannya dengan orang tua atau temanmu apa yang sebaiknya kamu lakukan',
+                    'Membuat daftar tugas dan kemudian menuliskan cara-cara kamu akan menyelesaikan tugas-tugas tersebut'
+                ]),
+
+            ], [
+
+                'priority' => 4,
+                'body' => 'Apa bacaan favorit kamu ?',
+                'answers' => json_encode([
+                    'Komik atau buku cerita dengan banyak gambar',
+                    'Buku-buku misteri dengan banyak percakapan di dalamnya',
+                    'Buku apa saja yang menarik hatimu. Terutama jika isi buku itu adalah jawaban dari pertanyaan-pertanyaan yang kamu cari (misal buku tentang bagaimana memenangkan sebuah game online)'
+                ]),
+            ], [
+
+                'priority' => 5,
+                'body' => 'Mainan/ barang kesayanganmu rusak. Maka kamu akan ...',
+                'answers' => json_encode([
+                    'Membaca buku petunjuk untuk memperbaiki',
+                    'Mendatangi teman-temanmu untuk meminta tolong memperbaiki bersama-sama',
+                    'Membiarkannya dan berusaha memperbaiki sendiri'
+                ]),
+            ], [
+
+
+                'priority' => 6,
+                'body' => 'Jika kamu ke tempat wahan permainan baru, maka kamu akan ...',
+                'answers' => json_encode([
+                    'Melihat-lihat sekeliling terlebih dahulu, mengamati petunjuk permainan, dan baru memilih salah satu permainan',
+                    'Bertanya kepada petugas penjaga dan memintanya memberi saran permainan mana yang paling asik untuk dimainkan pertama kali',
+                    'Langsung mencoba permainan yang dianggap paling menarik'
+                ]),
+            ], [
+
+                'priority' => 7,
+                'body' => 'Kegiatan ekstra kurikuler apa yang kamu sukai?',
+                'answers' => json_encode([
+                    'Menggambar, membuat prakarya',
+                    'Musik',
+                    'Olah Raga'
+                ]),
+            ], [
+
+                'priority' => 8,
+                'body' => 'Apa reaksimu saat kamu merasa bahagia?',
+                'answers' => json_encode([
+                    'Santai dan hanya tersenyum lebar',
+                    'Berteriak kegirangan',
+                    'Melompat-lompat senang'
+                ]),
+            ], [
+
+                'priority' => 9,
+                'body' => 'Jika kamu ditanya orang lain tentang suasana kelas di hari pertama kamu masuk sekolah, kira-kira apa yang akan kamu jawab?',
+                'answers' => json_encode([
+                    'Menggambarkan apa saja yang ada dikelas, berapa orang yang ada didalamnya, namun kamu tak mampu menyebutkan nama meski seseorang baru yang duduk disebelahnya',
+                    'Kamu dapat menggambarkan suasana dengan baik, namun ceritanya lebih terfokus kepada siapa saja teman barumu dan seperti apakah ia',
+                    'Hanya bercerita keadaan dan perasaanmu saja'
+                ]),
+            ], [
+
+                'priority' => 10,
+                'body' => 'Jika mendapat tugas untuk bercerita tentang pengalaman liburan, maka kamu akan ...',
+                'answers' => json_encode([
+                    'Menuliskannya dengan lengkap dan detil',
+                    'Menawar atau berkata “Langsung cerita saja, ya, Bu.”',
+                    'Fokus ceritanya lebih kepada apa yang kamu lakukan selama liburan'
+                ]),
+            ], [
+
+                'priority' => 11,
+                'body' => 'Hal apakah yang paling dapat mengganggu konsentrasi kamu?',
+                'answers' => json_encode([
+                    'Gambar atau apa saja yang melintas di depannya',
+                    'Aneka suara',
+                    'Perasaan seperti lapar, haus, cemas dsb'
+                ]),
+
+            ]
+        ];
+
+        foreach ($gayas as $gaya) {
+            Gaya::create([
+                'priority' => $gaya['priority'],
+                'body' => $gaya['body'],
+                'answers' => $gaya['answers']
             ]);
         }
     }

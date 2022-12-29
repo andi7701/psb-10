@@ -30,6 +30,7 @@ class Pendaftaran extends Component
     public $jenisKelamin;
     public $status;
     public $anakKe;
+    public $gelombang;
 
     // Alamat
     public $keterangan;
@@ -121,13 +122,17 @@ class Pendaftaran extends Component
         'telepon' => 'required',
     ];
 
+
+    public $sekarang;
+
     public function render()
     {
         return view('livewire.pendaftaran');
     }
 
     public function mount()
-    {   
+    {
+        $this->sekarang = now();
         $this->tahun = $this->get_data_tahun();
         $this->tanggalLahir = date('Y-m-d');
         $this->listProvinsi = Province::orderBy('name')->get();
@@ -150,6 +155,7 @@ class Pendaftaran extends Component
                     'username' => $this->kodePendaftaran,
                     'kode_daftar' => $this->kodePendaftaran,
                     'password' => bcrypt('123456789'),
+                    'tanggal_daftar' => date('Y-m-d'),
                     'user_id' => auth()->user()->id
                 ]
             );
@@ -167,9 +173,16 @@ class Pendaftaran extends Component
                 ]
             );
 
+            if (now() < date('2023-01-28')) {
+                $this->gelombang = 1;
+            } elseif (now() < date('2023-02-25')) {
+                $this->gelombang = 2;
+            } else {
+                $this->gelombang = 3;
+            }
             $user->biodata()->create(
                 [
-                    'tanggal_daftar' => date('Y-m-d'),
+                    'gelombang' => $this->gelombang,
                     'tahun' => $this->tahun,
                     'tingkat' => $this->tingkat,
                     'nik' => $this->nik,
@@ -226,22 +239,20 @@ class Pendaftaran extends Component
                 ]
             );
 
-            
+
             // DB::commit();
 
             $user->assignRole('Calon Siswa');
-            
+
             $this->notification()->success(
                 $title = 'Berhasil Simpan',
                 $description = 'Data Calon Siswa Berhasil Disimpan'
             );
-
         } catch (\Throwable $th) {
-            
-            // DB::rollBack();
-            
-            dd($th);
 
+            // DB::rollBack();
+
+            dd($th);
         }
     }
 
@@ -249,11 +260,16 @@ class Pendaftaran extends Component
     public function updatedKategoriPendaftar()
     {
         $this->kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
-        if($this->kategoriPendaftar == 'A' || $this->kategoriPendaftar == 'C')
-        {
+        if ($this->kategoriPendaftar == 'A' || $this->kategoriPendaftar == 'C') {
             $this->jenisKelamin = 'L';
-        }else{
+        } else {
             $this->jenisKelamin = 'P';
+        }
+        
+        if ($this->kategoriPendaftar == 'A' || $this->kategoriPendaftar == 'B') {
+            $this->tingkat = 7;
+        } else {
+            $this->tingkat = '';
         }
     }
 
@@ -298,5 +314,4 @@ class Pendaftaran extends Component
     {
         $this->listDesaSekolahDasar = Village::where('district_code', $this->kecamatanSekolahDasar)->orderBy('name')->get();
     }
-
 }

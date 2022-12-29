@@ -1,6 +1,6 @@
 <div class="flex flex-col space-y-7 mb-10">
     <x-loading-simpan></x-loading-simpan>
-    <h2 class="text-2xl font-bold text-slate-600">Form Pendaftaran Calon Siswa</h2> 
+    <h2 class="text-2xl font-bold text-slate-600">Form Pendaftaran Calon Siswa</h2>
     {{-- Identitas Siswa --}}
     <x-my-card class="flex space-y-4 flex-col ">
         <h2 class="mt-3 text-xl font-bold text-slate-600">A. Identitas Calon Siswa</h2>

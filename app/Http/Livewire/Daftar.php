@@ -155,6 +155,7 @@ class Daftar extends Component
                     'username' => $this->kodePendaftaran,
                     'kode_daftar' => $this->kodePendaftaran,
                     'password' => bcrypt('123456789'),
+                    'tanggal_daftar' => date('Y-m-d'),
                     'user_id' => 0
                 ]
             );
@@ -172,9 +173,17 @@ class Daftar extends Component
                 ]
             );
 
+            if (now() < date('2023-01-28')) {
+                $this->gelombang = 1;
+            } elseif (now() < date('2023-02-25')) {
+                $this->gelombang = 2;
+            } else {
+                $this->gelombang = 3;
+            }
+
             $user->biodata()->create(
                 [
-                    'tanggal_daftar' => date('Y-m-d'),
+                    'gelombang' => $this->gelombang,
                     'tahun' => $this->tahun,
                     'tingkat' => $this->tingkat,
                     'nik' => $this->nik,

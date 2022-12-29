@@ -35,8 +35,14 @@ class User extends Authenticatable
         'username',
         'kode_daftar',
         'password',
+        'tanggal_daftar',
+        'slug',
         'user_id',
-        'slug'
+        'terukur',
+        'diterima',
+        'sudah_test',
+        'sudah_gaya',
+        'boleh_test'
     ];
 
     /**
