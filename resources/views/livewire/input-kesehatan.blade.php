@@ -33,7 +33,6 @@
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer='sehat' label='Punya penyakit' corner-hint="(penyakit dalam, sehat)" />
             <x-input wire:model.defer='darah' label='Golongan darah' />
-            <x-input wire:model.defer='kesopanan' label='Kesopanan' />
             <x-native-select wire:model.defer='nilai' label="Rekomendasi Penilaian">
                 <option value="">Pilih Penilaian</option>
                 <option value="0">Tidak diterima</option>

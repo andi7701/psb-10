@@ -88,7 +88,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:Pendaftaran'])->group(function () {
 
         Route::get('/pendaftaran/data-pendaftar', DataPendaftar::class)->name('pendaftaran.data-pendaftar');
-        Route::get('/pendaftaran/detail-pendaftar', DetailPendaftar::class)->name('pendaftaran.detail-pendaftar');
+        Route::get('/pendaftaran/detail-pendaftar/{user}', DetailPendaftar::class)->name('pendaftaran.detail-pendaftar');
         Route::get('/pendaftaran/pendaftaran', Pendaftaran::class)->name('pendaftaran.pendaftaran');
     });
 

@@ -27,7 +27,6 @@ return new class extends Migration
             $table->boolean('rokok')->nullable();
             $table->string('sehat')->nullable();
             $table->string('darah')->nullable();
-            $table->string('kesopanan')->nullable();
             $table->integer('nilai')->nullable();
             $table->string('catatan')->nullable();
             $table->timestamps();

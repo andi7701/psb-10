@@ -176,7 +176,18 @@ class DetailPendaftar extends Component
         $this->desaSekolahAsal = $this->user->sekolahAsal->desa;
 
         $this->namaAyah = $this->user->orangTua->nama_ayah;
-        
+        $this->pekerjaanAyah = $this->user->orangTua->pekerjaan_ayah;
+        $this->namaIbu = $this->user->orangTua->nama_ibu;
+        $this->pekerjaanIbu = $this->user->orangTua->pekerjaan_ibu;
+        $this->telepon = $this->user->orangTua->telepon;
+        $this->penghasilan = $this->user->orangTua->penghasilan;
+        $this->noKps = $this->user->orangTua->no_kps;
+        $this->noKip = $this->user->orangTua->no_kip;
+
+        $this->namaWali = $this->user->wali->nama;
+        $this->pekerjaanWali = $this->user->wali->pekerjaan;
+        $this->teleponWali = $this->user->wali->telepon;
+        $this->alamatWali = $this->user->wali->alamat;
     }
 
     public function simpan()

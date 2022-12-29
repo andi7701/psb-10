@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('tajwid')->nullable();
             $table->string('qunut')->nullable();
             $table->string('tahiyat')->nullable();
-            $table->string('kesopanan')->nullable();
+            $table->string('tulisan')->nullable();
+            $table->string('nilai_quran')->nullable();
             $table->string('catatan')->nullable();
             $table->integer('nilai');
             $table->timestamps();

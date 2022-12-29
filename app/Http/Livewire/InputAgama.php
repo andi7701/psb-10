@@ -22,7 +22,8 @@ class InputAgama extends Component
     public $tajwid;
     public $qunut;
     public $tahiyat;
-    public $kesopanan;
+    public $tulisan;
+    public $nilaiQuran;
     public $catatan;
     public $nilai;
 
@@ -34,7 +35,8 @@ class InputAgama extends Component
         'tajwid' => 'required',
         'qunut' => 'required',
         'tahiyat' => 'required',
-        'kesopanan' => 'required',
+        'tulisan' => 'required',
+        'nilaiQuran' => 'required',
         'catatan' => 'required',
         'nilai' => 'required',
     ];
@@ -57,7 +59,8 @@ class InputAgama extends Component
         $this->tajwid = $this->user->agama->tajwid;
         $this->qunut = $this->user->agama->qunut;
         $this->tahiyat = $this->user->agama->tahiyat;
-        $this->kesopanan = $this->user->agama->kesopanan;
+        $this->tulisan = $this->user->agama->tulisan;
+        $this->nilaiQuran = $this->user->agama->nilai_quran;
         $this->catatan = $this->user->agama->catatan;
         $this->nilai = $this->user->agama->nilai;
     }
@@ -77,7 +80,8 @@ class InputAgama extends Component
                     'tajwid' => $this->tajwid,
                     'qunut' => $this->qunut,
                     'tahiyat' => $this->tahiyat,
-                    'kesopanan' => $this->kesopanan,
+                    'tulisan' => $this->tulisan,
+                    'nilai_quran' => $this->nilaiQuran,
                     'catatan' => $this->catatan,
                     'nilai' => $this->nilai,
                 ]

@@ -27,7 +27,6 @@ class InputKesehatan extends Component
     public $rokok;
     public $sehat;
     public $darah;
-    public $kesopanan;
     public $nilai;
     public $catatan;
 
@@ -44,7 +43,6 @@ class InputKesehatan extends Component
         'rokok' => 'required',
         'sehat' => 'required',
         'darah' => 'required',
-        'kesopanan' => 'required',
         'nilai' => 'required',
         'catatan' => 'required',
     ];
@@ -72,7 +70,6 @@ class InputKesehatan extends Component
         $this->ngompol = $this->user->kesehatan->ngompol ?? '';
         $this->rokok = $this->user->kesehatan->rokok ?? '';
         $this->darah = $this->user->kesehatan->darah ?? '';
-        $this->kesopanan = $this->user->kesehatan->kesopanan ?? '';
         $this->nilai = $this->user->kesehatan->nilai ?? '';
         $this->catatan = $this->user->kesehatan->catatan ?? '';
     }
@@ -97,7 +94,6 @@ class InputKesehatan extends Component
                     'rokok' => $this->rokok,
                     'sehat' => $this->sehat,
                     'darah' => $this->darah,
-                    'kesopanan' => $this->kesopanan,
                     'nilai' => $this->nilai,
                     'catatan' => $this->catatan,
                 ]

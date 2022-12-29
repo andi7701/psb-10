@@ -18,7 +18,19 @@
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer='tahiyat' label='Tahiyat akhir' />
-            <x-input wire:model.defer='kesopanan' label='Kesopanan' />
+            <x-native-select wire:model.defer='tulisan' label="Tulisan">
+                <option value="">Pilih Penilaian</option>
+                <option value="baik">Baik</option>
+                <option value="sedang">Sedang</option>
+                <option value="kurang">Kurang</option>
+            </x-native-select>
+            <x-native-select wire:model.defer='nilaiQuran' label="Nilai Al-Qur'an">
+                <option value="">Pilih Penilaian</option>
+                <option value="baik">Baik</option>
+                <option value="sedang">Sedang</option>
+                <option value="kurang">Kurang</option>
+                <option value="sangat kurang">Sangat Kurang</option>
+            </x-native-select>
             <x-native-select wire:model.defer='nilai' label="Rekomendasi Penilaian">
                 <option value="">Pilih Penilaian</option>
                 <option value="0">Tidak diterima</option>

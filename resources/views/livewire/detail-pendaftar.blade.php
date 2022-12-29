@@ -1,5 +1,12 @@
 <div class="flex flex-col space-y-7 mb-10">
     <x-loading-simpan></x-loading-simpan>
+    <div>
+        @role('Admin')
+            <x-button href="{{ route('admin.data-pendaftar') }}" secondary label="Kembali" icon="chevron-left" />
+        @else
+            <x-button href="{{ route('pendaftaran.data-pendaftar') }}" secondary label="Kembali" icon="chevron-left" />
+        @endrole
+    </div>
     <h2 class="text-2xl font-bold text-slate-600">Form Detail Calon Siswa</h2>
     {{-- Identitas Siswa --}}
     <x-my-card class="flex space-y-4 flex-col ">
@@ -18,7 +25,7 @@
             <x-input wire:model.defer="nik" label="NIK" />
             <x-input wire:model.defer="tempatLahir" label="Tempat Lahir" />
             <x-input wire:model.defer="tanggalLahir" label="Tanggal Lahir" type="date" />
-            <x-native-select wire:model.defer="jenisKelamin" label="Jenis Kelamin" >
+            <x-native-select wire:model.defer="jenisKelamin" label="Jenis Kelamin">
                 <option value="">Jenis Kelamin</option>
                 <option value="L">Laki - Laki</option>
                 <option value="P">Perempuan</option>
@@ -109,8 +116,7 @@
     </x-my-card>
 
     {{-- Data Sekolah Asal --}}
-    <x-my-card
-        class="flex space-y-4 flex-col">
+    <x-my-card class="flex space-y-4 flex-col">
         <h2 class="mt-2 text-xl font-bold text-slate-600">Data Sekolah Asal Pindahan</h2>
         <div class="llg:grid lg:grid-cols-2 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer="namaSekolahAsal" label="Nama Sekolah Asal" />
@@ -168,7 +174,12 @@
             <x-textarea wire:model.defer='alamatWali' label='Alamat Wali' />
         </div>
     </x-my-card>
-    <div class="grid justify-items-end">
+    <div class="flex space-x-3 items-center justify-end">
+        @role('Admin')
+        <x-button href="{{ route('admin.data-pendaftar') }}" negative label="Batal" />
+        @else
+        <x-button href="{{ route('pendaftaran.data-pendaftar') }}" negative label="Batal" />
+        @endrole
         <x-button wire:click.prevent="simpan" positive label="Simpan" spinner="simpan" loading-delay="long" />
     </div>
 </div>
