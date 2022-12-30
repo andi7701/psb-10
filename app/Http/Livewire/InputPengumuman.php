@@ -30,6 +30,7 @@ class InputPengumuman extends Component
         'kesehatan' => 'required',
         'minatBakat' => 'required',
         'wawancara' => 'required',
+        'akademik' => 'required'
     ];
 
     public function render()
@@ -42,13 +43,14 @@ class InputPengumuman extends Component
         $this->user = User::with(['agama', 'kesehatan', 'minatBakat', 'sekolahAsal', 'sekolahSd', 'wawancara'])
             ->find($this->calonSiswa);
 
-        $this->nama = $this->user->name;
+        $this->nama = $this->user->name ?? '';
         $this->sekolahAsal = $this->user->sekolahAsal->nama ?? '';
         $this->sekolahDasar = $this->user->sekolahSd->nama ?? '';
         $this->agama = $this->user->agama->nilai ?? '';
         $this->kesehatan = $this->user->kesehatan->nilai ?? '';
         $this->minatBakat = $this->user->minatBakat->nilai ?? '';
         $this->wawancara = $this->user->wawancara->nilai ?? '';
+        $this->akademik = $this->user->akademik->nilai ?? '';
 
         if ($this->agama && $this->kesehatan && $this->minatBakat && $this->wawancara && $this->akademik) {
             $this->lulus = 1;
@@ -63,8 +65,8 @@ class InputPengumuman extends Component
 
         try {
 
-            $this->user->is_accepted = $this->lulus;
-            $this->user->panitiaPengumuman = auth()->user()->id;
+            $this->user->diterima = $this->lulus;
+            $this->user->pengumuman = auth()->user()->id;
             $this->user->save();
 
             $this->notification()->success(

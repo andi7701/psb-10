@@ -16,7 +16,7 @@ class HasilWawancaraTolak extends Component
                 'wawancara',
                 'wawancara.user',
             ])
-                ->whereHas('wawancara', fn ($q) => $q->whereNilai(1))
+                ->whereHas('wawancara', fn ($q) => $q->whereNilai(0))
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
                 ->paginate(10)
         ]);

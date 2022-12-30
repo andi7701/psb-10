@@ -21,7 +21,7 @@
             <x-native-select wire:model.defer='kondisiKeluarga' label="Kondisi Keluarga">
                 <option value="">Pilih Kondisi</option>
                 @foreach (App\Enums\KondisiKeluarga::cases() as $item)
-                <option value="{{ $item->value }}">{{ $item->value }}</option>
+                <option value="{{ $item->value }}">{{ Str::ucfirst($item->value) }}</option>
                 @endforeach
             </x-native-select>
             <x-input wire:model.defer='statusAnak' label='Status anak' corner-hint="(Kandung, Tiri)" />
@@ -39,13 +39,13 @@
             <x-native-select wire:model.defer='kondisiAyah' label="Kondisi Ayah">
                 <option value="">Pilih Kondisi</option>
                 @foreach (App\Enums\KondisiOrangTua::cases() as $item)
-                <option value="{{ $item->value }}">{{ $item->value }}</option>
+                <option value="{{ $item->value }}">{{ Str::ucfirst($item->value) }}</option>
                 @endforeach
             </x-native-select>
             <x-native-select wire:model.defer='kondisiIbu' label="Kondisi Ibu">
                 <option value="">Pilih Kondisi</option>
                 @foreach (App\Enums\KondisiOrangTua::cases() as $item)
-                <option value="{{ $item->value }}">{{ $item->value }}</option>
+                <option value="{{ $item->value }}">{{ Str::ucfirst($item->value) }}</option>
                 @endforeach
             </x-native-select>
         </div>

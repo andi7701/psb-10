@@ -20,7 +20,8 @@ class HasilTes extends Component
         return view('livewire.hasil-tes', [
             'listUser' =>  User::with([
                 'answers',
-                'jawabGaya'
+                'jawabGaya',
+                'akademik'
             ])
                 ->withCount([
                     'answers as benar' => fn ($q)
