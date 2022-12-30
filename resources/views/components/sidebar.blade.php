@@ -36,6 +36,8 @@
 
         @role('Agama')
             <x-sidebar-link :href="__('agama.input-agama')" :label="__('input agama')" />
+            <x-sidebar-link :href="__('agama.hasil-diterima')" :label="__('hasil diterima')" />
+            <x-sidebar-link :href="__('agama.hasil-ditolak')" :label="__('hasil ditolak')" />
         @endrole
 
         @role('Akademik')
@@ -47,10 +49,14 @@
 
         @role('Kesehatan')
             <x-sidebar-link :href="__('kesehatan.input-kesehatan')" :label="__('input kesehatan')" />
+            <x-sidebar-link :href="__('kesehatan.hasil-diterima')" :label="__('hasil diterima')" />
+            <x-sidebar-link :href="__('kesehatan.hasil-ditolak')" :label="__('hasil ditolak')" />
         @endrole
 
         @role('Minat Bakat')
             <x-sidebar-link :href="__('minat-bakat.input-minat-bakat')" :label="__('input minat bakat')" />
+            <x-sidebar-link :href="__('minat-bakat.hasil-diterima')" :label="__('hasil diterima')" />
+            <x-sidebar-link :href="__('minat-bakat.hasil-ditolak')" :label="__('hasil ditolak')" />
         @endrole
 
         @role('Pengumuman')

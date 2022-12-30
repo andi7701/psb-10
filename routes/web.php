@@ -9,8 +9,16 @@ use App\Http\Livewire\DataPanitia;
 use App\Http\Livewire\DataPendaftar;
 use App\Http\Livewire\DetailPendaftar;
 use App\Http\Livewire\Exam;
+use App\Http\Livewire\HasilAgamaTerima;
+use App\Http\Livewire\HasilAgamaTolak;
+use App\Http\Livewire\HasilAkademikTerima;
+use App\Http\Livewire\HasilAkademikTolak;
 use App\Http\Livewire\HasilDiterima;
 use App\Http\Livewire\HasilDitolak;
+use App\Http\Livewire\HasilKesehatanTerima;
+use App\Http\Livewire\HasilKesehatanTolak;
+use App\Http\Livewire\HasilMinatTerima;
+use App\Http\Livewire\HasilMinatTolak;
 use App\Http\Livewire\HasilTes;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\InputAgama;
@@ -20,6 +28,7 @@ use App\Http\Livewire\InputPengumuman;
 use App\Http\Livewire\InputWawancara;
 use App\Http\Livewire\Landing;
 use App\Http\Livewire\Pendaftaran;
+use App\Http\Livewire\UbahHasil;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -77,6 +86,8 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:Agama'])->group(function () {
 
         Route::get('agama/input-agama', InputAgama::class)->name('agama.input-agama');
+        Route::get('agama/hasil-diterima', HasilAgamaTerima::class)->name('agama.hasil-diterima');
+        Route::get('agama/hasil-ditolak', HasilAgamaTolak::class)->name('agama.hasil-ditolak');
     });
 
     // route for akademik
@@ -84,21 +95,26 @@ Route::middleware('auth')->group(function () {
 
         Route::get('akademik/atur-test', AturTes::class)->name('akademik.atur-test');
         Route::get('akademik/hasil-test', HasilTes::class)->name('akademik.hasil-test');
-        Route::get('akademik/hasil-diterima', HasilDiterima::class)->name('akademik.hasil-diterima');
-        Route::get('akademik/hasil-ditolak', HasilDitolak::class)->name('akademik.hasil-ditolak');
-    });
-
-    // route for minat bakat
-    Route::middleware(['role:Minat Bakat'])->group(function () {
-
-        Route::get('minat-bakat/input-minat-bakat', InputMinatBakat::class)->name('minat-bakat.input-minat-bakat');
+        Route::get('akademik/hasil-diterima', HasilAkademikTerima::class)->name('akademik.hasil-diterima');
+        Route::get('akademik/hasil-ditolak', HasilAkademikTolak::class)->name('akademik.hasil-ditolak');
     });
 
     // route for kesehatan
     Route::middleware(['role:Kesehatan'])->group(function () {
 
         Route::get('kesehatan/input-kesehatan', InputKesehatan::class)->name('kesehatan.input-kesehatan');
+        Route::get('kesehatan/hasil-diterima', HasilKesehatanTerima::class)->name('kesehatan.hasil-diterima');
+        Route::get('kesehatan/hasil-ditolak', HasilKesehatanTolak::class)->name('kesehatan.hasil-ditolak');
     });
+
+    // route for minat bakat
+    Route::middleware(['role:Minat Bakat'])->group(function () {
+
+        Route::get('minat-bakat/input-minat-bakat', InputMinatBakat::class)->name('minat-bakat.input-minat-bakat');
+        Route::get('minat-bakat/hasil-diterima', HasilMinatTerima::class)->name('minat-bakat.hasil-diterima');
+        Route::get('minat-bakat/hasil-ditolak', HasilMinatTolak::class)->name('minat-bakat.hasil-ditolak');
+    });
+
 
     //route for Pendaftaran
     Route::middleware(['role:Pendaftaran'])->group(function () {

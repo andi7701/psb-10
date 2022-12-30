@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('salah')->nullable();
             $table->integer('total')->nullable();
             $table->string('gaya_belajar')->nullable();
+            $table->integer('nilai')->nullable();
             $table->timestamps();
         });
     }

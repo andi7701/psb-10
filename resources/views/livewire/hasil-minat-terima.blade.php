@@ -16,13 +16,13 @@
                         Kode Daftar
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Hasil Tes Akademik
+                        Mapel Unggul
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Nilai Akademik
+                        Ekstrakurikuler
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Gaya Belajar
+                        Panitia
                     </th>
                 </tr>
             </thead>
@@ -42,35 +42,13 @@
                             {{ $user->kode_daftar }}
                         </td>
                         <td class="py-2 px-6">
-                            Benar :
-                            {{ $user->akademik->benar }}
-                            <br>
-                            Salah :
-                            {{ $user->akademik->salah }}
+                            {{ $user->minatBakat->mapel_unggul }}
                         </td>
                         <td class="py-2 px-6">
-                            {{ $user->akademik->total }}
+                            {{ $user->minatBakat->ekstra->nama }}
                         </td>
                         <td class="py-2 px-6">
-                            @switch($user->akademik->gaya_belajar)
-                                @case(1)
-                                    Visual
-                                @break
-
-                                @case(2)
-                                    Auditori
-                                @break
-
-                                @case(3)
-                                    Kinestetik
-                                @break
-
-                                @case(4)
-                                    Auditori Kinestteik
-                                @break
-
-                                @default
-                            @endswitch
+                            {{ $user->minatBakat->user->name }}
                         </td>
                     </tr>
                 @endforeach

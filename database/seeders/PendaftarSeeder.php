@@ -245,7 +245,7 @@ class PendaftarSeeder extends Seeder
                 'kode_daftar' => $pendaftar['kode_daftar'],
                 'username' => $pendaftar['kode_daftar'],
                 'user_id' => $pendaftar['user_id'],
-                'password' => bcrypt('asdfasdf'),
+                'password' => bcrypt('12345678'),
                 'tanggal_daftar' => $pendaftar['tanggal_daftar'],
             ]);
 

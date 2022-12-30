@@ -91,10 +91,6 @@ class HasilTes extends Component
             ])
             ->find($id);
 
-        $user->update([
-            'diterima' => 1
-        ]);
-
         if ($user->a > $user->b && $user->a > $user->c) {
             $this->gayaBelajar = 1;
         } elseif ($user->b > $user->a && $user->b > $user->c) {
@@ -111,6 +107,7 @@ class HasilTes extends Component
             'salah' => $user->salah,
             'total' => ($user->benar * 5),
             'gaya_belajar' => $this->gayaBelajar,
+            'nilai' => 1
         ]);
     }
 
@@ -134,10 +131,6 @@ class HasilTes extends Component
             ])
             ->find($id);
 
-        $user->update([
-            'diterima' => 0
-        ]);
-
         if ($user->a > $user->b && $user->a > $user->c) {
             $this->gayaBelajar = 1;
         } elseif ($user->b > $user->a && $user->b > $user->c) {
@@ -154,6 +147,7 @@ class HasilTes extends Component
             'salah' => $user->salah,
             'total' => ($user->benar * 5),
             'gaya_belajar' => $this->gayaBelajar,
+            'nilai' => 0
         ]);
     }
 }
