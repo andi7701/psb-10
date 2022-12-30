@@ -20,6 +20,7 @@ class InputPengumuman extends Component
     public $kesehatan;
     public $minatBakat;
     public $wawancara;
+    public $akademik;
 
     public $lulus;
 
@@ -49,7 +50,7 @@ class InputPengumuman extends Component
         $this->minatBakat = $this->user->minatBakat->nilai ?? '';
         $this->wawancara = $this->user->wawancara->nilai ?? '';
 
-        if ($this->agama && $this->kesehatan && $this->minatBakat && $this->wawancara) {
+        if ($this->agama && $this->kesehatan && $this->minatBakat && $this->wawancara && $this->akademik) {
             $this->lulus = 1;
         } else {
             $this->lulus = '';
@@ -63,7 +64,7 @@ class InputPengumuman extends Component
         try {
 
             $this->user->is_accepted = $this->lulus;
-
+            $this->user->panitiaPengumuman = auth()->user()->id;
             $this->user->save();
 
             $this->notification()->success(

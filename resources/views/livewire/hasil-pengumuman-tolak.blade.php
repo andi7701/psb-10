@@ -16,13 +16,13 @@
                         Kode Daftar
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Fisik
+                        Sekolah SD
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Penglihatan
+                        Nilai Akademik
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Kesehatan
+                        Gaya Belajar
                     </th>
                     <th scope="col" class="py-3 px-6">
                         Panitia
@@ -45,21 +45,34 @@
                             {{ $user->kode_daftar }}
                         </td>
                         <td class="py-2 px-6">
-                            Tinggi : {{ $user->kesehatan->nilai }} <br>
-                            Berat : {{ $user->kesehatan->berat }} <br>
-                            Rambut : {{ $user->kesehatan->rambut }} <br>
-                            Golongan darah : {{ $user->kesehatan->darah }}
+                            {{ $user->sekolahSd->nama }}
                         </td>
                         <td class="py-2 px-6">
-                            Buta Warna : {{ $user->kesehatan->buta_warna }} <br>
-                            Minus : {{ $user->kesehatan->minus }} <br>
+                            {{ $user->akademik->total }}
+                        </td>
+                        <td class="py-2 px-6">
+                            @switch($user->akademik->gaya_belajar)
+                                @case(1)
+                                    Visual
+                                @break
 
+                                @case(2)
+                                    Auditori
+                                @break
+
+                                @case(3)
+                                    Kinestetik
+                                @break
+
+                                @case(4)
+                                    Auditori Kinestteik
+                                @break
+
+                                @default
+                            @endswitch
                         </td>
                         <td class="py-2 px-6">
-                            {{ $user->kesehatan->sehat }} 
-                        </td>
-                        <td class="py-2 px-6">
-                            {{ $user->kesehatan->user->name }}
+                            {{ $user->panitiaPengumuman->name }}
                         </td>
                     </tr>
                 @endforeach

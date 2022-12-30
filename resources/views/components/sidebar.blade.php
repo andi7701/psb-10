@@ -61,10 +61,14 @@
 
         @role('Pengumuman')
             <x-sidebar-link :href="__('pengumuman.input-pengumuman')" :label="__('input pengumuman')" />
+            <x-sidebar-link :href="__('pengumuman.hasil-diterima')" :label="__('hasil diterima')" />
+            <x-sidebar-link :href="__('pengumuman.hasil-ditolak')" :label="__('hasil ditolak')" />
         @endrole
 
         @role('Wawancara')
             <x-sidebar-link :href="__('wawancara.input-wawancara')" :label="__('Input Wawancara')" />
+            <x-sidebar-link :href="__('wawancara.hasil-diterima')" :label="__('hasil diterima')" />
+            <x-sidebar-link :href="__('wawancara.hasil-ditolak')" :label="__('hasil ditolak')" />
         @endrole
         <form action="{{ route('logout') }}" method="POST">
             @csrf

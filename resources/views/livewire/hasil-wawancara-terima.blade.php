@@ -16,13 +16,13 @@
                         Kode Daftar
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Fisik
+                        Kondisi Keluarga
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Penglihatan
+                        Tinggal Bersama
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Kesehatan
+                        Penjamin Biaya
                     </th>
                     <th scope="col" class="py-3 px-6">
                         Panitia
@@ -45,21 +45,16 @@
                             {{ $user->kode_daftar }}
                         </td>
                         <td class="py-2 px-6">
-                            Tinggi : {{ $user->kesehatan->nilai }} <br>
-                            Berat : {{ $user->kesehatan->berat }} <br>
-                            Rambut : {{ $user->kesehatan->rambut }} <br>
-                            Golongan darah : {{ $user->kesehatan->darah }}
+                            {{ $user->wawancara->kondisi_keluarga }}
                         </td>
                         <td class="py-2 px-6">
-                            Buta Warna : {{ $user->kesehatan->buta_warna }} <br>
-                            Minus : {{ $user->kesehatan->minus }} <br>
-
+                            {{ $user->wawancara->tinggal_bersama }}
                         </td>
                         <td class="py-2 px-6">
-                            {{ $user->kesehatan->sehat }} 
+                            {{ $user->wawancara->penjamin_biaya }}
                         </td>
                         <td class="py-2 px-6">
-                            {{ $user->kesehatan->user->name }}
+                            {{ $user->wawancara->user->name }}
                         </td>
                     </tr>
                 @endforeach

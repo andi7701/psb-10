@@ -116,7 +116,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(JawabGaya::class);
     }
-    
+
     /**
      * Get the kesehatan associated with the User
      *
@@ -177,6 +177,17 @@ class User extends Authenticatable
     public function panitia(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id')->withDefault(['name' => 'Online']);
+    }
+
+
+    /**
+     * Get the panitiaPengumuman that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function panitiaPengumuman(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'pengumuman', 'id')->withDefault();
     }
 
     /**

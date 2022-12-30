@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('tanggal_daftar')->nullable();
             $table->string('slug');
             $table->foreignId('user_id')->nullable();
+            $table->foreignId('pengumuman')->nullable();
             $table->boolean('terukur')->default(0);
             $table->boolean('diterima')->nullable();
             $table->boolean('sudah_test')->default(0);

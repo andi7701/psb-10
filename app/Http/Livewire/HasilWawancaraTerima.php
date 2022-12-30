@@ -5,18 +5,18 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use Livewire\Component;
 
-class HasilKesehatanTolak extends Component
+class HasilWawancaraTerima extends Component
 {
     public $search;
 
     public function render()
     {
-        return view('livewire.hasil-kesehatan-tolak', [
+        return view('livewire.hasil-wawancara-terima', [
             'listUser' =>  User::with([
-                'kesehatan',
-                'kesehatan.user'
+                'wawancara',
+                'wawancara.user',
             ])
-                ->whereHas('kesehatan', fn ($q) => $q->whereNilai(0))
+                ->whereHas('wawancara', fn ($q) => $q->whereNilai(1))
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
                 ->paginate(10)
         ]);

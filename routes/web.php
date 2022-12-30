@@ -19,7 +19,11 @@ use App\Http\Livewire\HasilKesehatanTerima;
 use App\Http\Livewire\HasilKesehatanTolak;
 use App\Http\Livewire\HasilMinatTerima;
 use App\Http\Livewire\HasilMinatTolak;
+use App\Http\Livewire\HasilPengumumanTerima;
+use App\Http\Livewire\HasilPengumumanTolak;
 use App\Http\Livewire\HasilTes;
+use App\Http\Livewire\HasilWawancaraTerima;
+use App\Http\Livewire\HasilWawancaraTolak;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\InputAgama;
 use App\Http\Livewire\InputKesehatan;
@@ -128,12 +132,16 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:Pengumuman'])->group(function () {
 
         Route::get('pengumuman/input-pengumuman', InputPengumuman::class)->name('pengumuman.input-pengumuman');
+        Route::get('pengumuman/hasil-diterima', HasilPengumumanTerima::class)->name('pengumuman.hasil-diterima');
+        Route::get('pengumuman/hasil-ditolak', HasilPengumumanTolak::class)->name('pengumuman.hasil-ditolak');
     });
 
     // route for wawancara
     Route::middleware(['role:Wawancara'])->group(function () {
 
         Route::get('wawancara/input-wawancara', InputWawancara::class)->name('wawancara.input-wawancara');
+        Route::get('wawancara/hasil-diterima', HasilWawancaraTerima::class)->name('wawancara.hasil-diterima');
+        Route::get('wawancara/hasil-ditolak', HasilWawancaraTolak::class)->name('wawancara.hasil-ditolak');
     });
 
 

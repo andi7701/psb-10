@@ -32,6 +32,11 @@
             </x-native-select>
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
+            <x-native-select wire:model.defer='akademik' label="Seleksi Akademik" disabled>
+                <option value="">Belum Seleksi</option>
+                <option value="0">Tidak diterima</option>
+                <option value="1">Diterima</option>
+            </x-native-select>
             <x-native-select wire:model.defer='lulus' label="Hasil Akhir">
                 <option value="">Pilih Hasil Akhir</option>
                 <option value="0">Tidak diterima</option>
