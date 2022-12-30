@@ -68,7 +68,7 @@ class QuestionSeeder extends Seeder
                 [
                     'priority' => 7,
                     'body' => '	Kalimat yang tepat untuk melengkapi isi pantun di atas adalah ….',
-                    'answers' => json_encode(['Jika kita naik kela satu,
+                    'answers' => json_encode(['Jika kita naik kelas satu,
                 Akan dipuji orang tuanya
                 ', 'Setiap hari membuat jamu,
                 Diminum hilang rasa sakitnya

@@ -182,63 +182,6 @@ class InitSeeder extends Seeder
         ]);
         $tina->assignRole('Minat Bakat');
 
-
-
-        $pendaftaran = [
-            [
-                'nama' => 'Pendaftar Baru Putra 1',
-                'kode_daftar' => 'A0001',
-                'tanggal_daftar' => date('Y-m-d'),
-                'tahun' => '2023 / 2024',
-                'tingkat' => '7',
-                'user_id' => 1
-            ],
-            [
-                'nama' => 'Pendaftar Baru Putra 2',
-                'kode_daftar' => 'A0002',
-                'tanggal_daftar' => date('Y-m-d'),
-                'tahun' => '2023 / 2024',
-                'tingkat' => '7',
-                'user_id' => 1
-            ],
-            [
-                'nama' => 'Pendaftar Baru Putra 3',
-                'kode_daftar' => 'A0003',
-                'tanggal_daftar' => date('Y-m-d'),
-                'tahun' => '2023 / 2024',
-                'tingkat' => '7',
-                'user_id' => 1
-            ],
-            [
-                'nama' => 'Pendaftar Baru Putri 1',
-                'kode_daftar' => 'B0001',
-                'tanggal_daftar' => date('Y-m-d'),
-                'tahun' => '2023 / 2024',
-                'tingkat' => '7',
-                'user_id' => 1
-            ],
-            [
-                'nama' => 'Pendaftar Baru Putri 2',
-                'kode_daftar' => 'B0002',
-                'tanggal_daftar' => date('Y-m-d'),
-                'tahun' => '2023 / 2024',
-                'tingkat' => '7',
-                'user_id' => 2
-            ],
-        ];
-
-        foreach ($pendaftaran as $pendaftar) {
-            $user = User::create([
-                'name' => $pendaftar['nama'],
-                'kode_daftar' => $pendaftar['kode_daftar'],
-                'username' => $pendaftar['kode_daftar'],
-                'user_id' => $pendaftar['user_id'],
-                'password' => bcrypt('asdfasdf')
-            ]);
-
-            $user->assignRole('Calon Siswa');
-        }
-
         $ekstras = [
             'Pramuka',
             'Sepak Bola',

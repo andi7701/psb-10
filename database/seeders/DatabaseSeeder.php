@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             CitiesSeeder::class,
             DistrictsSeeder::class,
             VillagesSeeder::class,
-            QuestionSeeder::class
+            QuestionSeeder::class,
+            PendaftarSeeder::class,
         ]);
     }
 }

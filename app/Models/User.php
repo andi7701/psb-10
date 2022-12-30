@@ -65,6 +65,15 @@ class User extends Authenticatable
         return $this->hasOne(Agama::class)->withDefault();
     }
 
+    /**
+     * Get the akademik associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function akademik(): HasOne
+    {
+        return $this->hasOne(Akademik::class)->withDefault();
+    }
 
     /**
      * Get all of the answers for the User
@@ -98,6 +107,16 @@ class User extends Authenticatable
     }
 
 
+    /**
+     * Get all of the jawabGaya for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function jawabGaya(): HasMany
+    {
+        return $this->hasMany(JawabGaya::class);
+    }
+    
     /**
      * Get the kesehatan associated with the User
      *

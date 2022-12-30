@@ -2,12 +2,16 @@
 
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\AturTes;
 use App\Http\Livewire\BuatRole;
 use App\Http\Livewire\Daftar;
 use App\Http\Livewire\DataPanitia;
 use App\Http\Livewire\DataPendaftar;
 use App\Http\Livewire\DetailPendaftar;
 use App\Http\Livewire\Exam;
+use App\Http\Livewire\HasilDiterima;
+use App\Http\Livewire\HasilDitolak;
+use App\Http\Livewire\HasilTes;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\InputAgama;
 use App\Http\Livewire\InputKesehatan;
@@ -51,57 +55,69 @@ Route::middleware('auth')->group(function () {
     // route for admin
     Route::middleware(['role:Admin'])->group(function () {
 
-        Route::get('/admin/buat-role', BuatRole::class)->name('admin.buat-role');
-        Route::get('/admin/data-panitia', DataPanitia::class)->name('admin.data-panitia');
-        Route::get('/admin/data-pendaftar', DataPendaftar::class)->name('admin.data-pendaftar');
-        Route::get('/admin/detail-pendaftar/{user}', DetailPendaftar::class)->name('admin.detail-pendaftar');
-        Route::get('/admin/pendaftaran', Pendaftaran::class)->name('admin.pendaftaran');
+        Route::get('admin/buat-role', BuatRole::class)->name('admin.buat-role');
+        Route::get('admin/data-panitia', DataPanitia::class)->name('admin.data-panitia');
+        Route::get('admin/data-pendaftar', DataPendaftar::class)->name('admin.data-pendaftar');
+        Route::get('admin/detail-pendaftar/{user}', DetailPendaftar::class)->name('admin.detail-pendaftar');
+        Route::get('admin/pendaftaran', Pendaftaran::class)->name('admin.pendaftaran');
 
 
         // Tes Seleksi
-        Route::get('/admin/input-agama', InputAgama::class)->name('admin.input-agama');
-        Route::get('/admin/input-kesehatan', InputKesehatan::class)->name('admin.input-kesehatan');
-        Route::get('/admin/input-minat-bakat', InputMinatBakat::class)->name('admin.input-minat-bakat');
-        Route::get('/admin/input-pengumuman', InputPengumuman::class)->name('admin.input-pengumuman');
-        Route::get('/admin/input-wawancara', InputWawancara::class)->name('admin.input-wawancara');
+        Route::get('admin/input-agama', InputAgama::class)->name('admin.input-agama');
+        Route::get('admin/input-kesehatan', InputKesehatan::class)->name('admin.input-kesehatan');
+        Route::get('admin/input-minat-bakat', InputMinatBakat::class)->name('admin.input-minat-bakat');
+        Route::get('admin/input-pengumuman', InputPengumuman::class)->name('admin.input-pengumuman');
+        Route::get('admin/input-wawancara', InputWawancara::class)->name('admin.input-wawancara');
+
+        //Atur Tes Akademik
+        Route::get('admin/atur-test', AturTes::class)->name('admin.atur-test');
     });
 
     // route for agama
     Route::middleware(['role:Agama'])->group(function () {
 
-        Route::get('/agama/input-agama', InputAgama::class)->name('agama.input-agama');
+        Route::get('agama/input-agama', InputAgama::class)->name('agama.input-agama');
+    });
+
+    // route for akademik
+    Route::middleware(['role:Akademik'])->group(function () {
+
+        Route::get('akademik/atur-test', AturTes::class)->name('akademik.atur-test');
+        Route::get('akademik/hasil-test', HasilTes::class)->name('akademik.hasil-test');
+        Route::get('akademik/hasil-diterima', HasilDiterima::class)->name('akademik.hasil-diterima');
+        Route::get('akademik/hasil-ditolak', HasilDitolak::class)->name('akademik.hasil-ditolak');
     });
 
     // route for minat bakat
     Route::middleware(['role:Minat Bakat'])->group(function () {
 
-        Route::get('/minat-bakat/input-minat-bakat', InputMinatBakat::class)->name('minat-bakat.input-minat-bakat');
+        Route::get('minat-bakat/input-minat-bakat', InputMinatBakat::class)->name('minat-bakat.input-minat-bakat');
     });
-    
+
     // route for kesehatan
     Route::middleware(['role:Kesehatan'])->group(function () {
 
-        Route::get('/kesehatan/input-kesehatan', InputKesehatan::class)->name('kesehatan.input-kesehatan');
+        Route::get('kesehatan/input-kesehatan', InputKesehatan::class)->name('kesehatan.input-kesehatan');
     });
 
     //route for Pendaftaran
     Route::middleware(['role:Pendaftaran'])->group(function () {
 
-        Route::get('/pendaftaran/data-pendaftar', DataPendaftar::class)->name('pendaftaran.data-pendaftar');
-        Route::get('/pendaftaran/detail-pendaftar/{user}', DetailPendaftar::class)->name('pendaftaran.detail-pendaftar');
-        Route::get('/pendaftaran/pendaftaran', Pendaftaran::class)->name('pendaftaran.pendaftaran');
+        Route::get('pendaftaran/data-pendaftar', DataPendaftar::class)->name('pendaftaran.data-pendaftar');
+        Route::get('pendaftaran/detail-pendaftar/{user}', DetailPendaftar::class)->name('pendaftaran.detail-pendaftar');
+        Route::get('pendaftaran/pendaftaran', Pendaftaran::class)->name('pendaftaran.pendaftaran');
     });
 
     // route for pengumuman
     Route::middleware(['role:Pengumuman'])->group(function () {
 
-        Route::get('/pengumuman/input-pengumuman', InputPengumuman::class)->name('pengumuman.input-pengumuman');
+        Route::get('pengumuman/input-pengumuman', InputPengumuman::class)->name('pengumuman.input-pengumuman');
     });
 
     // route for wawancara
     Route::middleware(['role:Wawancara'])->group(function () {
 
-        Route::get('/wawancara/input-wawancara', InputWawancara::class)->name('wawancara.input-wawancara');
+        Route::get('wawancara/input-wawancara', InputWawancara::class)->name('wawancara.input-wawancara');
     });
 
 

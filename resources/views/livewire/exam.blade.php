@@ -122,7 +122,7 @@
                     <x-button wire:click.prevent="sebelum" secondary label="Sebelumnya"
                         class="{{ $prioritas > 1 ? 'visible' : 'invisible' }}" />
                     <x-button wire:click="lanjut" secondary label="Selanjutnya"
-                        class="{{ $prioritas < 20 ? 'visible' : 'invisible' }}" />
+                        class="{{ $prioritas < 11 ? 'visible' : 'invisible' }}" />
                 </div>
             </div>
             <div class="border-2 border-slate-700 p-3 lg:space-y-2">

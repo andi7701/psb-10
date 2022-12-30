@@ -13,6 +13,7 @@
         <x-sidebar-link :href="__('dashboard')" :label="__('dashboard')" />
 
         @role('Admin')
+            <x-sidebar-link :href="__('admin.atur-test')" :label="__('atur tes')" />
             <x-sidebar-link :href="__('admin.buat-role')" :label="__('buat role')" />
             <x-sidebar-link :href="__('admin.data-panitia')" :label="__('data panitia')" />
             <x-sidebar-link :href="__('admin.data-pendaftar')" :label="__('data pendaftar')" />
@@ -24,6 +25,10 @@
             <x-sidebar-link :href="__('admin.pendaftaran')" :label="__('pendaftaran siswa')" />
         @endrole
 
+        @role('Calon Siswa')
+            <x-sidebar-link :href="__('exam')" :label="__('mulai tes')" />
+        @endrole
+
         @role('Pendaftaran')
             <x-sidebar-link :href="__('pendaftaran.data-pendaftar')" :label="__('data pendaftar')" />
             <x-sidebar-link :href="__('pendaftaran.pendaftaran')" :label="__('pendaftaran siswa')" />
@@ -31,6 +36,13 @@
 
         @role('Agama')
             <x-sidebar-link :href="__('agama.input-agama')" :label="__('input agama')" />
+        @endrole
+
+        @role('Akademik')
+            <x-sidebar-link :href="__('akademik.atur-test')" :label="__('atur tes')" />
+            <x-sidebar-link :href="__('akademik.hasil-test')" :label="__('hasil tes')" />
+            <x-sidebar-link :href="__('akademik.hasil-diterima')" :label="__('hasil diterima')" />
+            <x-sidebar-link :href="__('akademik.hasil-ditolak')" :label="__('hasil ditolak')" />
         @endrole
 
         @role('Kesehatan')

@@ -207,7 +207,8 @@ class DetailPendaftar extends Component
                     'name' => $this->nama,
                     'username' => $this->kodePendaftaran,
                     'password' => bcrypt('123456789'),
-                    'user_id' => auth()->user()->id
+                    'tanggal_daftar' => date('Y-m-d'),
+                    'user_id' => auth()->user()->id,
                 ]
             );
 
@@ -229,7 +230,6 @@ class DetailPendaftar extends Component
                 [],
                 [
                     // this tanggal daftar must be create
-                    'tanggal_daftar' => date('Y-m-d'),
                     'tahun' => $this->tahun,
                     'tingkat' => $this->tingkat,
                     'nik' => $this->nik,
