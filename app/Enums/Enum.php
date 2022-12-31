@@ -16,5 +16,14 @@ enum KondisiKeluarga: string
     case UTUH = 'utuh';
     case TIDAKUTUH = 'tidah utuh';
     case TERLANTAR = 'terlantar';
+}
 
+enum Ukuran: string
+{
+    case S = 's';
+    case M = 'm';
+    case L = 'l';
+    case XL = 'xl';
+    case XXL = 'xxl';
+    case JUMBO = 'jumbo';
 }

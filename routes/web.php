@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\AturTes;
+use App\Http\Livewire\BelumUkur;
 use App\Http\Livewire\BuatRole;
 use App\Http\Livewire\Daftar;
 use App\Http\Livewire\DataPanitia;
@@ -32,7 +33,9 @@ use App\Http\Livewire\InputPengumuman;
 use App\Http\Livewire\InputWawancara;
 use App\Http\Livewire\Landing;
 use App\Http\Livewire\Pendaftaran;
+use App\Http\Livewire\SudahUkur;
 use App\Http\Livewire\UbahHasil;
+use App\Http\Livewire\UkurSeragam;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +65,7 @@ Route::middleware('auth')->group(function () {
 
     // API
     Route::get('/users-kode-daftar', [ApiController::class, 'usersKodeDaftar'])->name('users-kode-daftar');
+    Route::get('/users-diterima', [ApiController::class, 'usersDiterima'])->name('users-diterima');
 
 
 
@@ -134,6 +138,14 @@ Route::middleware('auth')->group(function () {
         Route::get('pengumuman/input-pengumuman', InputPengumuman::class)->name('pengumuman.input-pengumuman');
         Route::get('pengumuman/hasil-diterima', HasilPengumumanTerima::class)->name('pengumuman.hasil-diterima');
         Route::get('pengumuman/hasil-ditolak', HasilPengumumanTolak::class)->name('pengumuman.hasil-ditolak');
+    });
+
+    // route for wawancara
+    Route::middleware(['role:Ukur Seragam'])->group(function () {
+
+        Route::get('ukur-seragam/ukur-seragam', UkurSeragam::class)->name('ukur-seragam.ukur-seragam');
+        Route::get('ukur-seragam/sudah-ukur', SudahUkur::class)->name('ukur-seragam.sudah-ukur');
+        Route::get('ukur-seragam/belum-ukur', BelumUkur::class)->name('ukur-seragam.belum-ukur');
     });
 
     // route for wawancara

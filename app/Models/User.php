@@ -190,6 +190,17 @@ class User extends Authenticatable
         return $this->belongsTo(User::class, 'pengumuman', 'id')->withDefault();
     }
 
+
+    /**
+     * Get the seragam associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function seragam(): HasOne
+    {
+        return $this->hasOne(Seragam::class)->withDefault();
+    }
+
     /**
      * Get the wawancara associated with the User
      *

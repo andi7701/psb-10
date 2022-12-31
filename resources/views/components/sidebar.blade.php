@@ -67,6 +67,12 @@
             <x-sidebar-link :href="__('pengumuman.hasil-ditolak')" :label="__('hasil ditolak')" />
         @endrole
 
+        @role('Ukur Seragam')
+            <x-sidebar-link :href="__('ukur-seragam.ukur-seragam')" :label="__('ukur seragam')" />
+            <x-sidebar-link :href="__('ukur-seragam.belum-ukur')" :label="__('belum ukur')" />
+            <x-sidebar-link :href="__('ukur-seragam.sudah-ukur')" :label="__('sudah ukur')" />
+        @endrole
+
         @role('Wawancara')
             <x-sidebar-link :href="__('wawancara.input-wawancara')" :label="__('Input Wawancara')" />
             <x-sidebar-link :href="__('wawancara.hasil-diterima')" :label="__('hasil diterima')" />

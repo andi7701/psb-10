@@ -22,4 +22,19 @@ class ApiController extends Controller
             )
             ->get();
     }
+
+    public function usersDiterima(Request $request): Collection
+    {
+        return User::query()
+            ->role('Calon Siswa')
+            ->whereDiterima(true)
+            ->select('id', 'kode_daftar')
+            ->orderBy('kode_daftar')
+            ->when(
+                $request->search,
+                fn (Builder $query) => $query
+                ->where('kode_daftar', 'like', "%{$request->search}%")
+            )
+            ->get();
+    }
 }
