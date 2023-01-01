@@ -4,11 +4,13 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 use WireUi\Traits\Actions;
 
 class Landing extends Component
 {
     use Actions;
+    use WithPagination;
 
     public $search = '';
 
@@ -21,7 +23,7 @@ class Landing extends Component
                     ->where('name', 'like', '%' . $this->search . '%')
                     ->with(['alamat', 'alamat.village', 'alamat.district', 'sekolahSd'])
                     ->orderBy('name')
-                    ->get()
+                    ->paginate(10)
             ]
         )->layout('layouts.guest');
     }

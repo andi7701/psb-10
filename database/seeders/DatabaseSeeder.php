@@ -25,12 +25,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-            InitSeeder::class,
-            ProvincesSeeder::class,
-            CitiesSeeder::class,
-            DistrictsSeeder::class,
-            VillagesSeeder::class,
-            QuestionSeeder::class,
+            // InitSeeder::class,
+            // ProvincesSeeder::class,
+            // CitiesSeeder::class,
+            // DistrictsSeeder::class,
+            // VillagesSeeder::class,
+            // QuestionSeeder::class,
             // PendaftarSeeder::class,
         ]);
     }

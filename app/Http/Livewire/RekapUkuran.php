@@ -15,10 +15,24 @@ class RekapUkuran extends Component
     public $batikPutra;
     public $osisPutra;
     public $pramukaPutra;
-    
+    public $orPutra;
+
+    public $batikCelanaPutra;
+    public $osisCelanaPutra;
+    public $pramukaCelanaPutra;
+    public $orCelanaPutra;
+
     public $batikPutri;
     public $osisPutri;
     public $pramukaPutri;
+    public $orPutri;
+
+    public $batikRokPutri;
+    public $osisRokPutri;
+    public $pramukaRokPutri;
+    public $orCelanaPutri;
+
+    public $peci;
 
     public function render()
     {
@@ -81,6 +95,75 @@ class RekapUkuran extends Component
             ->selectRaw('baju_pramuka, count(baju_pramuka) as hitung')
             ->orderByRaw("field(baju_pramuka,'s','m','l','xl','xxl','jumbo')")
             ->get();
+        //Putra or
+        $this->orPutra = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('L')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('baju_or')
+            ->selectRaw('baju_or, count(baju_or) as hitung')
+            ->orderByRaw("field(baju_or,'s','m','l','xl','xxl','jumbo')")
+            ->get();
+
+        //Celana Osis Putra
+        $this->osisCelanaPutra = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('L')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('bawah_osis')
+            ->selectRaw('bawah_osis, count(bawah_osis) as hitung')
+            ->get();
+        //Celana batik Putra
+        $this->batikCelanaPutra = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('L')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('bawah_batik')
+            ->selectRaw('bawah_batik, count(bawah_batik) as hitung')
+            ->get();
+        //Celana pramuka Putra
+        $this->pramukaCelanaPutra = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('L')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('bawah_pramuka')
+            ->selectRaw('bawah_pramuka, count(bawah_pramuka) as hitung')
+            ->get();
+        //Celana or Putra
+        $this->orCelanaPutra = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('L')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('bawah_or')
+            ->selectRaw('bawah_or, count(bawah_or) as hitung')
+            ->get();
+
+
 
         //Putri Osis
         $this->osisPutri = Seragam::with(['biodata', 'siswa'])
@@ -126,6 +209,87 @@ class RekapUkuran extends Component
             ->selectRaw('baju_pramuka, count(baju_pramuka) as hitung')
             ->orderByRaw("field(baju_pramuka,'s','m','l','xl','xxl','jumbo')")
             ->get();
+        //Putri or
+        $this->orPutri = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('P')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('baju_or')
+            ->selectRaw('baju_or, count(baju_or) as hitung')
+            ->orderByRaw("field(baju_or,'s','m','l','xl','xxl','jumbo')")
+            ->get();
 
-        }
+        //Celana Osis Putri
+        $this->osisRokPutri = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('P')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('bawah_osis')
+            ->selectRaw('bawah_osis, count(bawah_osis) as hitung')
+            ->get();
+        //Rok batik Putri
+        $this->batikRokPutri = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('P')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('bawah_batik')
+            ->selectRaw('bawah_batik, count(bawah_batik) as hitung')
+            ->get();
+        //Rok pramuka Putri
+        $this->pramukaRokPutri = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('P')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('bawah_pramuka')
+            ->selectRaw('bawah_pramuka, count(bawah_pramuka) as hitung')
+            ->get();
+        //Rok or Putri
+        $this->orCelanaPutri = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('P')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('bawah_or')
+            ->selectRaw('bawah_or, count(bawah_or) as hitung')
+            ->get();
+
+
+        //Peci
+        $this->peci = Seragam::with(['biodata', 'siswa'])
+            ->whereHas(
+                'biodata',
+                fn ($q) => $q->whereJenisKelamin('L')
+            )
+            ->whereHas(
+                'siswa',
+                fn ($q) => $q->whereDiterima(true)
+            )
+            ->groupBy('peci')
+            ->selectRaw('peci, count(peci) as hitung')
+            ->get();
+    }
 }

@@ -267,11 +267,11 @@ class PendaftarSeeder extends Seeder
                 'user_id' => $pendaftar['user_id'],
                 'password' => bcrypt('12345678'),
                 'tanggal_daftar' => $pendaftar['tanggal_daftar'],
-                'user_id' => random_int(6,7),
-                'pengumuman' => random_int(8,9),
-                'terukur' => random_int(0,1),
-                'diterima' => random_int(0,1),
-                'sudah_test' => random_int(0,1),
+                'user_id' => random_int(6, 7),
+                'pengumuman' => random_int(8, 9),
+                'terukur' => random_int(0, 1),
+                'diterima' => random_int(0, 1),
+                'sudah_test' => random_int(0, 1),
                 'boleh_test' => 1,
             ]);
 
@@ -291,7 +291,7 @@ class PendaftarSeeder extends Seeder
                     'benar' => random_int(1, 20),
                     'salah' => random_int(1, 20),
                     'total' => random_int(1, 20),
-                    'gaya_belajar' => random_int(1,4),
+                    'gaya_belajar' => random_int(1, 4),
                     'nilai' => random_int(0, 1)
                 ]
             );
@@ -355,10 +355,11 @@ class PendaftarSeeder extends Seeder
                     'baju_batik' => fake()->randomElement(['s', 'm', 'l', 'xl', 'xxl', 'jumbo']),
                     'baju_pramuka' => fake()->randomElement(['s', 'm', 'l', 'xl', 'xxl', 'jumbo']),
                     'baju_or' => fake()->randomElement(['s', 'm', 'l', 'xl', 'xxl', 'jumbo']),
-                    'bawah_osis' => fake()->randomElement(['s', 'm', 'l', 'xl', 'xxl', 'jumbo']),
-                    'bawah_batik' => fake()->randomElement(['s', 'm', 'l', 'xl', 'xxl', 'jumbo']),
-                    'bawah_pramuka' => fake()->randomElement(['s', 'm', 'l', 'xl', 'xxl', 'jumbo']),
-                    'bawah_or' => fake()->randomElement(['s', 'm', 'l', 'xl', 'xxl', 'jumbo']),
+                    'bawah_osis' => random_int(24, 38),
+                    'bawah_batik' => random_int(24, 38),
+                    'bawah_pramuka' => random_int(24, 38),
+                    'bawah_or' => random_int(24, 38),
+                    'peci' => random_int(3, 8)
                 ]
             );
 

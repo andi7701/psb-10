@@ -1,4 +1,5 @@
 <section class="py-8 px-7 bg-white border-b">
+    <x-loading></x-loading>
     <div class="flex justify-center">
         <h1 class="text-slate-700 font-bold text-2xl">Data Pendaftar</h1>
     </div>
@@ -33,7 +34,7 @@
                         class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
                         <td scope="row"
                             class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $loop->iteration }}
+                            {{ $listUser->firstItem() + $key }}
                         </td>
                         <td scope="row"
                             class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -52,5 +53,8 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="mt-5">
+        {{ $listUser->links() }}
     </div>
 </section>

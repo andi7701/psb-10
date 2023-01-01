@@ -2,6 +2,10 @@
     <p class="font-bold text-lg text-slate-600 text-center uppercase">
         rekapitulasi hasil ukur seragam
     </p>
+    <p class="font-bold text-sm text-slate-600 text-center uppercase flex justify-between p-5">
+        <span>Total Putra : {{ $siswaPutra }}</span>
+        <span>Total Putri : {{ $siswaPutri }}</span>
+    </p>
     <div class="overflow-x-auto relative">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -25,7 +29,7 @@
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         Baju OSIS Putra
-                        
+
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         @foreach ($osisPutra as $osis)
@@ -112,21 +116,9 @@
                         Celana OSIS Putra
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        24 : <br>
-                        25 : <br>
-                        26 : <br>
-                        27 : <br>
-                        28 : <br>
-                        29 : <br>
-                        30 : <br>
-                        31 : <br>
-                        32 : <br>
-                        33 : <br>
-                        34 : <br>
-                        35 : <br>
-                        36 : <br>
-                        37 : <br>
-                        38 : <br>
+                        @foreach ($osisCelanaPutra as $osisCelana)
+                            {{ Str::upper($osisCelana->bawah_osis) }} : {{ $osisCelana->hitung }} <br>
+                        @endforeach
                     </td>
                 </tr>
                 <tr
@@ -138,21 +130,9 @@
                         Celana Batik Putra
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        24 : <br>
-                        25 : <br>
-                        26 : <br>
-                        27 : <br>
-                        28 : <br>
-                        29 : <br>
-                        30 : <br>
-                        31 : <br>
-                        32 : <br>
-                        33 : <br>
-                        34 : <br>
-                        35 : <br>
-                        36 : <br>
-                        37 : <br>
-                        38 : <br>
+                        @foreach ($batikCelanaPutra as $batikCelana)
+                            {{ Str::upper($batikCelana->bawah_batik) }} : {{ $batikCelana->hitung }} <br>
+                        @endforeach
                     </td>
                 </tr>
                 <tr
@@ -164,21 +144,9 @@
                         Celana Pramuka Putra
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        24 : <br>
-                        25 : <br>
-                        26 : <br>
-                        27 : <br>
-                        28 : <br>
-                        29 : <br>
-                        30 : <br>
-                        31 : <br>
-                        32 : <br>
-                        33 : <br>
-                        34 : <br>
-                        35 : <br>
-                        36 : <br>
-                        37 : <br>
-                        38 : <br>
+                        @foreach ($pramukaCelanaPutra as $pramukaCelana)
+                            {{ Str::upper($pramukaCelana->bawah_pramuka) }} : {{ $pramukaCelana->hitung }} <br>
+                        @endforeach
                     </td>
                 </tr>
                 <tr
@@ -190,21 +158,9 @@
                         Rok OSIS Putri
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        24 : <br>
-                        25 : <br>
-                        26 : <br>
-                        27 : <br>
-                        28 : <br>
-                        29 : <br>
-                        30 : <br>
-                        31 : <br>
-                        32 : <br>
-                        33 : <br>
-                        34 : <br>
-                        35 : <br>
-                        36 : <br>
-                        37 : <br>
-                        38 : <br>
+                        @foreach ($osisRokPutri as $osisRok)
+                            {{ Str::upper($osisRok->bawah_osis) }} : {{ $osisRok->hitung }} <br>
+                        @endforeach
                     </td>
                 </tr>
                 <tr
@@ -216,21 +172,9 @@
                         Rok Batik Putri
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        24 : <br>
-                        25 : <br>
-                        26 : <br>
-                        27 : <br>
-                        28 : <br>
-                        29 : <br>
-                        30 : <br>
-                        31 : <br>
-                        32 : <br>
-                        33 : <br>
-                        34 : <br>
-                        35 : <br>
-                        36 : <br>
-                        37 : <br>
-                        38 : <br>
+                        @foreach ($batikRokPutri as $batikRok)
+                            {{ Str::upper($batikRok->bawah_batik) }} : {{ $batikRok->hitung }} <br>
+                        @endforeach
                     </td>
                 </tr>
                 <tr
@@ -242,21 +186,9 @@
                         Rok Pramuka Putri
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        24 : <br>
-                        25 : <br>
-                        26 : <br>
-                        27 : <br>
-                        28 : <br>
-                        29 : <br>
-                        30 : <br>
-                        31 : <br>
-                        32 : <br>
-                        33 : <br>
-                        34 : <br>
-                        35 : <br>
-                        36 : <br>
-                        37 : <br>
-                        38 : <br>
+                        @foreach ($pramukaRokPutri as $pramukaRok)
+                            {{ Str::upper($pramukaRok->bawah_pramuka) }} : {{ $pramukaRok->hitung }} <br>
+                        @endforeach
                     </td>
                 </tr>
                 <tr
@@ -265,15 +197,12 @@
                         13
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Kaos Olah Raga Putra dan Putri
+                        Kaos Olah Raga Putra
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        S : <br>
-                        M : <br>
-                        L : <br>
-                        XL : <br>
-                        XXL : <br>
-                        JUMBO : <br>
+                        @foreach ($orPutra as $or)
+                            {{ Str::upper($or->baju_or) }} : {{ $or->hitung }} <br>
+                        @endforeach
                     </td>
                 </tr>
                 <tr
@@ -282,15 +211,12 @@
                         14
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Celana Olah Raga Putra dan Putri
+                        Celana Olah Raga Putra
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        S : <br>
-                        M : <br>
-                        L : <br>
-                        XL : <br>
-                        XXL : <br>
-                        JUMBO : <br>
+                        @foreach ($orCelanaPutra as $orCelana)
+                            {{ Str::upper($orCelana->bawah_or) }} : {{ $orCelana->hitung }} <br>
+                        @endforeach
                     </td>
                 </tr>
                 <tr
@@ -299,15 +225,40 @@
                         15
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Kaos Olah Raga Putri
+                    </td>
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @foreach ($orPutri as $or)
+                            {{ Str::upper($or->baju_or) }} : {{ $or->hitung }} <br>
+                        @endforeach
+                    </td>
+                </tr>
+                <tr
+                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        16
+                    </td>
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Celana Olah Raga Putri
+                    </td>
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @foreach ($orCelanaPutri as $orCelana)
+                            {{ Str::upper($orCelana->bawah_or) }} : {{ $orCelana->hitung }} <br>
+                        @endforeach
+                    </td>
+                </tr>
+                <tr
+                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        17
+                    </td>
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         Peci
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        3 : <br>
-                        4 : <br>
-                        5 : <br>
-                        6 : <br>
-                        7 : <br>
-                        8 : <br>
+                        @foreach ($peci as $item)
+                            {{ Str::upper($item->peci) }} : {{ $item->hitung }} <br>
+                        @endforeach
                     </td>
                 </tr>
                 <tr
