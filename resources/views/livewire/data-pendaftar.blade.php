@@ -1,4 +1,5 @@
 <div>
+    <x-loading></x-loading>
     <div class="my-5">
         <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari Nama..." class="w-auto" />
     </div>

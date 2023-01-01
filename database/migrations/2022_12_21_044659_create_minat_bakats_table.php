@@ -39,7 +39,7 @@ return new class extends Migration
             $table->string('non_akademik')->nullable();
             $table->foreignId('ekstra_id');
             $table->integer('nilai');
-            $table->string('catatan');
+            $table->string('catatan')->nullable();
             $table->timestamps();
         });
     }

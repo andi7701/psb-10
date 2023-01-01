@@ -20,4 +20,24 @@ class Seragam extends Model
     {
         return $this->belongsTo(User::class, 'panitia_id')->withDefault();
     }
+
+    /**
+     * Get the siswa that owns the Seragam
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function siswa(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id')->withDefault();
+    }
+
+    /**
+     * Get the biodata that owns the Seragam
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function biodata(): BelongsTo
+    {
+        return $this->belongsTo(Biodata::class, 'user_id', 'user_id')->withDefault();
+    }
 }

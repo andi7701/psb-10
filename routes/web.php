@@ -33,6 +33,7 @@ use App\Http\Livewire\InputPengumuman;
 use App\Http\Livewire\InputWawancara;
 use App\Http\Livewire\Landing;
 use App\Http\Livewire\Pendaftaran;
+use App\Http\Livewire\RekapUkuran;
 use App\Http\Livewire\SudahUkur;
 use App\Http\Livewire\UbahHasil;
 use App\Http\Livewire\UkurSeragam;
@@ -144,8 +145,9 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:Ukur Seragam'])->group(function () {
 
         Route::get('ukur-seragam/ukur-seragam', UkurSeragam::class)->name('ukur-seragam.ukur-seragam');
-        Route::get('ukur-seragam/sudah-ukur', SudahUkur::class)->name('ukur-seragam.sudah-ukur');
         Route::get('ukur-seragam/belum-ukur', BelumUkur::class)->name('ukur-seragam.belum-ukur');
+        Route::get('ukur-seragam/sudah-ukur', SudahUkur::class)->name('ukur-seragam.sudah-ukur');
+        Route::get('ukur-seragam/rekap-ukuran', RekapUkuran::class)->name('ukur-seragam.rekap-ukuran');
     });
 
     // route for wawancara

@@ -106,6 +106,15 @@ class User extends Authenticatable
         return $this->hasOne(Biodata::class)->withDefault();
     }
 
+    /**
+     * Get all of the biodatas for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function biodatas(): HasMany
+    {
+        return $this->hasMany(Biodata::class);
+    }
 
     /**
      * Get all of the jawabGaya for the User
@@ -199,6 +208,16 @@ class User extends Authenticatable
     public function seragam(): HasOne
     {
         return $this->hasOne(Seragam::class)->withDefault();
+    }
+
+    /**
+     * Get all of the seragams for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function seragams(): HasMany
+    {
+        return $this->hasMany(Seragam::class);
     }
 
     /**

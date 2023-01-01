@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('rt')->nullable();
             $table->string('rw')->nullable();
             $table->string('kode_pos')->nullable();
-            $table->foreignId('desa');
+            $table->foreignId('desa')->nullable();
             $table->foreignId('kecamatan');
             $table->foreignId('kabupaten');
             $table->foreignId('provinsi');
