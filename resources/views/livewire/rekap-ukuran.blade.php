@@ -264,30 +264,30 @@
                 <tr
                     class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        16
+                        18
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         Kerudung
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Putih : <br>
-                        Dongker : <br>
-                        Coklat : <br>
+                        Putih : {{ $siswaPutri }}<br>
+                        Dongker : {{ $siswaPutri }}<br>
+                        Coklat : {{ $siswaPutri }}
                     </td>
                 </tr>
                 <tr
                     class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        17
+                        19
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         Lain - lain
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Ikat pinggang : <br>
-                        Handsduk dan kolongan : <br>
-                        Kaos kaki hitam : <br>
-                        Kaos kaki putih : <br>
+                        Ikat pinggang : {{ $siswaPutra + $siswaPutri }}<br>
+                        Handsduk dan kolongan : {{ $siswaPutra + $siswaPutri }}<br>
+                        Kaos kaki hitam : {{ $siswaPutra + $siswaPutri }}<br>
+                        Kaos kaki putih : {{ $siswaPutra + $siswaPutri }}<br>
                     </td>
                 </tr>
             </tbody>
