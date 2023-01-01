@@ -20,6 +20,7 @@ class DetailPendaftar extends Component
 
     // Identitas Calon Siswa
     public $kodePendaftaran;
+    public $kategoriPendaftar;
     public $tahun;
     public $tingkat;
     public $nama;
@@ -134,6 +135,7 @@ class DetailPendaftar extends Component
         $this->listProvinsiSekolahDasar = Province::orderBy('name')->get();
 
         $this->kodePendaftaran = $this->user->kode_daftar;
+        $this->kategoriPendaftar = substr($this->kodePendaftaran,0,1);
         $this->nama = $this->user->name;
         $this->tingkat = $this->user->biodata->tingkat;
         $this->nik = $this->user->biodata->nik;

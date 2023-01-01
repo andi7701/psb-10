@@ -116,7 +116,7 @@
     </x-my-card>
 
     {{-- Data Sekolah Asal --}}
-    <x-my-card class="flex space-y-4 flex-col">
+    <x-my-card class="{{ $kategoriPendaftar == 'A' || $kategoriPendaftar == 'B' || $kategoriPendaftar == '' ? 'hidden' : 'flex space-y-4 flex-col' }}">
         <h2 class="mt-2 text-xl font-bold text-slate-600">Data Sekolah Asal Pindahan</h2>
         <div class="llg:grid lg:grid-cols-2 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer="namaSekolahAsal" label="Nama Sekolah Asal" />
