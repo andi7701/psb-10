@@ -4,8 +4,9 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
-use Livewire\WithPagination;
 use WireUi\Traits\Actions;
+use Livewire\WithPagination;
+use Illuminate\Database\Eloquent\Builder;
 
 class DataPendaftar extends Component
 {
@@ -20,8 +21,12 @@ class DataPendaftar extends Component
             'livewire.data-pendaftar',
             [
                 'listUser' => User::role('Calon Siswa')
-                    ->where('name', 'like', '%' . $this->search . '%')
-                    ->with(['panitia', 'alamat', 'alamat.village', 'biodata', 'sekolahSd', 'sekolahAsal', 'orangTua'])
+                ->when(
+                    $this->search,
+                    fn (Builder $query) => $query
+                        ->where('name', 'like', "%{$this->search}%")
+                )
+                    ->with(['panitia', 'alamat', 'alamat.village', 'alamat.province', 'alamat.city', 'alamat.district', 'biodata', 'sekolahSd', 'sekolahAsal', 'orangTua'])
                     ->orderBy('name')
                     ->paginate(5)
             ]

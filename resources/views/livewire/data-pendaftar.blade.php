@@ -47,8 +47,11 @@
                         <td class="py-4 px-6">
                             {{ $user->sekolahSd->nama ?? '' }}
                         </td>
-                        <td class="py-4 px-6">
-                            {{ $user->alamat->village->name ?? '' }}
+                        <td class="py-4 px-6 whitespace-nowrap">
+                            Provinsi : {{ $user->alamat->province->name ?? '' }} <br>
+                            Kabupaten : {{ $user->alamat->city->name ?? '' }} <br>
+                            Kecamatan : {{ $user->alamat->district->name ?? '' }} <br>
+                            Desa : {{ $user->alamat->village->name ?? '' }}
                         </td>
                         <td class="py-4 px-6">
                             {{ $user->panitia->name }}
