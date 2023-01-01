@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             DistrictsSeeder::class,
             VillagesSeeder::class,
             QuestionSeeder::class,
-            PendaftarSeeder::class,
+            // PendaftarSeeder::class,
         ]);
     }
 }
