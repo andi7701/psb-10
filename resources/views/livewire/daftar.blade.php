@@ -43,7 +43,7 @@
             </x-native-select>
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
-            <x-input wire:model.defer="nisn" label="NISN" />
+            <x-input wire:model.defer="nisn" label="NISN" corner-hint="10 Angka"/>
             <x-input wire:model.defer="status" label="Status" placeholder="Anak Kandung / Tiri"
                 corner-hint="contoh : Anak Kandung" />
             <x-input wire:model.defer="anakKe" label="Anak Ke - Berapa" placeholder="1 , 2 , 3 ..."
