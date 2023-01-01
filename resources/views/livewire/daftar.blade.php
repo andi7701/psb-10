@@ -24,12 +24,7 @@
                 <option value="8">8</option>
                 <option value="9">9</option>
             </x-native-select>
-            <div>
-                <x-input wire:model.defer="nama" label="Nama Lengkap" />
-                @error('nama')
-                    <small class="text-red-700">{{ $message }}</small>
-                @enderror
-            </div>
+            <x-input wire:model.defer="nama" label="Nama Lengkap" />
             <x-input wire:model.defer="kodePendaftaran" label="Kode Pendaftaran" class="font-bold " disabled />
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
@@ -43,7 +38,7 @@
             </x-native-select>
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
-            <x-input wire:model.defer="nisn" label="NISN" corner-hint="10 Angka"/>
+            <x-input wire:model.defer="nisn" label="NISN" corner-hint="10 Angka" />
             <x-input wire:model.defer="status" label="Status" placeholder="Anak Kandung / Tiri"
                 corner-hint="contoh : Anak Kandung" />
             <x-input wire:model.defer="anakKe" label="Anak Ke - Berapa" placeholder="1 , 2 , 3 ..."
@@ -172,7 +167,7 @@
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2  lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer='telepon' label='Nomor Telepon Orang Tua' placeholder="081xxxxxx" />
-            <x-input wire:model.defer='penghasilan' label='Penghasilan Orang Tua' />
+            <x-input wire:model.defer='penghasilan' label='Penghasilan Orang Tua' corner-hint="berupa angka"/>
             <x-input wire:model.defer='noKps' label='Nomor KPS (*jika punya)' />
             <x-input wire:model.defer='noKip' label='Nomor KIP (*jika punya)' />
         </div>
