@@ -60,12 +60,27 @@
                             @role('Admin')
                                 <x-button href="{{ route('admin.detail-pendaftar', ['user' => $user->slug]) }}" teal
                                     label="Detail" />
+                                    <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
+                            @endrole
+                            @role('Kepala Sekolah')
+                                <x-button href="{{ route('kepala-sekolah.detail-pendaftar', ['user' => $user->slug]) }}" teal
+                                    label="Detail" />
+                            @endrole
+                            @role('Ketua')
+                                <x-button href="{{ route('ketua.detail-pendaftar', ['user' => $user->slug]) }}" teal
+                                    label="Detail" />
+                                    <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                             @endrole
                             @role('Pendaftaran')
                                 <x-button href="{{ route('pendaftaran.detail-pendaftar', ['user' => $user->slug]) }}" teal
                                     label="Detail" />
+                                    <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                             @endrole
-                            <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
+                            @role('Sekretaris')
+                                <x-button href="{{ route('sekretaris.detail-pendaftar', ['user' => $user->slug]) }}" teal
+                                    label="Detail" />
+                                    <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
+                            @endrole
                         </td>
                     </tr>
                 @endforeach

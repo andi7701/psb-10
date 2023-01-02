@@ -69,8 +69,21 @@
                             @endif
                         </td>
                         <td class="py-2 px-6 space-x-3 flex items-center">
-                            <x-button wire:click.prevent="confirmTolak({{ $user->id }})" negative label="Tidak" />
-                            <x-button wire:click.prevent="confirmTerima({{ $user->id }})" positive label="Terima" />
+                            @role('Akademik')
+                                <x-button wire:click.prevent="confirmTolak({{ $user->id }})" negative label="Tidak" />
+                                <x-button wire:click.prevent="confirmTerima({{ $user->id }})" positive
+                                    label="Terima" />
+                            @endrole
+                            @role('Sekretaris')
+                                <x-button wire:click.prevent="confirmTolak({{ $user->id }})" negative label="Tidak" />
+                                <x-button wire:click.prevent="confirmTerima({{ $user->id }})" positive
+                                    label="Terima" />
+                            @endrole
+                            @role('Ketua')
+                                <x-button wire:click.prevent="confirmTolak({{ $user->id }})" negative label="Tidak" />
+                                <x-button wire:click.prevent="confirmTerima({{ $user->id }})" positive
+                                    label="Terima" />
+                            @endrole
                         </td>
                     </tr>
                 @endforeach

@@ -92,6 +92,50 @@ Route::middleware('auth')->group(function () {
     });
 
 
+    // route for agama
+    Route::middleware(['role:Agama'])->group(function () {
+
+        Route::get('agama/input-agama', InputAgama::class)->name('agama.input-agama');
+        Route::get('agama/hasil-diterima', HasilAgamaTerima::class)->name('agama.hasil-diterima');
+        Route::get('agama/hasil-ditolak', HasilAgamaTolak::class)->name('agama.hasil-ditolak');
+    });
+
+    // route for akademik
+    Route::middleware(['role:Akademik'])->group(function () {
+
+        Route::get('akademik/atur-test', AturTes::class)->name('akademik.atur-test');
+        Route::get('akademik/hasil-test', HasilTes::class)->name('akademik.hasil-test');
+        Route::get('akademik/hasil-diterima', HasilAkademikTerima::class)->name('akademik.hasil-diterima');
+        Route::get('akademik/hasil-ditolak', HasilAkademikTolak::class)->name('akademik.hasil-ditolak');
+    });
+
+
+    // route for Kepala Sekolah
+    Route::middleware(['role:Kepala Sekolah'])->group(function () {
+
+        Route::get('kepala-sekolah/data-pendaftar', DataPendaftar::class)->name('kepala-sekolah.data-pendaftar');
+        Route::get('kepala-sekolah/detail-pendaftar/{user}', DetailPendaftar::class)->name('kepala-sekolah.detail-pendaftar');
+
+        // Tes Seleksi
+        Route::get('kepala-sekolah/hasil-agama', HasilAgamaTerima::class)->name('kepala-sekolah.hasil-agama');
+        Route::get('kepala-sekolah/hasil-akademik', HasilAkademikTerima::class)->name('kepala-sekolah.hasil-akademik');
+        Route::get('kepala-sekolah/hasil-kesehatan', HasilKesehatanTerima::class)->name('kepala-sekolah.hasil-kesehatan');
+        Route::get('kepala-sekolah/hasil-minat-bakat', HasilMinatTerima::class)->name('kepala-sekolah.hasil-minat-bakat');
+        Route::get('kepala-sekolah/hasil-pengumuman', HasilPengumumanTerima::class)->name('kepala-sekolah.hasil-pengumuman');
+        Route::get('kepala-sekolah/hasil-wawancara', HasilWawancaraTerima::class)->name('kepala-sekolah.hasil-wawancara');
+
+        //Atur Tes Akademik
+        Route::get('kepala-sekolah/hasil-test-akademik', HasilTes::class)->name('kepala-sekolah.hasil-test-akademik');
+    });
+
+    // route for kesehatan
+    Route::middleware(['role:Kesehatan'])->group(function () {
+
+        Route::get('kesehatan/input-kesehatan', InputKesehatan::class)->name('kesehatan.input-kesehatan');
+        Route::get('kesehatan/hasil-diterima', HasilKesehatanTerima::class)->name('kesehatan.hasil-diterima');
+        Route::get('kesehatan/hasil-ditolak', HasilKesehatanTolak::class)->name('kesehatan.hasil-ditolak');
+    });
+
     // route for Ketua
     Route::middleware(['role:Ketua'])->group(function () {
 
@@ -110,31 +154,6 @@ Route::middleware('auth')->group(function () {
         //Atur Tes Akademik
         Route::get('ketua/atur-test', AturTes::class)->name('ketua.atur-test');
         Route::get('ketua/hasil-test-akademik', HasilTes::class)->name('ketua.hasil-test-akademik');
-    });
-
-    // route for agama
-    Route::middleware(['role:Agama'])->group(function () {
-
-        Route::get('agama/input-agama', InputAgama::class)->name('agama.input-agama');
-        Route::get('agama/hasil-diterima', HasilAgamaTerima::class)->name('agama.hasil-diterima');
-        Route::get('agama/hasil-ditolak', HasilAgamaTolak::class)->name('agama.hasil-ditolak');
-    });
-
-    // route for akademik
-    Route::middleware(['role:Akademik'])->group(function () {
-
-        Route::get('akademik/atur-test', AturTes::class)->name('akademik.atur-test');
-        Route::get('akademik/hasil-test', HasilTes::class)->name('akademik.hasil-test');
-        Route::get('akademik/hasil-diterima', HasilAkademikTerima::class)->name('akademik.hasil-diterima');
-        Route::get('akademik/hasil-ditolak', HasilAkademikTolak::class)->name('akademik.hasil-ditolak');
-    });
-
-    // route for kesehatan
-    Route::middleware(['role:Kesehatan'])->group(function () {
-
-        Route::get('kesehatan/input-kesehatan', InputKesehatan::class)->name('kesehatan.input-kesehatan');
-        Route::get('kesehatan/hasil-diterima', HasilKesehatanTerima::class)->name('kesehatan.hasil-diterima');
-        Route::get('kesehatan/hasil-ditolak', HasilKesehatanTolak::class)->name('kesehatan.hasil-ditolak');
     });
 
     // route for minat bakat

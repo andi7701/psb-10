@@ -3,8 +3,15 @@
     <div>
         @role('Admin')
             <x-button href="{{ route('admin.data-pendaftar') }}" secondary label="Kembali" icon="chevron-left" />
-        @else
+        @endrole
+        @role('Kepala Sekolah')
+            <x-button href="{{ route('kepala-sekolah.data-pendaftar') }}" secondary label="Kembali" icon="chevron-left" />
+        @endrole
+        @role('Pendaftaran')
             <x-button href="{{ route('pendaftaran.data-pendaftar') }}" secondary label="Kembali" icon="chevron-left" />
+        @endrole
+        @role('Sekretaris')
+            <x-button href="{{ route('sekretaris.data-pendaftar') }}" secondary label="Kembali" icon="chevron-left" />
         @endrole
     </div>
     <h2 class="text-2xl font-bold text-slate-600">Form Detail Calon Siswa</h2>
@@ -116,7 +123,8 @@
     </x-my-card>
 
     {{-- Data Sekolah Asal --}}
-    <x-my-card class="{{ $kategoriPendaftar == 'A' || $kategoriPendaftar == 'B' || $kategoriPendaftar == '' ? 'hidden' : 'flex space-y-4 flex-col' }}">
+    <x-my-card
+        class="{{ $kategoriPendaftar == 'A' || $kategoriPendaftar == 'B' || $kategoriPendaftar == '' ? 'hidden' : 'flex space-y-4 flex-col' }}">
         <h2 class="mt-2 text-xl font-bold text-slate-600">Data Sekolah Asal Pindahan</h2>
         <div class="llg:grid lg:grid-cols-2 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer="namaSekolahAsal" label="Nama Sekolah Asal" />
@@ -176,10 +184,20 @@
     </x-my-card>
     <div class="flex space-x-3 items-center justify-end">
         @role('Admin')
-        <x-button href="{{ route('admin.data-pendaftar') }}" negative label="Batal" />
-        @else
-        <x-button href="{{ route('pendaftaran.data-pendaftar') }}" negative label="Batal" />
+            <x-button href="{{ route('admin.data-pendaftar') }}" secondary label="Batal" icon="chevron-left" />
+            <x-button wire:click.prevent="simpan" positive label="Simpan" spinner="simpan" loading-delay="long" />
         @endrole
-        <x-button wire:click.prevent="simpan" positive label="Simpan" spinner="simpan" loading-delay="long" />
+        @role('Kepala Sekolah')
+            <x-button href="{{ route('kepala-sekolah.data-pendaftar') }}" secondary label="Batal"
+                icon="chevron-left" />
+        @endrole
+        @role('Pendaftaran')
+            <x-button href="{{ route('pendaftaran.data-pendaftar') }}" secondary label="Batal" icon="chevron-left" />
+            <x-button wire:click.prevent="simpan" positive label="Simpan" spinner="simpan" loading-delay="long" />
+        @endrole
+        @role('Sekretaris')
+            <x-button href="{{ route('sekretaris.data-pendaftar') }}" secondary label="Batal" icon="chevron-left" />
+            <x-button wire:click.prevent="simpan" positive label="Simpan" spinner="simpan" loading-delay="long" />
+        @endrole
     </div>
 </div>
