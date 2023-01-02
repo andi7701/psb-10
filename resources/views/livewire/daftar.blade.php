@@ -166,8 +166,9 @@
             <x-input wire:model.defer='pekerjaanIbu' label='Pekerjaan Ibu' />
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2  lg:space-y-0 flex flex-col space-y-4">
-            <x-input wire:model.defer='telepon' label='Nomor Telepon Orang Tua' placeholder="081xxxxxx" />
-            <x-input wire:model.defer='penghasilan' label='Penghasilan Orang Tua' corner-hint="berupa angka"/>
+            <x-input wire:model.defer='telepon' label='Nomor Telepon Orang Tua' placeholder="6281xxxxxx" />
+            <x-inputs.currency label="Penghasilan" prefix="Rp." placeholder=" 10.000.000" thousands="." decimal="," precision="4"
+                wire:model.defer="penghasilan" />
             <x-input wire:model.defer='noKps' label='Nomor KPS (*jika punya)' />
             <x-input wire:model.defer='noKip' label='Nomor KIP (*jika punya)' />
         </div>
@@ -175,7 +176,7 @@
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer='namaWali' label='Nama Wali' />
             <x-input wire:model.defer='pekerjaanWali' label='Pekerjaan Wali' />
-            <x-input wire:model.defer='teleponWali' label='Telepon Wali' placeholder="081xxxxxx" />
+            <x-input wire:model.defer='teleponWali' label='Telepon Wali' placeholder="6281xxxxxx" />
         </div>
         <div>
             <x-textarea wire:model.defer='alamatWali' label='Alamat Wali' />
