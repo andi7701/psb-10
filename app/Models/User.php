@@ -201,6 +201,16 @@ class User extends Authenticatable
 
 
     /**
+     * Get all of the pembayarans for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pembayarans(): HasMany
+    {
+        return $this->hasMany(Pembayaran::class);
+    }
+
+    /**
      * Get the seragam associated with the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

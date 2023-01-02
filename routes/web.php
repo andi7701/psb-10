@@ -29,6 +29,7 @@ use App\Http\Livewire\Home;
 use App\Http\Livewire\InputAgama;
 use App\Http\Livewire\InputKesehatan;
 use App\Http\Livewire\InputMinatBakat;
+use App\Http\Livewire\InputPembayaran;
 use App\Http\Livewire\InputPengumuman;
 use App\Http\Livewire\InputWawancara;
 use App\Http\Livewire\Landing;
@@ -107,6 +108,12 @@ Route::middleware('auth')->group(function () {
         Route::get('akademik/hasil-test', HasilTes::class)->name('akademik.hasil-test');
         Route::get('akademik/hasil-diterima', HasilAkademikTerima::class)->name('akademik.hasil-diterima');
         Route::get('akademik/hasil-ditolak', HasilAkademikTolak::class)->name('akademik.hasil-ditolak');
+    });
+
+    // route for Bendahara
+    Route::middleware(['role:Bendahara'])->group(function () {
+
+        Route::get('bendahara/input-pembayaran', InputPembayaran::class)->name('bendahara.input-pembayaran');
     });
 
 

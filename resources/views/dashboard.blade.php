@@ -31,7 +31,7 @@
                     @else
                     <li class="list-disc">Gelombang III : Tanggal 26 Mei 2023 - 02 Juni 2023</li>
                     @endif
-                    <li class="list-disc">Waktu : Setiap jum'at pukul 07.00 - 12.30 WIB</li>
+                    <li class="list-disc">Waktu : Setiap jum'at pukul 07.30 - 12.30 WIB</li>
                 </ul>
                 </p>
             @else

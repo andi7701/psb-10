@@ -12,108 +12,35 @@
 
         <x-sidebar-link :href="__('dashboard')" :label="__('dashboard')" />
 
-        @role('Admin')
-            <x-sidebar-link :href="__('admin.atur-test')" :label="__('atur tes')" />
-            <x-sidebar-link :href="__('admin.buat-role')" :label="__('buat role')" />
-            <x-sidebar-link :href="__('admin.data-panitia')" :label="__('data panitia')" />
-            <x-sidebar-link :href="__('admin.data-pendaftar')" :label="__('data pendaftar')" />
-            <x-sidebar-link :href="__('admin.input-agama')" :label="__('input agama')" />
-            <x-sidebar-link :href="__('admin.input-kesehatan')" :label="__('input kesehatan')" />
-            <x-sidebar-link :href="__('admin.input-minat-bakat')" :label="__('input minat bakat')" />
-            <x-sidebar-link :href="__('admin.input-pengumuman')" :label="__('Input pengumuman')" />
-            <x-sidebar-link :href="__('admin.input-wawancara')" :label="__('Input Wawancara')" />
-            <x-sidebar-link :href="__('admin.pendaftaran')" :label="__('pendaftaran siswa')" />
-        @endrole
+        @include('components.sidebar-admin')
 
-        @role('Calon Siswa')
-            @if (auth()->user()->boleh_test)
-                <x-sidebar-link :href="__('exam')" :label="__('mulai tes')" />
-            @endif
-        @endrole
+        @include('components.sidebar-agama')
 
-        @role('Pendaftaran')
-            <x-sidebar-link :href="__('pendaftaran.data-pendaftar')" :label="__('data pendaftar')" />
-            <x-sidebar-link :href="__('pendaftaran.pendaftaran')" :label="__('pendaftaran siswa')" />
-        @endrole
+        @include('components.sidebar-akademik')
 
-        @role('Agama')
-            <x-sidebar-link :href="__('agama.input-agama')" :label="__('input agama')" />
-            <x-sidebar-link :href="__('agama.hasil-diterima')" :label="__('hasil diterima')" />
-            <x-sidebar-link :href="__('agama.hasil-ditolak')" :label="__('hasil ditolak')" />
-        @endrole
+        @include('components.sidebar-bendahara')
 
-        @role('Akademik')
-            <x-sidebar-link :href="__('akademik.atur-test')" :label="__('atur tes')" />
-            <x-sidebar-link :href="__('akademik.hasil-test')" :label="__('hasil tes')" />
-            <x-sidebar-link :href="__('akademik.hasil-diterima')" :label="__('hasil diterima')" />
-            <x-sidebar-link :href="__('akademik.hasil-ditolak')" :label="__('hasil ditolak')" />
-        @endrole
+        @include('components.sidebar-calon-siswa')
 
-        @role('Kepala Sekolah')
-            <x-sidebar-link :href="__('kepala-sekolah.data-pendaftar')" :label="__('data pendaftar')" />
-            <x-sidebar-link :href="__('kepala-sekolah.hasil-test-akademik')" :label="__('hasil tes akademik')" />
-            <x-sidebar-link :href="__('kepala-sekolah.hasil-agama')" :label="__('hasil agama')" />
-            <x-sidebar-link :href="__('kepala-sekolah.hasil-akademik')" :label="__('hasil akademik')" />
-            <x-sidebar-link :href="__('kepala-sekolah.hasil-kesehatan')" :label="__('hasil kesehatan')" />
-            <x-sidebar-link :href="__('kepala-sekolah.hasil-minat-bakat')" :label="__('hasil minat bakat')" />
-            <x-sidebar-link :href="__('kepala-sekolah.hasil-pengumuman')" :label="__('hasil pengumuman')" />
-            <x-sidebar-link :href="__('kepala-sekolah.hasil-wawancara')" :label="__('hasil Wawancara')" />
-        @endrole
+        @include('components.sidebar-kepala-sekolah')
 
-        @role('Kesehatan')
-            <x-sidebar-link :href="__('kesehatan.input-kesehatan')" :label="__('input kesehatan')" />
-            <x-sidebar-link :href="__('kesehatan.hasil-diterima')" :label="__('hasil diterima')" />
-            <x-sidebar-link :href="__('kesehatan.hasil-ditolak')" :label="__('hasil ditolak')" />
-        @endrole
+        @include('components.sidebar-kesehatan')
 
-        @role('Ketua')
-            <x-sidebar-link :href="__('ketua.atur-test')" :label="__('atur tes akademik')" />
-            <x-sidebar-link :href="__('ketua.data-pendaftar')" :label="__('data pendaftar')" />
-            <x-sidebar-link :href="__('ketua.hasil-test-akademik')" :label="__('hasil tes akademik')" />
-            <x-sidebar-link :href="__('ketua.input-agama')" :label="__('input agama')" />
-            <x-sidebar-link :href="__('ketua.input-kesehatan')" :label="__('input kesehatan')" />
-            <x-sidebar-link :href="__('ketua.input-minat-bakat')" :label="__('input minat bakat')" />
-            <x-sidebar-link :href="__('ketua.input-pengumuman')" :label="__('Input pengumuman')" />
-            <x-sidebar-link :href="__('ketua.input-wawancara')" :label="__('Input Wawancara')" />
-            <x-sidebar-link :href="__('ketua.pendaftaran')" :label="__('pendaftaran siswa')" />
-        @endrole
+        @include('components.sidebar-ketua')
 
-        @role('Minat Bakat')
-            <x-sidebar-link :href="__('minat-bakat.input-minat-bakat')" :label="__('input minat bakat')" />
-            <x-sidebar-link :href="__('minat-bakat.hasil-diterima')" :label="__('hasil diterima')" />
-            <x-sidebar-link :href="__('minat-bakat.hasil-ditolak')" :label="__('hasil ditolak')" />
-        @endrole
+        @include('components.sidebar-minat-bakat')
 
-        @role('Pengumuman')
-            <x-sidebar-link :href="__('pengumuman.input-pengumuman')" :label="__('input pengumuman')" />
-            <x-sidebar-link :href="__('pengumuman.hasil-diterima')" :label="__('hasil diterima')" />
-            <x-sidebar-link :href="__('pengumuman.hasil-ditolak')" :label="__('hasil ditolak')" />
-        @endrole
+        @include('components.sidebar-pendaftaran')
 
-        @role('Sekretaris')
-            <x-sidebar-link :href="__('sekretaris.atur-test')" :label="__('atur tes akademik')" />
-            <x-sidebar-link :href="__('sekretaris.data-pendaftar')" :label="__('data pendaftar')" />
-            <x-sidebar-link :href="__('sekretaris.hasil-test-akademik')" :label="__('hasil tes akademik')" />
-            <x-sidebar-link :href="__('sekretaris.input-agama')" :label="__('input agama')" />
-            <x-sidebar-link :href="__('sekretaris.input-kesehatan')" :label="__('input kesehatan')" />
-            <x-sidebar-link :href="__('sekretaris.input-minat-bakat')" :label="__('input minat bakat')" />
-            <x-sidebar-link :href="__('sekretaris.input-pengumuman')" :label="__('Input pengumuman')" />
-            <x-sidebar-link :href="__('sekretaris.input-wawancara')" :label="__('Input Wawancara')" />
-            <x-sidebar-link :href="__('sekretaris.pendaftaran')" :label="__('pendaftaran siswa')" />
-        @endrole
+        @include('components.sidebar-pengumuman')
 
-        @role('Ukur Seragam')
-            <x-sidebar-link :href="__('ukur-seragam.ukur-seragam')" :label="__('ukur seragam')" />
-            <x-sidebar-link :href="__('ukur-seragam.belum-ukur')" :label="__('belum ukur')" />
-            <x-sidebar-link :href="__('ukur-seragam.sudah-ukur')" :label="__('sudah ukur')" />
-            <x-sidebar-link :href="__('ukur-seragam.rekap-ukuran')" :label="__('rekap ukuran')" />
-        @endrole
+        @include('components.sidebar-sekretaris')
 
-        @role('Wawancara')
-            <x-sidebar-link :href="__('wawancara.input-wawancara')" :label="__('Input Wawancara')" />
-            <x-sidebar-link :href="__('wawancara.hasil-diterima')" :label="__('hasil diterima')" />
-            <x-sidebar-link :href="__('wawancara.hasil-ditolak')" :label="__('hasil ditolak')" />
-        @endrole
+        @include('components.sidebar-ukur-seragam')
+
+        @include('components.sidebar-wawancara')
+
+
         <form action="{{ route('logout') }}" method="POST">
             @csrf
             <button
