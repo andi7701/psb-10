@@ -91,6 +91,27 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/atur-test', AturTes::class)->name('admin.atur-test');
     });
 
+
+    // route for Ketua
+    Route::middleware(['role:Ketua'])->group(function () {
+
+        Route::get('ketua/data-pendaftar', DataPendaftar::class)->name('ketua.data-pendaftar');
+        Route::get('ketua/detail-pendaftar/{user}', DetailPendaftar::class)->name('ketua.detail-pendaftar');
+        Route::get('ketua/pendaftaran', Pendaftaran::class)->name('ketua.pendaftaran');
+
+
+        // Tes Seleksi
+        Route::get('ketua/input-agama', InputAgama::class)->name('ketua.input-agama');
+        Route::get('ketua/input-kesehatan', InputKesehatan::class)->name('ketua.input-kesehatan');
+        Route::get('ketua/input-minat-bakat', InputMinatBakat::class)->name('ketua.input-minat-bakat');
+        Route::get('ketua/input-pengumuman', InputPengumuman::class)->name('ketua.input-pengumuman');
+        Route::get('ketua/input-wawancara', InputWawancara::class)->name('ketua.input-wawancara');
+
+        //Atur Tes Akademik
+        Route::get('ketua/atur-test', AturTes::class)->name('ketua.atur-test');
+        Route::get('ketua/hasil-test-akademik', HasilTes::class)->name('ketua.hasil-test-akademik');
+    });
+
     // route for agama
     Route::middleware(['role:Agama'])->group(function () {
 
@@ -139,6 +160,27 @@ Route::middleware('auth')->group(function () {
         Route::get('pengumuman/input-pengumuman', InputPengumuman::class)->name('pengumuman.input-pengumuman');
         Route::get('pengumuman/hasil-diterima', HasilPengumumanTerima::class)->name('pengumuman.hasil-diterima');
         Route::get('pengumuman/hasil-ditolak', HasilPengumumanTolak::class)->name('pengumuman.hasil-ditolak');
+    });
+
+
+    // route for Sekretaris
+    Route::middleware(['role:Sekretaris'])->group(function () {
+
+        Route::get('sekretaris/data-pendaftar', DataPendaftar::class)->name('sekretaris.data-pendaftar');
+        Route::get('sekretaris/detail-pendaftar/{user}', DetailPendaftar::class)->name('sekretaris.detail-pendaftar');
+        Route::get('sekretaris/pendaftaran', Pendaftaran::class)->name('sekretaris.pendaftaran');
+
+
+        // Tes Seleksi
+        Route::get('sekretaris/input-agama', InputAgama::class)->name('sekretaris.input-agama');
+        Route::get('sekretaris/input-kesehatan', InputKesehatan::class)->name('sekretaris.input-kesehatan');
+        Route::get('sekretaris/input-minat-bakat', InputMinatBakat::class)->name('sekretaris.input-minat-bakat');
+        Route::get('sekretaris/input-pengumuman', InputPengumuman::class)->name('sekretaris.input-pengumuman');
+        Route::get('sekretaris/input-wawancara', InputWawancara::class)->name('sekretaris.input-wawancara');
+
+        //Atur Tes Akademik
+        Route::get('sekretaris/atur-test', AturTes::class)->name('sekretaris.atur-test');
+        Route::get('sekretaris/hasil-test-akademik', HasilTes::class)->name('sekretaris.hasil-test-akademik');
     });
 
     // route for wawancara

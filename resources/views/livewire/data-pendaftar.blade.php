@@ -58,11 +58,12 @@
                         </td>
                         <td class="py-4 px-6 flex space-x-3 items-center">
                             @role('Admin')
-                            <x-button href="{{ route('admin.detail-pendaftar', ['user' => $user->slug]) }}" teal
-                                label="Detail" />
-                            @else
-                            <x-button href="{{ route('pendaftaran.detail-pendaftar', ['user' => $user->slug]) }}" teal
-                                label="Detail" />
+                                <x-button href="{{ route('admin.detail-pendaftar', ['user' => $user->slug]) }}" teal
+                                    label="Detail" />
+                            @endrole
+                            @role('Pendaftaran')
+                                <x-button href="{{ route('pendaftaran.detail-pendaftar', ['user' => $user->slug]) }}" teal
+                                    label="Detail" />
                             @endrole
                             <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                         </td>

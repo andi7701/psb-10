@@ -67,6 +67,7 @@
                             @endforeach
                         </td>
                         <td class="py-4 px-6">
+                            <x-button wire:click.prevent="edit({{ $user->id }})" @click="tambahPanitia = true" positive label="Edit" />
                             <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                         </td>
                     </tr>

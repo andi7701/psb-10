@@ -17,16 +17,17 @@ class DataPanitia extends Component
     public $name;
     public $username;
     public $role;
+    public $user;
 
     public $search = '';
 
     public $roles = [];
 
-    protected $rules =
-    [
-        'name' => 'required',
-        'username' => 'required|unique:users'
-    ];
+    // protected $rules =
+    // [
+    //     'name' => 'required',
+    //     'username' => 'required|unique:users'
+    // ];
 
     public function render()
     {
@@ -53,20 +54,25 @@ class DataPanitia extends Component
 
     public function simpan()
     {
-        $this->validate();
+        // $this->validate();
 
-        $user = User::create([
-            'name' => $this->name,
-            'username' => $this->username,
-            'password' => bcrypt('12345678')
-        ]);
+        $this->user = User::updateOrCreate(
+            [
+                'username' => $this->username,
+            ],
+            [
+                'name' => $this->name,
+                'password' => bcrypt('smpalfapsb')
+            ]
+        );
 
-        $user->assignRole($this->role);
+        $this->user->syncRoles($this->role);
 
         $this->notification()->success(
             $title = 'Berhasil !',
             $description = 'Berhasil Menambah Panitia'
         );
+        $this->resetExcept('roles');
     }
     public function confirm($id): void
     {
@@ -88,5 +94,13 @@ class DataPanitia extends Component
             $title = 'Hapus Calon Siswa',
             $description = 'Berhasil Hapus Data Calon Siswa'
         );
+    }
+
+    public function edit($id)
+    {
+        $this->user = User::find($id);
+
+        $this->name = $this->user->name;
+        $this->username = $this->user->username;
     }
 }
