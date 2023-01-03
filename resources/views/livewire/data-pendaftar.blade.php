@@ -72,6 +72,8 @@
                                     <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                             @endrole
                             @role('Pendaftaran')
+                                <x-button href="{{ route('pendaftaran.print-formulir-pendaftaran', ['user' => $user->slug]) }}" target="__blank" positive
+                                    label="Print" icon="printer" />
                                 <x-button href="{{ route('pendaftaran.detail-pendaftar', ['user' => $user->slug]) }}" teal
                                     label="Detail" />
                                     <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />

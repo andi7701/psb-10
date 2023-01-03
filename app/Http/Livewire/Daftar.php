@@ -34,7 +34,8 @@ class Daftar extends Component
     public $jenisKelamin;
     public $status;
     public $anakKe;
-
+    public $gelombang;
+    
     // Alamat
     public $keterangan;
     public $provinsi;

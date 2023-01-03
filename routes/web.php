@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\PrintController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\AturTes;
 use App\Http\Livewire\BelumUkur;
@@ -178,6 +179,9 @@ Route::middleware('auth')->group(function () {
         Route::get('pendaftaran/data-pendaftar', DataPendaftar::class)->name('pendaftaran.data-pendaftar');
         Route::get('pendaftaran/detail-pendaftar/{user}', DetailPendaftar::class)->name('pendaftaran.detail-pendaftar');
         Route::get('pendaftaran/pendaftaran', Pendaftaran::class)->name('pendaftaran.pendaftaran');
+
+        //Print
+        Route::get('pendaftaran/print/formulir-pendaftaran/{user}', [PrintController::class, 'formulir_pendaftaran'])->name('pendaftaran.print-formulir-pendaftaran');
     });
 
     // route for pengumuman
