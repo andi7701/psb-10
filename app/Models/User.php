@@ -281,11 +281,11 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
-    protected function name(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => Str::title($value),
-            set: fn ($value) => Str::title($value),
-        );
-    }
+    // protected function name(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn ($value) => Str::title($value),
+    //         set: fn ($value) => Str::title($value),
+    //     );
+    // }
 }
