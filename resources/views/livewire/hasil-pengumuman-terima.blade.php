@@ -35,7 +35,7 @@
                         class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
                         <td scope="row"
                             class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $loop->iteration }}
+                            {{ $listUser->firstItem() + $key }}
                         </td>
                         <td scope="row"
                             class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
