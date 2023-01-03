@@ -1,41 +1,35 @@
 <x-layout-print>
     <x-slot name="title">
-        Formulir Pendaftaran
+        Kartu Pendaftaran
     </x-slot>
     <h1 class="uppercase font-bold text-slate-700 text-center text-md">
-        formulir pendaftaran penerimaan santri baru
+        kartu pendaftaran
         <br>
+        seleksi penerimaan santri baru
         tahun ajaran 2023 / 2024
     </h1>
-    <div class="flex justify-end text-slate-600 mr-10 text-right">
-        <div class="flex flex-col">
-            <span class="capitalize">no. pendaftaran :
-                <span class="font-bold">{{ $user->kode_daftar }}</span>
-            </span>
-            <span class="capitalize">
-                @switch(substr($user->kode_daftar,0,1))
-                    @case('A')
-                        pendaftaran siswa baru kelas : {{ $user->biodata->tingkat }}
-                    @break
 
-                    @case('B')
-                        pendaftaran siswi baru kelas : {{ $user->biodata->tingkat }}
-                    @break
-
-                    @case('C')
-                        pendaftaran siswa pindahan kelas : {{ $user->biodata->tingkat }}
-                    @break
-
-                    @case('D')
-                        pendaftaran siswi pindahan kelas : {{ $user->biodata->tingkat }}
-                    @break
-
-                    @default
-                @endswitch
-
-            </span>
-        </div>
+    <div class="pl-10 pt-5 text-slate-600 text-sm">
+        <table class="w-full">
+            <tbody>
+                <tr>
+                    <td class="capitalize w-[30%] pl-5">no. pendaftaran</td>
+                    <td class="uppercase font-bold">: {{ $user->kode_daftar }}</td>
+                </tr>
+                <tr>
+                    <td class="capitalize w-2/5 pl-5">nama</td>
+                    <td class="uppercase font-bold">: {{ $user->name }}</td>
+                </tr>
+                <tr>
+                    <td class="capitalize w-2/5 pl-5">asal sekolah</td>
+                    <td class="uppercase font-bold">: {{ $user->sekolahSd->nama }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    <h1 class="uppercase font-bold text-slate-700 pl-10 pt-5 text-md">
+        keterangan
+    </h1>
     <div class="pl-10 text-slate-600 text-sm">
         <table class="w-full">
             <tbody>

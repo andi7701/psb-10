@@ -182,6 +182,7 @@ Route::middleware('auth')->group(function () {
 
         //Print
         Route::get('pendaftaran/print/formulir-pendaftaran/{user}', [PrintController::class, 'formulir_pendaftaran'])->name('pendaftaran.print-formulir-pendaftaran');
+        Route::get('pendaftaran/print/kartu-pendaftaran/{user}', [PrintController::class, 'kartu_pendaftaran'])->name('pendaftaran.print-kartu-pendaftaran');
     });
 
     // route for pengumuman
