@@ -168,7 +168,8 @@
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2  lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer='telepon' label='Nomor Telepon Orang Tua' placeholder="081xxxxxx" />
-            <x-input wire:model.defer='penghasilan' label='Penghasilan Orang Tua' />
+            <x-inputs.currency label="Penghasilan" prefix="Rp." placeholder=" 10.000.000" thousands="." decimal="," precision="4"
+                wire:model.defer="penghasilan" />
             <x-input wire:model.defer='noKps' label='Nomor KPS (*jika punya)' />
             <x-input wire:model.defer='noKip' label='Nomor KIP (*jika punya)' />
         </div>
