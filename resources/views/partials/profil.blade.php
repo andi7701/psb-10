@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="w-full p-6 mt-6 sm:w-1/2">
-                <img class="rounded-lg shadow-lg" src="images/prestasi.jpeg" alt="syarat" />
+                <img class="rounded-lg shadow-lg" src="images/prestasi.png" alt="syarat" />
             </div>
         </div>
 </section>
