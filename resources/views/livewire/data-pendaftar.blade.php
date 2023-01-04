@@ -20,7 +20,7 @@
                         Sekolah SD
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Alamat
+                        Keterangan
                     </th>
                     <th scope="col" class="py-3 px-6">
                         panitia
@@ -51,7 +51,8 @@
                             Provinsi : {{ $user->alamat->province->name ?? '' }} <br>
                             Kabupaten : {{ $user->alamat->city->name ?? '' }} <br>
                             Kecamatan : {{ $user->alamat->district->name ?? '' }} <br>
-                            Desa : {{ $user->alamat->village->name ?? '' }}
+                            Desa : {{ $user->alamat->village->name ?? '' }} <br>
+                            Telepon : {{ $user->orangTua->telelpon ?? '' }}
                         </td>
                         <td class="py-4 px-6">
                             {{ $user->panitia->name }}

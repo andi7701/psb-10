@@ -163,8 +163,8 @@
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2  lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer='telepon' label='Nomor Telepon Orang Tua' placeholder="6281xxxxxx" />
-            <x-inputs.currency label="Penghasilan" prefix="Rp." placeholder=" 10.000.000" thousands="." decimal="," precision="4"
-            wire:model.defer="penghasilan" />
+            <x-inputs.currency label="Penghasilan" prefix="Rp." placeholder=" 10.000.000" thousands="."
+                decimal="," precision="4" wire:model.defer="penghasilan" />
             <x-input wire:model.defer='noKps' label='Nomor KPS (*jika punya)' />
             <x-input wire:model.defer='noKip' label='Nomor KIP (*jika punya)' />
         </div>
@@ -178,7 +178,15 @@
             <x-textarea wire:model.defer='alamatWali' label='Alamat Wali' />
         </div>
     </x-my-card>
-    <div class="grid justify-items-end">
+    <div class="flex space-x-3 justify-end">
+        @if ($slug)
+            @role('Pendaftaran')
+                <x-button href="{{ route('pendaftaran.print-formulir-pendaftaran', ['user' => $slug->slug]) }}"
+                    target="__blank" cyan label="Formulir" icon="printer" />
+                <x-button href="{{ route('pendaftaran.print-kartu-pendaftaran', ['user' => $slug->slug]) }}"
+                    target="__blank" teal label="Kartu" icon="printer" />
+            @endrole
+        @endif
         <x-button wire:click.prevent="simpan" positive label="Simpan" spinner="simpan" loading-delay="long" />
     </div>
 </div>

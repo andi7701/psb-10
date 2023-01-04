@@ -90,6 +90,8 @@ class Pendaftaran extends Component
     public $alamatWali;
     public $teleponWali;
 
+    public $slug;
+
     protected $rules = [
         'kategoriPendaftar' => 'required',
         'kodePendaftaran' => 'required|unique:users,kode_daftar',
@@ -248,6 +250,9 @@ class Pendaftaran extends Component
                 $title = 'Berhasil Simpan',
                 $description = 'Data Calon Siswa Berhasil Disimpan'
             );
+
+            $this->slug = $user;
+            
         } catch (\Throwable $th) {
 
             // DB::rollBack();
