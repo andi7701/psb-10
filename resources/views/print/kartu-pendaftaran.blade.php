@@ -30,133 +30,94 @@
     <h1 class="uppercase font-bold text-slate-700 pl-10 pt-5 text-md">
         keterangan
     </h1>
+    <span class=" text-slate-600 pl-10 pt-5 text-sm">
+        Kartu ini jangan sampai rusak / hilang. Dibawa ketika melakukan tes seleksi dan daftar ulang (bagi yang lolos seleksi) serta pengambilang seragam
+    </span>
     <div class="pl-10 text-slate-600 text-sm">
-        <table class="w-full">
+        <table class="w-full border-separate border-spacing-5">
             <tbody>
                 <tr>
-                    <th class="font-bold uppercase text-left" colspan="2">a. identitas calon siswa</th>
+                    <td class="font-bold uppercase " colspan="5">a. tes seleksi</td>
                 </tr>
                 <tr>
-                    <td class="capitalize w-2/5 pl-5">1. nama lengkap</td>
-                    <td class="uppercase">: {{ $user->name }}</td>
+                    <td class="w-[10%]">&nbsp;</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap">1. tes agama</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">4. tes minat dan bakat</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
                 </tr>
                 <tr>
-                    <td class="capitalize w-2/5 pl-5">2. nik</td>
-                    <td class="uppercase">: {{ $user->biodata->nik }}</td>
+                    <td class="w-[10%]">&nbsp;</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap">2. tes akademik</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">5. tes wawancara</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
                 </tr>
                 <tr>
-                    <td class="capitalize w-2/5 pl-5">3. nisn</td>
-                    <td class="uppercase">: {{ $user->biodata->nisn }}</td>
+                    <td class="w-[10%]">&nbsp;</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap">3. tes kesehatan</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
                 </tr>
                 <tr>
-                    <td class="capitalize w-2/5 pl-5">4. tempat, tanggal lahir</td>
-                    <td class="uppercase">: {{ $user->biodata->tempat_lahir }},
-                        {{ tanggal($user->biodata->tanggal_lahir) }}</td>
+                    <td class="font-bold uppercase whitespace-nowrap" colspan="2">b. pembayaran daftar ulang</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted" colspan="2">:</td>
                 </tr>
                 <tr>
-                    <td class="capitalize w-2/5 pl-5">5. alamat </td>
-                    <td class="uppercase">: {{ $user->alamat->keterangan }}</td>
+                    <td class="font-bold uppercase " colspan="5">c. pengambilan seragam</td>
                 </tr>
                 <tr>
-                    <td class="capitalize w-2/5 pl-10">kelurahan / desa </td>
-                    <td class="uppercase">: {{ $user->alamat->village->name }}</td>
+                    <td class="w-[10%]">&nbsp;</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap">1. baju osis</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">7. kaos olah raga</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
                 </tr>
                 <tr>
-                    <td class="capitalize w-2/5 pl-10">kecamatan </td>
-                    <td class="uppercase">: {{ $user->alamat->district->name }}</td>
+                    <td class="w-[10%]">&nbsp;</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap">2. baju batik</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">8. celana olah raga</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
                 </tr>
                 <tr>
-                    <td class="capitalize w-2/5 pl-10">kabupaten / kota </td>
-                    <td class="uppercase">: {{ $user->alamat->city->name }}</td>
+                    <td class="w-[10%]">&nbsp;</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap">3. baju pramuka</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">9. peci / jilbab</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
                 </tr>
                 <tr>
-                    <td class="capitalize w-2/5 pl-10">provinsi </td>
-                    <td class="uppercase">: {{ $user->alamat->province->name }}</td>
+                    <td class="w-[10%]">&nbsp;</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap">4. celana / rok osis</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">10. handsduk</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
                 </tr>
                 <tr>
-                    <th class="font-bold uppercase text-left" colspan="2">&nbsp;</th>
+                    <td class="w-[10%]">&nbsp;</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap">5. celana / rok batik</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">11. ikat pinggang</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
                 </tr>
                 <tr>
-                    <th class="font-bold uppercase text-left" colspan="2">b. data sekolah asal</th>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-5">1. nama sekolah dasar</td>
-                    <td class="uppercase">: {{ $user->sekolahSd->nama }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-5">2. alamat sekolah</td>
-                    <td class="uppercase"></td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-10">kelurahan / desa </td>
-                    <td class="uppercase">: {{ $user->sekolahSd->village->name }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-10">kecamatan </td>
-                    <td class="uppercase">: {{ $user->sekolahSd->district->name }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-10">kabupaten / kota </td>
-                    <td class="uppercase">: {{ $user->sekolahSd->city->name }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-10">provinsi </td>
-                    <td class="uppercase">: {{ $user->sekolahSd->province->name }}</td>
-                </tr>
-                <tr>
-                    <th class="font-bold uppercase text-left" colspan="2">&nbsp;</th>
-                </tr>
-                <tr>
-                    <th class="font-bold uppercase text-left" colspan="2">c. data orang tua / wali</th>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-5">1. nama ayah</td>
-                    <td class="uppercase">: {{ $user->orangTua->nama_ayah }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-10">pekerjaan ayah</td>
-                    <td class="uppercase">: {{ $user->orangTua->pekerjaan_ayah }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-5">2. nama ibu</td>
-                    <td class="uppercase">: {{ $user->orangTua->nama_ibu }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-10">pekerjaan ibu</td>
-                    <td class="uppercase">: {{ $user->orangTua->pekerjaan_ibu }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-5">3. kontak orang tua</td>
-                    <td class="uppercase">: {{ $user->orangTua->telepon }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-5">4. nama wali</td>
-                    <td class="uppercase">: {{ $user->wali->nama }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-10">kontak wali</td>
-                    <td class="uppercase">: {{ $user->wali->telepon }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-5">5. no kps / kip</td>
-                    <td class="uppercase">: {{ $user->orangTua->no_kps ?? '-' }} /
-                        {{ $user->orangTua->no_kip ?? '-' }}</td>
-                </tr>
-                <tr>
-                    <td class="capitalize w-2/5 pl-5">6. penghasilan orang tua</td>
-                    <td class="uppercase">: {{ rupiah($user->orangTua->penghasilan) }}</td>
+                    <td class="w-[10%]">&nbsp;</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap">6. celana / rok pramuka</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
+                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">12. kaos kaki</td>
+                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
                 </tr>
             </tbody>
         </table>
         <div class="flex justify-end mr-10 mt-5">
             <div class="flex flex-col space-y-10">
                 <span class="text-center">
-                    {{ hariTanggal($user->tanggal_daftar) }}
+                    Ngampel,  {{ tanggal($user->tanggal_daftar) }}
                     <br>
-                    Calon Santri
+                    Petugas Pendaftaran
                 </span>
                 <span class="text-center underline font-bold">
-                    {{ $user->name }}
+                    {{ $user->panitia->name }}
                 </span>
             </div>
         </div>

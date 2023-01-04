@@ -55,11 +55,11 @@
                     <option value="{{ $i }}">{{ $i }}</option>
                 @endfor
             </x-native-select>
-            <x-native-select wire:model.defer='bawah_or' label="Bawah Olah Raga">
+            <x-native-select wire:model.defer='bawah_or' label="Celana Olah Raga">
                 <option value="">Pilih Ukuran</option>
-                @for ($i = 24; $i < 39; $i++)
-                    <option value="{{ $i }}">{{ $i }}</option>
-                @endfor
+                @foreach (App\Enums\Ukuran::cases() as $item)
+                    <option value="{{ $item->value }}">{{ Str::upper($item->value) }}</option>
+                @endforeach
             </x-native-select>
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">

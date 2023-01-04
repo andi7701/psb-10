@@ -56,7 +56,7 @@
                         <td class="py-4 px-6">
                             {{ $user->panitia->name }}
                         </td>
-                        <td class="py-4 px-6 flex space-x-3 items-center">
+                        <td class="py-4 px-6 flex flex-col space-y-3 items-center">
                             @role('Admin')
                                 <x-button href="{{ route('admin.detail-pendaftar', ['user' => $user->slug]) }}" teal
                                     label="Detail" />
@@ -72,9 +72,11 @@
                                     <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                             @endrole
                             @role('Pendaftaran')
-                                <x-button href="{{ route('pendaftaran.print-formulir-pendaftaran', ['user' => $user->slug]) }}" target="__blank" positive
-                                    label="Print" icon="printer" />
-                                <x-button href="{{ route('pendaftaran.detail-pendaftar', ['user' => $user->slug]) }}" teal
+                                <x-button href="{{ route('pendaftaran.print-formulir-pendaftaran', ['user' => $user->slug]) }}" target="__blank" cyan
+                                    label="Formulir" icon="printer" />
+                                <x-button href="{{ route('pendaftaran.print-kartu-pendaftaran', ['user' => $user->slug]) }}" target="__blank" teal
+                                    label="Kartu" icon="printer" />
+                                <x-button href="{{ route('pendaftaran.detail-pendaftar', ['user' => $user->slug]) }}" positive
                                     label="Detail" />
                                     <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                             @endrole
