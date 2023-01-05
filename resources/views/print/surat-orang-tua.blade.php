@@ -65,32 +65,29 @@
         </table>
     </div>
     <div class=" text-slate-600 px-10 text-sm text-justify">
-        Dengan sungguh-sungguh dan penuh kesadaran menyatakan bahwa selama menjadi peserta didik di SMP Al Musyaffa',
-        saya :
+        Dengan sadar dan tanpa paksaan dari pihak manapun, menyatakan bahwa saya :
     </div>
     <div class="text-slate-600 px-14 text-sm text-justify">
         <ul class="list-outside list-decimal">
             <li>
-                Akan mentaati dan mematuhi semua peraturan yang telah ditetapkan sekolah, pondok, dan kebijakan dari
-                pengasuh PP Al Musyaffa'
+                Bersedia membimbing dan mengawasi peserta didik tersebut di atas untuk mematuhi dan mentaati setiap kegiatan sekolah, tatatertib sekolah, dan kebijakan sekolah
             </li>
             <li>
-                Akan belajar dengan tekun dan penuh semangat
+                Bersedia bekerjasama dan berkoordinasi dengan pihak sekolah untuk pengawasn dan pembimbingan
             </li>
             <li>
-                Akan menjaga nama baik diri sendiri, keluarga, dan sekolah
+                Bersedia memenuhi semua kewajiban saya kaitannya dengan pembayaran administrasi dan biaya sekolah tepat waktu
             </li>
             <li>
-                Sanggup mengikuti kegiatan MPLS (masa pengenalan lingkungan sekolah) dengan sebaik-baiknya, dengan
-                segala peraturan dan konsekuensinya
+                Bersedia memberikan pemahaman kepada peserta didik tersebut di atas, untuk mengikuti semua aturan sekolah, aturan pondok, maupun kebijakan yang dibuat ketua yayasan Al Musyaffa' 
             </li>
             <li>
-                Apabila saya tidak mentaati ketentuan yang ditentukan oleh sekolah, saya sanggup menerima sanksi, berupa
+                Tidak keberatan peserta didik tersebut di atas menerima sanksi antara lain
                 :
                 <div class="pl-1">
-                    a. Menerima sanksi sesuai ketentuan yang berlaku
+                    a. Jika melanggar peraturan sekolah dan pondok pesantren , menerima sanksi sesuai ketentuan yang berlaku
                     <br>
-                    b. Dikembalikan kepada Orang Tua / Wali saya
+                    b. Dikembalikan kepada saya, apabila saya tidak membimbing dan mengawasinya, sehingga peserta didik tersebut di atas tidak mentaati ketentuan yang ditetapkan oleh pondok pensantren, sekolah, maupun kebijakan dari ketua yayasan Al Musyaffa'
                 </div>
             </li>
             <li>
