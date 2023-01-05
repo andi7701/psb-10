@@ -14,10 +14,10 @@
         smp al musyaffa'
         tahun 2023 / 2024
     </h1>
-    <span class=" text-slate-600 pl-10 text-sm">
-        Berdasarkan hasil tes seleksi penerimaan peserta didik baru tahun ajaran 2023 / 2024 SMP Al Musyaffa',yang
+    <div class=" text-slate-600 px-10 text-sm">
+        Berdasarkan hasil tes seleksi penerimaan peserta didik baru tahun ajaran 2023 / 2024 SMP Al Musyaffa', yang
         meliputi :
-    </span>
+    </div>
     <div class="pl-10 pt-5 text-slate-600 text-sm mb-5">
         <table class="w-full capitalize border border-slate-600">
             <tbody>
@@ -87,7 +87,7 @@
     <span class=" text-slate-600 pl-10 text-sm">
         Dengan ini memutuskan bahwa :
     </span>
-    <div class="pl-10 pt-5 text-slate-600 text-sm">
+    <div class="pl-20 pt-5 text-slate-600 text-sm mb-5">
         <table class="w-full">
             <tbody>
                 <tr>
@@ -125,99 +125,55 @@
             </tbody>
         </table>
     </div>
-    <h1 class="uppercase font-bold text-slate-700 pl-10 pt-5 text-md">
-        keterangan
-    </h1>
-    <span class=" text-slate-600 pl-10 pt-5 text-sm">
-        Kartu ini jangan sampai rusak / hilang. Dibawa ketika melakukan tes seleksi dan daftar ulang (bagi yang lolos
-        seleksi) serta pengambilang seragam
-    </span>
+    @if ($user->diterima)
+        <div class=" text-slate-600 pl-10 pt-5 text-sm text-justify">
+            Sebagai Peserta Didik Baru di SMP Al Musyaffa', mohon segera melakukan proses
+            <span class="font-bold">
+                Daftar Ulang
+            </span>
+            sebesar
+            <span class="font-bold">
+                @switch($user->biodata->gelombang)
+                    @case(1)
+                        Rp. 3.500.000
+                    @break
+
+                    @case(2)
+                        RP. 4.000.000
+                    @break
+
+                    @case(3)
+                        RP. 4.500.000
+                    @break
+
+                    @default
+                @endswitch
+            </span>
+            dan mengembalikan surat pernyataan kesanggupan siswa dan orang tua/wali yang sudah ditanda tangani, mulai
+            <span class="font-bold">
+                {{ hariTanggal($user->tanggal_daftar) }}
+            </span>
+            sampai dengan
+            <span class="font-bold">
+                {{ hariTanggal($tenggang) }}, pukul. 08.00 - 13.00 WIB.
+            </span>
+            Apabila sampai dengan batas waktu yang telah ditentukan tidak melakukan daftar ulang maka dinyatakan
+            <span class="font-bold">"Mengundurkan Diri"</span>
+        </div>
+    @endif
+    <div class=" text-slate-600 pl-10 text-sm mt-5">
+        Demikian pengumuman ini kami sampaikan, atas perhatian dan kerjasamanya kami sampaikan terimakasih.
+    </div>
     <div class="pl-10 text-slate-600 text-sm">
-        <table class="w-full border-separate border-spacing-5">
-            <tbody>
-                <tr>
-                    <td class="font-bold uppercase " colspan="5">a. tes seleksi</td>
-                </tr>
-                <tr>
-                    <td class="w-[10%]">&nbsp;</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap">1. tes agama</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">4. tes minat dan bakat</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                </tr>
-                <tr>
-                    <td class="w-[10%]">&nbsp;</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap">2. tes akademik</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">5. tes wawancara</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                </tr>
-                <tr>
-                    <td class="w-[10%]">&nbsp;</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap">3. tes kesehatan</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                </tr>
-                <tr>
-                    <td class="font-bold uppercase whitespace-nowrap" colspan="2">b. pembayaran daftar ulang</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted"
-                        colspan="2">:</td>
-                </tr>
-                <tr>
-                    <td class="font-bold uppercase " colspan="5">c. pengambilan seragam</td>
-                </tr>
-                <tr>
-                    <td class="w-[10%]">&nbsp;</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap">1. baju osis</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">7. kaos olah raga</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                </tr>
-                <tr>
-                    <td class="w-[10%]">&nbsp;</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap">2. baju batik</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">8. celana olah raga</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                </tr>
-                <tr>
-                    <td class="w-[10%]">&nbsp;</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap">3. baju pramuka</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">9. peci / jilbab</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                </tr>
-                <tr>
-                    <td class="w-[10%]">&nbsp;</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap">4. celana / rok osis</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">10. handsduk</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                </tr>
-                <tr>
-                    <td class="w-[10%]">&nbsp;</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap">5. celana / rok batik</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">11. ikat pinggang</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                </tr>
-                <tr>
-                    <td class="w-[10%]">&nbsp;</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap">6. celana / rok pramuka</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                    <td class="w-[25%] capitalize whitespace-nowrap pl-5">12. kaos kaki</td>
-                    <td class="w-1/5 capitalize whitespace-nowrap border-b-2 border-slate-600 border-dotted">:</td>
-                </tr>
-            </tbody>
-        </table>
         <div class="flex justify-end mr-10 mt-5">
             <div class="flex flex-col space-y-10">
                 <span class="text-center">
                     Ngampel, {{ tanggal($user->tanggal_daftar) }}
                     <br>
-                    Petugas Pendaftaran
+                    Kepala Sekolah
                 </span>
                 <span class="text-center underline font-bold">
-                    {{ $user->panitia->name }}
+                    Abdul Khalim,S.Pd
                 </span>
             </div>
         </div>

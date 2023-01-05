@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PrintController extends Controller
@@ -58,7 +59,8 @@ class PrintController extends Controller
         return view(
             'print.pengumuman',
             [
-                'user' => $user
+                'user' => $user,
+                'tenggang' => Carbon::create($user->tanggal_daftar)->addDay(7)
             ]
         );
     }

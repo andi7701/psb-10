@@ -27,6 +27,9 @@
                     <th scope="col" class="py-3 px-6">
                         Panitia
                     </th>
+                    <th scope="col" class="py-3 px-6">
+                        Aksi
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -73,6 +76,10 @@
                         </td>
                         <td class="py-2 px-6">
                             {{ $user->panitiaPengumuman->name }}
+                        </td>
+                        <td class="py-2 px-6">
+                            <x-button href="{{ route('pengumuman.print-pengumuman', ['user' => $user->slug]) }}" target="__blank" positive
+                                label="Print" icon="printer" />
                         </td>
                     </tr>
                 @endforeach
