@@ -41,7 +41,7 @@
             </x-native-select>
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
-            <x-native-select wire:model.defer='tahiyat' label="Nilai Al-Qur'an">
+            <x-native-select wire:model.defer='tahiyat' label="Tahiyat">
                 <option value="">Pilih Penilaian</option>
                 <option value="baik">Baik</option>
                 <option value="sedang">Sedang</option>

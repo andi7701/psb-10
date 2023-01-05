@@ -282,6 +282,7 @@ class PendaftarSeeder extends Seeder
                 'panitia_id' => 13,
                 'tulisan' => fake()->randomElement(['baik', 'sedang', 'kurang', 'sangat kurang']),
                 'nilai_quran' => fake()->randomElement(['baik', 'sedang', 'kurang', 'sangat kurang']),
+                'pegon' => 'bisa',
                 'nilai' => random_int(0, 1),
             ]);
 

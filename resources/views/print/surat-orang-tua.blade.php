@@ -71,6 +71,9 @@
     <div class="text-slate-600 px-14 text-sm text-justify">
         <ul class="list-outside list-decimal">
             <li>
+                Sanggup membiayai kebutuhan anak saya baik di pondok pesantren dan sekolah serta akan membayarnya sesuai dengan waktu yang telah ditentukan, apabila saya terlambat membayar administrasi anak saya maka saya siap menanggung konsekuensinya
+            </li>
+            <li>
                 Bersedia membimbing dan mengawasi peserta didik tersebut di atas untuk mematuhi dan mentaati setiap kegiatan sekolah, tatatertib sekolah, dan kebijakan sekolah
             </li>
             <li>

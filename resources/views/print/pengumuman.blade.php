@@ -19,7 +19,7 @@
         meliputi :
     </div>
     <div class="pl-10 pt-5 text-slate-600 text-sm mb-5">
-        <table class="w-full capitalize border border-slate-600">
+        <table class="w-[80%] capitalize border border-slate-600">
             <tbody>
                 <tr class="text-center font-bold">
                     <td class="border border-slate-600 py-3 px-3 w-[5%]">no.</td>
@@ -126,7 +126,7 @@
         </table>
     </div>
     @if ($user->diterima)
-        <div class=" text-slate-600 pl-10 pt-5 text-sm text-justify">
+        <div class=" text-slate-600 px-10 pt-5 text-sm text-justify">
             Sebagai Peserta Didik Baru di SMP Al Musyaffa', mohon segera melakukan proses
             <span class="font-bold">
                 Daftar Ulang
@@ -166,12 +166,13 @@
     </div>
     <div class="pl-10 text-slate-600 text-sm">
         <div class="flex justify-end mr-10 mt-5">
-            <div class="flex flex-col space-y-10">
+            <div class="flex flex-col space-y-1 items-center">
                 <span class="text-center">
                     Ngampel, {{ tanggal($user->tanggal_daftar) }}
                     <br>
                     Kepala Sekolah
                 </span>
+                <img src="{{ asset('images/kasek.png') }}" class="h-24 w-14 " />
                 <span class="text-center underline font-bold">
                     Abdul Khalim,S.Pd
                 </span>
