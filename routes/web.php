@@ -191,6 +191,9 @@ Route::middleware('auth')->group(function () {
         Route::get('pengumuman/input-pengumuman', InputPengumuman::class)->name('pengumuman.input-pengumuman');
         Route::get('pengumuman/hasil-diterima', HasilPengumumanTerima::class)->name('pengumuman.hasil-diterima');
         Route::get('pengumuman/hasil-ditolak', HasilPengumumanTolak::class)->name('pengumuman.hasil-ditolak');
+
+        // Print
+        Route::get('pengumuman/print/pengumuman/{user}', [PrintController::class, 'pengumuman'])->name('pengumuman.print-pengumuman');
     });
 
 

@@ -40,11 +40,23 @@ class PrintController extends Controller
             ]
         );
     }
+
     public function kartu_pendaftaran(User $user)
     {
         $user->load(['sekolahSd', 'panitia']);
         return view(
             'print.kartu-pendaftaran',
+            [
+                'user' => $user
+            ]
+        );
+    }
+
+    public function pengumuman(User $user)
+    {
+        $user->load(['agama', 'akademik', 'biodata', 'kesehatan', 'minatBakat', 'sekolahSd', 'wawancara']);
+        return view(
+            'print.pengumuman',
             [
                 'user' => $user
             ]
