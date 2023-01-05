@@ -21,31 +21,34 @@
                 <tr class="font-bold">
                     <td class="pl-2 border border-slate-600 py-1 px-1">Gelombang 1</td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
-                        Baru : <br>
-                        Pindahan : <br>
-                        Total :
+                        Baru : {{ $baruPutra }}<br>
+                        Pindahan : {{ $pindahanPutra }}<br>
+                        Total : {{ $baruPutra + $pindahanPutra }}
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
-                        Baru : <br>
-                        Pindahan : <br>
-                        Total :
+                        Baru : {{ $baruPutri }}<br>
+                        Pindahan : {{ $pindahanPutri }}<br>
+                        Total : {{ $baruPutri + $pindahanPutri }}
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
-                        Putra Baru : <br>
-                        Putra Pindahan : <br>
-                        Putri Baru : <br>
-                        Putri Pindahan : <br>
-                        Total :
+                        Putra Baru : {{ $baruPutraTerima }}<br>
+                        Putra Pindahan : {{ $pindahanPutraTerima }}<br>
+                        Putri Baru : {{ $baruPutriTerima }}<br>
+                        Putri Pindahan : {{ $pindahanPutriTerima }}<br>
+                        Total : {{ $baruPutraTerima + $pindahanPutraTerima + $baruPutriTerima + $pindahanPutriTerima }}
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
-                        Putra Baru : <br>
-                        Putra Pindahan : <br>
-                        Putri Baru : <br>
-                        Putri Pindahan : <br>
-                        Total :
+                        Putra Baru : {{ $baruPutraTolak }}<br>
+                        Putra Pindahan : {{ $pindahanPutraTolak }}<br>
+                        Putri Baru : {{ $baruPutriTolak }}<br>
+                        Putri Pindahan : {{ $pindahanPutriTolak }}<br>
+                        Total : {{ $baruPutraTolak + $pindahanPutraTolak + $baruPutriTolak + $pindahanPutriTolak }}
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
                         200
+                    </td>
+                    <td class="pl-2 border border-slate-600 py-1 px-1">
+                        {{  200 - ($baruPutraTerima + $pindahanPutraTerima + $baruPutriTerima + $pindahanPutriTerima) }}
                     </td>
                 </tr>
             </tbody>
