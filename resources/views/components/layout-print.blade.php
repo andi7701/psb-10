@@ -28,7 +28,7 @@
                 <span class=" uppercase tracking-wide text-slate-600 font-bold">yayasan al musyaffa'</span><br>
                 <span class="text-2xl uppercase tracking-[.2em] text-slate-600 font-bold">smp al musyaffa'</span>
             </div>
-            <div class="col-span-2 text-slate-600 text-sm ">
+            <div class="col-span-2 text-slate-600 text-xs ">
                 <span>Jl. Kampir-Sudipayung, Kec. Ngampel, Kab. Kendal - Jawa Tengah</span><br>
                 <span>HP. 087880001111, 082280001111 , 085780001111 E-mail: smpalmusyaffa@gmail.com</span><br>
                 <span>Website : www.smpalmusyaffa.sch.id</span>

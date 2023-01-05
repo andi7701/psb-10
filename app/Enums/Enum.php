@@ -27,3 +27,9 @@ enum Ukuran: string
     case XXL = 'xxl';
     case JUMBO = 'jumbo';
 }
+
+enum KategoriPengeluaran: int
+{
+    case INFAQ = 1;
+    case ADMPSB = 2;
+}

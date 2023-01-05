@@ -7,7 +7,7 @@
         <br>
         santri baru smp al musyaffa'
         <br>
-        tahun ajaran 2023 / 2024
+        tahun ajaran {{ $user->biodata->tahun }}
     </h1>
     <div class=" text-slate-600 px-10 text-sm">
         Saya yang bertanda tangan di bawah ini :
@@ -26,6 +26,7 @@
                 <tr>
                     <td class=" py-2 px-3">alamat</td>
                     <td class=" py-2 uppercase">: {{ $user->alamat->keterangan }},
+                        Rt : {{ $user->alamat->rt }} Rw : {{ $user->alamat->rw }} 
                         {{ $user->alamat->village->name }} -
                         {{ $user->alamat->district->name }} ,
                         {{ $user->alamat->city->name }} -

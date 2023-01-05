@@ -5,7 +5,7 @@
     <h1 class="uppercase font-bold text-slate-700 text-center text-md mb-3">
         surat pernyataan santri baru
         <br>
-        tahun ajaran 2023 / 2024
+        tahun ajaran {{ $user->biodata->tahun }}
     </h1>
     <div class=" text-slate-600 px-10 text-sm">
         Saya yang bertanda tangan di bawah ini :
@@ -49,6 +49,7 @@
                 <tr>
                     <td class=" py-1 px-3">alamat</td>
                     <td class=" py-1 px-3 uppercase">: {{ $user->alamat->keterangan }},
+                        Rt : {{ $user->alamat->rt }} Rw : {{ $user->alamat->rw }} 
                         {{ $user->alamat->village->name }} -
                         {{ $user->alamat->district->name }} ,
                         {{ $user->alamat->city->name }} -

@@ -6,7 +6,7 @@
         kartu pendaftaran
         <br>
         seleksi penerimaan santri baru
-        tahun ajaran 2023 / 2024
+        tahun ajaran {{ $user->biodata->tahun }}
     </h1>
 
     <div class="pl-10 pt-5 text-slate-600 text-sm">

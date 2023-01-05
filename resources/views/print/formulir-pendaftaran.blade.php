@@ -5,7 +5,7 @@
     <h1 class="uppercase font-bold text-slate-700 text-center text-md">
         formulir pendaftaran penerimaan santri baru
         <br>
-        tahun ajaran 2023 / 2024
+        tahun ajaran {{ $user->biodata->tahun }}
     </h1>
     <div class="flex justify-end text-slate-600 mr-10 text-right">
         <div class="flex flex-col">

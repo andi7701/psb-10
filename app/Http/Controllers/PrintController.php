@@ -44,7 +44,7 @@ class PrintController extends Controller
 
     public function kartu_pendaftaran(User $user)
     {
-        $user->load(['sekolahSd', 'panitia']);
+        $user->load(['biodata', 'sekolahSd', 'panitia']);
         return view(
             'print.kartu-pendaftaran',
             [
@@ -105,6 +105,17 @@ class PrintController extends Controller
             'print.surat-orang-tua',
             [
                 'user' => $user,
+            ]
+        );
+    }
+
+    public function kwitansi(User $user)
+    {
+        $user->load(['alamat', 'biodata', 'pembayaran', 'pembayaran.panitia']);
+        return view(
+            'print.kwitansi',
+            [
+                'user' => $user
             ]
         );
     }

@@ -13,22 +13,16 @@
                         Nama
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Kode Daftar
+                        Tanggal Bayar
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Sekolah SD
+                        Keterangan
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Nilai Akademik
+                        Asal Sekolah
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Gaya Belajar
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        Panitia
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        Aksi
+                        Jumlah
                     </th>
                 </tr>
             </thead>
@@ -45,48 +39,49 @@
                             {{ $user->name }}
                         </td>
                         <td class="py-2 px-6">
-                            {{ $user->kode_daftar }}
+                            {{ hariTanggal($user->pembayaran->tanggal) }}
                         </td>
                         <td class="py-2 px-6">
-                            {{ $user->sekolahSd->nama }}
+                            Gelombang : {{ $user->biodata->gelombang }}
                         </td>
                         <td class="py-2 px-6">
-                            {{ $user->akademik->total }}
+                            {{$user->sekolahSd->nama }}
                         </td>
                         <td class="py-2 px-6">
-                            @switch($user->akademik->gaya_belajar)
-                                @case(1)
-                                    Visual
-                                @break
-
-                                @case(2)
-                                    Auditori
-                                @break
-
-                                @case(3)
-                                    Kinestetik
-                                @break
-
-                                @case(4)
-                                    Auditori Kinestteik
-                                @break
-
-                                @default
-                            @endswitch
-                        </td>
-                        <td class="py-2 px-6">
-                            {{ $user->panitiaPengumuman->name }}
-                        </td>
-                        <td class="py-4 px-6 flex flex-col space-y-3 items-center">
-                            <x-button href="{{ route('pengumuman.print-surat-santri', ['user' => $user->slug]) }}"
-                                target="__blank" cyan label="Surat Santri" icon="printer" />
-                            <x-button href="{{ route('pengumuman.print-surat-orang-tua', ['user' => $user->slug]) }}"
-                                target="__blank" teal label="Surat Wali" icon="printer" />
-                            <x-button href="{{ route('pengumuman.print-pengumuman', ['user' => $user->slug]) }}" target="__blank" positive
-                                label="Pengumuman" icon="printer" />
+                            {{ rupiah($user->pembayaran->jumlah) }}
                         </td>
                     </tr>
                 @endforeach
+                <tr class="font-bold text-lg border-b border-slate-600">
+                    <td scope="row"
+                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white" colspan="5">
+                            Total Pembayaran Masuk
+                    </td>
+                    <td scope="row"
+                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white">
+                            {{ rupiah($total) }}
+                    </td>
+                </tr>
+                <tr class="font-bold text-lg border-b border-slate-600">
+                    <td scope="row"
+                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white" colspan="5">
+                            Total Masuk Infaq
+                    </td>
+                    <td scope="row"
+                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white">
+                            {{ rupiah($infaq) }}
+                    </td>
+                </tr>
+                <tr class="font-bold text-lg border-b border-slate-600">
+                    <td scope="row"
+                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white" colspan="5">
+                            Total Masuk Adm. PSB
+                    </td>
+                    <td scope="row"
+                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white">
+                            {{ rupiah($adm_psb) }}
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

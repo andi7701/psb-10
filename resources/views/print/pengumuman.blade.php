@@ -5,17 +5,17 @@
     <h1 class="uppercase font-bold text-slate-700 text-center text-md mb-3">
         pengumuman
         <br>
-        no : psb/smp-alfa/2023/2024
+        no : psb/smp-alfa/{{ str_replace(' ', '',$user->biodata->tahun) }}
     </h1>
     <h1 class="uppercase text-slate-600 text-center text-sm">tentang</h1>
     <h1 class="uppercase font-bold text-slate-700 text-center text-sm mb-10">
         penerimaan santri baru
         <br>
         smp al musyaffa'
-        tahun 2023 / 2024
+        tahun {{ $user->biodata->tahun }}
     </h1>
     <div class=" text-slate-600 px-10 text-sm">
-        Berdasarkan hasil tes seleksi penerimaan peserta didik baru tahun ajaran 2023 / 2024 SMP Al Musyaffa', yang
+        Berdasarkan hasil tes seleksi penerimaan peserta didik baru tahun ajaran {{ $user->biodata->tahun }} SMP Al Musyaffa', yang
         meliputi :
     </div>
     <div class="pl-10 pt-5 text-slate-600 text-sm mb-5">

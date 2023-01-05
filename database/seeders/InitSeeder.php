@@ -28,6 +28,9 @@ class InitSeeder extends Seeder
             'Ukur Seragam',
             'Pengumuman',
             'Calon Siswa',
+            'Sekretaris',
+            'Ketua',
+            'Bendahara'
         ];
 
         foreach ($roles as $role) {
@@ -54,7 +57,7 @@ class InitSeeder extends Seeder
             'username' => 'fathur',
             'password' => bcrypt('smpalfapsb'),
         ]);
-        $fathur->assignRole('Admin');
+        $fathur->assignRole('Ketua');
 
         $imam = User::create([
             'name' => 'Imam Turmudi,S.E',
@@ -181,6 +184,13 @@ class InitSeeder extends Seeder
             'password' => bcrypt('smpalfapsb')
         ]);
         $tina->assignRole('Minat Bakat');
+
+        $ismi = User::create([
+            'name' => "Ismi Sholehatul Adawiyah,S.E.I",
+            'username' => 'ismi',
+            'password' => bcrypt('smpalfapsb')
+        ]);
+        $ismi->assignRole('Bendahara');
 
         $ekstras = [
             'Pramuka',

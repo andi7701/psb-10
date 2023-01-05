@@ -8,4 +8,5 @@
     <x-sidebar-link :href="__('ketua.input-pengumuman')" :label="__('Input pengumuman')" />
     <x-sidebar-link :href="__('ketua.input-wawancara')" :label="__('Input Wawancara')" />
     <x-sidebar-link :href="__('ketua.pendaftaran')" :label="__('pendaftaran siswa')" />
+    <x-sidebar-link :href="__('ketua.rekapitulasi')" :label="__('rekapitulasi')" />
 @endrole

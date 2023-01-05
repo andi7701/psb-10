@@ -201,13 +201,13 @@ class User extends Authenticatable
 
 
     /**
-     * Get all of the pembayarans for the User
+     * Get the pembayaran associated with the User
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function pembayarans(): HasMany
+    public function pembayaran(): HasOne
     {
-        return $this->hasMany(Pembayaran::class);
+        return $this->hasOne(Pembayaran::class)->withDefault();
     }
 
     /**

@@ -24,11 +24,15 @@ class InputPembayaran extends Component
     public $gelombang;
     public $wajibBayar;
     public $jumlah;
+    public $infaq;
+    public $admPsb;
 
     protected $rules =
     [
         'calonSiswa' => 'required',
         'jumlah' => 'required|numeric',
+        'infaq' => 'required|numeric',
+        'admPsb' => 'required|numeric',
     ];
     public function render()
     {
@@ -38,8 +42,7 @@ class InputPembayaran extends Component
 
     public function updatedCalonSiswa()
     {
-        $this->user = User::with(['alamat.village', 'alamat.district', 'alamat.city', 'alamat.province', 'biodata', 'pembayarans', 'sekolahAsal', 'sekolahSd',])
-            ->withSum('pembayarans as total', 'jumlah')
+        $this->user = User::with(['alamat.village', 'alamat.district', 'alamat.city', 'alamat.province', 'biodata', 'pembayaran', 'sekolahAsal', 'sekolahSd',])
             ->find($this->calonSiswa);
 
         $this->nama = $this->user->name ?? '';
@@ -49,6 +52,9 @@ class InputPembayaran extends Component
         $this->kabupaten = $this->user->alamat->city->name ?? '';
         $this->kecamatan = $this->user->alamat->district->name ?? '';
         $this->desa = $this->user->alamat->village->name ?? '';
+        $this->jumlah = $this->user->pembayaran->jumlah ?? '';
+        $this->infaq = $this->user->pembayaran->infaq ?? '';
+        $this->admPsb = $this->user->pembayaran->adm_psb ?? '';
 
         $this->gelombang = $this->user->biodata->gelombang ?? '';
         switch ($this->gelombang) {
@@ -72,13 +78,16 @@ class InputPembayaran extends Component
         $this->validate();
 
         try {
-            $this->user->pembayarans()->create(
+            $this->user->pembayaran()->updateOrCreate(
+                [],
                 [
                     'panitia_id' => auth()->user()->id,
                     'tanggal' => date('Y-m-d'),
                     'jumlah' => $this->jumlah,
                     'gelombang' => $this->gelombang,
-                    'wajib_bayar' => $this->wajibBayar
+                    'wajib_bayar' => $this->wajibBayar,
+                    'infaq' => $this->infaq,
+                    'adm_psb' => $this->admPsb,
                 ]
             );
             $this->notification()->success(

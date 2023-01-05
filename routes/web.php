@@ -4,6 +4,7 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\PrintController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\AturTes;
+use App\Http\Livewire\BelumDaftarUlang;
 use App\Http\Livewire\BelumUkur;
 use App\Http\Livewire\BuatRole;
 use App\Http\Livewire\Daftar;
@@ -35,7 +36,9 @@ use App\Http\Livewire\InputPengumuman;
 use App\Http\Livewire\InputWawancara;
 use App\Http\Livewire\Landing;
 use App\Http\Livewire\Pendaftaran;
+use App\Http\Livewire\Rekapitulasi;
 use App\Http\Livewire\RekapUkuran;
+use App\Http\Livewire\SudahDaftarUlang;
 use App\Http\Livewire\SudahUkur;
 use App\Http\Livewire\UbahHasil;
 use App\Http\Livewire\UkurSeragam;
@@ -115,6 +118,13 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:Bendahara'])->group(function () {
 
         Route::get('bendahara/input-pembayaran', InputPembayaran::class)->name('bendahara.input-pembayaran');
+        Route::get('bendahara/sudah-daftar-ulang', SudahDaftarUlang::class)->name('bendahara.sudah-daftar-ulang');
+        Route::get('bendahara/belum-daftar-ulang', BelumDaftarUlang::class)->name('bendahara.belum-daftar-ulang');
+
+
+        // Print
+        Route::get('bendahara/print/kwitansi/{user}', [PrintController::class, 'kwitansi'])->name('bendahara.print-kwitansi');
+
     });
 
 
@@ -162,6 +172,9 @@ Route::middleware('auth')->group(function () {
         //Atur Tes Akademik
         Route::get('ketua/atur-test', AturTes::class)->name('ketua.atur-test');
         Route::get('ketua/hasil-test-akademik', HasilTes::class)->name('ketua.hasil-test-akademik');
+
+        // Rekap
+        Route::get('ketua/rekapitulasi', Rekapitulasi::class)->name('ketua.rekapitulasi');
     });
 
     // route for minat bakat
