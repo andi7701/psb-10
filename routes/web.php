@@ -194,6 +194,8 @@ Route::middleware('auth')->group(function () {
 
         // Print
         Route::get('pengumuman/print/pengumuman/{user}', [PrintController::class, 'pengumuman'])->name('pengumuman.print-pengumuman');
+        Route::get('pengumuman/print/surat-santri/{user}', [PrintController::class, 'surat_santri'])->name('pengumuman.print-surat-santri');
+        Route::get('pengumuman/print/surat-orang-tua/{user}', [PrintController::class, 'surat_orang_tua'])->name('pengumuman.print-surat-orang-tua');
     });
 
 

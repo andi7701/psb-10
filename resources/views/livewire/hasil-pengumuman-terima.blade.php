@@ -77,7 +77,11 @@
                         <td class="py-2 px-6">
                             {{ $user->panitiaPengumuman->name }}
                         </td>
-                        <td class="py-2 px-6">
+                        <td class="py-4 px-6 flex flex-col space-y-3 items-center">
+                            <x-button href="{{ route('pengumuman.print-surat-santri', ['user' => $user->slug]) }}"
+                                target="__blank" cyan label="Surat Santri" icon="printer" />
+                            <x-button href="{{ route('pengumuman.print-surat-orang-tua', ['user' => $user->slug]) }}"
+                                target="__blank" teal label="Surat Wali" icon="printer" />
                             <x-button href="{{ route('pengumuman.print-pengumuman', ['user' => $user->slug]) }}" target="__blank" positive
                                 label="Print" icon="printer" />
                         </td>

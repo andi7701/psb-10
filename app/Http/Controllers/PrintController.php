@@ -64,4 +64,30 @@ class PrintController extends Controller
             ]
         );
     }
+
+    public function surat_santri(User $user)
+    {
+        $user->load([
+            'alamat' => [
+                'village',
+                'district',
+                'city',
+                'province'
+            ],
+            'biodata',
+            'orangTua',
+            'wali'
+        ]);
+
+        return view(
+            'print.surat-santri',
+            [
+                'user' => $user,
+            ]
+        );
+    }
+
+    public function surat_orang_tua(User $user)
+    {
+    }
 }

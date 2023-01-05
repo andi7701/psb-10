@@ -43,7 +43,13 @@
                 <option value="1">Diterima</option>
             </x-native-select>
         </div>
-        <div class="flex justify-end">
+        <div class="flex space-x-3 justify-end">
+            @if ($user && $user->diterima)
+                <x-button href="{{ route('pengumuman.print-surat-santri', ['user' => $user->slug]) }}"
+                    target="__blank" cyan label="Surat Santri" icon="printer" />
+                <x-button href="{{ route('pengumuman.print-surat-orang-tua', ['user' => $user->slug]) }}"
+                    target="__blank" teal label="Surat Wali" icon="printer" />
+            @endif
             <x-button wire:click.prevent="simpan" positive label="simpan" spinner="simpan" loading-delay="short"
                 class="w-auto" />
         </div>
