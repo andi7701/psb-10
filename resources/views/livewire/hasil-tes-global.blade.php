@@ -1,6 +1,10 @@
 <section class="px-7 bg-white border-b">
-    <div class="my-3">
+    <div class="my-3 lg:grid lg:grid-cols-4">
         <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..." class="w-auto text-slate-600" />
+        <x-native-select wire:model='diterima'>
+            <option value="0">Tidak Diterima</option>
+            <option value="1">Diterima</option>
+        </x-native-select>
     </div>
     <div class="overflow-x-auto relative">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -58,7 +62,6 @@
                                 @break
 
                                 @default
-                                    Belum dikonfirmasi
                             @endswitch
                         </td>
                         <td class="py-2 px-6 whitespace-nowrap">

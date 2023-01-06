@@ -11,6 +11,7 @@ class HasilTesGlobal extends Component
     use WithPagination;
     
     public $search;
+    public $diterima = 0;
 
     public function render()
     {
@@ -39,7 +40,8 @@ class HasilTesGlobal extends Component
                 ])
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
                 ->where('kode_daftar', '!=', null)
-                ->paginate(5)
+                ->whereDiterima($this->diterima)
+                ->paginate(2)
         ]);
     }
 }
