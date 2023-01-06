@@ -11,7 +11,7 @@
                 disabled />
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
-            <x-native-select wire:model.defer='makhroj' label="Makhrojul huruf">
+            <x-native-select wire:model.defer='mahroj' label="Makhrojul huruf">
                 <option value="">Pilih Penilaian</option>
                 <option value="baik">Baik</option>
                 <option value="sedang">Sedang</option>
@@ -54,6 +54,11 @@
                 <option value="sedang">Sedang</option>
                 <option value="kurang">Kurang</option>
             </x-native-select>
+            <x-native-select wire:model.defer='pegon' label="Pegon">
+                <option value="">Pilih Penilaian</option>
+                <option value="bisa">Bisa</option>
+                <option value="belum bisa">Belum Bisa</option>
+            </x-native-select>
             <x-native-select wire:model.defer='nilaiQuran' label="Nilai Al-Qur'an">
                 <option value="">Pilih Penilaian</option>
                 <option value="baik">Baik</option>
@@ -61,14 +66,16 @@
                 <option value="kurang">Kurang</option>
                 <option value="sangat kurang">Sangat Kurang</option>
             </x-native-select>
+        </div>
+        <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-native-select wire:model.defer='nilai' label="Rekomendasi Penilaian">
                 <option value="">Pilih Penilaian</option>
                 <option value="0">Tidak diterima</option>
                 <option value="1">Diterima</option>
             </x-native-select>
-        </div>
-        <div>
-            <x-input wire:model.defer="catatan" label='catatan' />
+            <div class="col-span-3">
+                <x-input wire:model.defer="catatan" label='catatan'/>
+            </div>
         </div>
         <div class="flex justify-end">
             <x-button wire:click.prevent="simpan" positive label="simpan" spinner="simpan" loading-delay="short"

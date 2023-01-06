@@ -45,7 +45,8 @@
                             {{ $user->agama->nilai_quran }}
                         </td>
                         <td class="py-2 px-6">
-                            {{ $user->agama->tulisan }}
+                            Tulisan : {{ $user->agama->tulisan }} <br>
+                            Pegon : {{ $user->agama->pegon }}
                         </td>
                         <td class="py-2 px-6">
                             {{ $user->agama->user->name }}

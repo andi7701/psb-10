@@ -23,6 +23,7 @@ class InputAgama extends Component
     public $qunut;
     public $tahiyat;
     public $tulisan;
+    public $pegon;
     public $nilaiQuran;
     public $catatan;
     public $nilai;
@@ -82,6 +83,7 @@ class InputAgama extends Component
                     'tahiyat' => $this->tahiyat,
                     'tulisan' => $this->tulisan,
                     'nilai_quran' => $this->nilaiQuran,
+                    'pegon' => $this->pegon,
                     'catatan' => $this->catatan,
                     'nilai' => $this->nilai,
                 ]
