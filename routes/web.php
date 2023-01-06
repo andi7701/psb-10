@@ -45,6 +45,7 @@ use App\Http\Livewire\ResetTes;
 use App\Http\Livewire\SudahDaftarUlang;
 use App\Http\Livewire\SudahUkur;
 use App\Http\Livewire\UbahHasil;
+use App\Http\Livewire\UbahHasilAkademik;
 use App\Http\Livewire\UkurSeragam;
 use Illuminate\Support\Facades\Route;
 
@@ -118,7 +119,8 @@ Route::middleware('auth')->group(function () {
         Route::get('akademik/hasil-ditolak', HasilAkademikTolak::class)->name('akademik.hasil-ditolak');
         Route::get('akademik/rekap-test', RekapTes::class)->name('akademik.rekap-test');
         Route::get('akademik/reset-test', ResetTes::class)->name('akademik.reset-test');
-
+        
+        Route::get('akademik/ubah-hasil-akademik', UbahHasilAkademik::class)->name('akademik.ubah-hasil-akademik');
     });
 
     // route for Bendahara

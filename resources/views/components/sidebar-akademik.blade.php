@@ -5,4 +5,5 @@
     <x-sidebar-link :href="__('akademik.hasil-ditolak')" :label="__('hasil ditolak')" />
     <x-sidebar-link :href="__('akademik.rekap-test')" :label="__('rekap Tes')" />
     <x-sidebar-link :href="__('akademik.reset-test')" :label="__('Reset Tes')" />
+    <x-sidebar-link :href="__('akademik.ubah-hasil-akademik')" :label="__('ubah hasil')" />
 @endrole
