@@ -151,7 +151,7 @@
             </span>
             dan mengembalikan surat pernyataan kesanggupan siswa dan orang tua/wali yang sudah ditanda tangani, mulai
             <span class="font-bold">
-                {{ hariTanggal($user->tanggal_daftar) }}
+                {{ hariTanggal($tanggal) }}
             </span>
             sampai dengan
             <span class="font-bold">
@@ -168,7 +168,7 @@
         <div class="flex justify-end mr-10 mt-5">
             <div class="flex flex-col space-y-1 items-center">
                 <span class="text-center">
-                    Ngampel, {{ tanggal($user->tanggal_daftar) }}
+                    Ngampel, {{ tanggal($tanggal) }}
                     <br>
                     Kepala Sekolah
                 </span>

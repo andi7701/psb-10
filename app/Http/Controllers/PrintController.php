@@ -60,7 +60,8 @@ class PrintController extends Controller
             'print.pengumuman',
             [
                 'user' => $user,
-                'tenggang' => Carbon::create($user->tanggal_daftar)->addDay(7)
+                'tanggal' => date('Y-m-d'),
+                'tenggang' => Carbon::create(date('Y-m-d'))->addDay(7)
             ]
         );
     }
