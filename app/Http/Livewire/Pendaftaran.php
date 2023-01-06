@@ -103,7 +103,7 @@ class Pendaftaran extends Component
         'tanggalLahir' => 'required',
         'status' => 'required',
         'anakKe' => 'required',
-        'nik' => 'required|numeric',
+        'nik' => 'required|numeric|unique:biodatas,nik',
         'keterangan' => 'required',
         'rt' => 'required|numeric',
         'rw' => 'required|numeric',
