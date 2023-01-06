@@ -25,6 +25,7 @@ use App\Http\Livewire\HasilMinatTolak;
 use App\Http\Livewire\HasilPengumumanTerima;
 use App\Http\Livewire\HasilPengumumanTolak;
 use App\Http\Livewire\HasilTes;
+use App\Http\Livewire\HasilTesGlobal;
 use App\Http\Livewire\HasilWawancaraTerima;
 use App\Http\Livewire\HasilWawancaraTolak;
 use App\Http\Livewire\Home;
@@ -36,6 +37,7 @@ use App\Http\Livewire\InputPengumuman;
 use App\Http\Livewire\InputWawancara;
 use App\Http\Livewire\Landing;
 use App\Http\Livewire\Pendaftaran;
+use App\Http\Livewire\RekapHasilAkademik;
 use App\Http\Livewire\Rekapitulasi;
 use App\Http\Livewire\RekapTes;
 use App\Http\Livewire\RekapUkuran;
@@ -180,7 +182,8 @@ Route::middleware('auth')->group(function () {
 
         // Rekap
         Route::get('ketua/rekapitulasi', Rekapitulasi::class)->name('ketua.rekapitulasi');
-        Route::get('ketua/rekap-test', RekapTes::class)->name('ketua.rekap-test');
+        Route::get('ketua/rekap-hasil-akademik', RekapHasilAkademik::class)->name('ketua.rekap-hasil-akademik');
+        Route::get('ketua/hasil-test-global', HasilTesGlobal::class)->name('ketua.hasil-test-global');
 
     });
 

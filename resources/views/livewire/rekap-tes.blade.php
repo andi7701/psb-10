@@ -48,7 +48,7 @@
                             {{ $user->sudah_gaya ? 'Selesai' : 'Belum Selesai / Belum di submit' }}
                         </td>
                         <td class="py-4 px-6">
-                            @if ($user->diterima != '')
+                            @if ($user->akademik->nilai != '')
                                 Sudah dikonfirmasi
                             @else
                                 Belum dikonfirmasi
@@ -58,5 +58,8 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="mt-3">
+        {{ $listUser->links() }}
     </div>
 </section>
