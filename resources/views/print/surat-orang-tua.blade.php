@@ -104,17 +104,7 @@
         tua / wali.
     </div>
     <div class="pl-10 text-slate-600 text-sm">
-        <div class="flex justify-between px-20 mt-5">
-            <div class="flex flex-col space-y-10">
-                <span class="text-center">
-                    Mengetahui,
-                    <br>
-                    Orang Tua / Wali
-                </span>
-                <span class="text-center underline font-bold">
-                    {{ $user->name }}
-                </span>
-            </div>
+        <div class="flex justify-end px-20 mt-5">
             <div class="flex flex-col space-y-10">
                 <span class="text-center">
                     Ngampel, {{ tanggal($user->tanggal_daftar) }}
@@ -122,7 +112,9 @@
                     Yang membuat Pernyataan
                 </span>
                 <span class="text-center underline font-bold">
-                    {{ $user->name }}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
             </div>
         </div>
