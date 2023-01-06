@@ -69,7 +69,7 @@
                             @endswitch
                             <br>
                             <br>
-                            Nilai Akademik : {{ $user->akademik->total * 5}}
+                            Nilai Akademik : {{ $user->akademik->benar * 5}}
                         </td>
                         <td class="py-2 px-6">
                             {{ $user->akademik->user->name }}
