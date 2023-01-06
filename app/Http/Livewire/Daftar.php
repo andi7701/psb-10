@@ -35,7 +35,7 @@ class Daftar extends Component
     public $status;
     public $anakKe;
     public $gelombang;
-    
+
     // Alamat
     public $keterangan;
     public $provinsi;
@@ -190,6 +190,7 @@ class Daftar extends Component
         try {
 
             // DB::beginTransaction();
+            $this->kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
 
             $user = User::create(
                 [
@@ -292,7 +293,6 @@ class Daftar extends Component
             Auth::login($user);
 
             return redirect(RouteServiceProvider::HOME);
-            
         } catch (\Throwable $th) {
 
             // DB::rollBack();
@@ -304,8 +304,8 @@ class Daftar extends Component
     // Updated For Kategori Pendaftar
     public function updatedKategoriPendaftar()
     {
-        $this->kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
-        
+        // $this->kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
+
         if ($this->kategoriPendaftar == 'A' || $this->kategoriPendaftar == 'C') {
             $this->jenisKelamin = 'L';
         } else {

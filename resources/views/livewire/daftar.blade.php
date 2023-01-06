@@ -25,7 +25,7 @@
                 <option value="9">9</option>
             </x-native-select>
             <x-input wire:model.defer="nama" label="Nama Lengkap" />
-            <x-input wire:model.defer="kodePendaftaran" label="Kode Pendaftaran" class="font-bold " disabled />
+            {{-- <x-input wire:model.defer="kodePendaftaran" label="Kode Pendaftaran" class="font-bold " disabled /> --}}
         </div>
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-input wire:model.defer="nik" label="NIK" />
