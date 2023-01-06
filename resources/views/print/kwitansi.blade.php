@@ -34,7 +34,7 @@
                 </tr>
                 <tr>
                     <td class=" py-1 px-3">uang sebesar</td>
-                    <td class=" py-1 px-3 uppercase">: {{ rupiah($user->pembayaran->jumlah) }}</td>
+                    <td class=" py-1 px-3">: {{ rupiah($user->pembayaran->jumlah) }}</td>
                 </tr>
                 <tr>
                     <td class=" py-1 px-3">guna membayar</td>
