@@ -180,6 +180,8 @@ Route::middleware('auth')->group(function () {
 
         // Rekap
         Route::get('ketua/rekapitulasi', Rekapitulasi::class)->name('ketua.rekapitulasi');
+        Route::get('ketua/rekap-test', RekapTes::class)->name('ketua.rekap-test');
+
     });
 
     // route for minat bakat
