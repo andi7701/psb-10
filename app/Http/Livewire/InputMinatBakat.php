@@ -105,7 +105,7 @@ class InputMinatBakat extends Component
                 $title = 'Berhasil Simpan',
                 $description = 'Berhasil Simpan Hasil Seleksi Minat dan Bakat'
             );
-            $this->reset();
+            $this->resetExcept('ekstras');
         } catch (\Throwable $th) {
             dd($th);
         }
