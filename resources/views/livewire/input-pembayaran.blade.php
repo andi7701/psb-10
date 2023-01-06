@@ -25,9 +25,9 @@
             </div>
             <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
                 <x-inputs.currency label="Infaq" prefix="Rp." thousands="." decimal="," precision="4"
-                    wire:model.defer="infaq" class="font-bold" />
+                    wire:model.defer="infaq" class="font-bold" disabled/>
                 <x-inputs.currency label="Administrasi PSB" prefix="Rp." thousands="." decimal="," precision="4"
-                    wire:model.defer="admPsb" class="font-bold" />
+                    wire:model.defer="admPsb" class="font-bold" disabled/>
             </div>
             <div class="flex justify-end">
                 <x-button wire:click.prevent="simpan" positive label="simpan" spinner="simpan" loading-delay="short"

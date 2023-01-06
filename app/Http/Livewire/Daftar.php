@@ -96,7 +96,7 @@ class Daftar extends Component
 
     protected $rules = [
         'kategoriPendaftar' => 'required',
-        'kodePendaftaran' => 'required|unique:users,kode_daftar',
+        // 'kodePendaftaran' => 'required|unique:users,kode_daftar',
         'tingkat' => 'required',
         'nama' => 'required|string',
         'nisn' => 'required|numeric|digits:10|unique:biodatas,nisn',
@@ -128,8 +128,8 @@ class Daftar extends Component
 
     protected $messages = [
         'kategoriPendaftar.required' => 'harus diisi',
-        'kodePendaftaran.required' => 'harus diisi',
-        'kodePendaftaran.unique' => 'sudah dipakai',
+        // 'kodePendaftaran.required' => 'harus diisi',
+        // 'kodePendaftaran.unique' => 'sudah dipakai',
         'tingkat.required' => 'harus diisi',
         'nama.required' => 'harus diisi',
         'nama.string' => 'harus berupa huruf',

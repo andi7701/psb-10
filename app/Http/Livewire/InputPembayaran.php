@@ -31,8 +31,6 @@ class InputPembayaran extends Component
     [
         'calonSiswa' => 'required',
         'jumlah' => 'required|numeric',
-        'infaq' => 'required|numeric',
-        'admPsb' => 'required|numeric',
     ];
     public function render()
     {
@@ -76,7 +74,9 @@ class InputPembayaran extends Component
     public function simpan()
     {
         $this->validate();
-
+        $this->admPsb = 1000000;
+        $this->infaq = $this->jumlah - $this->admPsb;
+        
         try {
             $this->user->pembayaran()->updateOrCreate(
                 [],
