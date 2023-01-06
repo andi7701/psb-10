@@ -98,6 +98,8 @@ class HasilTes extends Component
             $this->gayaBelajar = 2;
         } elseif ($user->b == $user->c) {
             $this->gayaBelajar = 4;
+        } elseif ($user->a == $user->b) {
+            $this->gayaBelajar = 5;
         } else {
             $this->gayaBelajar = 3;
         }

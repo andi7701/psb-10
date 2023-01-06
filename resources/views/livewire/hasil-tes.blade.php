@@ -62,6 +62,8 @@
                                 Gaya Belajar : Visual
                             @elseif ($user->b > $user->a && $user->b > $user->c)
                                 Gaya Belajar : Auditori
+                            @elseif ($user->a == $user->b)
+                                Gaya Belajar : Visual Auditori
                             @elseif ($user->b == $user->c)
                                 Gaya Belajar : Auditori Kinestetik
                             @else

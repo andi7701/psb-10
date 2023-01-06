@@ -28,9 +28,6 @@
                     <th scope="col" class="py-3 px-6">
                         Detail
                     </th>
-                    <th scope="col" class="py-3 px-6">
-                        Akademik
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -65,6 +62,40 @@
                             @endswitch
                         </td>
                         <td class="py-2 px-6 whitespace-nowrap">
+                            @switch($user->akademik->nilai)
+                                @case('0')
+                                    Akademik : Tidak diterima
+                                @break
+
+                                @case('1')
+                                    Akademik : Diterima
+                                @break
+
+                                @default
+                                    Akademik : Belum dikonfirmasi
+                            @endswitch
+                            <br>
+                            Benar :
+                            {{ $user->benar }}
+                            <br>
+                            Salah :
+                            {{ $user->salah }}
+                            <br>
+                            Nilai : {{ $user->benar * 5 }}
+                            <br>
+                            @if ($user->a > $user->b && $user->a > $user->c)
+                                Gaya Belajar : Visual
+                            @elseif ($user->b > $user->a && $user->b > $user->c)
+                                Gaya Belajar : Auditori
+                            @elseif ($user->a == $user->b)
+                                Gaya Belajar : Visual Auditori
+                            @elseif ($user->b == $user->c)
+                                Gaya Belajar : Auditori Kinestetik
+                            @else
+                                Gaya Belajar : Kinestetik
+                            @endif
+                            <br>
+                            <br>
                             @switch($user->agama->nilai)
                                 @case('0')
                                     Agama : Tidak diterima
@@ -128,39 +159,6 @@
                             <br>
                             Catatan : {{ $user->wawancara->catatan }}
                             <br>
-                        </td>
-
-                        <td class="py-2 px-6 whitespace-nowrap">
-                            @switch($user->akademik->nilai)
-                                @case('0')
-                                    Akademik : Tidak diterima
-                                @break
-
-                                @case('1')
-                                    Akademik : Diterima
-                                @break
-
-                                @default
-                                    Akademik : Belum dikonfirmasi
-                            @endswitch
-                            <br>
-                            Benar :
-                            {{ $user->benar }}
-                            <br>
-                            Salah :
-                            {{ $user->salah }}
-                            <br>
-                            Nilai : {{ $user->benar * 5 }}
-                            <br>
-                            @if ($user->a > $user->b && $user->a > $user->c)
-                                Gaya Belajar : Visual
-                            @elseif ($user->b > $user->a && $user->b > $user->c)
-                                Gaya Belajar : Auditori
-                            @elseif ($user->b == $user->c)
-                                Gaya Belajar : Auditori Kinestetik
-                            @else
-                                Gaya Belajar : Kinestetik
-                            @endif
                         </td>
                     </tr>
                 @endforeach

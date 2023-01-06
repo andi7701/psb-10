@@ -72,6 +72,10 @@
                                     Auditori Kinestteik
                                 @break
 
+                                @case(5)
+                                    Visual Auditori
+                                @break
+
                                 @default
                             @endswitch
                         </td>
