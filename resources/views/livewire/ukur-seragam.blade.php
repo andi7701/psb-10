@@ -39,19 +39,19 @@
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-native-select wire:model.defer='bawah_osis' label="Bawah Osis">
                 <option value="">Pilih Ukuran</option>
-                @for ($i = 24; $i < 39; $i++)
+                @for ($i = 24; $i < 43; $i++)
                     <option value="{{ $i }}">{{ $i }}</option>
                 @endfor
             </x-native-select>
             <x-native-select wire:model.defer='bawah_batik' label="Bawah Batik">
                 <option value="">Pilih Ukuran</option>
-                @for ($i = 24; $i < 39; $i++)
+                @for ($i = 24; $i < 43; $i++)
                     <option value="{{ $i }}">{{ $i }}</option>
                 @endfor
             </x-native-select>
             <x-native-select wire:model.defer='bawah_pramuka' label="Bawah Pramuka">
                 <option value="">Pilih Ukuran</option>
-                @for ($i = 24; $i < 39; $i++)
+                @for ($i = 24; $i < 43; $i++)
                     <option value="{{ $i }}">{{ $i }}</option>
                 @endfor
             </x-native-select>
