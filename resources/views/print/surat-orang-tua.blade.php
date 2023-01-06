@@ -36,7 +36,7 @@
                 </tr>
                 <tr>
                     <td class="py-2 px-3">nama peserta didik</td>
-                    <td class="py-2 uppercase border-b-2 border-dotted">: </td>
+                    <td class="py-2 uppercase border-b-2 border-dotted">: {{ $user->name }}</td>
                 </tr>
                 <tr>
                     <td class=" py-2 px-3">jenis kelamin</td>
