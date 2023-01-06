@@ -38,6 +38,7 @@ use App\Http\Livewire\Landing;
 use App\Http\Livewire\Pendaftaran;
 use App\Http\Livewire\Rekapitulasi;
 use App\Http\Livewire\RekapUkuran;
+use App\Http\Livewire\ResetTes;
 use App\Http\Livewire\SudahDaftarUlang;
 use App\Http\Livewire\SudahUkur;
 use App\Http\Livewire\UbahHasil;
@@ -112,6 +113,8 @@ Route::middleware('auth')->group(function () {
         Route::get('akademik/hasil-test', HasilTes::class)->name('akademik.hasil-test');
         Route::get('akademik/hasil-diterima', HasilAkademikTerima::class)->name('akademik.hasil-diterima');
         Route::get('akademik/hasil-ditolak', HasilAkademikTolak::class)->name('akademik.hasil-ditolak');
+        Route::get('akademik/reset-test', ResetTes::class)->name('akademik.reset-test');
+
     });
 
     // route for Bendahara
