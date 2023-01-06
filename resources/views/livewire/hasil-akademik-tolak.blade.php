@@ -56,38 +56,38 @@
                         </td>
                         <td class="py-2 px-6">
                             @switch($user->akademik->gaya_belajar)
-                                @@case(1)
-                                Visual
-                            @break
+                                @case(1)
+                                    Visual
+                                @break
 
-                            @case(2)
-                                Auditori
-                            @break
+                                @case(2)
+                                    Auditori
+                                @break
 
-                            @case(3)
-                                Kinestetik
-                            @break
+                                @case(3)
+                                    Kinestetik
+                                @break
 
-                            @case(4)
-                                Auditori Kinestteik
-                            @break
+                                @case(4)
+                                    Auditori Kinestteik
+                                @break
 
-                            @case(5)
-                                Visual Auditori
-                            @break
+                                @case(5)
+                                    Visual Auditori
+                                @break
 
-                            @default
-                        @endswitch
-                    </td>
-                    <td class="py-2 px-6">
-                        {{ $user->akademik->user->name }}
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
-<div class="mt-3">
-    {{ $listUser->links() }}
-</div>
+                                @default
+                            @endswitch
+                        </td>
+                        <td class="py-2 px-6">
+                            {{ $user->akademik->user->name }}
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-3">
+        {{ $listUser->links() }}
+    </div>
 </section>
