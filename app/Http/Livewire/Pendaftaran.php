@@ -94,7 +94,7 @@ class Pendaftaran extends Component
 
     protected $rules = [
         'kategoriPendaftar' => 'required',
-        'kodePendaftaran' => 'required|unique:users,kode_daftar',
+        // 'kodePendaftaran' => 'required|unique:users,kode_daftar',
         'tingkat' => 'required',
         'nama' => 'required|string',
         'nisn' => 'required|numeric',
@@ -150,7 +150,7 @@ class Pendaftaran extends Component
         try {
 
             // DB::beginTransaction();
-
+            $this->kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
             $user = User::create(
                 [
                     'name' => $this->nama,
@@ -252,7 +252,6 @@ class Pendaftaran extends Component
             );
 
             $this->slug = $user;
-            
         } catch (\Throwable $th) {
 
             // DB::rollBack();
@@ -264,13 +263,13 @@ class Pendaftaran extends Component
     // Updated For Kategori Pendaftar
     public function updatedKategoriPendaftar()
     {
-        $this->kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
+        // $this->kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
         if ($this->kategoriPendaftar == 'A' || $this->kategoriPendaftar == 'C') {
             $this->jenisKelamin = 'L';
         } else {
             $this->jenisKelamin = 'P';
         }
-        
+
         if ($this->kategoriPendaftar == 'A' || $this->kategoriPendaftar == 'B') {
             $this->tingkat = 7;
         } else {
