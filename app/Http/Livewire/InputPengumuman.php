@@ -27,9 +27,9 @@ class InputPengumuman extends Component
     protected $rules = [
         'lulus' => 'required',
         'agama' => 'required',
-        'kesehatan' => 'required',
-        'minatBakat' => 'required',
-        'wawancara' => 'required',
+        // 'kesehatan' => 'required',
+        // 'minatBakat' => 'required',
+        // 'wawancara' => 'required',
         'akademik' => 'required'
     ];
 
