@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class HasilTesGlobal extends Component
 {
     use WithPagination;
-    
+
     public $search;
     public $diterima = 0;
 
@@ -38,7 +38,8 @@ class HasilTesGlobal extends Component
                     'jawabGaya as c' => fn ($q)
                     => $q->whereAnswer(2),
                 ])
-                ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
+                ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')
+                    ->orWhere('kode_daftar', 'like', '%' . $this->search . '%'))
                 ->where('kode_daftar', '!=', null)
                 ->whereDiterima($this->diterima)
                 ->paginate(2)
