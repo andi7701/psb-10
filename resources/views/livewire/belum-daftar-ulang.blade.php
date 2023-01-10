@@ -1,6 +1,17 @@
 <section class="px-7 bg-white border-b">
-    <div class="my-3">
-        <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..." class="w-auto text-slate-600" />
+    <div class="my-3 lg:grid lg:grid-cols-4 space-y-3 lg:space-y-0 space-x-3">
+        <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari Nama..." class="text-slate-600" />
+        <x-native-select wire:model='gelombang'>
+            <option value="">Pilih Gelombang</option>
+            <option value="1">Gelombang 1</option>
+            <option value="2">Gelombang 2</option>
+            <option value="3">Gelombang 3</option>
+        </x-native-select>
+        <x-native-select wire:model='jenisKelamin'>
+            <option value="">Jenis Kelamin</option>
+            <option value="L">Putra</option>
+            <option value="P">Putri</option>
+        </x-native-select>
     </div>
     <div class="overflow-x-auto relative">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -49,7 +60,7 @@
                             Gelombang : {{ $user->biodata->gelombang }}
                         </td>
                         <td class="py-2 px-6">
-                            {{$user->sekolahSd->nama }}
+                            {{ $user->sekolahSd->nama }}
                         </td>
                     </tr>
                 @endforeach
