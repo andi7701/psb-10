@@ -26,10 +26,11 @@ class DataPendaftar extends Component
                     $this->search,
                     fn (Builder $query) => $query
                         ->where('name', 'like', "%{$this->search}%")
+                        ->orWhere('kode_daftar', 'like', "%{$this->search}%")
                 )
                 ->when($this->isOnline, fn ($q) => $q->whereIsOnline($this->isOnline))
                     ->with(['panitia', 'alamat', 'alamat.village', 'alamat.province', 'alamat.city', 'alamat.district', 'biodata', 'sekolahSd', 'sekolahAsal', 'orangTua'])
-                    ->orderBy('name')
+                    ->orderByDesc('tanggal_daftar')
                     ->paginate(5)
             ]
         );

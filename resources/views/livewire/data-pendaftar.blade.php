@@ -1,7 +1,7 @@
 <div>
     <x-loading></x-loading>
-    <div class="my-3 lg:grid lg:grid-cols-4 space-y-3 lg:space-y-0">
-        <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..." class="w-auto text-slate-600" />
+    <div class="my-3 lg:grid lg:grid-cols-4 space-y-3 lg:space-y-0 space-x-3">
+        <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..." class="text-slate-600" />
         <x-native-select wire:model='isOnline'>
             <option value="">Pilih</option>
             <option value="0">Offline</option>
@@ -44,7 +44,10 @@
                         </td>
                         <td scope="row"
                             class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $user->name }}
+                            {{ $user->name }} <br>
+                            <span class="text-slate-500 text-xs">
+                                Tanggal Daftar : {{ hariTanggal($user->tanggal_daftar) }}
+                            </span>
                         </td>
                         <td class="py-4 px-6">
                             {{ $user->kode_daftar }}

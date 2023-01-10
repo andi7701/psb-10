@@ -52,11 +52,11 @@ class InputPengumuman extends Component
         $this->wawancara = $this->user->wawancara->nilai ?? '';
         $this->akademik = $this->user->akademik->nilai ?? '';
 
-        if ($this->agama && $this->kesehatan && $this->minatBakat && $this->wawancara && $this->akademik) {
-            $this->lulus = 1;
-        } else {
-            $this->lulus = '';
-        }
+        // if ($this->agama && $this->kesehatan && $this->minatBakat && $this->wawancara && $this->akademik) {
+        //     $this->lulus = 1;
+        // } else {
+        //     $this->lulus = '';
+        // }
     }
 
     public function simpan()

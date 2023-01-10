@@ -39,8 +39,8 @@
             </x-native-select>
             <x-native-select wire:model.defer='lulus' label="Hasil Akhir">
                 <option value="">Pilih Hasil Akhir</option>
-                <option value="0">Tidak diterima</option>
-                <option value="1">Diterima</option>
+                <option value="tidak diterima">Tidak diterima</option>
+                <option value="diterima">Diterima</option>
             </x-native-select>
         </div>
         <div class="flex space-x-3 justify-end">
