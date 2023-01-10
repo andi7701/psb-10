@@ -58,52 +58,52 @@ class Rekapitulasi extends Component
 
         $this->baruPutraTerima = User::with(['biodata'])
             ->where('kode_daftar', 'like', 'A%')
-            ->whereDiterima(true)
+            ->whereDiterima('diterima')
             ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin('L')
                 ->whereGelombang(1))
             ->count();
         $this->pindahanPutraTerima = User::with(['biodata'])
             ->where('kode_daftar', 'like', 'C%')
-            ->whereDiterima(true)
+            ->whereDiterima('diterima')
             ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin('L')
                 ->whereGelombang(1))
             ->count();
 
         $this->baruPutriTerima = User::with(['biodata'])
             ->where('kode_daftar', 'like', 'B%')
-            ->whereDiterima(true)
+            ->whereDiterima('diterima')
             ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin('P')
                 ->whereGelombang(1))
             ->count();
         $this->pindahanPutriTerima = User::with(['biodata'])
             ->where('kode_daftar', 'like', 'D%')
-            ->whereDiterima(true)
+            ->whereDiterima('diterima')
             ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin('P')
                 ->whereGelombang(1))
             ->count();
 
         $this->baruPutraTolak = User::with(['biodata'])
             ->where('kode_daftar', 'like', 'A%')
-            ->whereDiterima(false)
+            ->whereDiterima('tidak diterima')
             ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin('L')
                 ->whereGelombang(1))
             ->count();
         $this->pindahanPutraTolak = User::with(['biodata'])
             ->where('kode_daftar', 'like', 'C%')
-            ->whereDiterima(false)
+            ->whereDiterima('tidak diterima')
             ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin('L')
                 ->whereGelombang(1))
             ->count();
 
         $this->baruPutriTolak = User::with(['biodata'])
             ->where('kode_daftar', 'like', 'B%')
-            ->whereDiterima(false)
+            ->whereDiterima('tidak diterima')
             ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin('P')
                 ->whereGelombang(1))
             ->count();
         $this->pindahanPutriTolak = User::with(['biodata'])
             ->where('kode_daftar', 'like', 'D%')
-            ->whereDiterima(false)
+            ->whereDiterima('tidak diterima')
             ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin('P')
                 ->whereGelombang(1))
             ->count();
