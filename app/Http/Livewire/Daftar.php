@@ -200,7 +200,7 @@ class Daftar extends Component
                     'kode_daftar' => $this->kodePendaftaran,
                     'password' => bcrypt('123456789'),
                     'tanggal_daftar' => date('Y-m-d'),
-                    'user_id' => 0
+                    'is_online' => 1,
                 ]
             );
 

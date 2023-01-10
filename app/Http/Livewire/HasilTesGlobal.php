@@ -11,20 +11,22 @@ class HasilTesGlobal extends Component
     use WithPagination;
 
     public $search;
-    public $diterima = 0;
-
+    public $diterima;
+    public $gelombang;
+    public $sudahTest;
     public function render()
     {
-        return view('livewire.hasil-tes-global', [
-            'listUser' =>  User::with([
-                'answers',
-                'jawabGaya',
+        if ($this->sudahTest == 0) {
+            $listUser = User::with([
                 'akademik',
                 'agama',
+                'answers',
+                'biodata',
+                'jawabGaya',
                 'kesehatan',
                 'minatBakat',
-                'wawancara',
                 'sekolahSd',
+                'wawancara',
             ])
                 ->withCount([
                     'answers as benar' => fn ($q)
@@ -38,11 +40,91 @@ class HasilTesGlobal extends Component
                     'jawabGaya as c' => fn ($q)
                     => $q->whereAnswer(2),
                 ])
+                ->whereDoesntHave('agama')
+                ->whereDoesntHave('akademik')
+                ->whereDoesntHave('kesehatan')
+                ->whereDoesntHave('minatBakat')
+                ->whereDoesntHave('wawancara')
+                ->when($this->diterima, fn ($q) => $q->whereDiterima($this->diterima))
+                ->when($this->gelombang, fn ($q) => $q->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang)))
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')
                     ->orWhere('kode_daftar', 'like', '%' . $this->search . '%'))
                 ->where('kode_daftar', '!=', null)
-                ->whereDiterima($this->diterima)
-                ->paginate(2)
+                ->orderBy('kode_daftar')
+                ->orderBy('name')
+                ->paginate(2);
+        } elseif ($this->sudahTest == 1) {
+            $listUser =  User::with([
+                'akademik',
+                'agama',
+                'answers',
+                'biodata',
+                'jawabGaya',
+                'kesehatan',
+                'minatBakat',
+                'sekolahSd',
+                'wawancara',
+            ])
+                ->withCount([
+                    'answers as benar' => fn ($q)
+                    => $q->whereIsCorrect(true),
+                    'answers as salah' => fn ($q)
+                    => $q->whereIsCorrect(false),
+                    'jawabGaya as a' => fn ($q)
+                    => $q->whereAnswer(0),
+                    'jawabGaya as b' => fn ($q)
+                    => $q->whereAnswer(1),
+                    'jawabGaya as c' => fn ($q)
+                    => $q->whereAnswer(2),
+                ])
+                ->whereHas('agama')
+                ->whereHas('akademik')
+                ->whereHas('kesehatan')
+                ->whereHas('minatBakat')
+                ->whereHas('wawancara')
+                ->when($this->diterima, fn ($q) => $q->whereDiterima($this->diterima))
+                ->when($this->gelombang, fn ($q) => $q->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang)))
+                ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')
+                    ->orWhere('kode_daftar', 'like', '%' . $this->search . '%'))
+                ->where('kode_daftar', '!=', null)
+                ->orderBy('kode_daftar')
+                ->orderBy('name')
+                ->paginate(2);
+        } else {
+            $listUser = User::with([
+                'akademik',
+                'agama',
+                'answers',
+                'biodata',
+                'jawabGaya',
+                'kesehatan',
+                'minatBakat',
+                'sekolahSd',
+                'wawancara',
+            ])
+                ->withCount([
+                    'answers as benar' => fn ($q)
+                    => $q->whereIsCorrect(true),
+                    'answers as salah' => fn ($q)
+                    => $q->whereIsCorrect(false),
+                    'jawabGaya as a' => fn ($q)
+                    => $q->whereAnswer(0),
+                    'jawabGaya as b' => fn ($q)
+                    => $q->whereAnswer(1),
+                    'jawabGaya as c' => fn ($q)
+                    => $q->whereAnswer(2),
+                ])
+                ->when($this->diterima, fn ($q) => $q->whereDiterima($this->diterima))
+                ->when($this->gelombang, fn ($q) => $q->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang)))
+                ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')
+                    ->orWhere('kode_daftar', 'like', '%' . $this->search . '%'))
+                ->where('kode_daftar', '!=', null)
+                ->orderBy('kode_daftar')
+                ->orderBy('name')
+                ->paginate(2);
+        }
+        return view('livewire.hasil-tes-global', [
+            'listUser' =>  $listUser
         ]);
     }
 }

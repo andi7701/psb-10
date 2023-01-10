@@ -185,7 +185,7 @@ class User extends Authenticatable
      */
     public function panitia(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault(['name' => 'Online']);
+        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault();
     }
 
 

@@ -1,9 +1,23 @@
 <section class="px-7 bg-white border-b">
-    <div class="my-3 lg:grid lg:grid-cols-4">
-        <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..." class="w-auto text-slate-600" />
+    <div class="my-3 lg:grid lg:grid-cols-4 space-y-3 lg:space-y-0 space-x-3">
+        <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..." />
         <x-native-select wire:model='diterima'>
-            <option value="0">Tidak Diterima</option>
-            <option value="1">Diterima</option>
+            <option value="">Pilih Pengumuman</option>
+            <option value="belum dikonfirmasi">Belum Dikonfirmasi</option>
+            <option value="tidak diterima">Tidak Diterima</option>
+            <option value="diterima">Diterima</option>
+        </x-native-select>
+        <x-native-select wire:model='gelombang'>
+            <option value="">Pilih Gelombang</option>
+            <option value="1">Gelombang 1</option>
+            <option value="2">Gelombang 2</option>
+            <option value="3">Gelombang 3</option>
+        </x-native-select>
+        <x-native-select wire:model='sudahTest'>
+            <option value="">Pilih</option>
+            <option value="0">Belum Test</option>
+            <option value="1">Sudah Test</option>
+            <option value="2">Semua</option>
         </x-native-select>
     </div>
     <div class="overflow-x-auto relative">
@@ -49,17 +63,7 @@
                             {{ $user->sekolahSd->nama }}
                         </td>
                         <td class="py-2 px-6">
-                            @switch($user->diterima)
-                                @case('0')
-                                    Tidak diterima
-                                @break
-
-                                @case('1')
-                                    Diterima
-                                @break
-
-                                @default
-                            @endswitch
+                            {{ $user->diterima }}
                         </td>
                         <td class="py-2 px-6 whitespace-nowrap">
                             @switch($user->akademik->nilai)
@@ -165,7 +169,7 @@
             </tbody>
         </table>
     </div>
-    <div class="mt-3">
-        {{ $listUser->links() }}
+    <div class="mt-5 overflow-x-auto py-2">
+        {{ $listUser->onEachSide(1)->links() }}
     </div>
 </section>

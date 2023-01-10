@@ -54,7 +54,7 @@
             </tbody>
         </table>
     </div>
-    <div class="mt-5">
-        {{ $listUser->links() }}
+    <div class="mt-5 overflow-x-auto py-2">
+        {{ $listUser->onEachSide(1)->links() }}
     </div>
 </section>

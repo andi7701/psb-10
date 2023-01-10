@@ -1,8 +1,8 @@
 @role('Ketua')
     <x-sidebar-link :href="__('ketua.atur-test')" :label="__('atur tes akademik')" />
+    <x-sidebar-link :href="__('ketua.hasil-test-global')" :label="__('beranda pengumuman')" />
     <x-sidebar-link :href="__('ketua.data-pendaftar')" :label="__('data pendaftar')" />
     <x-sidebar-link :href="__('ketua.hasil-test-akademik')" :label="__('hasil tes akademik')" />
-    <x-sidebar-link :href="__('ketua.hasil-test-global')" :label="__('hasil tes global')" />
     <x-sidebar-link :href="__('ketua.input-agama')" :label="__('input agama')" />
     <x-sidebar-link :href="__('ketua.input-kesehatan')" :label="__('input kesehatan')" />
     <x-sidebar-link :href="__('ketua.input-minat-bakat')" :label="__('input minat bakat')" />

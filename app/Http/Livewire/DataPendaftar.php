@@ -14,6 +14,7 @@ class DataPendaftar extends Component
     use WithPagination;
 
     public $search = '';
+    public $isOnline = 0;
 
     public function render()
     {
@@ -26,6 +27,7 @@ class DataPendaftar extends Component
                     fn (Builder $query) => $query
                         ->where('name', 'like', "%{$this->search}%")
                 )
+                ->when($this->isOnline, fn ($q) => $q->whereIsOnline($this->isOnline))
                     ->with(['panitia', 'alamat', 'alamat.village', 'alamat.province', 'alamat.city', 'alamat.district', 'biodata', 'sekolahSd', 'sekolahAsal', 'orangTua'])
                     ->orderBy('name')
                     ->paginate(5)

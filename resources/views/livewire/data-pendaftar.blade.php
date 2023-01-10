@@ -1,7 +1,12 @@
 <div>
     <x-loading></x-loading>
-    <div class="my-5">
-        <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari Nama..." class="w-auto" />
+    <div class="my-3 lg:grid lg:grid-cols-4 space-y-3 lg:space-y-0">
+        <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..." class="w-auto text-slate-600" />
+        <x-native-select wire:model='isOnline'>
+            <option value="">Pilih</option>
+            <option value="0">Offline</option>
+            <option value="1">Online</option>
+        </x-native-select>
     </div>
     <div class="overflow-x-auto">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -92,7 +97,7 @@
             </tbody>
         </table>
     </div>
-    <div class="my-2">
-        {{ $listUser->links() }}
+    <div class="mt-5 overflow-x-auto py-2">
+        {{ $listUser->onEachSide(1)->links() }}
     </div>
 </div>
