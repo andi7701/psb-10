@@ -45,10 +45,10 @@
                         Total : {{ $baruPutraTolak + $pindahanPutraTolak + $baruPutriTolak + $pindahanPutriTolak }}
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
-                        200
+                        250
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
-                        {{  200 - ($baruPutraTerima + $pindahanPutraTerima + $baruPutriTerima + $pindahanPutriTerima) }}
+                        {{  250 - ($baruPutraTerima + $pindahanPutraTerima + $baruPutriTerima + $pindahanPutriTerima) }}
                     </td>
                 </tr>
             </tbody>
