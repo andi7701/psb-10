@@ -40,16 +40,12 @@ class HasilTesGlobal extends Component
                     'jawabGaya as c' => fn ($q)
                     => $q->whereAnswer(2),
                 ])
-                ->whereDoesntHave('agama')
+                ->where('kode_daftar', '!=', null)
                 ->whereDoesntHave('akademik')
-                ->whereDoesntHave('kesehatan')
-                ->whereDoesntHave('minatBakat')
-                ->whereDoesntHave('wawancara')
                 ->when($this->diterima, fn ($q) => $q->whereDiterima($this->diterima))
                 ->when($this->gelombang, fn ($q) => $q->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang)))
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')
                     ->orWhere('kode_daftar', 'like', '%' . $this->search . '%'))
-                ->where('kode_daftar', '!=', null)
                 ->orderBy('kode_daftar')
                 ->orderBy('name')
                 ->paginate(2);
@@ -77,6 +73,7 @@ class HasilTesGlobal extends Component
                     'jawabGaya as c' => fn ($q)
                     => $q->whereAnswer(2),
                 ])
+                ->where('kode_daftar', '!=', null)
                 ->whereHas('agama')
                 ->whereHas('akademik')
                 ->whereHas('kesehatan')
@@ -86,7 +83,6 @@ class HasilTesGlobal extends Component
                 ->when($this->gelombang, fn ($q) => $q->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang)))
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')
                     ->orWhere('kode_daftar', 'like', '%' . $this->search . '%'))
-                ->where('kode_daftar', '!=', null)
                 ->orderBy('kode_daftar')
                 ->orderBy('name')
                 ->paginate(2);
@@ -114,11 +110,11 @@ class HasilTesGlobal extends Component
                     'jawabGaya as c' => fn ($q)
                     => $q->whereAnswer(2),
                 ])
+                ->where('kode_daftar', '!=', null)
                 ->when($this->diterima, fn ($q) => $q->whereDiterima($this->diterima))
                 ->when($this->gelombang, fn ($q) => $q->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang)))
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')
                     ->orWhere('kode_daftar', 'like', '%' . $this->search . '%'))
-                ->where('kode_daftar', '!=', null)
                 ->orderBy('kode_daftar')
                 ->orderBy('name')
                 ->paginate(2);
