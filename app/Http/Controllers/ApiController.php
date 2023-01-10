@@ -13,12 +13,14 @@ class ApiController extends Controller
     {
         return User::query()
             ->role('Calon Siswa')
-            ->select('id', 'kode_daftar')
+            ->select('id', 'kode_daftar', 'name')
             ->orderBy('kode_daftar')
             ->when(
                 $request->search,
                 fn (Builder $query) => $query
-                ->where('kode_daftar', 'like', "%{$request->search}%")
+                    ->where('kode_daftar', 'like', "%{$request->search}%")
+                    ->orWhere('name', 'like', "%{$request->search}%")
+                    ->where('kode_daftar', '!=', '')
             )
             ->get();
     }
@@ -27,14 +29,15 @@ class ApiController extends Controller
     {
         return User::query()
             ->role('Calon Siswa')
-            ->whereDiterima(true)
+            ->whereDiterima('diterima')
             ->select('id', 'kode_daftar', 'name')
             ->orderBy('kode_daftar')
             ->when(
                 $request->search,
                 fn (Builder $query) => $query
-                ->where('kode_daftar', 'like', "%{$request->search}%")
-                ->orWhere('name', 'like', "%{$request->search}%")
+                    ->where('kode_daftar', 'like', "%{$request->search}%")
+                    ->orWhere('name', 'like', "%{$request->search}%")
+                    ->whereDiterima('diterima')
             )
             ->get();
     }
