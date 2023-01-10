@@ -242,6 +242,8 @@ Route::middleware('auth')->group(function () {
         //Atur Tes Akademik
         Route::get('sekretaris/atur-test', AturTes::class)->name('sekretaris.atur-test');
         Route::get('sekretaris/hasil-test-akademik', HasilTes::class)->name('sekretaris.hasil-test-akademik');
+        Route::get('sekretaris/hasil-test-global', HasilTesGlobal::class)->name('sekretaris.hasil-test-global');
+
     });
 
     // route for wawancara
