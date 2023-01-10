@@ -16,7 +16,7 @@ class HasilPengumumanTolak extends Component
     {
         return view('livewire.hasil-pengumuman-tolak', [
             'listUser' =>  User::with(['panitiaPengumuman', 'sekolahSd'])
-                ->whereDiterima(false)
+                ->whereDiterima('tidak diterima')
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
                 ->paginate(10)
         ]);

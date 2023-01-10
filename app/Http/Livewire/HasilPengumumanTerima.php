@@ -16,7 +16,7 @@ class HasilPengumumanTerima extends Component
     {
         return view('livewire.hasil-pengumuman-terima', [
             'listUser' =>  User::with(['panitiaPengumuman', 'sekolahSd'])
-                ->whereDiterima(true)
+                ->whereDiterima('diterima')
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
                 ->paginate(10)
         ]);

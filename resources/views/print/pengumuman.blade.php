@@ -115,11 +115,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="text-center uppercase font-bold text-xl">
-                        @if ($user->diterima)
-                            diterima
-                        @else
-                            tidak diterima
-                        @endif
+                        {{ $user->diterima }}
                     </td>
                 </tr>
             </tbody>
