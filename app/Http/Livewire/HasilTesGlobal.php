@@ -41,7 +41,13 @@ class HasilTesGlobal extends Component
                     => $q->whereAnswer(2),
                 ])
                 ->where('kode_daftar', '!=', null)
-                ->whereDoesntHave('akademik')
+                ->where(
+                    fn ($q) => $q->whereDoesntHave('akademik')
+                        ->orWhereDoesntHave('agama')
+                        ->orWhereDoesntHave('kesehatan')
+                        ->orWhereDoesntHave('minatBakat')
+                        ->orWhereDoesntHave('wawancara')
+                )
                 ->when($this->diterima, fn ($q) => $q->whereDiterima($this->diterima))
                 ->when($this->gelombang, fn ($q) => $q->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang)))
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')

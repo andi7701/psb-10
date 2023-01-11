@@ -15,8 +15,8 @@
         </x-native-select>
         <x-native-select wire:model='sudahTest'>
             <option value="">Pilih</option>
-            <option value="0">Belum Test</option>
-            <option value="1">Sudah Test</option>
+            <option value="0">Test Belum Selesai</option>
+            <option value="1">Test Sudah Selesai</option>
             <option value="2">Semua</option>
         </x-native-select>
     </div>
