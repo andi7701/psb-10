@@ -21,7 +21,7 @@ class InputPengumuman extends Component
     public $minatBakat;
     public $wawancara;
     public $akademik;
-
+    
     public $lulus;
 
     protected $rules = [
@@ -51,6 +51,8 @@ class InputPengumuman extends Component
         $this->minatBakat = $this->user->minatBakat->nilai ?? '';
         $this->wawancara = $this->user->wawancara->nilai ?? '';
         $this->akademik = $this->user->akademik->nilai ?? '';
+
+        $this->lulus = $this->user->diterima ?? '';
 
         // if ($this->agama && $this->kesehatan && $this->minatBakat && $this->wawancara && $this->akademik) {
         //     $this->lulus = 1;
