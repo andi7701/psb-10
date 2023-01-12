@@ -65,7 +65,7 @@
         <div class="lg:grid lg:grid-cols-4 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
             <x-native-select wire:model.defer='peci' label="Peci">
                 <option value="">Pilih Ukuran</option>
-                @for ($i = 3; $i < 9; $i++)
+                @for ($i = 2; $i < 9; $i++)
                     <option value="{{ $i }}">{{ $i }}</option>
                 @endfor
             </x-native-select>
