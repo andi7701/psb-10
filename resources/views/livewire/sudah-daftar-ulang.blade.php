@@ -11,6 +11,7 @@
             <option value="">Jenis Kelamin</option>
             <option value="L">Putra</option>
             <option value="P">Putri</option>
+            <option value="semua">Semua</option>
         </x-native-select>
     </div>
     <div class="overflow-x-auto relative">

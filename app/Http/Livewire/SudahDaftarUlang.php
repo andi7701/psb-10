@@ -17,30 +17,54 @@ class SudahDaftarUlang extends Component
 
     public function render()
     {
+        if ($this->jenisKelamin == 'semua') {
+            $list_user = Pembayaran::with([
+                'user',
+                'biodata'
+            ])
+                ->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang))
+                ->when(
+                    $this->search,
+                    fn ($q) => $q->whereHas('user', fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
+                )
+                ->orderByDesc('tanggal')
+                ->paginate(5);
+            $totale = Pembayaran::whereGelombang($this->gelombang)
+                ->get()->sum('jumlah');
+            $infaqe = Pembayaran::whereGelombang($this->gelombang)
+                ->get()->sum('infaq');
+            $admPsb = Pembayaran::whereGelombang($this->gelombang)
+                ->get()->sum('adm_psb');
+        } else {
+            $list_user = Pembayaran::with([
+                'user',
+                'biodata'
+            ])
+                ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
+                    ->whereGelombang($this->gelombang))
+                ->when(
+                    $this->search,
+                    fn ($q) => $q->whereHas('user', fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
+                )
+                ->orderByDesc('tanggal')
+                ->paginate(5);
+            $totale = Pembayaran::whereHas('biodatas', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
+                ->whereGelombang($this->gelombang))
+                ->get()->sum('jumlah');
+            $infaqe = Pembayaran::whereHas('biodatas', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
+                ->whereGelombang($this->gelombang))
+                ->get()->sum('infaq');
+            $admPsb = Pembayaran::whereHas('biodatas', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
+                ->whereGelombang($this->gelombang))
+                ->get()->sum('adm_psb');
+        }
         return view(
             'livewire.sudah-daftar-ulang',
             [
-                'listUser' => Pembayaran::with([
-                    'user',
-                    'biodata'
-                ])
-                    ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
-                        ->whereGelombang($this->gelombang))
-                    ->when(
-                        $this->search,
-                        fn ($q) => $q->whereHas('user', fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
-                    )
-                    ->orderByDesc('tanggal')
-                    ->paginate(5),
-                'total' => Pembayaran::whereHas('biodatas', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
-                    ->whereGelombang($this->gelombang))
-                    ->get()->sum('jumlah'),
-                'infaq' => Pembayaran::whereHas('biodatas', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
-                    ->whereGelombang($this->gelombang))
-                    ->get()->sum('infaq'),
-                'adm_psb' => Pembayaran::whereHas('biodatas', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
-                    ->whereGelombang($this->gelombang))
-                    ->get()->sum('adm_psb'),
+                'listUser' => $list_user,
+                'total' => $totale,
+                'infaq' => $infaqe,
+                'adm_psb' => $admPsb,
             ]
         );
     }
