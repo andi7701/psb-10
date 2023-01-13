@@ -42,12 +42,12 @@ class RekapUkuran extends Component
     public function mount()
     {
         $this->siswaPutra = User::with(['biodatas'])
-            ->whereDiterima(true)
+            ->whereDiterima('diterima')
             ->whereHas('biodatas', fn ($q) => $q->whereJenisKelamin('L'))
             ->count();
 
         $this->siswaPutri = User::with(['biodatas'])
-            ->whereDiterima(true)
+            ->whereDiterima('diterima')
             ->whereHas('biodatas', fn ($q) => $q->whereJenisKelamin('P'))
             ->count();
 
@@ -59,7 +59,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('baju_osis')
             ->selectRaw('baju_osis, count(baju_osis) as hitung')
@@ -75,7 +75,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('baju_batik')
             ->selectRaw('baju_batik, count(baju_batik) as hitung')
@@ -89,7 +89,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('baju_pramuka')
             ->selectRaw('baju_pramuka, count(baju_pramuka) as hitung')
@@ -103,7 +103,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('baju_or')
             ->selectRaw('baju_or, count(baju_or) as hitung')
@@ -118,7 +118,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('bawah_osis')
             ->selectRaw('bawah_osis, count(bawah_osis) as hitung')
@@ -131,7 +131,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('bawah_batik')
             ->selectRaw('bawah_batik, count(bawah_batik) as hitung')
@@ -144,7 +144,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('bawah_pramuka')
             ->selectRaw('bawah_pramuka, count(bawah_pramuka) as hitung')
@@ -157,7 +157,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('bawah_or')
             ->selectRaw('bawah_or, count(bawah_or) as hitung')
@@ -173,7 +173,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('baju_osis')
             ->selectRaw('baju_osis, count(baju_osis) as hitung')
@@ -189,7 +189,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('baju_batik')
             ->selectRaw('baju_batik, count(baju_batik) as hitung')
@@ -203,7 +203,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('baju_pramuka')
             ->selectRaw('baju_pramuka, count(baju_pramuka) as hitung')
@@ -217,7 +217,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('baju_or')
             ->selectRaw('baju_or, count(baju_or) as hitung')
@@ -232,7 +232,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('bawah_osis')
             ->selectRaw('bawah_osis, count(bawah_osis) as hitung')
@@ -245,7 +245,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('bawah_batik')
             ->selectRaw('bawah_batik, count(bawah_batik) as hitung')
@@ -258,7 +258,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('bawah_pramuka')
             ->selectRaw('bawah_pramuka, count(bawah_pramuka) as hitung')
@@ -271,7 +271,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('bawah_or')
             ->selectRaw('bawah_or, count(bawah_or) as hitung')
@@ -286,7 +286,7 @@ class RekapUkuran extends Component
             )
             ->whereHas(
                 'siswa',
-                fn ($q) => $q->whereDiterima(true)
+                fn ($q) => $q->whereDiterima('diterima')
             )
             ->groupBy('peci')
             ->selectRaw('peci, count(peci) as hitung')
