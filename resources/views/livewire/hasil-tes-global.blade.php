@@ -1,4 +1,5 @@
 <section class="px-7 bg-white border-b">
+    <x-loading></x-loading>
     <div class="my-3 lg:grid lg:grid-cols-4 space-y-3 lg:space-y-0 space-x-3">
         <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..." />
         <x-native-select wire:model='diterima'>

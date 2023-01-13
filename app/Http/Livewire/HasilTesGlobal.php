@@ -20,12 +20,15 @@ class HasilTesGlobal extends Component
             $listUser = User::with([
                 'akademik',
                 'agama',
+                'alamat',
+                'alamat.district',
                 'answers',
                 'biodata',
                 'jawabGaya',
                 'kesehatan',
                 'minatBakat',
                 'sekolahSd',
+                'orangTua',
                 'wawancara',
             ])
                 ->withCount([
@@ -51,7 +54,22 @@ class HasilTesGlobal extends Component
                 ->when($this->diterima, fn ($q) => $q->whereDiterima($this->diterima))
                 ->when($this->gelombang, fn ($q) => $q->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang)))
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')
-                    ->orWhere('kode_daftar', 'like', '%' . $this->search . '%'))
+                    ->orWhere('kode_daftar', 'like', '%' . $this->search . '%')
+                    ->orWhereHas(
+                        'alamat.district',
+                        fn ($q) => $q
+                            ->where('name', 'like', "%{$this->search}%")
+                    )
+                    ->orWhereHas(
+                        'orangTua',
+                        fn ($q) => $q
+                            ->where('nama_ayah', 'like', "%{$this->search}%")
+                    )
+                    ->orWhereHas(
+                        'sekolahSd',
+                        fn ($q) => $q
+                            ->where('nama', 'like', "%{$this->search}%")
+                    ))
                 ->orderBy('kode_daftar')
                 ->orderBy('name')
                 ->paginate(2);
@@ -59,12 +77,15 @@ class HasilTesGlobal extends Component
             $listUser =  User::with([
                 'akademik',
                 'agama',
+                'alamat',
+                'alamat.district',
                 'answers',
                 'biodata',
                 'jawabGaya',
                 'kesehatan',
                 'minatBakat',
                 'sekolahSd',
+                'orangTua',
                 'wawancara',
             ])
                 ->withCount([
@@ -88,7 +109,22 @@ class HasilTesGlobal extends Component
                 ->when($this->diterima, fn ($q) => $q->whereDiterima($this->diterima))
                 ->when($this->gelombang, fn ($q) => $q->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang)))
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')
-                    ->orWhere('kode_daftar', 'like', '%' . $this->search . '%'))
+                    ->orWhere('kode_daftar', 'like', '%' . $this->search . '%')
+                    ->orWhereHas(
+                        'alamat.district',
+                        fn ($q) => $q
+                            ->where('name', 'like', "%{$this->search}%")
+                    )
+                    ->orWhereHas(
+                        'orangTua',
+                        fn ($q) => $q
+                            ->where('nama_ayah', 'like', "%{$this->search}%")
+                    )
+                    ->orWhereHas(
+                        'sekolahSd',
+                        fn ($q) => $q
+                            ->where('nama', 'like', "%{$this->search}%")
+                    ))
                 ->orderBy('kode_daftar')
                 ->orderBy('name')
                 ->paginate(2);
@@ -96,12 +132,15 @@ class HasilTesGlobal extends Component
             $listUser = User::with([
                 'akademik',
                 'agama',
+                'alamat',
+                'alamat.district',
                 'answers',
                 'biodata',
                 'jawabGaya',
                 'kesehatan',
                 'minatBakat',
                 'sekolahSd',
+                'orangTua',
                 'wawancara',
             ])
                 ->withCount([
@@ -120,7 +159,22 @@ class HasilTesGlobal extends Component
                 ->when($this->diterima, fn ($q) => $q->whereDiterima($this->diterima))
                 ->when($this->gelombang, fn ($q) => $q->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang)))
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%')
-                    ->orWhere('kode_daftar', 'like', '%' . $this->search . '%'))
+                    ->orWhere('kode_daftar', 'like', '%' . $this->search . '%')
+                    ->orWhereHas(
+                        'alamat.district',
+                        fn ($q) => $q
+                            ->where('name', 'like', "%{$this->search}%")
+                    )
+                    ->orWhereHas(
+                        'orangTua',
+                        fn ($q) => $q
+                            ->where('nama_ayah', 'like', "%{$this->search}%")
+                    )
+                    ->orWhereHas(
+                        'sekolahSd',
+                        fn ($q) => $q
+                            ->where('nama', 'like', "%{$this->search}%")
+                    ))
                 ->orderBy('kode_daftar')
                 ->orderBy('name')
                 ->paginate(2);
