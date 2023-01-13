@@ -22,13 +22,18 @@ class DataPendaftar extends Component
             'livewire.data-pendaftar',
             [
                 'listUser' => User::role('Calon Siswa')
-                ->when(
-                    $this->search,
-                    fn (Builder $query) => $query
-                        ->where('name', 'like', "%{$this->search}%")
-                        ->orWhere('kode_daftar', 'like', "%{$this->search}%")
-                )
-                ->when($this->isOnline, fn ($q) => $q->whereIsOnline($this->isOnline))
+                    ->when(
+                        $this->search,
+                        fn (Builder $query) => $query
+                            ->where('name', 'like', "%{$this->search}%")
+                            ->orWhere('kode_daftar', 'like', "%{$this->search}%")
+                            ->orWhereHas(
+                                'alamat.district',
+                                fn ($q) => $q
+                                    ->where('name', 'like', "%{$this->search}%")
+                            )
+                    )
+                    ->when($this->isOnline, fn ($q) => $q->whereIsOnline($this->isOnline))
                     ->with(['panitia', 'alamat', 'alamat.village', 'alamat.province', 'alamat.city', 'alamat.district', 'biodata', 'sekolahSd', 'sekolahAsal', 'orangTua'])
                     ->orderByDesc('tanggal_daftar')
                     ->paginate(5)

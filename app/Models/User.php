@@ -42,7 +42,8 @@ class User extends Authenticatable
         'diterima',
         'sudah_test',
         'sudah_gaya',
-        'boleh_test'
+        'boleh_test',
+        'is_online'
     ];
 
     /**

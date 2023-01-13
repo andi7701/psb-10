@@ -64,35 +64,48 @@
                         </td>
                         <td class="py-4 px-6">
                             {{ $user->panitia->name }}
+                            @switch($user->is_online)
+                                @case(0)
+                                    (Offline)
+                                @break
+
+                                @case(1)
+                                    (Online)
+                                @break
+
+                                @default
+                            @endswitch
                         </td>
                         <td class="py-4 px-6 flex flex-col space-y-3 items-center">
                             @role('Admin')
                                 <x-button href="{{ route('admin.detail-pendaftar', ['user' => $user->slug]) }}" teal
                                     label="Detail" />
-                                    <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
+                                <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                             @endrole
                             @role('Kepala Sekolah')
-                                <x-button href="{{ route('kepala-sekolah.detail-pendaftar', ['user' => $user->slug]) }}" teal
-                                    label="Detail" />
+                                <x-button href="{{ route('kepala-sekolah.detail-pendaftar', ['user' => $user->slug]) }}"
+                                    teal label="Detail" />
                             @endrole
                             @role('Ketua')
                                 <x-button href="{{ route('ketua.detail-pendaftar', ['user' => $user->slug]) }}" teal
                                     label="Detail" />
-                                    <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
+                                <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                             @endrole
                             @role('Pendaftaran')
-                                <x-button href="{{ route('pendaftaran.print-formulir-pendaftaran', ['user' => $user->slug]) }}" target="__blank" cyan
-                                    label="Formulir" icon="printer" />
-                                <x-button href="{{ route('pendaftaran.print-kartu-pendaftaran', ['user' => $user->slug]) }}" target="__blank" teal
-                                    label="Kartu" icon="printer" />
-                                <x-button href="{{ route('pendaftaran.detail-pendaftar', ['user' => $user->slug]) }}" positive
-                                    label="Detail" />
-                                    <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
+                                <x-button
+                                    href="{{ route('pendaftaran.print-formulir-pendaftaran', ['user' => $user->slug]) }}"
+                                    target="__blank" cyan label="Formulir" icon="printer" />
+                                <x-button
+                                    href="{{ route('pendaftaran.print-kartu-pendaftaran', ['user' => $user->slug]) }}"
+                                    target="__blank" teal label="Kartu" icon="printer" />
+                                <x-button href="{{ route('pendaftaran.detail-pendaftar', ['user' => $user->slug]) }}"
+                                    positive label="Detail" />
+                                <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                             @endrole
                             @role('Sekretaris')
                                 <x-button href="{{ route('sekretaris.detail-pendaftar', ['user' => $user->slug]) }}" teal
                                     label="Detail" />
-                                    <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
+                                <x-button wire:click.prevent="confirm({{ $user->id }})" negative label="Hapus" />
                             @endrole
                         </td>
                     </tr>
