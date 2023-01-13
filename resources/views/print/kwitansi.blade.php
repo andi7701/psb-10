@@ -55,12 +55,13 @@
     </div>
     <div class="pl-10 text-slate-600 text-sm">
         <div class="flex justify-end px-20 mt-5">
-            <div class="flex flex-col space-y-10">
+            <div class="flex flex-col space-y-0 items-center">
                 <span class="text-center">
                     Ngampel, {{ tanggal($user->pembayaran->tanggal) }}
                     <br>
                     Bendahara
                 </span>
+                <img src="{{ asset('images/ismi.png') }}" class="h-24 w-36" />
                 <span class="text-center underline font-bold">
                     {{ $user->pembayaran->panitia->name }}
                 </span>
