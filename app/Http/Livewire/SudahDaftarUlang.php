@@ -14,7 +14,14 @@ class SudahDaftarUlang extends Component
     public $search;
     public $jenisKelamin;
     public $gelombang;
+    public $tanggalAwal;
+    public $tanggalAkhir;
 
+    public function mount()
+    {
+        $this->tanggalAwal = date('Y-m-d');
+        $this->tanggalAkhir = date('Y-m-d');
+    }
     public function render()
     {
         if ($this->jenisKelamin == 'semua') {
@@ -22,6 +29,7 @@ class SudahDaftarUlang extends Component
                 'user',
                 'biodata'
             ])
+                ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
                 ->whereHas('biodata', fn ($q) => $q->whereGelombang($this->gelombang))
                 ->when(
                     $this->search,
@@ -30,16 +38,20 @@ class SudahDaftarUlang extends Component
                 ->orderByDesc('tanggal')
                 ->paginate(5);
             $totale = Pembayaran::whereGelombang($this->gelombang)
+                ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
                 ->get()->sum('jumlah');
             $infaqe = Pembayaran::whereGelombang($this->gelombang)
+                ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
                 ->get()->sum('infaq');
             $admPsb = Pembayaran::whereGelombang($this->gelombang)
+                ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
                 ->get()->sum('adm_psb');
         } else {
             $list_user = Pembayaran::with([
                 'user',
                 'biodata'
             ])
+                ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
                 ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
                     ->whereGelombang($this->gelombang))
                 ->when(
@@ -50,12 +62,15 @@ class SudahDaftarUlang extends Component
                 ->paginate(5);
             $totale = Pembayaran::whereHas('biodatas', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
                 ->whereGelombang($this->gelombang))
+                ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
                 ->get()->sum('jumlah');
             $infaqe = Pembayaran::whereHas('biodatas', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
                 ->whereGelombang($this->gelombang))
+                ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
                 ->get()->sum('infaq');
             $admPsb = Pembayaran::whereHas('biodatas', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
                 ->whereGelombang($this->gelombang))
+                ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
                 ->get()->sum('adm_psb');
         }
         return view(

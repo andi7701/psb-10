@@ -1,18 +1,23 @@
 <section class="px-7 bg-white border-b">
-    <div class="my-3 lg:grid lg:grid-cols-4 space-y-3 lg:space-y-0 space-x-3">
-        <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari Nama..." class="text-slate-600" />
-        <x-native-select wire:model='gelombang'>
+    <div class="my-3 lg:grid lg:grid-cols-6 space-y-3 lg:space-y-0 space-x-3">
+        <div class="lg:col-span-2">
+            <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari Nama..." class="text-slate-600"
+                label="Pencarian" />
+        </div>
+        <x-native-select wire:model='gelombang' label="Gelombang">
             <option value="">Pilih Gelombang</option>
             <option value="1">Gelombang 1</option>
             <option value="2">Gelombang 2</option>
             <option value="3">Gelombang 3</option>
         </x-native-select>
-        <x-native-select wire:model='jenisKelamin'>
-            <option value="">Jenis Kelamin</option>
+        <x-native-select wire:model='jenisKelamin' label="Jenis Kelamin">
+            <option value="">Pilih</option>
             <option value="L">Putra</option>
             <option value="P">Putri</option>
             <option value="semua">Semua</option>
         </x-native-select>
+        <x-input wire:model.debounce.500ms="tanggalAwal" class="text-slate-600" label="Tanggal Awal" type="date"/>
+        <x-input wire:model.debounce.500ms="tanggalAkhir" class="text-slate-600" label="Tanggal Akhir" type="date"/>
     </div>
     <div class="overflow-x-auto relative">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -57,7 +62,7 @@
                             Gelombang : {{ $user->biodata->gelombang }}
                         </td>
                         <td class="py-2 px-6">
-                            {{$user->sekolahSd->nama }}
+                            {{ $user->sekolahSd->nama }}
                         </td>
                         <td class="py-2 px-6">
                             {{ rupiah($user->jumlah) }}
@@ -65,33 +70,30 @@
                     </tr>
                 @endforeach
                 <tr class="font-bold text-lg border-b border-slate-600">
-                    <td scope="row"
-                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white" colspan="5">
-                            Total Pembayaran Masuk
+                    <td scope="row" class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white"
+                        colspan="5">
+                        Total Pembayaran Masuk
                     </td>
-                    <td scope="row"
-                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white">
-                            {{ rupiah($total) }}
-                    </td>
-                </tr>
-                <tr class="font-bold text-lg border-b border-slate-600">
-                    <td scope="row"
-                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white" colspan="5">
-                            Total Masuk Infaq
-                    </td>
-                    <td scope="row"
-                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white">
-                            {{ rupiah($infaq) }}
+                    <td scope="row" class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white">
+                        {{ rupiah($total) }}
                     </td>
                 </tr>
                 <tr class="font-bold text-lg border-b border-slate-600">
-                    <td scope="row"
-                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white" colspan="5">
-                            Total Masuk Adm. PSB
+                    <td scope="row" class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white"
+                        colspan="5">
+                        Total Masuk Infaq
                     </td>
-                    <td scope="row"
-                            class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white">
-                            {{ rupiah($adm_psb) }}
+                    <td scope="row" class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white">
+                        {{ rupiah($infaq) }}
+                    </td>
+                </tr>
+                <tr class="font-bold text-lg border-b border-slate-600">
+                    <td scope="row" class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white"
+                        colspan="5">
+                        Total Masuk Adm. PSB
+                    </td>
+                    <td scope="row" class="py-2 px-6 text-slate-800 whitespace-nowrap dark:text-white">
+                        {{ rupiah($adm_psb) }}
                     </td>
                 </tr>
             </tbody>
