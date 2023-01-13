@@ -135,11 +135,25 @@ class Exam extends Component
 
     public function simpan()
     {
-        auth()->user()->update([
-            'sudah_test'  => 1
-        ]);
+        $hitung = Answer::whereUserId(auth()->user()->id)
+            ->count();
+        if ($hitung < 20) {
 
-        $this->status = 'gaya';
+            $this->dialog()->error(
+
+                $title = 'Ada Soal Belum Terjawab !!',
+
+                $description = 'Periksa Jawaban Anda, Ada Soal Belum terjawab dari 20 Soal'
+
+            );
+        } else {
+
+            auth()->user()->update([
+                'sudah_test'  => 1
+            ]);
+
+            $this->status = 'gaya';
+        }
     }
 
 
@@ -182,11 +196,24 @@ class Exam extends Component
 
     public function akhiri()
     {
-        auth()->user()->update([
-            'sudah_gaya'  => 1
-        ]);
+        $hitung = JawabGaya::whereUserId(auth()->user()->id)
+            ->count();
+        if ($hitung < 11) {
+            $this->dialog()->error(
 
-        $this->status = 'akhir';
+                $title = 'Ada Soal Belum Terjawab !!',
+
+                $description = 'Periksa Jawaban Anda, Ada Soal Belum terjawab dari 11 Soal'
+
+            );
+        } else {
+
+            auth()->user()->update([
+                'sudah_gaya'  => 1
+            ]);
+
+            $this->status = 'akhir';
+        }
     }
 
     private function getQuestion()
