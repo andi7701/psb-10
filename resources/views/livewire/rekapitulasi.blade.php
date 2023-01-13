@@ -35,20 +35,25 @@
                         Putra Pindahan : {{ $pindahanPutraTerima }}<br>
                         Putri Baru : {{ $baruPutriTerima }}<br>
                         Putri Pindahan : {{ $pindahanPutriTerima }}<br>
-                        Total : {{ $baruPutraTerima + $pindahanPutraTerima + $baruPutriTerima + $pindahanPutriTerima }}
+                        <br>
+
+                        Total Baru : {{ $baruPutraTerima + $baruPutriTerima }} <br>
+                        Total Pindahan : {{ $pindahanPutraTerima + $pindahanPutriTerima }}
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
                         Putra Baru : {{ $baruPutraTolak }}<br>
                         Putra Pindahan : {{ $pindahanPutraTolak }}<br>
                         Putri Baru : {{ $baruPutriTolak }}<br>
                         Putri Pindahan : {{ $pindahanPutriTolak }}<br>
-                        Total : {{ $baruPutraTolak + $pindahanPutraTolak + $baruPutriTolak + $pindahanPutriTolak }}
+                        <br>
+                        Total Baru : {{ $baruPutraTolak + $baruPutriTolak }} <br>
+                        Total Pindahan : {{ $pindahanPutraTolak + $pindahanPutriTolak }}
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
                         250
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
-                        {{  250 - ($baruPutraTerima + $pindahanPutraTerima + $baruPutriTerima + $pindahanPutriTerima) }}
+                        {{ 250 - ($baruPutraTerima + $baruPutriTerima) }}
                     </td>
                 </tr>
             </tbody>
