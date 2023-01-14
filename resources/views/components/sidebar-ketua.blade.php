@@ -11,4 +11,5 @@
     <x-sidebar-link :href="__('ketua.pendaftaran')" :label="__('pendaftaran siswa')" />
     <x-sidebar-link :href="__('ketua.rekapitulasi')" :label="__('rekapitulasi')" />
     <x-sidebar-link :href="__('ketua.rekap-hasil-akademik')" :label="__('rekap hasil akademik')" />
+    <x-sidebar-link :href="__('ketua.rekap-kecamatan')" :label="__('rekap Kecamatan')" />
 @endrole

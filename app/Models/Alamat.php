@@ -2,18 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravolt\Indonesia\Models\City;
+use Laravolt\Indonesia\Models\Village;
+use Illuminate\Database\Eloquent\Model;
 use Laravolt\Indonesia\Models\District;
 use Laravolt\Indonesia\Models\Province;
-use Laravolt\Indonesia\Models\Village;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Alamat extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+
+    /**
+     * Get the user that owns the Alamat
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class)->withDefault();
+    }
 
     /**
      * Get the desa that owns the Alamat
