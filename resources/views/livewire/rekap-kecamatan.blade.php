@@ -6,7 +6,7 @@
         <br>
         seleksi penerimaan santri baru tahun 2023 / 2024
     </h1>
-    <div class="pl-10 pt-5 text-slate-600 text-sm mb-5">
+    <div class="pl-10 pt-5 text-slate-600 text-sm mb-5 overflow-x-auto">
         <table class="w-full capitalize border border-slate-600">
             <thead>
                 <tr class="text-center font-bold">
