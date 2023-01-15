@@ -41,6 +41,7 @@ use App\Http\Livewire\Pendaftaran;
 use App\Http\Livewire\RekapHasilAkademik;
 use App\Http\Livewire\Rekapitulasi;
 use App\Http\Livewire\RekapKecamatan;
+use App\Http\Livewire\RekapKecamatanPublic;
 use App\Http\Livewire\RekapTes;
 use App\Http\Livewire\RekapUkuran;
 use App\Http\Livewire\ResetTes;
@@ -67,6 +68,8 @@ Route::get('/', Landing::class)->name('landing');
 Route::get('/home', Home::class)->name('home');
 
 Route::get('daftar', Daftar::class)->name('daftar');
+
+Route::get('rekap-kecamatan', RekapKecamatanPublic::class)->name('rekap-kecamatan');
 
 // Authenticated User
 Route::middleware('auth')->group(function () {
