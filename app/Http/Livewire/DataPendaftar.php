@@ -82,7 +82,11 @@ class DataPendaftar extends Component
 
     public function delete($id)
     {
-        User::find($id)->delete();
+        $user = User::find($id);
+        $user->biodata()->delete();
+        $user->alamat()->delete();
+        $user->sekolahSd()->delete();
+        $user->delete();
         $this->notification()->error(
             $title = 'Hapus Calon Siswa',
             $description = 'Berhasil Hapus Data Calon Siswa'

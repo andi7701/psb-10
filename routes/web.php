@@ -34,6 +34,7 @@ use App\Http\Livewire\InputKesehatan;
 use App\Http\Livewire\InputMinatBakat;
 use App\Http\Livewire\InputPembayaran;
 use App\Http\Livewire\InputPengumuman;
+use App\Http\Livewire\InputTarget;
 use App\Http\Livewire\InputWawancara;
 use App\Http\Livewire\Landing;
 use App\Http\Livewire\Pendaftaran;
@@ -120,7 +121,7 @@ Route::middleware('auth')->group(function () {
         Route::get('akademik/hasil-ditolak', HasilAkademikTolak::class)->name('akademik.hasil-ditolak');
         Route::get('akademik/rekap-test', RekapTes::class)->name('akademik.rekap-test');
         Route::get('akademik/reset-test', ResetTes::class)->name('akademik.reset-test');
-        
+
         Route::get('akademik/ubah-hasil-akademik', UbahHasilAkademik::class)->name('akademik.ubah-hasil-akademik');
     });
 
@@ -134,7 +135,6 @@ Route::middleware('auth')->group(function () {
 
         // Print
         Route::get('bendahara/print/kwitansi/{user}', [PrintController::class, 'kwitansi'])->name('bendahara.print-kwitansi');
-
     });
 
 
@@ -152,8 +152,15 @@ Route::middleware('auth')->group(function () {
         Route::get('kepala-sekolah/hasil-pengumuman', HasilPengumumanTerima::class)->name('kepala-sekolah.hasil-pengumuman');
         Route::get('kepala-sekolah/hasil-wawancara', HasilWawancaraTerima::class)->name('kepala-sekolah.hasil-wawancara');
 
-        //Atur Tes Akademik
+        //Hasil Tes Akademik
         Route::get('kepala-sekolah/hasil-test-akademik', HasilTes::class)->name('kepala-sekolah.hasil-test-akademik');
+
+
+        // Rekap
+        Route::get('kepala-sekolah/rekapitulasi', Rekapitulasi::class)->name('kepala-sekolah.rekapitulasi');
+        Route::get('kepala-sekolah/rekap-hasil-akademik', RekapHasilAkademik::class)->name('kepala-sekolah.rekap-hasil-akademik');
+        Route::get('kepala-sekolah/rekap-kecamatan', RekapKecamatan::class)->name('kepala-sekolah.rekap-kecamatan');
+        Route::get('kepala-sekolah/hasil-test-global', HasilTesGlobal::class)->name('kepala-sekolah.hasil-test-global');
     });
 
     // route for kesehatan
@@ -171,6 +178,8 @@ Route::middleware('auth')->group(function () {
         Route::get('ketua/detail-pendaftar/{user}', DetailPendaftar::class)->name('ketua.detail-pendaftar');
         Route::get('ketua/pendaftaran', Pendaftaran::class)->name('ketua.pendaftaran');
 
+        //input target
+        Route::get('ketua/input-target', InputTarget::class)->name('ketua.input-target');
 
         // Tes Seleksi
         Route::get('ketua/input-agama', InputAgama::class)->name('ketua.input-agama');
@@ -188,7 +197,6 @@ Route::middleware('auth')->group(function () {
         Route::get('ketua/rekap-hasil-akademik', RekapHasilAkademik::class)->name('ketua.rekap-hasil-akademik');
         Route::get('ketua/rekap-kecamatan', RekapKecamatan::class)->name('ketua.rekap-kecamatan');
         Route::get('ketua/hasil-test-global', HasilTesGlobal::class)->name('ketua.hasil-test-global');
-
     });
 
     // route for minat bakat
@@ -245,7 +253,6 @@ Route::middleware('auth')->group(function () {
         Route::get('sekretaris/atur-test', AturTes::class)->name('sekretaris.atur-test');
         Route::get('sekretaris/hasil-test-akademik', HasilTes::class)->name('sekretaris.hasil-test-akademik');
         Route::get('sekretaris/hasil-test-global', HasilTesGlobal::class)->name('sekretaris.hasil-test-global');
-
     });
 
     // route for wawancara

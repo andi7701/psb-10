@@ -15,6 +15,15 @@ class SekolahSd extends Model
     use HasFactory;
     protected $guarded = [];
 
+    /**
+     * Get the user that owns the SekolahSd
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class)->withDefault();
+    }
 
     /**
      * Get the desa that owns the Alamat
