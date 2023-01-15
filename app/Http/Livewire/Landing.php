@@ -36,7 +36,9 @@ class Landing extends Component
                     // ->where('name', 'like', '%' . $this->search . '%')
                     ->with(['alamat', 'alamat.village', 'alamat.district', 'sekolahSd'])
                     ->orderBy('name')
-                    ->paginate(5)
+                    ->paginate(5),
+                'totalPendaftar' => User::role('Calon Siswa')
+                    ->count(),
             ]
         )->layout('layouts.guest');
     }
