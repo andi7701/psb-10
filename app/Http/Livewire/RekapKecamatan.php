@@ -29,18 +29,22 @@ class RekapKecamatan extends Component
                 'listKecamatan' => $listKecamatan,
                 'luarDiterima' => SekolahSd::whereNotIn('kecamatan', $idKecamatan)
                     ->with(['user'])
-                    ->whereHas('user', fn($q) => $q->whereDiterima('diterima'))
+                    ->whereHas('user', fn ($q) => $q->whereDiterima('diterima'))
                     ->count(),
                 'luarDitolak' => SekolahSd::whereNotIn('kecamatan', $idKecamatan)
                     ->with(['user'])
-                    ->whereHas('user', fn($q) => $q->whereDiterima('tidak diterima'))
+                    ->whereHas('user', fn ($q) => $q->whereDiterima('tidak diterima'))
                     ->count(),
                 'luarDaftarUlang' => SekolahSd::whereNotIn('kecamatan', $idKecamatan)
                     ->with(['user', 'user.pembayaran'])
-                    ->whereHas('user', fn($q) => $q->whereHas('pembayaran'))
+                    ->whereHas('user', fn ($q) => $q->whereHas('pembayaran'))
                     ->count(),
                 'luarTotal' => SekolahSd::whereNotIn('kecamatan', $idKecamatan)
                     ->count(),
+                'diterima' => User::whereDiterima('diterima')->count(),
+                'ditolak' => User::whereDiterima('tidak diterima')->count(),
+                'totalPendaftar' => User::role('Calon Siswa')->count(),
+                'totalDaftarUlang' => User::whereHas('pembayaran')->count(),
             ]
         );
     }

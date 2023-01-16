@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use App\Models\Target;
 use Livewire\Component;
 use App\Models\SekolahSd;
@@ -38,6 +39,10 @@ class RekapKecamatanPublic extends Component
                     ->count(),
                 'luarTotal' => SekolahSd::whereNotIn('kecamatan', $idKecamatan)
                     ->count(),
+                'diterima' => User::whereDiterima('diterima')->count(),
+                'ditolak' => User::whereDiterima('tidak diterima')->count(),
+                'totalPendaftar' => User::role('Calon Siswa')->count(),
+                'totalDaftarUlang' => User::whereHas('pembayaran')->count(),
             ]
         )->layout('layouts.guest');
     }
