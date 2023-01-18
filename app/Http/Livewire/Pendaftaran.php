@@ -159,7 +159,8 @@ class Pendaftaran extends Component
                     'kode_daftar' => $this->kodePendaftaran,
                     'password' => bcrypt('123456789'),
                     'tanggal_daftar' => date('Y-m-d'),
-                    'user_id' => auth()->user()->id
+                    'user_id' => auth()->user()->id,
+                    'is_online' => 2
                 ]
             );
 
