@@ -7,6 +7,7 @@ use Livewire\Component;
 use WireUi\Traits\Actions;
 use Livewire\WithPagination;
 use Illuminate\Database\Eloquent\Builder;
+use Laravolt\Indonesia\Models\Province;
 
 class DataPendaftar extends Component
 {
@@ -14,7 +15,8 @@ class DataPendaftar extends Component
     use WithPagination;
 
     public $search = '';
-    public $isOnline = 0;
+    public $isOnline;
+    public $isJateng;
 
     public function render()
     {
@@ -56,8 +58,10 @@ class DataPendaftar extends Component
                             )
                     )
                     ->when($this->isOnline, fn ($q) => $q->whereIsOnline($this->isOnline))
+                    ->whereHas('alamat.province', fn ($q) => $q->where('code', '!=', $this->isJateng))
                     ->orderByDesc('tanggal_daftar')
-                    ->paginate(5)
+                    ->paginate(5),
+                'listJateng' => Province::whereName('JAWA TENGAH')->get(),
             ]
         );
     }

@@ -217,11 +217,11 @@ class Daftar extends Component
                 ]
             );
 
-            $totalPendaftar = User::role('Calon Siswa')->count();
+            // $totalPendaftar = User::role('Calon Siswa')->count();
 
-            if (now() < date('2023-01-28') && $totalPendaftar < 330) {
+            if (now() < date('2023-01-28')) {
                 $this->gelombang = 1;
-            } elseif (now() < date('2023-02-25') || $totalPendaftar > 330) {
+            } elseif (now() < date('2023-02-25')) {
                 $this->gelombang = 2;
             } else {
                 $this->gelombang = 3;

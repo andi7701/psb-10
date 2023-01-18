@@ -4,8 +4,14 @@
         <x-input wire:model.debounce.500ms="search" icon="search" placeholder="Cari ..." class="text-slate-600" />
         <x-native-select wire:model='isOnline'>
             <option value="">Pilih</option>
-            <option value="0">Offline</option>
+            <option value="2">Offline</option>
             <option value="1">Online</option>
+        </x-native-select>
+        <x-native-select wire:model='isJateng'>
+            <option value="">Semua</option>
+            @foreach ($listJateng as $jateng)
+                <option value="{{ $jateng->code }}">Luar Jateng</option>
+            @endforeach
         </x-native-select>
     </div>
     <div class="overflow-x-auto">
@@ -65,7 +71,7 @@
                         <td class="py-4 px-6">
                             {{ $user->panitia->name }}
                             @switch($user->is_online)
-                                @case(0)
+                                @case(2)
                                     (Offline)
                                 @break
 
