@@ -121,7 +121,7 @@
             </tbody>
         </table>
     </div>
-    @if ($user->diterima)
+    @if ($user->diterima == 'diterima')
         <div class=" text-slate-600 px-10 pt-5 text-sm text-justify">
             Sebagai Peserta Didik Baru di SMP Al Musyaffa', mohon segera melakukan proses
             <span class="font-bold">
