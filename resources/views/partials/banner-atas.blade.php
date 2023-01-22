@@ -7,7 +7,7 @@
         <p class="mb-3 leading-normal text-md lg:text-2xl">
             Tahun Pelajaran 2023 / 2024
             <br>
-            Pendaftarn Gelombang 1 terakhir pada hari juma't tanggal 27 januri 2023 pukul 07.30 - 12.30 WIB
+            Pendaftaran Gelombang 1 terakhir pada hari juma't tanggal 27 januari 2023 pukul 07.30 - 12.30 WIB
             {{-- Pendaftaran offline dibuka setiap Jum'at : pukul 07.30 - 12.30 WIB --}}
             <br>
             {{-- @if ($totalPendaftar > 330)
