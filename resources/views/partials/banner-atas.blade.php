@@ -17,13 +17,13 @@
             Untuk pendaftaran online silahkan klik tombol Daftar berikut
             {{-- @endif --}}
         </p>
-        @if ($totalPendaftar > 330)
-        @else
-            <a href="{{ route('daftar') }}"
-                class="px-5 py-2 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg cursor-pointer lg:mx-0 focus:outline-none focus:shadow-outline hover:scale-105">
-                Daftar
-            </a>
-        @endif
+        {{-- @if ($totalPendaftar > 330)
+        @else --}}
+        <a href="{{ route('daftar') }}"
+            class="px-5 py-2 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg cursor-pointer lg:mx-0 focus:outline-none focus:shadow-outline hover:scale-105">
+            Daftar
+        </a>
+        {{-- @endif --}}
     </div>
     <div class="flex justify-end w-full text-center lg:pt-10 md:w-2/5">
         <img class="w-full md:w-4/5" src="/images/3orang.png" />
