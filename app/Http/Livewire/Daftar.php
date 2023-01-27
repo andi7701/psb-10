@@ -219,7 +219,7 @@ class Daftar extends Component
 
             // $totalPendaftar = User::role('Calon Siswa')->count();
 
-            if (now() < date('2023-01-28')) {
+            if (now() < date('2023-01-26')) {
                 $this->gelombang = 1;
             } elseif (now() < date('2023-02-25')) {
                 $this->gelombang = 2;

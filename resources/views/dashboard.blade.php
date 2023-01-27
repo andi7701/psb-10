@@ -24,7 +24,7 @@
                     Jadwal Tes Seleksi dan Pendaftaran Offline<br>
                     <br>
                 <ul class="text-slate-600 font-bold">
-                    @if (auth()->user()->tanggal_daftar < date('2023-01-28'))
+                    @if (auth()->user()->tanggal_daftar < date('2023-01-26'))
                     <li class="list-disc">Gelombang I : Tanggal 6 Januari 2023 - 27 Januari 2023</li>
                     @elseif(auth()->user()->tanggal_daftar < date('2023-02-25'))
                     <li class="list-disc">Gelombang II : Tanggal 3 Februari 2023 - 24 Februari 2023</li>
