@@ -24,7 +24,42 @@ class SudahDaftarUlang extends Component
     }
     public function render()
     {
-        if ($this->jenisKelamin == 'semua') {
+        if ($this->gelombang == 'semua' && $this->jenisKelamin == 'semua') {
+            $list_user = Pembayaran::with([
+                'user',
+                'biodata'
+            ])
+                ->when(
+                    $this->search,
+                    fn ($q) => $q->whereHas('user', fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
+                )
+                ->orderByDesc('tanggal')
+                ->paginate(10);
+            $totale = Pembayaran::get()->sum('jumlah');
+            $infaqe = Pembayaran::get()->sum('infaq');
+            $admPsb = Pembayaran::get()->sum('adm_psb');
+        } elseif ($this->gelombang == 'semua' && $this->jenisKelamin != 'semua') {
+            $list_user = Pembayaran::with([
+                'user',
+                'biodata'
+            ])
+                ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin))
+                ->when(
+                    $this->search,
+                    fn ($q) => $q->whereHas('user', fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
+                )
+                ->orderByDesc('tanggal')
+                ->paginate(10);
+            $totale = Pembayaran::whereGelombang($this->gelombang)
+                ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin))
+                ->get()->sum('jumlah');
+            $infaqe = Pembayaran::whereGelombang($this->gelombang)
+                ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin))
+                ->get()->sum('infaq');
+            $admPsb = Pembayaran::whereGelombang($this->gelombang)
+                ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin))
+                ->get()->sum('adm_psb');
+        } elseif ($this->jenisKelamin == 'semua') {
             $list_user = Pembayaran::with([
                 'user',
                 'biodata'
@@ -36,7 +71,7 @@ class SudahDaftarUlang extends Component
                     fn ($q) => $q->whereHas('user', fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
                 )
                 ->orderByDesc('tanggal')
-                ->paginate(5);
+                ->paginate(10);
             $totale = Pembayaran::whereGelombang($this->gelombang)
                 ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
                 ->get()->sum('jumlah');
@@ -59,7 +94,7 @@ class SudahDaftarUlang extends Component
                     fn ($q) => $q->whereHas('user', fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
                 )
                 ->orderByDesc('tanggal')
-                ->paginate(5);
+                ->paginate(10);
             $totale = Pembayaran::whereHas('biodatas', fn ($q) => $q->whereJenisKelamin($this->jenisKelamin)
                 ->whereGelombang($this->gelombang))
                 ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
@@ -73,6 +108,7 @@ class SudahDaftarUlang extends Component
                 ->whereBetween('tanggal', [$this->tanggalAwal, $this->tanggalAkhir])
                 ->get()->sum('adm_psb');
         }
+
         return view(
             'livewire.sudah-daftar-ulang',
             [

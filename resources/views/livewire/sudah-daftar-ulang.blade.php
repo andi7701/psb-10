@@ -6,6 +6,7 @@
         </div>
         <x-native-select wire:model='gelombang' label="Gelombang">
             <option value="">Pilih Gelombang</option>
+            <option value="semua">Semua</option>
             <option value="1">Gelombang 1</option>
             <option value="2">Gelombang 2</option>
             <option value="3">Gelombang 3</option>
