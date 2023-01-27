@@ -195,6 +195,18 @@ Route::middleware('auth')->group(function () {
         Route::get('ketua/atur-test', AturTes::class)->name('ketua.atur-test');
         Route::get('ketua/hasil-test-akademik', HasilTes::class)->name('ketua.hasil-test-akademik');
 
+        // Hasil Semua Test
+        Route::get('ketua/agama/hasil-diterima', HasilAgamaTerima::class)->name('ketua.agama.hasil-diterima');
+        Route::get('ketua/agama/hasil-ditolak', HasilAgamaTolak::class)->name('ketua.agama.hasil-ditolak');
+        Route::get('ketua/akademik/hasil-diterima', HasilAkademikTerima::class)->name('ketua.akademik.hasil-diterima');
+        Route::get('ketua/akademik/hasil-ditolak', HasilAkademikTolak::class)->name('ketua.akademik.hasil-ditolak');
+        Route::get('ketua/kesehatan/hasil-diterima', HasilKesehatanTerima::class)->name('ketua.kesehatan.hasil-diterima');
+        Route::get('ketua/kesehatan/hasil-ditolak', HasilKesehatanTolak::class)->name('ketua.kesehatan.hasil-ditolak');
+        Route::get('ketua/minat-bakat/hasil-diterima', HasilMinatTerima::class)->name('ketua.minat-bakat.hasil-diterima');
+        Route::get('ketua/minat-bakat/hasil-ditolak', HasilMinatTolak::class)->name('ketua.minat-bakat.hasil-ditolak');
+        Route::get('ketua/wawancara/hasil-diterima', HasilWawancaraTerima::class)->name('ketua.wawancara.hasil-diterima');
+        Route::get('ketua/wawancara/hasil-ditolak', HasilWawancaraTolak::class)->name('ketua.wawancara.hasil-ditolak');
+
         // Rekap
         Route::get('ketua/rekapitulasi', Rekapitulasi::class)->name('ketua.rekapitulasi');
         Route::get('ketua/rekap-hasil-akademik', RekapHasilAkademik::class)->name('ketua.rekap-hasil-akademik');
