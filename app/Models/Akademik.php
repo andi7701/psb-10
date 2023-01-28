@@ -12,7 +12,7 @@ class Akademik extends Model
     protected $guarded  = [];
 
     /**
-     * Get the user that owns the Akademik
+     * Get the siswa that owns the Akademik
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

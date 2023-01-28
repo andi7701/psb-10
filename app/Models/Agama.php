@@ -12,6 +12,16 @@ class Agama extends Model
     protected $guarded = [];
 
     /**
+     * Get the siswa that owns the Akademik
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function siswa(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id')->withDefault();
+    }
+    
+    /**
      * Get the user that owns the Agama
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

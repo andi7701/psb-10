@@ -23,28 +23,25 @@
                         1
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Akademik :  @foreach ($akademik as $batik)
-                        {{ Str::upper($batik->total) }} : {{ $batik->hitung }} <br>
-                    @endforeach
-
+                        Agama
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{-- @foreach ($osisPutra as $osis)
-                            {{ Str::upper($osis->baju_osis) }} : {{ $osis->hitung }} <br>
-                        @endforeach --}}
+                        @foreach ($agamaNilaiQuran as $nilai)
+                            Nilai Al Qur'an {{ Str::upper($nilai->nilai_quran) }} : {{ $nilai->hitung }} Siswa<br>
+                        @endforeach
                     </td>
                 </tr>
-                {{-- <tr
+                <tr
                     class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         2
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Baju Batik Putra
+                        Agama
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($akademik as $batik)
-                            {{ Str::upper($batik->baju_batik) }} : {{ $batik->hitung }} <br>
+                        @foreach ($agamaPegon as $nilai)
+                            Nilai Pegon  {{ Str::upper($nilai->pegon) }} : {{ $nilai->hitung }} Siswa<br>
                         @endforeach
                     </td>
                 </tr>
@@ -54,11 +51,11 @@
                         3
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Baju Pramuka Putra
+                        Agama
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($pramukaPutra as $pramuka)
-                            {{ Str::upper($pramuka->baju_pramuka) }} : {{ $pramuka->hitung }} <br>
+                        @foreach ($agamaTulisan as $nilai)
+                            Nilai Tulisan {{ Str::upper($nilai->tulisan) }} : {{ $nilai->hitung }} Siswa<br>
                         @endforeach
                     </td>
                 </tr>
@@ -68,11 +65,11 @@
                         4
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Baju OSIS Putri
+                        Akademik
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($osisPutri as $osis)
-                            {{ Str::upper($osis->baju_osis) }} : {{ $osis->hitung }} <br>
+                        @foreach ($akademik as $nilai)
+                            Nilai Akademik {{ Str::upper($nilai->total) }} : {{ $nilai->hitung }} Siswa <br>
                         @endforeach
                     </td>
                 </tr>
@@ -82,11 +79,11 @@
                         5
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Baju Batik Putri
+                        Kesehatan
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($batikPutri as $batik)
-                            {{ Str::upper($batik->baju_batik) }} : {{ $batik->hitung }} <br>
+                        @foreach ($kesehatan as $nilai)
+                            Kesehatan Siswa {{ Str::upper($nilai->sehat) }} : {{ $nilai->hitung }} Siswa <br>
                         @endforeach
                     </td>
                 </tr>
@@ -96,11 +93,12 @@
                         6
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Baju Pramuka Putri
+                        Minat Bakat : Ekstrakurikuler
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($pramukaPutri as $pramuka)
-                            {{ Str::upper($pramuka->baju_pramuka) }} : {{ $pramuka->hitung }} <br>
+                        @foreach ($minatBakat as $nilai)
+                            {{ Str::upper($nilai->ekstra->nama) }}  : {{ $nilai->hitung }}
+                            Siswa <br>
                         @endforeach
                     </td>
                 </tr>
@@ -110,166 +108,26 @@
                         7
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Celana OSIS Putra
+                        Penghasilan
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($osisCelanaPutra as $osisCelana)
-                            {{ Str::upper($osisCelana->bawah_osis) }} : {{ $osisCelana->hitung }} <br>
+                        @foreach ($penghasilan as $nilai)
+                            Penghasilan {{ rupiah($nilai->penghasilan) }} : {{ $nilai->hitung }} Siswa <br>
                         @endforeach
                     </td>
                 </tr>
-                <tr
+                {{-- <tr
                     class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        8
+                        8 
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Celana Batik Putra
+                        Wawancara
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($batikCelanaPutra as $batikCelana)
-                            {{ Str::upper($batikCelana->bawah_batik) }} : {{ $batikCelana->hitung }} <br>
+                        @foreach ($akademik as $nilai)
+                            Nilai Akademik {{ Str::upper($nilai->total) }} : {{ $nilai->hitung }} Siswa <br>
                         @endforeach
-                    </td>
-                </tr>
-                <tr
-                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        9
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Celana Pramuka Putra
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($pramukaCelanaPutra as $pramukaCelana)
-                            {{ Str::upper($pramukaCelana->bawah_pramuka) }} : {{ $pramukaCelana->hitung }} <br>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr
-                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        10
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Rok OSIS Putri
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($osisRokPutri as $osisRok)
-                            {{ Str::upper($osisRok->bawah_osis) }} : {{ $osisRok->hitung }} <br>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr
-                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        11
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Rok Batik Putri
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($batikRokPutri as $batikRok)
-                            {{ Str::upper($batikRok->bawah_batik) }} : {{ $batikRok->hitung }} <br>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr
-                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        12
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Rok Pramuka Putri
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($pramukaRokPutri as $pramukaRok)
-                            {{ Str::upper($pramukaRok->bawah_pramuka) }} : {{ $pramukaRok->hitung }} <br>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr
-                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        13
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Kaos Olah Raga Putra
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($orPutra as $or)
-                            {{ Str::upper($or->baju_or) }} : {{ $or->hitung }} <br>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr
-                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        14
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Celana Olah Raga Putra
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($orCelanaPutra as $orCelana)
-                            {{ Str::upper($orCelana->bawah_or) }} : {{ $orCelana->hitung }} <br>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr
-                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        15
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Kaos Olah Raga Putri
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($orPutri as $or)
-                            {{ Str::upper($or->baju_or) }} : {{ $or->hitung }} <br>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr
-                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        16
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Celana Olah Raga Putri
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($orCelanaPutri as $orCelana)
-                            {{ Str::upper($orCelana->bawah_or) }} : {{ $orCelana->hitung }} <br>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr
-                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        17
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Peci
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($peci as $item)
-                            {{ Str::upper($item->peci) }} : {{ $item->hitung }} <br>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr
-                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        18
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Kerudung
-                    </td>
-                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Putih : {{ $siswaPutri }}<br>
-                        Dongker : {{ $siswaPutri }}<br>
-                        Coklat : {{ $siswaPutri }}
                     </td>
                 </tr> --}}
             </tbody>
