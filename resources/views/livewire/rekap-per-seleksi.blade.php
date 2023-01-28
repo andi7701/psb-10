@@ -41,7 +41,7 @@
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         @foreach ($agamaPegon as $nilai)
-                            Nilai Pegon  {{ Str::upper($nilai->pegon) }} : {{ $nilai->hitung }} Siswa<br>
+                            Nilai Pegon {{ Str::upper($nilai->pegon) }} : {{ $nilai->hitung }} Siswa<br>
                         @endforeach
                     </td>
                 </tr>
@@ -68,9 +68,9 @@
                         Akademik
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($akademik as $nilai)
-                            Nilai Akademik {{ Str::upper($nilai->total) }} : {{ $nilai->hitung }} Siswa <br>
-                        @endforeach
+                        Nilai Kurang : {{ $akademikKurang }} Siswa <br>
+                        Nilai Sedang : {{ $akademikSedang }} Siswa <br>
+                        Nilai Baik : {{ $akademikBaik }} Siswa <br>
                     </td>
                 </tr>
                 <tr
@@ -97,7 +97,7 @@
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         @foreach ($minatBakat as $nilai)
-                            {{ Str::upper($nilai->ekstra->nama) }}  : {{ $nilai->hitung }}
+                            {{ Str::upper($nilai->ekstra->nama) }} : {{ $nilai->hitung }}
                             Siswa <br>
                         @endforeach
                     </td>

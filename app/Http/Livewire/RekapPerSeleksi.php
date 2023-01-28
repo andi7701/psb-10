@@ -7,6 +7,7 @@ use App\Models\Akademik;
 use App\Models\Kesehatan;
 use App\Models\MinatBakat;
 use App\Models\OrangTua;
+use App\Models\User;
 use Livewire\Component;
 
 class RekapPerSeleksi extends Component
@@ -14,7 +15,9 @@ class RekapPerSeleksi extends Component
     public $agamaNilaiQuran;
     public $agamaPegon;
     public $agamaTulisan;
-    public $akademik;
+    public $akademikBaik;
+    public $akademikSedang;
+    public $akademikKurang;
     public $kesehatan;
     public $minatBakat;
     public $penghasilan;
@@ -40,11 +43,19 @@ class RekapPerSeleksi extends Component
             ->selectRaw('tulisan, count(tulisan) as hitung')
             ->get();
 
-        $this->akademik = Akademik::with(['siswa'])
+        $this->akademikKurang = Akademik::with(['siswa'])
             ->whereHas('siswa', fn ($q) => $q->whereDiterima('diterima'))
-            ->groupBy('total')
-            ->selectRaw('total, count(total) as hitung')
-            ->get();
+            ->where('total', '<', 51)
+            ->count();
+        $this->akademikSedang = Akademik::with(['siswa'])
+            ->whereHas('siswa', fn ($q) => $q->whereDiterima('diterima'))
+            ->whereBetween('total', [51, 75])
+            ->count();
+
+        $this->akademikBaik = Akademik::with(['siswa'])
+            ->whereHas('siswa', fn ($q) => $q->whereDiterima('diterima'))
+            ->where('total', '>', 80)
+            ->count();
 
         $this->kesehatan = Kesehatan::with(['siswa'])
             ->whereHas('siswa', fn ($q) => $q->whereDiterima('diterima'))
