@@ -7,14 +7,14 @@
         <p class="mb-3 leading-normal text-md lg:text-2xl">
             Tahun Pelajaran 2023 / 2024
             <br>
-            Pendaftaran Gelombang 1 terakhir pada hari juma't tanggal 27 januari 2023 pukul 07.30 - 12.30 WIB
+            Pendaftaran Offline Gelombang 2 dibuka setiap hari juma't tanggal 3 Februari - 24 Februari  2023 pukul 07.30 - 12.30 WIB
             {{-- Pendaftaran offline dibuka setiap Jum'at : pukul 07.30 - 12.30 WIB --}}
             <br>
             {{-- @if ($totalPendaftar > 330)
                 Kuota Pendaftaran Gelombang 1 telah terpenuhi, Silahkan mendaftar digelombang 2 mulai 3 Februari s/d 24
                 Februari 2023
             @else --}}
-            Untuk pendaftaran online silahkan klik tombol Daftar berikut
+            Untuk pendaftaran online Gelombang 2 silahkan klik tombol Daftar berikut
             {{-- @endif --}}
         </p>
         {{-- @if ($totalPendaftar > 330)
