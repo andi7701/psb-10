@@ -42,6 +42,7 @@ use App\Http\Livewire\RekapHasilAkademik;
 use App\Http\Livewire\Rekapitulasi;
 use App\Http\Livewire\RekapKecamatan;
 use App\Http\Livewire\RekapKecamatanPublic;
+use App\Http\Livewire\RekapPerSeleksi;
 use App\Http\Livewire\RekapTes;
 use App\Http\Livewire\RekapUkuran;
 use App\Http\Livewire\ResetTes;
@@ -211,6 +212,7 @@ Route::middleware('auth')->group(function () {
         Route::get('ketua/rekapitulasi', Rekapitulasi::class)->name('ketua.rekapitulasi');
         Route::get('ketua/rekap-hasil-akademik', RekapHasilAkademik::class)->name('ketua.rekap-hasil-akademik');
         Route::get('ketua/rekap-kecamatan', RekapKecamatan::class)->name('ketua.rekap-kecamatan');
+        Route::get('ketua/rekap-per-seleksi', RekapPerSeleksi::class)->name('ketua.rekap-per-seleksi');
         Route::get('ketua/hasil-test-global', HasilTesGlobal::class)->name('ketua.hasil-test-global');
     });
 
