@@ -8,6 +8,7 @@ use App\Models\Kesehatan;
 use App\Models\MinatBakat;
 use App\Models\OrangTua;
 use App\Models\User;
+use App\Models\Wawancara;
 use Livewire\Component;
 
 class RekapPerSeleksi extends Component
@@ -109,6 +110,12 @@ class RekapPerSeleksi extends Component
             ->whereHas('siswa', fn ($q) => $q->whereDiterima('diterima'))
             ->where('penghasilan', '>', 4000000)
             ->count();
+
+        $this->wawancara = MinatBakat::with(['siswa'])
+            ->whereHas('siswa', fn ($q) => $q->whereDiterima('diterima'))
+            ->groupBy('kondisi_keluarga')
+            ->selectRaw('kondisi_keluarga, count(kondisi_keluarga) as hitung')
+            ->get();
 
         return view('livewire.rekap-per-seleksi');
     }

@@ -146,20 +146,21 @@
                         Penghasilan Tinggi : {{ $penghasilanTinggi }} Siswa <br>
                     </td>
                 </tr>
-                {{-- <tr
+                <tr
                     class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        8 
+                        9
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Wawancara
+                        Wawancara : Kondisi Keluarga
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($akademik as $nilai)
-                            Nilai Akademik {{ Str::upper($nilai->total) }} : {{ $nilai->hitung }} Siswa <br>
+                        @foreach ($wawancara as $nilai)
+                            {{ Str::upper($nilai->kondisi_keluarga) }} : {{ $nilai->hitung }}
+                            Siswa <br>
                         @endforeach
                     </td>
-                </tr> --}}
+                </tr>
             </tbody>
         </table>
     </div>
