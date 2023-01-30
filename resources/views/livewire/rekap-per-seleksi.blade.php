@@ -162,13 +162,13 @@
                         <br>
 
                         @foreach ($wawancaraKondisiAyah as $nilai)
-                            {{ Str::upper($nilai->kondisi_ayah) }} : {{ $nilai->hitung }}
+                        Ayah -  {{ Str::upper($nilai->kondisi_ayah) }} : {{ $nilai->hitung }}
                             Siswa <br>
                         @endforeach
                         <br>
 
                         @foreach ($wawancaraKondisiIbu as $nilai)
-                            {{ Str::upper($nilai->kondisi_ibu) }} : {{ $nilai->hitung }}
+                         Ibu -   {{ Str::upper($nilai->kondisi_ibu) }} : {{ $nilai->hitung }}
                             Siswa <br>
                         @endforeach
                     </td>
