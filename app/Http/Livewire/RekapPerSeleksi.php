@@ -24,7 +24,9 @@ class RekapPerSeleksi extends Component
     public $penghasilanKurang;
     public $penghasilanSedang;
     public $penghasilanTinggi;
-    public $wawancara;
+    public $wawancaraKondisiKeluarga;
+    public $wawancaraKondisiAyah;
+    public $wawancaraKondisiIbu;
 
     public $minatBakatRank = [];
     public $minatBakatNonAkademik;
@@ -111,10 +113,22 @@ class RekapPerSeleksi extends Component
             ->where('penghasilan', '>', 4000000)
             ->count();
 
-        $this->wawancara = Wawancara::with(['siswa'])
+        $this->wawancaraKondisiKeluarga = Wawancara::with(['siswa'])
             ->whereHas('siswa', fn ($q) => $q->whereDiterima('diterima'))
             ->groupBy('kondisi_keluarga')
             ->selectRaw('kondisi_keluarga, count(kondisi_keluarga) as hitung')
+            ->get();
+
+        $this->wawancaraKondisiAyah = Wawancara::with(['siswa'])
+            ->whereHas('siswa', fn ($q) => $q->whereDiterima('diterima'))
+            ->groupBy('kondisi_ayah')
+            ->selectRaw('kondisi_ayah, count(kondisi_ayah) as hitung')
+            ->get();
+
+        $this->wawancaraKondisiIbu = Wawancara::with(['siswa'])
+            ->whereHas('siswa', fn ($q) => $q->whereDiterima('diterima'))
+            ->groupBy('kondisi_ibu')
+            ->selectRaw('kondisi_ibu, count(kondisi_ibu) as hitung')
             ->get();
 
         return view('livewire.rekap-per-seleksi');

@@ -155,8 +155,20 @@
                         Wawancara : Kondisi Keluarga
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($wawancara as $nilai)
+                        @foreach ($wawancaraKondisiKeluarga as $nilai)
                             {{ Str::upper($nilai->kondisi_keluarga) }} : {{ $nilai->hitung }}
+                            Siswa <br>
+                        @endforeach
+                        <br>
+
+                        @foreach ($wawancaraKondisiAyah as $nilai)
+                            {{ Str::upper($nilai->kondisi_ayah) }} : {{ $nilai->hitung }}
+                            Siswa <br>
+                        @endforeach
+                        <br>
+
+                        @foreach ($wawancaraKondisiIbu as $nilai)
+                            {{ Str::upper($nilai->kondisi_ibu) }} : {{ $nilai->hitung }}
                             Siswa <br>
                         @endforeach
                     </td>
