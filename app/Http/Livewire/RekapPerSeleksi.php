@@ -111,7 +111,7 @@ class RekapPerSeleksi extends Component
             ->where('penghasilan', '>', 4000000)
             ->count();
 
-        $this->wawancara = MinatBakat::with(['siswa'])
+        $this->wawancara = Wawancara::with(['siswa'])
             ->whereHas('siswa', fn ($q) => $q->whereDiterima('diterima'))
             ->groupBy('kondisi_keluarga')
             ->selectRaw('kondisi_keluarga, count(kondisi_keluarga) as hitung')
