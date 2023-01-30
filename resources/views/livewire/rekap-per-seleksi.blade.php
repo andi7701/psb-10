@@ -108,12 +108,42 @@
                         7
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Minat Bakat : Prestasi Non Akademik
+                    </td>
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @foreach ($minatBakatNonAkademik as $nilai)
+                            {{ $nilai->non_akademik }} : {{ $nilai->hitung }} Siswa <br>
+                        @endforeach
+                    </td>
+                </tr>
+                <tr
+                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        8
+                    </td>
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Minat Bakat : Rank 1 , 11 Semester
+                    </td>
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @forelse ($minatBakatRank as $minat)
+                            {{ $loop->iteration }}. {{ $minat->siswa->name }} - {{ $minat->siswa->kode_daftar }}<br>
+                        @empty
+                            Belum Ada Siswa Berprestasi
+                        @endforelse
+                    </td>
+                </tr>
+                <tr
+                    class="odd:bg-white even:bg-slate-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-300">
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        9
+                    </td>
+                    <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         Penghasilan
                     </td>
                     <td scope="row" class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @foreach ($penghasilan as $nilai)
-                            Penghasilan {{ rupiah($nilai->penghasilan) }} : {{ $nilai->hitung }} Siswa <br>
-                        @endforeach
+                        Penghasilan Kurang : {{ $penghasilanKurang }} Siswa <br>
+                        Penghasilan Sedang : {{ $penghasilanSedang }} Siswa <br>
+                        Penghasilan Tinggi : {{ $penghasilanTinggi }} Siswa <br>
                     </td>
                 </tr>
                 {{-- <tr
