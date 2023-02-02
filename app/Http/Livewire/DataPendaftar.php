@@ -217,8 +217,6 @@ class DataPendaftar extends Component
                 $description = 'Data Calon Siswa Berhasil Disimpan'
             );
             
-            $this->reset();
-
         } catch (\Throwable $th) {
             throw $th;
         }

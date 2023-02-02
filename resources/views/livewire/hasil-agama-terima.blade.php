@@ -49,7 +49,7 @@
                             <x-select label="Kode Baru" wire:model.defer="calonSiswa" placeholder="Pilih Kode Daftar"
                                 :async-data="route('users-kode-daftar')" option-label="kode_daftar" option-value="id" option-description="name"/>
 
-                                <x-button wire:click.prevent="confirm({{ $user->id }})" cyan label="Tarik Data {{ $user->id }}" />
+                                <x-button wire:click.prevent="confirm({{ $user->id }})" cyan label="Tarik Data" />
                             
                         </td>
                         <td class="py-2 px-6">

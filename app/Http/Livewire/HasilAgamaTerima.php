@@ -72,7 +72,6 @@ class HasilAgamaTerima extends Component
                 $description = 'Berhasil Tarik Data Calon Siswa'
             );
 
-            $this->reset();
 
         } catch (\Throwable $th) {
             throw $th;
