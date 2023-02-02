@@ -28,6 +28,9 @@
                         Kode Daftar
                     </th>
                     <th scope="col" class="py-3 px-6">
+                        Aksi
+                    </th>
+                    <th scope="col" class="py-3 px-6">
                         Sekolah SD
                     </th>
                     <th scope="col" class="py-3 px-6">
@@ -57,6 +60,10 @@
                         </td>
                         <td class="py-4 px-6">
                             {{ $user->kode_daftar }}
+                        </td>
+                        <td scope="row"
+                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <x-button wire:click.prevent="confirmKedua({{ $user->id }})" cyan label="Gel. 2" />
                         </td>
                         <td class="py-4 px-6">
                             {{ $user->sekolahSd->nama ?? '' }}

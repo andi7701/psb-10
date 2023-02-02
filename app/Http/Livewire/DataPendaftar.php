@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use App\Traits\GetData;
 use Livewire\Component;
 use WireUi\Traits\Actions;
 use Livewire\WithPagination;
@@ -13,7 +14,8 @@ class DataPendaftar extends Component
 {
     use Actions;
     use WithPagination;
-
+    use GetData;
+    
     public $search = '';
     public $isOnline;
     public $isJateng;
@@ -82,6 +84,139 @@ class DataPendaftar extends Component
             'params'      => $id,
 
         ]);
+    }
+    public function confirmKedua($id): void
+    {
+        $this->dialog()->confirm([
+
+            'title'       => 'Daftarkan Siswa ke Gelombang 2',
+            'description' => 'Anda Yakin ?',
+            'acceptLabel' => 'Yakin',
+            'method'      => 'daftar',
+            'params'      => $id,
+
+        ]);
+    }
+    public function daftar($id)
+    {
+
+        try {
+
+            $data = User::with([
+                'alamat',
+                'biodata',
+                'orangTua',
+                'sekolahAsal',
+                'sekolahSd',
+                'wali'
+            ])
+            ->find($id);
+
+            $this->kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
+            $user = User::create(
+                [
+                    'name' => $this->nama,
+                    'username' => $this->kodePendaftaran,
+                    'kode_daftar' => $this->kodePendaftaran,
+                    'password' => bcrypt('123456789'),
+                    'tanggal_daftar' => date('Y-m-d'),
+                    'user_id' => auth()->user()->id,
+                    'is_online' => 2
+                ]
+            );
+
+            $user->alamat()->create(
+                [
+                    'keterangan' => $this->keterangan,
+                    'rt' => $this->rt,
+                    'rw' => $this->rw,
+                    'kode_pos' => $this->kodePos,
+                    'desa' => $this->desa,
+                    'kecamatan' => $this->kecamatan,
+                    'kabupaten' => $this->kabupaten,
+                    'provinsi' => $this->provinsi
+                ]
+            );
+
+            if (now() < date('2023-01-28')) {
+                $this->gelombang = 1;
+            } elseif (now() < date('2023-02-25')) {
+                $this->gelombang = 2;
+            } else {
+                $this->gelombang = 3;
+            }
+            $user->biodata()->create(
+                [
+                    'gelombang' => $this->gelombang,
+                    'tahun' => $this->tahun,
+                    'tingkat' => $this->tingkat,
+                    'nik' => $this->nik,
+                    'nisn' => $this->nisn,
+                    'jenis_kelamin' => $this->jenisKelamin,
+                    'tempat_lahir' => $this->tempatLahir,
+                    'tanggal_lahir' => $this->tanggalLahir,
+                    'status' => $this->status,
+                    'anak_ke' => $this->anakKe
+                ]
+            );
+
+            $user->orangTua()->create(
+                [
+                    'nama_ayah' => $this->namaAyah,
+                    'pekerjaan_ayah' => $this->pekerjaanAyah,
+                    'nama_ibu' => $this->namaIbu,
+                    'pekerjaan_ibu' => $this->pekerjaanIbu,
+                    'penghasilan' => $this->penghasilan,
+                    'telepon' => $this->telepon,
+                    'no_kps' => $this->noKps,
+                    'no_kip' => $this->noKip
+                ]
+            );
+
+            if ($this->kategoriPendaftar == 'C' || $this->kategoriPendaftar == 'D') {
+                $user->sekolahAsal()->create(
+                    [
+                        'nama' => $this->namaSekolahAsal,
+                        'desa' => $this->desaSekolahAsal,
+                        'kecamatan' => $this->kecamatanSekolahAsal,
+                        'kabupaten' => $this->kabupatenSekolahAsal,
+                        'provinsi' => $this->provinsiSekolahAsal
+                    ]
+                );
+            }
+
+            $user->sekolahSd()->create(
+                [
+                    'nama' => $this->namaSekolahDasar,
+                    'desa' => $this->desaSekolahDasar,
+                    'kecamatan' => $this->kecamatanSekolahDasar,
+                    'kabupaten' => $this->kabupatenSekolahDasar,
+                    'provinsi' => $this->provinsiSekolahDasar
+                ]
+            );
+
+            $user->wali()->create(
+                [
+                    'nama' => $this->namaWali,
+                    'pekerjaan' => $this->pekerjaanWali,
+                    'alamat' => $this->alamatWali,
+                    'telepon' => $this->teleponWali
+                ]
+            );
+
+
+
+            $user->assignRole('Calon Siswa');
+
+            $this->notification()->success(
+                $title = 'Berhasil Simpan',
+                $description = 'Data Calon Siswa Berhasil Disimpan'
+            );
+
+            $this->slug = $user;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function delete($id)
