@@ -63,7 +63,7 @@
                         </td>
                         <td scope="row"
                             class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <x-button wire:click.prevent="confirmKedua({{ $user->id }})" cyan label="Gel. 2" />
+                            <x-button wire:click.prevent="confirmKedua({{ $user->id }})" cyan label="Daftar Lagi" />
                         </td>
                         <td class="py-4 px-6">
                             {{ $user->sekolahSd->nama ?? '' }}

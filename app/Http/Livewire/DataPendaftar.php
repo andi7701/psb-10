@@ -15,10 +15,11 @@ class DataPendaftar extends Component
     use Actions;
     use WithPagination;
     use GetData;
-    
+
     public $search = '';
     public $isOnline;
     public $isJateng;
+    public $kategoriPendaftar;
 
     public function render()
     {
@@ -110,14 +111,17 @@ class DataPendaftar extends Component
                 'sekolahSd',
                 'wali'
             ])
-            ->find($id);
+                ->find($id);
 
-            $this->kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
+            $this->kategoriPendaftar = substr($data->kode_daftar, 0, 1);
+
+            $kodePendaftaran = $this->kategoriPendaftar . $this->get_kode_pendaftaran();
+
             $user = User::create(
                 [
-                    'name' => $this->nama,
-                    'username' => $this->kodePendaftaran,
-                    'kode_daftar' => $this->kodePendaftaran,
+                    'name' => $data->name,
+                    'username' => $kodePendaftaran,
+                    'kode_daftar' => $kodePendaftaran,
                     'password' => bcrypt('123456789'),
                     'tanggal_daftar' => date('Y-m-d'),
                     'user_id' => auth()->user()->id,
@@ -127,80 +131,80 @@ class DataPendaftar extends Component
 
             $user->alamat()->create(
                 [
-                    'keterangan' => $this->keterangan,
-                    'rt' => $this->rt,
-                    'rw' => $this->rw,
-                    'kode_pos' => $this->kodePos,
-                    'desa' => $this->desa,
-                    'kecamatan' => $this->kecamatan,
-                    'kabupaten' => $this->kabupaten,
-                    'provinsi' => $this->provinsi
+                    'keterangan' => $data->alamat->keterangan,
+                    'rt' => $data->alamat->rt,
+                    'rw' => $data->alamat->rw,
+                    'kode_pos' => $data->alamat->kode_pos,
+                    'desa' => $data->alamat->desa,
+                    'kecamatan' => $data->alamat->kecamatan,
+                    'kabupaten' => $data->alamat->kabupaten,
+                    'provinsi' => $data->alamat->provinsi
                 ]
             );
 
             if (now() < date('2023-01-28')) {
-                $this->gelombang = 1;
+                $gelombang = 1;
             } elseif (now() < date('2023-02-25')) {
-                $this->gelombang = 2;
+                $gelombang = 2;
             } else {
-                $this->gelombang = 3;
+                $gelombang = 3;
             }
             $user->biodata()->create(
                 [
-                    'gelombang' => $this->gelombang,
-                    'tahun' => $this->tahun,
-                    'tingkat' => $this->tingkat,
-                    'nik' => $this->nik,
-                    'nisn' => $this->nisn,
-                    'jenis_kelamin' => $this->jenisKelamin,
-                    'tempat_lahir' => $this->tempatLahir,
-                    'tanggal_lahir' => $this->tanggalLahir,
-                    'status' => $this->status,
-                    'anak_ke' => $this->anakKe
+                    'gelombang' => $gelombang,
+                    'tahun' => $data->biodata->tahun,
+                    'tingkat' => $data->biodata->tingkat,
+                    'nik' => $data->biodata->nik,
+                    'nisn' => $data->biodata->nisn,
+                    'jenis_kelamin' => $data->biodata->jenis_kelamin,
+                    'tempat_lahir' => $data->biodata->tempat_lahir,
+                    'tanggal_lahir' => $data->biodata->tanggal_lahir,
+                    'status' => $data->biodata->status,
+                    'anak_ke' => $data->biodata->anak_ke
                 ]
             );
 
             $user->orangTua()->create(
                 [
-                    'nama_ayah' => $this->namaAyah,
-                    'pekerjaan_ayah' => $this->pekerjaanAyah,
-                    'nama_ibu' => $this->namaIbu,
-                    'pekerjaan_ibu' => $this->pekerjaanIbu,
-                    'penghasilan' => $this->penghasilan,
-                    'telepon' => $this->telepon,
-                    'no_kps' => $this->noKps,
-                    'no_kip' => $this->noKip
+                    'nama_ayah' => $data->orangTua->nama_ayah,
+                    'pekerjaan_ayah' => $data->orangTua->pekerjaan_ayah,
+                    'nama_ibu' => $data->orangTua->nama_ibu,
+                    'pekerjaan_ibu' => $data->orangTua->pekerjaan_ibu,
+                    'penghasilan' => $data->orangTua->penghasilan,
+                    'telepon' => $data->orangTua->telepon,
+                    'no_kps' => $data->orangTua->no_kps,
+                    'no_kip' => $data->orangTua->no_kip
                 ]
             );
 
             if ($this->kategoriPendaftar == 'C' || $this->kategoriPendaftar == 'D') {
                 $user->sekolahAsal()->create(
                     [
-                        'nama' => $this->namaSekolahAsal,
-                        'desa' => $this->desaSekolahAsal,
-                        'kecamatan' => $this->kecamatanSekolahAsal,
-                        'kabupaten' => $this->kabupatenSekolahAsal,
-                        'provinsi' => $this->provinsiSekolahAsal
+                        'nama' => $data->sekolahAsal->nama,
+                        'desa' => $data->sekolahAsal->desa,
+                        'kecamatan' => $data->sekolahAsal->kecamatan,
+                        'kabupaten' => $data->sekolahAsal->kabupaten,
+                        'provinsi' => $data->sekolahAsal->provinsi
                     ]
                 );
             }
 
             $user->sekolahSd()->create(
                 [
-                    'nama' => $this->namaSekolahDasar,
-                    'desa' => $this->desaSekolahDasar,
-                    'kecamatan' => $this->kecamatanSekolahDasar,
-                    'kabupaten' => $this->kabupatenSekolahDasar,
-                    'provinsi' => $this->provinsiSekolahDasar
+                    'nama' => $data->sekolahSd->nama,
+                    'desa' => $data->sekolahSd->desa,
+                    'kecamatan' => $data->sekolahSd->kecamatan,
+                    'kabupaten' => $data->sekolahSd->kabupaten,
+                    'provinsi' => $data->sekolahSd->provinsi,
                 ]
             );
 
             $user->wali()->create(
                 [
-                    'nama' => $this->namaWali,
-                    'pekerjaan' => $this->pekerjaanWali,
-                    'alamat' => $this->alamatWali,
-                    'telepon' => $this->teleponWali
+                    'nama' => $data->wali->nama,
+                    'pekerjaan' => $data->wali->pekerjaan,
+                    'alamat' => $data->wali->alamat,
+                    'telepon' => $data->wali->telepon
                 ]
             );
 
@@ -212,8 +216,9 @@ class DataPendaftar extends Component
                 $title = 'Berhasil Simpan',
                 $description = 'Data Calon Siswa Berhasil Disimpan'
             );
+            
+            $this->reset();
 
-            $this->slug = $user;
         } catch (\Throwable $th) {
             throw $th;
         }

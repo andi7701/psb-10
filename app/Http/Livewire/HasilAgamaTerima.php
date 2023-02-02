@@ -11,6 +11,7 @@ class HasilAgamaTerima extends Component
     use WithPagination;
     
     public $search;
+    public $calonSiswa;
 
     public function render()
     {
@@ -23,5 +24,23 @@ class HasilAgamaTerima extends Component
                 ->when($this->search, fn ($q) => $q->where('name', 'like', '%' . $this->search . '%'))
                 ->paginate(10)
         ]);
+    }
+
+    public function confirm($id): void
+    {
+        $this->dialog()->confirm([
+
+            'title'       => 'Tarik Data Lama',
+            'description' => 'Anda Yakin ?',
+            'acceptLabel' => 'Yakin',
+            'method'      => 'simpan',
+            'params'      => $id,
+
+        ]);
+    }
+
+    public function simpan()
+    {
+
     }
 }
