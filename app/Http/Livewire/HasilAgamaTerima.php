@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Agama;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
+use WireUi\Traits\Actions;
 
 class HasilAgamaTerima extends Component
 {
     use WithPagination;
+    use Actions;
     
     public $search;
     public $calonSiswa;
@@ -39,8 +42,40 @@ class HasilAgamaTerima extends Component
         ]);
     }
 
-    public function simpan()
+    public function simpan($id)
     {
+        try {
+            
+            $data = Agama::whereUserId($id)->first();
+            
+            $user = User::find($this->calonSiswa);
 
+            $user->agama()->updateOrCreate(
+                [],
+                [
+                    'panitia_id' => auth()->user()->id,
+                    'mahroj' => $data->mahroj,
+                    'lancar' => $data->lancar,
+                    'tajwid' => $data->tajwid,
+                    'qunut' => $data->qunut,
+                    'tahiyat' => $data->tahiyat,
+                    'tulisan' => $data->tulisan,
+                    'nilai_quran' => $data->nilai_quran,
+                    'pegon' => $data->pegon,
+                    'catatan' => $data->catatan,
+                    'nilai' => $data->nilai,
+                ]
+            );
+
+            $this->notification()->success(
+                $title = 'Berhasil Tarik Data',
+                $description = 'Berhasil Tarik Data Calon Siswa'
+            );
+
+            $this->reset();
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

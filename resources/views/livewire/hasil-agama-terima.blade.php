@@ -46,16 +46,16 @@
                         </td>
                         <td scope="row"
                             class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white space-x-1 space-y-1">
-                            <x-select label="Kode Pendaftaran" wire:model.defer="calonSiswa" placeholder="Pilih Kode Daftar"
+                            <x-select label="Kode Baru" wire:model.defer="calonSiswa" placeholder="Pilih Kode Daftar"
                                 :async-data="route('users-kode-daftar')" option-label="kode_daftar" option-value="id" option-description="name"/>
 
-                                <x-button wire:click.prevent="confirm({{ $user->id }})" cyan label="Tarik Data" />
+                                <x-button wire:click.prevent="confirm({{ $user->id }})" cyan label="Tarik Data {{ $user->id }}" />
                             
                         </td>
                         <td class="py-2 px-6">
                             {{ $user->agama->nilai_quran }}
                         </td>
-                        <td class="py-2 px-6">
+                        <td class="py-2 px-6 whitespace-nowrap">
                             Tulisan : {{ $user->agama->tulisan }} <br>
                             Pegon : {{ $user->agama->pegon }}
                         </td>
