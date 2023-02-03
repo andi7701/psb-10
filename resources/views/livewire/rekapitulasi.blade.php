@@ -6,7 +6,7 @@
         <br>
         seleksi penerimaan santri baru tahun 2023 / 2024
     </h1>
-    <div class="pl-10 grid grid-cols-6">
+    <div class="pl-10 grid lg:grid-cols-6 grid-cols-2">
         <x-native-select wire:model='gelombang' label="Gelombang">
             <option value="">Pilih Gelombang</option>
             {{-- <option value="semua">Semua</option> --}}
