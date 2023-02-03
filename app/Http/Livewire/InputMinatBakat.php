@@ -13,7 +13,9 @@ class InputMinatBakat extends Component
     use Actions;
 
     public $calonSiswa;
+    public $calonSiswaBaru;
     public $user;
+    public $userBaru;
     public $nama;
     public $sekolahDasar;
     public $sekolahAsal;
@@ -111,6 +113,56 @@ class InputMinatBakat extends Component
         }
     }
 
+    public function tarik()
+    {
+        $this->validate(
+            [
+
+                'calonSiswa' => 'required',
+                'calonSiswaBaru' => 'required'
+            ]
+        );
+
+        try {
+
+            $this->userBaru->minatBakat()->updateOrCreate(
+                [],
+                [
+                    'panitia_id' => auth()->user()->id,
+                    'mapel_unggul' => $this->user->minatBakat->mapel_unggul,
+                    'mapel_rendah' => $this->user->minatBakat->mapel_rendah,
+                    'kehadiran' => $this->user->minatBakat->kehadiran,
+                    'kenaikan' => $this->user->minatBakat->kenaikan,
+                    'sikap' => $this->user->minatBakat->sikap,
+                    'rata_rata' => $this->user->minatBakat->rata_rata,
+                    'smt_1' => $this->user->minatBakat->smt_1,
+                    'smt_2' => $this->user->minatBakat->smt_2,
+                    'smt_3' => $this->user->minatBakat->smt_3,
+                    'smt_4' => $this->user->minatBakat->smt_4,
+                    'smt_5' => $this->user->minatBakat->smt_5,
+                    'smt_6' => $this->user->minatBakat->smt_6,
+                    'smt_7' => $this->user->minatBakat->smt_7,
+                    'smt_8' => $this->user->minatBakat->smt_8,
+                    'smt_9' => $this->user->minatBakat->smt_9,
+                    'smt_10' => $this->user->minatBakat->smt_10,
+                    'smt_11' => $this->user->minatBakat->smt_11,
+                    'smt_12' => $this->user->minatBakat->smt_12,
+                    'non_akademik' => $this->user->minatBakat->non_akademik,
+                    'ekstra_id' => $this->user->minatBakat->ekstra_id,
+                    'nilai' => $this->user->minatBakat->nilai,
+                    'catatan' => $this->user->minatBakat->catatan
+                ]
+            );
+            $this->notification()->success(
+                $title = 'Berhasil Tarik Data',
+                $description = 'Berhasil Tarik Data Hasil Seleksi Minat dan Bakat'
+            );
+            $this->resetExcept('ekstras');
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+    }
+
     public function updatedCalonSiswa()
     {
         $this->user = User::with(['sekolahSd', 'sekolahAsal', 'minatBakat'])
@@ -140,5 +192,10 @@ class InputMinatBakat extends Component
         $this->smt12 = $this->user->minatBakat->smt_12 ?? '';
         $this->catatan = $this->user->minatBakat->catatan ?? '';
         $this->nilai = $this->user->minatBakat->nilai ?? '';
+    }
+
+    public function updatedCalonSiswaBaru()
+    {
+        $this->userBaru = User::find($this->calonSiswaBaru);
     }
 }

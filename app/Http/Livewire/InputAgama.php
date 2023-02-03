@@ -12,7 +12,9 @@ class InputAgama extends Component
 
 
     public $calonSiswa;
+    public $calonSiswaBaru;
     public $user;
+    public $userBaru;
     public $nama;
     public $sekolahDasar;
     public $sekolahAsal;
@@ -63,6 +65,7 @@ class InputAgama extends Component
         $this->tulisan = $this->user->agama->tulisan;
         $this->nilaiQuran = $this->user->agama->nilai_quran;
         $this->catatan = $this->user->agama->catatan;
+        $this->pegon = $this->user->agama->pegon;
         $this->nilai = $this->user->agama->nilai;
     }
 
@@ -92,6 +95,51 @@ class InputAgama extends Component
             $this->notification()->success(
                 $title = 'Berhasil Simpan',
                 $description = 'Berhasil Simpan Hasil Seleksi Agama'
+            );
+
+            $this->reset();
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+    }
+
+    public function updatedCalonSiswaBaru()
+    {
+        $this->userBaru = User::find($this->calonSiswaBaru);
+    }
+
+    public function tarik()
+    {
+        $this->validate(
+            [
+
+                'calonSiswa' => 'required',
+                'calonSiswaBaru' => 'required'
+            ]
+        );
+
+        try {
+
+            $this->userBaru->agama()->updateOrCreate(
+                [],
+                [
+                    'panitia_id' => auth()->user()->id,
+                    'mahroj' => $this->user->agama->mahroj,
+                    'lancar' => $this->user->agama->lancar,
+                    'tajwid' => $this->user->agama->tajwid,
+                    'qunut' => $this->user->agama->qunut,
+                    'tahiyat' => $this->user->agama->tahiyat,
+                    'tulisan' => $this->user->agama->tulisan,
+                    'nilai_quran' => $this->user->agama->nilai_quran,
+                    'pegon' => $this->user->agama->pegon,
+                    'catatan' => $this->user->agama->catatan,
+                    'nilai' => $this->user->agama->nilai,
+                ]
+            );
+
+            $this->notification()->success(
+                $title = 'Berhasil Tarik Data',
+                $description = 'Berhasil Tarik Data Seleksi Agama'
             );
 
             $this->reset();

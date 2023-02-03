@@ -13,7 +13,9 @@ class InputWawancara extends Component
     use Actions;
 
     public $calonSiswa;
+    public $calonSiswaBaru;
     public $user;
+    public $userBaru;
     public $nama;
     public $sekolahDasar;
     public $sekolahAsal;
@@ -128,6 +130,68 @@ class InputWawancara extends Component
         }
     }
 
+    public function tarik()
+    {
+        $this->validate(
+            [
+
+                'calonSiswa' => 'required',
+                'calonSiswaBaru' => 'required'
+            ]
+        );
+
+        try {
+
+            $this->userBaru->wawancara()->updateOrCreate(
+                [],
+                [
+                    'panitia_id' => auth()->user()->id,
+                    'sumber_informasi' => $this->user->wawancara->sumber_informasi,
+                    'alasan' => $this->user->wawancara->alasan,
+                    'alasan_orang_tua' => $this->user->wawancara->alasan_orang_tua,
+                    'minat_lain' => $this->user->wawancara->minat_lain,
+                    'pilihan_ke' => $this->user->wawancara->pilihan_ke,
+                    'jumlah_anak' => $this->user->wawancara->jumlah_anak,
+                    'status_ayah' => $this->user->wawancara->status_ayah,
+                    'status_ibu' => $this->user->wawancara->status_ibu,
+                    'kondisi_keluarga' => $this->user->wawancara->kondisi_keluarga,
+                    'kondisi_ayah' => $this->user->wawancara->kondisi_ayah,
+                    'kondisi_ibu' => $this->user->wawancara->kondisi_ibu,
+                    'tinggal_bersama' => $this->user->wawancara->tinggal_bersama,
+                    'penanggung_jawab' => $this->user->wawancara->penanggung_jawab,
+                    'penjamin_biaya' => $this->user->wawancara->penjamin_biaya,
+                    'pekerjaan_penjamin' => $this->user->wawancara->pekerjaan_penjamin,
+                    'kesopanan' => $this->user->wawancara->kesopanan,
+                    'nilai' => $this->user->wawancara->nilai,
+                    'catatan' => $this->user->wawancara->catatan,
+                ]
+            );
+
+            $this->userBaru->biodata()->updateOrCreate(
+                [],
+                [
+                    'status' => $this->user->biodata->status_anak
+                ]
+            );
+
+            $this->userBaru->orangTua()->updateOrCreate(
+                [],
+                [
+                    'pekerjaan_ayah' => $this->user->orangTua->pekerjaan_ayah,
+                    'pekerjaan_ibu' => $this->user->orangTua->pekerjaan_ibu
+                ]
+            );
+
+            $this->notification()->success(
+                $title = 'Berhasil Tarik Data',
+                $description = 'Berhasil Tarik Data Hasil Seleksi Wawancara'
+            );
+            $this->reset();
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+    }
+
     public function updatedCalonSiswa()
     {
         $this->user = User::with(['biodata', 'orangTua', 'sekolahAsal', 'sekolahSd'])
@@ -157,5 +221,10 @@ class InputWawancara extends Component
         $this->statusAnak = $this->user->biodata->status ?? '';
         $this->pekerjaanAyah = $this->user->orangTua->pekerjaan_ayah ?? '';
         $this->pekerjaanIbu = $this->user->orangTua->pekerjaan_ibu ?? '';
+    }
+
+    public function updatedCalonSiswaBaru()
+    {
+        $this->userBaru = User::find($this->calonSiswaBaru);
     }
 }

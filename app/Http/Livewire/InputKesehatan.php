@@ -12,7 +12,9 @@ class InputKesehatan extends Component
     use Actions;
 
     public $calonSiswa;
+    public $calonSiswaBaru;
     public $user;
+    public $userBaru;
     public $nama;
     public $sekolahDasar;
     public $sekolahAsal;
@@ -102,6 +104,53 @@ class InputKesehatan extends Component
             $this->notification()->success(
                 $title = 'Berhasil Simpan',
                 $description = 'Berhasil Simpan Hasil Seleksi Kesehatan'
+            );
+            $this->reset();
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+    }
+
+    public function updatedCalonSiswaBaru()
+    {
+        $this->userBaru = User::find($this->calonSiswaBaru);
+    }
+
+    public function tarik()
+    {
+        
+        $this->validate(
+            [
+
+                'calonSiswa' => 'required',
+                'calonSiswaBaru' => 'required'
+            ]
+        );
+
+        try {
+
+            $this->userBaru->kesehatan()->updateOrCreate(
+                [],
+                [
+                    'panitia_id' => auth()->user()->id,
+                    'tinggi' => $this->user->kesehatan->tinggi,
+                    'berat' => $this->user->kesehatan->berat,
+                    'kuku' => $this->user->kesehatan->kuku,
+                    'rambut' => $this->user->kesehatan->rambut,
+                    'buta_warna' => $this->user->kesehatan->buta_warna,
+                    'minus' => $this->user->kesehatan->minus,
+                    'ngompol' => $this->user->kesehatan->ngompol,
+                    'rokok' => $this->user->kesehatan->rokok,
+                    'sehat' => $this->user->kesehatan->sehat,
+                    'darah' => $this->user->kesehatan->darah,
+                    'nilai' => $this->user->kesehatan->nilai,
+                    'catatan' => $this->user->kesehatan->catatan,
+                ]
+            );
+
+            $this->notification()->success(
+                $title = 'Berhasil Tarik Data',
+                $description = 'Berhasil Tarik Data Hasil Seleksi Kesehatan'
             );
             $this->reset();
         } catch (\Throwable $th) {

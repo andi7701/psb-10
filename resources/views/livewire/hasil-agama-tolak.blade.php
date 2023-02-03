@@ -16,9 +16,6 @@
                         Kode Daftar
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Tarik Data
-                    </th>
-                    <th scope="col" class="py-3 px-6">
                         Nilai Qur'an
                     </th>
                     <th scope="col" class="py-3 px-6">
@@ -44,14 +41,6 @@
                         <td class="py-2 px-6">
                             {{ $user->kode_daftar }}
                         </td>
-                        <td scope="row"
-                        class="py-2 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white space-x-1 space-y-1">
-                        <x-select label="Kode Baru" wire:model.defer="calonSiswa" placeholder="Pilih Kode Daftar"
-                            :async-data="route('users-kode-daftar')" option-label="kode_daftar" option-value="id" option-description="name"/>
-
-                            <x-button wire:click.prevent="confirm({{ $user->id }})" cyan label="Tarik Data" />
-                        
-                    </td>
                         <td class="py-2 px-6">
                             {{ $user->agama->nilai_quran }}
                         </td>
