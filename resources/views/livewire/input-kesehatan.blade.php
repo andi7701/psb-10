@@ -3,7 +3,7 @@
     <x-my-card class="flex space-y-4 flex-col ">
         <h2 class="mt-3 text-xl font-bold text-slate-600">Seleksi Kesehatan</h2>
         <div class="lg:grid lg:grid-cols-3 lg:gap-2 lg:space-y-0 flex flex-col space-y-4">
-            <x-select label="Kode Lama" wire:model="calonSiswa" placeholder="Pilih Kode Daftar" :async-data="route('users-kode-daftar')"
+            <x-select label="Kode Pendafataran" wire:model="calonSiswa" placeholder="Pilih Kode Daftar" :async-data="route('users-kode-daftar')"
                 option-label="kode_daftar" option-value="id" option-description="name" />
             <x-select label="Kode Baru" wire:model="calonSiswaBaru" placeholder="Pilih Kode Daftar" :async-data="route('users-kode-daftar')"
                 option-label="kode_daftar" option-value="id" option-description="name" />
