@@ -50,7 +50,7 @@ class HasilWawancaraTolak extends Component
             
             $user = User::find($this->calonSiswa);
 
-            $user->kesehatan()->updateOrCreate(
+            $user->wawancara()->updateOrCreate(
                 [],
                 [
                     'panitia_id' => auth()->user()->id,

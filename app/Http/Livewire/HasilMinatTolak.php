@@ -51,7 +51,7 @@ class HasilMinatTolak extends Component
             
             $user = User::find($this->calonSiswa);
 
-            $user->kesehatan()->updateOrCreate(
+            $user->minatBakat()->updateOrCreate(
                 [],
                 [
                     'panitia_id' => auth()->user()->id,
