@@ -28,7 +28,7 @@
                     <td class="border border-slate-600 py-1 px-1">sisa kuota</td>
                 </tr>
                 <tr class="font-bold">
-                    <td class="pl-2 border border-slate-600 py-1 px-1">Gelombang 1</td>
+                    <td class="pl-2 border border-slate-600 py-1 px-1">Gelombang {{ $gelombang }}</td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
                         Baru : {{ $baruPutra }}<br>
                         Pindahan : {{ $pindahanPutra }}<br>
