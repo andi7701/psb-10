@@ -6,6 +6,15 @@
         <br>
         seleksi penerimaan santri baru tahun 2023 / 2024
     </h1>
+    <div class="pl-10 grid grid-cols-6">
+        <x-native-select wire:model='gelombang' label="Gelombang">
+            <option value="">Pilih Gelombang</option>
+            {{-- <option value="semua">Semua</option> --}}
+            <option value="1">Gelombang 1</option>
+            <option value="2">Gelombang 2</option>
+            <option value="3">Gelombang 3</option>
+        </x-native-select>
+    </div>
     <div class="pl-10 pt-5 text-slate-600 text-sm mb-5">
         <table class="w-full capitalize border border-slate-600">
             <tbody>
@@ -50,10 +59,20 @@
                         Total Pindahan : {{ $pindahanPutraTolak + $pindahanPutriTolak }}
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
-                        250
+                        @if ($gelombang == 1)
+                            250
+                        @endif
+                        @if ($gelombang == 2)
+                            104
+                        @endif
                     </td>
                     <td class="pl-2 border border-slate-600 py-1 px-1">
-                        {{ 250 - ($baruPutraTerima + $baruPutriTerima) }}
+                        @if ($gelombang == 1)
+                            {{ 250 - ($baruPutraTerima + $baruPutriTerima) }}
+                        @endif
+                        @if ($gelombang == 2)
+                            {{ 104 - ($baruPutraTerima + $baruPutriTerima) }}
+                        @endif
                     </td>
                 </tr>
             </tbody>
