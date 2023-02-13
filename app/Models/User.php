@@ -98,6 +98,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Get all of the alamats for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function alamats(): HasMany
+    {
+        return $this->hasMany(Alamat::class);
+    }
+    
+    /**
      * Get the biodata associated with the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

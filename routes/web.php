@@ -40,6 +40,7 @@ use App\Http\Livewire\Landing;
 use App\Http\Livewire\Pendaftaran;
 use App\Http\Livewire\RekapHasilAkademik;
 use App\Http\Livewire\Rekapitulasi;
+use App\Http\Livewire\RekapitulasiKamar;
 use App\Http\Livewire\RekapKecamatan;
 use App\Http\Livewire\RekapKecamatanPublic;
 use App\Http\Livewire\RekapPerSeleksi;
@@ -84,7 +85,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/users-kode-daftar', [ApiController::class, 'usersKodeDaftar'])->name('users-kode-daftar');
     Route::get('/users-diterima', [ApiController::class, 'usersDiterima'])->name('users-diterima');
 
-
+    Route::get('rekapitulasi-kamar', RekapitulasiKamar::class)->name('rekapitulasi-kamar');
 
     // route for admin
     Route::middleware(['role:Admin'])->group(function () {

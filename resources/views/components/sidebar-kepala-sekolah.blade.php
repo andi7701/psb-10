@@ -9,6 +9,7 @@
     <x-sidebar-link :href="__('kepala-sekolah.hasil-pengumuman')" :label="__('hasil pengumuman')" />
     <x-sidebar-link :href="__('kepala-sekolah.hasil-wawancara')" :label="__('hasil Wawancara')" />
     <x-sidebar-link :href="__('kepala-sekolah.rekapitulasi')" :label="__('rekaputilasi')" />
+    <x-sidebar-link :href="__('rekapitulasi-kamar')" :label="__('rekaputilasi kamar')" />
     <x-sidebar-link :href="__('kepala-sekolah.rekap-hasil-akademik')" :label="__('rekap hasil akademik')" />
     <x-sidebar-link :href="__('kepala-sekolah.rekap-kecamatan')" :label="__('rekap kecamatan')" />
 @endrole
