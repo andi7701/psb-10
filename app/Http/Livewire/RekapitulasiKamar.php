@@ -14,25 +14,25 @@ class RekapitulasiKamar extends Component
             'livewire.rekapitulasi-kamar',
             [
                 'listKecamatan' => District::with([
-                    'alamat',
-                    'alamat.user',
+                    'sekolahSd',
+                    'sekolahSd.user',
                     'city',
                     'city.province'
                 ])
                     ->whereHas(
-                        'alamat',
+                        'sekolahSd',
                         fn ($q) => $q
                             ->whereHas('user', fn ($q) => $q->whereDiterima('diterima'))
                     )
                     ->withCount([
-                        'alamat as hitungPutra' =>
+                        'sekolahSd as hitungPutra' =>
                         fn ($q) => $q
                             ->whereHas(
                                 'user',
                                 fn ($q) => $q->whereDiterima('diterima')
                                     ->whereHas('biodata', fn ($q) => $q->whereJenisKelamin('L'))
                             ),
-                        'alamat as hitungPutri' =>
+                        'sekolahSd as hitungPutri' =>
                         fn ($q) => $q
                             ->whereHas(
                                 'user',
