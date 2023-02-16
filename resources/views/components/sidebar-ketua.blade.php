@@ -20,7 +20,7 @@
     <x-sidebar-link :href="__('ketua.input-wawancara')" :label="__('Input Wawancara')" />
     <x-sidebar-link :href="__('ketua.pendaftaran')" :label="__('pendaftaran siswa')" />
     <x-sidebar-link :href="__('ketua.rekapitulasi')" :label="__('rekapitulasi')" />
-    <x-sidebar-link :href="__('rekap-kamar')" :label="__('rekap kamar')" />
+    <x-sidebar-link :href="__('rekapitulasi-kamar')" :label="__('rekap kamar')" />
     <x-sidebar-link :href="__('ketua.rekap-hasil-akademik')" :label="__('rekap hasil akademik')" />
     <x-sidebar-link :href="__('ketua.rekap-kecamatan')" :label="__('rekap Kecamatan')" />
     <x-sidebar-link :href="__('ketua.rekap-per-seleksi')" :label="__('rekap per seleksi')" />
