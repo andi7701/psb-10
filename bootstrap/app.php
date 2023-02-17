@@ -41,6 +41,8 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+$app->register(Laravolt\Indonesia\ServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
