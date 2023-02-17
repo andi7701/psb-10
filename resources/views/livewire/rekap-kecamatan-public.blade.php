@@ -54,7 +54,7 @@
                 </tr>
                 <tr class="font-bold bg-slate-300">
                     <td class="pl-2 border border-slate-600 py-1 px-1" colspan="2">TOTAL</td>
-                    <td class="pl-2 border border-slate-600 py-1 px-1 text-center">-</td>
+                    <td class="pl-2 border border-slate-600 py-1 px-1 text-center">{{ $listKecamatan->sum('jumlah') }}</td>
                     <td class="pl-2 border border-slate-600 py-1 px-1 text-center">{{ $diterima }}</td>
                     <td class="pl-2 border border-slate-600 py-1 px-1 text-center">{{ $ditolak }}</td>
                     <td class="pl-2 border border-slate-600 py-1 px-1 text-center">{{ $totalPendaftar }}</td>
