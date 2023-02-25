@@ -179,7 +179,7 @@ class Pendaftaran extends Component
 
             if (now() < date('2023-01-28')) {
                 $this->gelombang = 1;
-            } elseif (now() < date('2023-02-25')) {
+            } elseif (now() < date('2023-02-24')) {
                 $this->gelombang = 2;
             } else {
                 $this->gelombang = 3;
