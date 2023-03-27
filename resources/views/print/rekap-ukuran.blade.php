@@ -149,25 +149,47 @@
                             </th>
                         </tr>
                         <tr class="border border-slate-700">
-                            <th class="pl-7">peci</th>
-                            <th>:</th>
-                            <th>{{ $user->seragam->peci }}</th>
-                            <th class="border border-slate-700">
+                            @switch($user->biodata->jenis_kelamin)
+                                @case('L')
+                                    <th class="pl-7">peci</th>
+                                    <th>:</th>
+                                    <th>{{ $user->seragam->peci }}</th>
+                                    <th class="border border-slate-700">
 
-                            </th>
-                            <th class="pl-7">
+                                    </th>
+                                    <th class="pl-7">
 
-                            </th>
-                            <th></th>
-                            <th></th>
-                            <th class="border border-slate-700">
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="border border-slate-700">
 
-                            </th>
+                                    </th>
+                                @break
+
+                                @default
+                                    <th class="pl-7">
+
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="border border-slate-700">
+
+                                    </th>
+                                    <th class="pl-7">
+
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="border border-slate-700">
+
+                                    </th>
+                            @endswitch
                         </tr>
                     </thead>
                 </table>
             </h1>
-            <div class="flex justify-end pr-10 pt-10 pb-10">
+            <div class="flex justify-end pr-10 pt-10">
                 <div class="flex flex-col text-center">
                     <div>
                         Ngampel, {{ tanggal($user->seragam->created_at) }}
@@ -176,7 +198,7 @@
                         Panitia
                     </div>
                     <div>
-                        &nbsp;
+
                     </div>
                     <div class="mt-10">
                         {{ $user->seragam->user->name }}
