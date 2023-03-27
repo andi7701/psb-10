@@ -45,10 +45,10 @@
             <h1 class="uppercase font-bold text-slate-700 text-sm px-10 pt-10">
                 <table class="text-slate-700 text-left text-sm w-full border border-slate-5">
                     <thead>
-                        <tr class="border border-slate-500">
-                            <th colspan="3" class="text-center border border-slate-500">baju</th>
-                            <th class="text-center border border-slate-500">ket.</th>
-                            <th colspan="3" class="text-center border border-slate-500">
+                        <tr class="border border-slate-700">
+                            <th colspan="3" class="text-center border border-slate-700">baju</th>
+                            <th class="text-center border border-slate-700">ket.</th>
+                            <th colspan="3" class="text-center border border-slate-700">
                                 @switch($user->biodata->jenis_kelamin)
                                     @case('P')
                                         rok
@@ -58,9 +58,9 @@
                                         celana
                                 @endswitch
                             </th>
-                            <th class="text-center border border-slate-500">ket.</th>
+                            <th class="text-center border border-slate-700">ket.</th>
                         </tr>
-                        <tr class="border border-slate-500">
+                        <tr class="border border-slate-700">
                             <th class="pl-7">baju osis</th>
                             <th>:</th>
                             <th>{{ $user->seragam->baju_osis }}</th>
@@ -84,7 +84,7 @@
 
                             </th>
                         </tr>
-                        <tr class="border border-slate-500">
+                        <tr class="border border-slate-700">
                             <th class="pl-7">baju batik</th>
                             <th>:</th>
                             <th>{{ $user->seragam->baju_batik }}</th>
@@ -108,7 +108,7 @@
 
                             </th>
                         </tr>
-                        <tr class="border border-slate-500">
+                        <tr class="border border-slate-700">
                             <th class="pl-7">baju pramuka</th>
                             <th>:</th>
                             <th>{{ $user->seragam->baju_pramuka }}</th>
@@ -132,7 +132,7 @@
 
                             </th>
                         </tr>
-                        <tr class="border border-slate-500">
+                        <tr class="border border-slate-700">
                             <th class="pl-7">baju olahraga</th>
                             <th>:</th>
                             <th>{{ $user->seragam->baju_or }}</th>
@@ -148,48 +148,26 @@
 
                             </th>
                         </tr>
-                        <tr class="border border-slate-500">
-                            @switch($user->biodata->jenis_kelamin)
-                                @case('L')
-                                    <th class="pl-7">peci</th>
-                                    <th>:</th>
-                                    <th>{{ $user->seragam->peci }}</th>
-                                    <th class="border border-slate-700">
+                        <tr class="border border-slate-700">
+                            <th class="pl-7">peci</th>
+                            <th>:</th>
+                            <th>{{ $user->seragam->peci }}</th>
+                            <th class="border border-slate-700">
 
-                                    </th>
-                                    <th class="pl-7">
+                            </th>
+                            <th class="pl-7">
 
-                                    </th>
-                                    <th></th>
-                                    <th></th>
-                                    <th class="border border-slate-700">
+                            </th>
+                            <th></th>
+                            <th></th>
+                            <th class="border border-slate-700">
 
-                                    </th>
-                                @break
-
-                                @default
-                                    <th class="pl-7">
-
-                                    </th>
-                                    <th></th>
-                                    <th></th>
-                                    <th class="border border-slate-700">
-
-                                    </th>
-                                    <th class="pl-7">
-
-                                    </th>
-                                    <th></th>
-                                    <th></th>
-                                    <th class="border border-slate-700">
-
-                                    </th>
-                            @endswitch
+                            </th>
                         </tr>
                     </thead>
                 </table>
             </h1>
-            <div class="flex justify-end pr-10 pt-10">
+            <div class="flex justify-end pr-10 pt-10 pb-10">
                 <div class="flex flex-col text-center">
                     <div>
                         Ngampel, {{ tanggal($user->seragam->created_at) }}
@@ -198,7 +176,7 @@
                         Panitia
                     </div>
                     <div>
-
+                        &nbsp;
                     </div>
                     <div class="mt-10">
                         {{ $user->seragam->user->name }}
