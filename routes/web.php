@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\PrintController;
+use App\Http\Controllers\PrintRekapUkuranController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\AturTes;
 use App\Http\Livewire\BelumDaftarUlang;
@@ -38,6 +39,7 @@ use App\Http\Livewire\InputTarget;
 use App\Http\Livewire\InputWawancara;
 use App\Http\Livewire\Landing;
 use App\Http\Livewire\Pendaftaran;
+use App\Http\Livewire\PrintRekapUkuran;
 use App\Http\Livewire\RekapHasilAkademik;
 use App\Http\Livewire\Rekapitulasi;
 use App\Http\Livewire\RekapitulasiKamar;
@@ -273,13 +275,14 @@ Route::middleware('auth')->group(function () {
         Route::get('sekretaris/hasil-test-global', HasilTesGlobal::class)->name('sekretaris.hasil-test-global');
     });
 
-    // route for wawancara
+    // route for Ukur Seragam
     Route::middleware(['role:Ukur Seragam'])->group(function () {
 
         Route::get('ukur-seragam/ukur-seragam', UkurSeragam::class)->name('ukur-seragam.ukur-seragam');
         Route::get('ukur-seragam/belum-ukur', BelumUkur::class)->name('ukur-seragam.belum-ukur');
         Route::get('ukur-seragam/sudah-ukur', SudahUkur::class)->name('ukur-seragam.sudah-ukur');
         Route::get('ukur-seragam/rekap-ukuran', RekapUkuran::class)->name('ukur-seragam.rekap-ukuran');
+        Route::get('ukur-seragam/print-rekap-ukuran', [PrintRekapUkuranController::class, 'index'])->name('ukur-seragam.print-rekap-ukuran');
     });
 
     // route for wawancara

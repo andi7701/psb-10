@@ -2,6 +2,7 @@
     <p class="font-bold text-lg text-slate-600 text-center uppercase">
         rekapitulasi hasil ukur seragam
     </p>
+    <x-button positive label="print" href="{{ route('ukur-seragam.print-rekap-ukuran') }}" target="__blank" class="w-auto" />
     <p class="font-bold text-sm text-slate-600 text-center uppercase flex justify-between p-5">
         <span>Total Putra : {{ $siswaPutra }}</span>
         <span>Total Putri : {{ $siswaPutri }}</span>
