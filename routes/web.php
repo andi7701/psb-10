@@ -283,6 +283,7 @@ Route::middleware('auth')->group(function () {
         Route::get('ukur-seragam/sudah-ukur', SudahUkur::class)->name('ukur-seragam.sudah-ukur');
         Route::get('ukur-seragam/rekap-ukuran', RekapUkuran::class)->name('ukur-seragam.rekap-ukuran');
         Route::get('ukur-seragam/print-rekap-ukuran', [PrintRekapUkuranController::class, 'index'])->name('ukur-seragam.print-rekap-ukuran');
+        Route::get('ukur-seragam/print-rekap-ukuran-individu', [PrintRekapUkuranController::class, 'individu'])->name('ukur-seragam.print-rekap-ukuran-individu');
     });
 
     // route for wawancara

@@ -27,6 +27,9 @@
                     <th scope="col" class="py-3 px-6">
                         Panitia
                     </th>
+                    <th scope="col" class="py-3 px-6">
+                        Aksi
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -61,6 +64,11 @@
                         </td>
                         <td class="py-2 px-6">
                             {{ $user->seragam->user->name }}
+                        </td>
+                        <td class="py-2 px-6">
+                            <x-button positive label="print"
+                                href="{{ route('ukur-seragam.print-rekap-ukuran-individu', ['kodeDaftar' => $user->kode_daftar]) }}"
+                                target="__blank" class="w-auto" />
                         </td>
                     </tr>
                 @endforeach

@@ -16,4 +16,13 @@ class PrintRekapUkuranController extends Controller
                 ->get()
         ]);
     }
+
+    public function individu()
+    {
+        return view('print.rekap-ukuran-individu', [
+            'user' => User::whereKodeDaftar(request('kodeDaftar'))
+                ->with(['seragam', 'biodata', 'sekolahSd'])
+                ->first()
+        ]);
+    }
 }
